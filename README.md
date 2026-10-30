@@ -21,6 +21,7 @@ subdomain must serve HTTPS. Turn HSTS off and wait out the max-age before ever m
 | Path | What |
 |---|---|
 | `src/pages/` | `/`, `/about`, `/services`, `/our-work`, `/contact`, `/free-design-consultation` (ad landing, noindex), `/privacy-policy`, `api/lead.ts` |
+| `src/pages/lp/` | Ad campaign pages (noindex, not in the sitemap), built from `design/lp-*.dc.html` in the handoff. They use `CampaignLayout`, not the site header or footer. `src/lib/campaigns.ts` holds their form sources, service options and the `OFFER_ON` flag. Forms post to `/api/lead` like the main form, with the same required email and timeline. |
 | `src/layouts/BaseLayout.astro` | Head/SEO/OG, fonts, tracking, header/footer/sticky bar. `landing` prop switches to the ad-landing header and footer. |
 | `src/components/` | Header, LandingHeader, Footer, MobileStickyBar, QuoteForm, BeforeAfter, SectionHeader, PageBanner, TrustTiles, HowItWorks, CommitmentCards, CheckList, CtaBand, PhotoMosaic, GalleryGrid, ProjectCard, Logo, Icon, Photo, Tracking |
 | `src/styles/tokens.css` | Design tokens from the handoff (`global.css` imports it) |
@@ -76,10 +77,9 @@ then delete it so real leads count normally. Use Git Bash: PowerShell pipes add 
 
 ## Before launch (HANDOFF §11)
 
-- Privacy policy text into `src/pages/privacy-policy.astro`, then remove its `noindex`.
+- Client approves the draft text in `src/pages/privacy-policy.astro`, then remove its `noindex`.
 - `GHL_TOKEN` set and a test lead confirmed in GoHighLevel; GoHighLevel kept on a paid plan after the trial.
 - Optional: Google Apps Script backup deployed and its two secrets set.
 - If leads will get automatic texts: SMS consent line on the form, A2P 10DLC registration, privacy policy updated.
 - Tracking IDs: Meta Pixel and GA4 + Search Console done (2026-10-23); Google Ads still to come.
-- Privacy policy text that mentions the Meta Pixel and Conversions API (Meta requires one for ads).
 - Street address only if the client approves (then add `streetAddress` to the JSON-LD in `src/pages/index.astro`).

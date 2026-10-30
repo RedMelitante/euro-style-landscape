@@ -1,0 +1,16 @@
+---
+// "When are you ready to start?" on the campaign forms. Same answers as QuoteForm;
+// /api/lead requires one, and it decides the lead's timeline-* tag in GoHighLevel.
+import { TIMELINES } from '../../lib/site';
+---
+<fieldset class="tl">
+  <legend>When are you ready to start?</legend>
+  <div class="tl-choices">
+    {TIMELINES.map((t) => (
+      <label class="tl-choice">
+        <input type="radio" name="timeline" value={t} required />
+        <span>{t}</span>
+      </label>
+    ))}
+  </div>
+</fieldset>

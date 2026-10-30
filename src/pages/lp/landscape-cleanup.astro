@@ -1,0 +1,383 @@
+---
+// Ad campaign page, from design/lp-landscape-cleanup-awareness.dc.html (see CAMPAIGN-PAGES-UPDATE.md).
+import { Font, Image } from 'astro:assets';
+import CampaignLayout from '../../layouts/CampaignLayout.astro';
+import { photo } from '../../lib/images';
+import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
+
+---
+<CampaignLayout title="Fall Yard Cleanup · Euro Style Landscape" viewContent="load">
+  <Fragment slot="head">
+    <Font cssVariable="--font-barlow-condensed" />
+    <Font cssVariable="--font-barlow" preload={[{ weight: 400 }]} />
+    <Font cssVariable="--font-montserrat" />
+    <Font cssVariable="--font-kaushan" />
+  </Fragment>
+<div style="background:#F4EFE4">
+
+  
+  <section class="h2o">
+    <Image src={photo('front-walkway.jpg')} alt="Curved paver walkway lined with topiaries and lawn in front of a brick home" widths={[480, 800, 1200, 1440]} sizes="100vw" format="webp" quality={45} decoding="async" loading="eager" fetchpriority="high" class="h2o-img" />
+    <div class="h2o-shade"></div>
+    <div class="h2o-frame"></div>
+    <svg class="leaf d" style="left:84%;top:30%;width:26px;height:26px;--r:20deg;animation-delay:0s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#C45A2C"></polygon><path d="M12 19.5V23.5" stroke="#C45A2C" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <svg class="leaf d" style="left:70%;top:82%;width:22px;height:22px;--r:-30deg;animation-delay:3s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#C9A46A"></polygon><path d="M12 19.5V23.5" stroke="#C9A46A" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <div class="wrap h2o-in">
+      <div class="h2o-top">
+        <Image src={logo} alt="Euro Style Landscape" width={96} height={96} densities={[1, 2]} loading="eager" class="es-logo" />
+        <a href="tel:+17328039646" class="h2o-phone" data-track-location="hero"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>(732) 803-9646</span></a>
+      </div>
+      <div class="h2o-body">
+        <div class="h2o-copy">
+          <p class="h2o-eyebrow"><span class="dot"></span>Now booking · Fall cleanup season</p>
+          <h1>Fall landscape cleanup<span>for a cleaner, healthier yard</span></h1>
+          <p class="sub">Leaves, beds and lawn cleared and ready for winter, then cared for all year by one local team in Middlesex County.</p>
+          <div class="h2o-btns">
+            <a href="#cleanup" class="btn-gold">See What's Included <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/lp/landscape-cleanup-quote" class="btn-line" data-track="estimate_click" data-track-location="hero">Get a Free Estimate</a>
+          </div>
+        </div>
+        <div class="h2o-badge"><div class="badge" aria-label="Licensed and insured">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="bt" d="M60,60 m-41,0 a41,41 0 1,1 82,0"></path><path id="bb" d="M60,60 m-45,0 a45,45 0 0,0 90,0"></path></defs>
+              <circle cx="60" cy="60" r="58" fill="#1F3A2B"></circle>
+              <circle cx="60" cy="60" r="53" fill="none" stroke="#C9A46A" stroke-width="2"></circle>
+              <circle cx="60" cy="60" r="33" fill="none" stroke="#C9A46A" stroke-width="1" stroke-opacity=".6"></circle>
+              <text font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="15" letter-spacing="2.4" fill="#F4EFE4"><textPath href="#bt" startOffset="50%" text-anchor="middle">LICENSED &amp;</textPath></text>
+              <text font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="15" letter-spacing="2.4" fill="#F4EFE4"><textPath href="#bb" startOffset="50%" text-anchor="middle" dominant-baseline="hanging">INSURED</textPath></text>
+              <g transform="translate(46,45) scale(1.15)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linejoin="round"></path><path d="m9 12 2 2 4-4" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
+            </svg>
+          </div></div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="year">
+    <svg class="leaf d" style="left:94%;top:6%;width:24px;height:24px;--r:30deg;animation-delay:1s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#C45A2C"></polygon><path d="M12 19.5V23.5" stroke="#C45A2C" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <div class="wrap">
+      <p class="label">Care all year</p>
+      <h2 class="h">It starts with a fall cleanup</h2>
+      <span class="brush">Then we keep it looking cared for, all year.</span>
+      <ol class="timeline">
+        <li class="season now">
+          <div class="s-head"><span class="sicon" style="background:#C45A2C"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#F4EFE4"></polygon></svg></span><h3 class="cond">Fall</h3><span class="now-tag cond">Now</span></div>
+          <ul><li><span class="gck" style="width:22px;height:22px;background:#E9E1CF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Leaf &amp; debris cleanup</li><li><span class="gck" style="width:22px;height:22px;background:#E9E1CF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Bed cleanup</li><li><span class="gck" style="width:22px;height:22px;background:#E9E1CF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Final mow</li><li><span class="gck" style="width:22px;height:22px;background:#E9E1CF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Aeration &amp; fertilization</li></ul>
+        </li>
+        <li class="season">
+          <div class="s-head"><span class="sicon" style="background:#1F3A2B"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4EFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M4.9 7l14.2 10M4.9 17 19.1 7"></path><path d="m9 4 3 2 3-2M9 20l3-2 3 2"></path></svg></span><h3 class="cond">Winter</h3></div>
+          <ul><li><span class="gck" style="width:22px;height:22px;background:#E9E1CF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Plan next year's patio or outdoor living project</li><li><span class="gck" style="width:22px;height:22px;background:#E9E1CF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Get the design and written quote ready before spring</li></ul>
+        </li>
+        <li class="season">
+          <div class="s-head"><span class="sicon" style="background:#1F3A2B"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4EFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"></path><path d="M12 20v-8"></path><path d="M12 12c0-3.5 2.5-6 6-6 0 3.5-2.5 6-6 6z"></path><path d="M12 14c0-3-2-5-5-5 0 3 2 5 5 5z"></path></svg></span><h3 class="cond">Spring</h3></div>
+          <ul><li><span class="gck" style="width:22px;height:22px;background:#E9E1CF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Spring cleanups</li><li><span class="gck" style="width:22px;height:22px;background:#E9E1CF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Planting</li><li><span class="gck" style="width:22px;height:22px;background:#E9E1CF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Lawn maintenance starts</li></ul>
+        </li>
+        <li class="season">
+          <div class="s-head"><span class="sicon" style="background:#1F3A2B"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F4EFE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span><h3 class="cond">Summer</h3></div>
+          <ul><li><span class="gck" style="width:22px;height:22px;background:#E9E1CF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Mowing</li><li><span class="gck" style="width:22px;height:22px;background:#E9E1CF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Bed care</li><li><span class="gck" style="width:22px;height:22px;background:#E9E1CF"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Keeping everything looking sharp</li></ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  
+  <section class="svc" id="cleanup">
+    <div class="wrap svc-in">
+      <div>
+        <p class="label">Fall cleanup</p>
+        <h2 class="h">What your fall cleanup includes</h2>
+        <p class="lede">Tap each item to see what we do. We confirm the exact list with you at the free estimate.</p>
+        <p class="also">We also offer year-round lawn &amp; garden maintenance, planting and hardscaping.</p>
+      </div>
+      <div class="pills">
+        <details class="pill" open>
+          <summary><span class="gck" style="width:30px;height:30px;background:#C9A46A"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span class="pt">Leaf &amp; Debris Cleanup</span><span class="chev"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <p>Leaves, sticks and debris blown, collected and hauled away from lawn, beds and hard surfaces.</p>
+        </details>
+        <details class="pill">
+          <summary><span class="gck" style="width:30px;height:30px;background:#C9A46A"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span class="pt">Bed Cleanup &amp; Refresh</span><span class="chev"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <p>Beds cleared out, cut back and tidied so they look finished through winter.</p>
+        </details>
+        <details class="pill">
+          <summary><span class="gck" style="width:30px;height:30px;background:#C9A46A"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span class="pt">Final Mow &amp; Edges</span><span class="chev"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <p>The last cut of the season, with clean edges along walks and beds.</p>
+        </details>
+        <details class="pill">
+          <summary><span class="gck" style="width:30px;height:30px;background:#C9A46A"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span class="pt">Aeration &amp; Fertilization</span><span class="chev"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></summary>
+          <p>Helps your lawn come back thicker and stronger in spring.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="og">
+    <div class="wrap og-in">
+      <div>
+        <h2>From overgrown<span>to outstanding</span></h2>
+        <div class="rule"></div>
+        <p>Leaves cleared, beds cleaned up and the lawn cut, so your property looks cared for through the winter.</p>
+      </div>
+      <figure>
+        <div class="frame"><Image src={photo('front-yard-work.jpg')} alt="A front yard being cleared and regraded by the Euro Style crew" widths={[480, 800, 1200, 1600]} sizes="(min-width: 1024px) 50vw, 100vw" format="webp" quality={70} decoding="async" loading="lazy" /></div>
+        <figcaption>Real Euro Style front yard project.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  
+  <section class="why">
+    <div class="wrap why-in">
+      <div>
+        <p class="label">Why homeowners choose us</p>
+        <h2 class="h">Dependable from the first visit</h2>
+      </div>
+      <ul>
+        <li><span class="gck" style="width:40px;height:40px;background:#C9A46A"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span class="cond">One local team</span></li>
+        <li><span class="gck" style="width:40px;height:40px;background:#C9A46A"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span class="cond">Free on-site consultation</span></li>
+        <li><span class="gck" style="width:40px;height:40px;background:#C9A46A"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span class="cond">Detailed written quotes</span></li>
+        <li><span class="gck" style="width:40px;height:40px;background:#C9A46A"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span class="cond">Ongoing maintenance available</span></li>
+      </ul>
+    </div>
+  </section>
+
+  
+  <section class="team">
+    <div class="wrap team-in">
+      <div class="frame"><Image src={photo('team-3.jpg')} alt="The Euro Style Landscape crew standing together on a job site" widths={[480, 800, 1200, 1600]} sizes="(min-width: 1024px) 50vw, 100vw" format="webp" quality={70} decoding="async" loading="lazy" /></div>
+      <div>
+        <p class="label">Meet the team</p>
+        <h2 class="h">The crew behind every yard</h2>
+        <p>Based in Sayreville. The same local crew from the first visit to the final clean-up.</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="cta">
+    <svg class="leaf d" style="left:6%;top:18%;width:26px;height:26px;--r:-24deg;animation-delay:0s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#C45A2C"></polygon><path d="M12 19.5V23.5" stroke="#C45A2C" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <svg class="leaf d" style="left:92%;top:64%;width:22px;height:22px;--r:30deg;animation-delay:3s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#C9A46A"></polygon><path d="M12 19.5V23.5" stroke="#C9A46A" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <div class="wrap">
+      <div class="gr"></div>
+      <h2>Ready for a cleaner yard before winter?</h2>
+      <a href="/lp/landscape-cleanup-quote" class="btn-gold" data-track="estimate_click" data-track-location="cta_band">Book Your Free Cleanup Estimate <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      <a href="tel:+17328039646" class="call" data-track-location="cta_band">Or call (732) 803-9646</a>
+    </div>
+  </section>
+
+  
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-in">
+        <Image src={logo} alt="Euro Style Landscape" width={118} height={118} densities={[1, 2]} loading="eager" class="es-logo" />
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><a href="tel:+17328039646" data-track-location="footer">(732) 803-9646</a></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><a href="/">eurostylelandscape.com</a></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Sayreville, NJ · Serving Middlesex County</span></li>
+        </ul>
+      </div>
+      <div class="legal">
+        <span>Powered by <a href="https://www.digitalservicesmaster.com/" style="text-decoration:underline">Digital Services Master</a> Copyright © 2026. All rights reserved</span>
+        <a href="/privacy-policy" style="text-decoration:underline">Privacy policy</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</CampaignLayout>
+
+<style is:global>
+/* hero (matches the other campaign pages) */
+.h2o{position:relative;min-height:740px;background:#16291F;color:#F4EFE4;overflow:hidden;display:flex}
+.h2o-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.h2o-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,41,31,.75) 0%,rgba(22,41,31,.3) 28%,rgba(22,41,31,.72) 56%,rgba(22,41,31,.97) 82%,#16291F 100%)}
+.h2o-frame{position:absolute;inset:12px;border:1px solid rgba(244,239,228,.55);border-radius:4px;pointer-events:none;z-index:3}
+.h2o .h2o-in{position:relative;z-index:4;width:100%;display:flex;flex-direction:column;padding-top:28px;padding-bottom:44px}
+.h2o-top{display:flex;align-items:center;justify-content:space-between}
+.h2o-top img{display:block;width:72px;height:72px}
+.h2o-phone{width:46px;height:46px;border-radius:999px;border:1.5px solid rgba(244,239,228,.6);display:flex;align-items:center;justify-content:center;color:#C9A46A;text-decoration:none}
+.h2o-phone span{display:none}
+.h2o-copy{flex:1 1 auto;min-width:0}
+.h2o-body{margin-top:auto;padding-top:120px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+.h2o-eyebrow{font-family:var(--font-barlow-condensed);font-weight:700;font-size:15px;letter-spacing:.24em;text-transform:uppercase;display:flex;align-items:center;gap:10px;color:#F4EFE4}
+.h2o-eyebrow .dot{width:8px;height:8px;border-radius:999px;background:#C45A2C}
+.h2o h1{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:52px;overflow-wrap:break-word;line-height:.9;margin-top:14px;text-shadow:0 2px 20px rgba(0,0,0,.35)}
+.h2o h1 span{display:block;color:#C9A46A}
+.h2o .sub{font-size:18px;line-height:1.55;color:rgba(244,239,228,.9);margin-top:16px;max-width:520px}
+.h2o-btns{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.btn-line{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 24px;border-radius:999px;border:1.5px solid rgba(244,239,228,.85);color:#F4EFE4;text-decoration:none;font-family:var(--font-montserrat);font-weight:700;font-size:16px}
+.btn-line:hover{background:rgba(244,239,228,.1)}
+.h2o-badge{display:none;flex:none;width:150px}
+.h2o-badge .badge{position:static;transform:none;width:150px;height:150px}
+@media (min-width:768px){.h2o-btns{flex-direction:row}}
+@media (min-width:1024px){
+ .h2o{min-height:820px}
+ .h2o-frame{inset:20px}
+ .h2o-shade{background:linear-gradient(90deg,rgba(22,41,31,.94) 0%,rgba(22,41,31,.74) 40%,rgba(22,41,31,.25) 72%,rgba(22,41,31,.2) 100%),linear-gradient(180deg,rgba(22,41,31,.55) 0%,rgba(22,41,31,0) 25%,rgba(22,41,31,0) 75%,rgba(22,41,31,.7) 100%)}
+ .h2o .h2o-in{padding-top:44px;padding-bottom:90px}
+ .h2o-top img{width:96px;height:96px}
+ .h2o-phone{width:auto;height:auto;border:0;gap:8px;font-weight:700;font-size:17px;color:#F4EFE4}
+ .h2o-phone svg{color:#C9A46A}
+ .h2o-phone span{display:inline}
+ .h2o-body{padding-top:70px}
+ .h2o-copy{max-width:820px}
+ .h2o h1{font-size:88px}
+ .h2o .sub{font-size:21px}
+ .h2o-badge{display:block}
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:#F4EFE4;color:#22302A;font-family:var(--font-barlow);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0;text-wrap:pretty}
+.cond{font-family:var(--font-barlow-condensed);text-transform:uppercase}
+.mont{font-family:var(--font-montserrat)}
+.brush{font-family:var(--font-kaushan);font-weight:400}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.label{font-family:var(--font-barlow-condensed);font-weight:700;font-size:15px;letter-spacing:.22em;text-transform:uppercase;display:flex;align-items:center;gap:10px;color:#1F3A2B}
+.label::before{content:"";width:30px;height:2px;background:#C9A46A}
+h2.h{font-family:var(--font-montserrat);font-weight:800;font-size:32px;line-height:1.1;letter-spacing:-.01em;color:#1F3A2B;margin-top:12px}
+.gck{flex:none;border-radius:999px;display:flex;align-items:center;justify-content:center}
+.leaf{position:absolute;z-index:1;opacity:.85;transform:rotate(var(--r));animation:sway 8s ease-in-out infinite alternate;pointer-events:none}
+@keyframes sway{from{transform:translateY(-6px) rotate(var(--r))}to{transform:translateY(12px) rotate(calc(var(--r) + 24deg))}}
+@media (prefers-reduced-motion: reduce){.leaf{animation:none}}
+.leaf.d{display:none}
+.btn-forest{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;background:#1F3A2B;color:#F4EFE4;text-decoration:none;font-family:var(--font-montserrat);font-weight:700;font-size:16px}
+.btn-forest:hover{background:#2E5A3E}
+.btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 24px;border-radius:999px;border:2px solid #1F3A2B;color:#1F3A2B;text-decoration:none;font-family:var(--font-montserrat);font-weight:700;font-size:16px;background:rgba(244,239,228,.85)}
+.btn-outline:hover{background:#1F3A2B;color:#F4EFE4}
+.btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;background:#C9A46A;color:#16291F;text-decoration:none;font-family:var(--font-montserrat);font-weight:800;font-size:16px}
+.btn-gold:hover{background:#B8925A}
+a:focus-visible,summary:focus-visible{outline:3px solid #C45A2C;outline-offset:3px}
+/* hero */
+.hero{position:relative;background:#F4EFE4;overflow:hidden;padding-bottom:40px}
+.swoosh{position:absolute;left:0;right:0;bottom:0;height:470px;z-index:0}
+.swoosh svg{display:block;width:100%;height:100%}
+.hero-top{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding-top:16px}
+.hero-top img{display:block;width:84px;height:84px}
+.hero-call{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;border-radius:999px;border:2px solid #1F3A2B;color:#1F3A2B;text-decoration:none;font-weight:700;font-size:15px}
+.hero-call .t{display:none}
+.hero-grid{position:relative;z-index:2;display:flex;flex-direction:column;gap:30px;padding-top:22px}
+.hero h1{font-family:var(--font-montserrat);font-weight:800;font-size:36px;line-height:1.08;letter-spacing:-.015em;color:#1F3A2B}
+.hero h1 em{font-style:normal;color:#2E5A3E;position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:-2%;right:-2%;bottom:.02em;height:.22em;background:#C45A2C;opacity:.85;border-radius:40% 60% 50% 50%/60% 40% 60% 40%;z-index:-1;transform:rotate(-1deg)}
+.hero .sub{font-size:18px;line-height:1.55;color:#3C4840;margin-top:16px;max-width:520px}
+.hero-btns{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.circles{position:relative;height:380px;width:100%;max-width:400px;margin:0 auto}
+.circ{position:absolute;border-radius:999px;overflow:hidden;border:7px solid #FFFFFF;box-shadow:0 16px 40px rgba(17,22,18,.28)}
+.circ img{display:block;width:100%;height:100%;object-fit:cover}
+.circ.a{width:260px;height:260px;left:0;top:0}
+.circ.b{width:200px;height:200px;right:0;bottom:0}
+.badge{position:absolute;width:112px;height:112px;left:50%;top:50%;transform:translate(-30%,-30%);z-index:3;filter:drop-shadow(0 8px 18px rgba(0,0,0,.3))}
+.badge svg{display:block;width:100%;height:100%}
+/* services */
+.svc{padding:56px 0 60px}
+.svc .also{font-size:15px;line-height:1.5;color:#6A746C;margin-top:12px;padding-left:12px;border-left:3px solid #C45A2C}
+.svc .lede{font-size:17px;line-height:1.6;color:#4A554D;margin-top:12px;max-width:560px}
+.pills{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.pill{background:#1F3A2B;color:#F4EFE4;border-radius:999px;transition:border-radius .2s}
+.pill[open]{border-radius:28px}
+.pill summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;min-height:64px;padding:10px 18px 10px 12px}
+.pill summary::-webkit-details-marker{display:none}
+.pill .pt{flex:1;font-family:var(--font-montserrat);font-weight:700;font-size:16.5px;line-height:1.25}
+.pill .chev{display:flex;transition:transform .2s}
+.pill[open] .chev{transform:rotate(180deg)}
+.pill p{padding:0 26px 18px 56px;font-size:16px;line-height:1.55;color:#D2D8CF}
+/* seasons */
+.year{position:relative;background:#FFFDF8;border-top:1px solid #E5DCC8;border-bottom:1px solid #E5DCC8;padding:60px 0 64px;overflow:hidden}
+.year .brush{display:block;font-size:30px;color:#C45A2C;margin-top:8px}
+.timeline{list-style:none;margin:30px 0 0;padding:0 0 0 22px;position:relative;display:flex;flex-direction:column;gap:16px}
+.timeline::before{content:"";position:absolute;left:8px;top:10px;bottom:10px;width:2px;background:repeating-linear-gradient(180deg,#C9A46A 0 6px,transparent 6px 12px)}
+.season{position:relative;background:#F4EFE4;border:1px solid #E5DCC8;border-radius:18px;padding:18px 18px 20px}
+.season::before{content:"";position:absolute;left:-20px;top:30px;width:12px;height:12px;border-radius:999px;background:#C9A46A;box-shadow:0 0 0 4px #FFFDF8}
+.season.now{background:#FFFFFF;border:2px solid #C45A2C;box-shadow:0 14px 34px rgba(196,90,44,.15)}
+.season.now::before{background:#C45A2C}
+.s-head{display:flex;align-items:center;gap:12px}
+.sicon{flex:none;width:52px;height:52px;border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #F4EFE4,0 0 0 5px #C9A46A}
+.season h3{font-weight:800;font-size:30px;line-height:1;color:#1F3A2B}
+.now-tag{margin-left:auto;padding:5px 12px;border-radius:999px;background:#C45A2C;color:#FFFFFF;font-weight:800;font-size:15px;letter-spacing:.14em}
+.season ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:9px}
+.season ul li{display:flex;align-items:flex-start;gap:10px;font-size:16px;line-height:1.4;color:#33403A}
+.season ul li .gck{margin-top:-1px}
+/* overgrown */
+.og{background:#1F3A2B;color:#F4EFE4;padding:60px 0 64px;position:relative;overflow:hidden}
+.og h2{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:50px;line-height:.92;letter-spacing:.005em}
+.og h2 span{display:block;color:#C9A46A}
+.og .rule{width:70px;height:3px;background:#C9A46A;margin:18px 0}
+.og p{font-size:17px;line-height:1.6;color:#C9CFC6;max-width:440px}
+.og figure{margin:30px 0 0}
+.og .frame{background:#FFFFFF;padding:8px;border-radius:22px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.og .frame img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:15px}
+.og figcaption{margin-top:12px;font-family:var(--font-barlow-condensed);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:16px;color:#C9A46A}
+/* why */
+.why{padding:58px 0 60px}
+.why ul{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:1fr;gap:12px}
+.why li{display:flex;align-items:center;gap:14px;background:#FFFDF8;border:1px solid #E5DCC8;border-radius:999px;padding:10px 20px 10px 10px}
+.why li .cond{font-weight:800;font-size:21px;color:#1F3A2B;letter-spacing:.02em}
+/* team */
+.team{background:#2E5A3E;color:#F4EFE4;padding:58px 0 62px}
+.team-in{display:flex;flex-direction:column;gap:26px}
+.team .frame{background:#FFFFFF;padding:8px;border-radius:22px}
+.team .frame img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:15px}
+.team h2{color:#F4EFE4}
+.team p{font-size:18px;line-height:1.6;color:#E1E6DE;margin-top:14px}
+.team .label{color:#E9D6AE}
+.team .brush{display:block;font-size:30px;color:#E9D6AE;margin-top:12px}
+/* cta */
+.cta{background:#1F3A2B;color:#F4EFE4;padding:62px 0 66px;text-align:center;position:relative;overflow:hidden}
+.cta .gr{width:90px;height:3px;background:#C9A46A;margin:0 auto 22px}
+.cta h2{font-family:var(--font-montserrat);font-weight:800;font-size:30px;line-height:1.15;max-width:720px;margin:0 auto}
+.cta .btn-gold{margin-top:26px}
+.cta .call{display:block;width:max-content;margin:16px auto 0;color:#F4EFE4;font-weight:600;font-size:16.5px;text-decoration:none;border-bottom:2px solid #C9A46A}
+/* footer */
+.foot{background:#16291F;color:#BDC7BC;padding:44px 0 24px}
+.foot-in{display:flex;flex-direction:column;gap:20px}
+.foot img{display:block;width:118px;height:118px}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:16px}
+.foot li{display:flex;align-items:center;gap:10px}
+.foot a{color:#E9E3D6;text-decoration:none}
+.foot .legal{margin-top:24px;border-top:1px solid rgba(244,239,228,.08);padding-top:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;font-size:13.5px}
+@media (min-width:768px){
+ .wrap{padding:0 36px}
+ .hero-btns{flex-direction:row}
+ .hero h1{font-size:46px}
+ .why ul{grid-template-columns:1fr 1fr}
+ .foot-in{flex-direction:row;align-items:center;justify-content:space-between}
+ .hero-call .t{display:inline}
+ .hero-call{background:#F4EFE4}
+}
+@media (min-width:1024px){
+ .leaf.d{display:block}
+ .swoosh{top:0;bottom:0;left:auto;width:52%;height:auto}
+ .hero{padding-bottom:70px}
+ .hero-top img{width:100px;height:100px}
+ .hero-grid{flex-direction:row;align-items:center;gap:40px;padding-top:30px}
+ .hero-copy{flex:1 1 0;min-width:0}
+ .hero h1{font-size:58px}
+ .hero .sub{font-size:20px}
+ .circles{flex:0 0 520px;max-width:none;height:520px}
+ .circ.a{width:360px;height:360px}
+ .circ.b{width:270px;height:270px}
+ .badge{width:140px;height:140px}
+ h2.h{font-size:44px}
+ .svc{padding:96px 0}
+ .svc-in{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:start}
+ .pills{margin-top:0}
+ .year{padding:100px 0}
+ .timeline{flex-direction:row;padding:40px 0 0;gap:18px}
+ .timeline::before{left:0;right:0;top:12px;bottom:auto;width:auto;height:2px;background:repeating-linear-gradient(90deg,#C9A46A 0 6px,transparent 6px 12px)}
+ .season{flex:1 1 0}
+ .season::before{left:24px;top:-34px}
+ .og{padding:100px 0}
+ .og-in{display:grid;grid-template-columns:460px 1fr;gap:64px;align-items:center}
+ .og figure{margin:0}
+ .og h2{font-size:68px}
+ .why{padding:96px 0}
+ .why-in{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:center}
+ .why ul{margin-top:0}
+ .team{padding:96px 0}
+ .team-in{flex-direction:row;align-items:center;gap:72px}
+ .team-in > *{flex:1 1 0;min-width:0}
+ .cta{padding:100px 0}
+ .cta h2{font-size:46px}
+}
+</style>

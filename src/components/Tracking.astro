@@ -1,8 +1,9 @@
 ---
 // Meta Pixel, GA4 and Google Ads. Each loads only when its ID env var is set
 // (HANDOFF §6 — IDs still to come, never hard-coded).
-// window.esTrack.lead() is called by QuoteForm after the server accepts a
-// lead; tel: clicks fire Contact / call conversions.
+// window.esTrack.lead() is called by the quote forms after the server accepts a
+// lead; tel: clicks fire Contact / call conversions. Elements with
+// data-track="quote_click" or "estimate_click" (campaign pages) fire a custom event.
 // A page opened with ad params (UTMs, fbclid, gclid) is remembered for 30 days
 // as `es_ad_landing`, so a form sent from another page still credits the ad.
 import {
@@ -46,9 +47,9 @@ const cfg = {
   } catch (e) { /* storage blocked: attribution falls back to the form page's own URL */ }
   window.esTrack = {
     lead: function (d) {
-      if (cfg.pixel && window.fbq) window.fbq('track', 'Lead', { content_name: d.service }, { eventID: d.eventId });
+      if (cfg.pixel && window.fbq) window.fbq('track', 'Lead', Object.assign({ content_name: d.service }, d.extra), { eventID: d.eventId });
       if (cfg.gtag && window.gtag) {
-        window.gtag('event', 'generate_lead', { service: d.service });
+        window.gtag('event', 'generate_lead', Object.assign({ service: d.service }, d.extra));
         if (cfg.adsLead) window.gtag('event', 'conversion', { send_to: cfg.adsLead, transaction_id: d.eventId });
       }
     },
@@ -63,5 +64,11 @@ const cfg = {
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest && e.target.closest('a[href^="tel:"]');
     if (a) window.esTrack.call();
+    var t = e.target && e.target.closest && e.target.closest('[data-track="quote_click"],[data-track="estimate_click"]');
+    if (t) {
+      var loc = { location: t.dataset.trackLocation || '' };
+      if (cfg.pixel && window.fbq) window.fbq('trackCustom', t.dataset.track === 'quote_click' ? 'QuoteClick' : 'EstimateClick', loc);
+      if (cfg.gtag && window.gtag) window.gtag('event', t.dataset.track, loc);
+    }
   });
 </script>

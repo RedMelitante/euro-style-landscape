@@ -20,7 +20,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       // noindex pages stay out of the sitemap
-      filter: (page) => !page.includes('/free-design-consultation') && !page.includes('/privacy-policy'),
+      filter: (page) => !page.includes('/free-design-consultation') && !page.includes('/privacy-policy') && !page.includes('/lp/'),
     }),
   ],
   fonts: [
@@ -34,6 +34,14 @@ export default defineConfig({
       display: 'swap',
       fallbacks: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
     },
+    // Ad campaign pages (src/pages/lp/); each page loads only the families it uses.
+    { provider: fontProviders.google(), name: 'Barlow', cssVariable: '--font-barlow', weights: [400, 500, 600, 700], styles: ['normal'], subsets: ['latin'], display: 'swap', fallbacks: ['ui-sans-serif', 'system-ui', 'sans-serif'] },
+    { provider: fontProviders.google(), name: 'Barlow Condensed', cssVariable: '--font-barlow-condensed', weights: [600, 700, 800], styles: ['normal'], subsets: ['latin'], display: 'swap', fallbacks: ['ui-sans-serif', 'system-ui', 'sans-serif'] },
+    { provider: fontProviders.google(), name: 'Montserrat', cssVariable: '--font-montserrat', weights: [600, 700, 800], styles: ['normal'], subsets: ['latin'], display: 'swap', fallbacks: ['sans-serif'] },
+    { provider: fontProviders.google(), name: 'Anton', cssVariable: '--font-anton', weights: [400], styles: ['normal'], subsets: ['latin'], display: 'swap', fallbacks: ['sans-serif'] },
+    { provider: fontProviders.google(), name: 'Great Vibes', cssVariable: '--font-great-vibes', weights: [400], styles: ['normal'], subsets: ['latin'], display: 'swap', fallbacks: ['cursive'] },
+    { provider: fontProviders.google(), name: 'Kaushan Script', cssVariable: '--font-kaushan', weights: [400], styles: ['normal'], subsets: ['latin'], display: 'swap', fallbacks: ['cursive'] },
+    { provider: fontProviders.google(), name: 'Caveat', cssVariable: '--font-caveat', weights: [700], styles: ['normal'], subsets: ['latin'], display: 'swap', fallbacks: ['cursive'] },
   ],
   env: {
     schema: {

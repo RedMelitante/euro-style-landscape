@@ -19,6 +19,7 @@ import {
 import { PUBLIC_META_PIXEL_ID } from 'astro:env/client';
 import { BUDGETS, TIMELINES } from '../../lib/site';
 import { quoteServiceValues } from '../../lib/services';
+import { CAMPAIGN_SERVICES, CAMPAIGN_SOURCES } from '../../lib/campaigns';
 
 export const prerender = false;
 
@@ -36,6 +37,11 @@ type Lead = {
   adLandingUrl: string;
   formId: string;
   eventId: string;
+  /** Set on the ad campaign pages (src/pages/lp/): which page, ad headline and choice the lead came from. */
+  source: string;
+  adHeadline: string;
+  offer: string;
+  projectChoice: string;
 };
 
 const json = (body: unknown, status = 200) =>
@@ -57,11 +63,16 @@ function validate(raw: Record<string, unknown>): { lead?: Lead; error?: string }
     adLandingUrl: str(raw.ad_landing_url, 500),
     formId: str(raw.form_id, 30),
     eventId: str(raw.event_id, 80),
+    source: (CAMPAIGN_SOURCES as readonly string[]).includes(str(raw.source, 60)) ? str(raw.source, 60) : '',
+    adHeadline: str(raw.ad_headline, 20),
+    offer: str(raw.offer, 60),
+    projectChoice: ['rebuild', 'refresh'].includes(str(raw.project_choice, 10)) ? str(raw.project_choice, 10) : '',
   };
   if (lead.name.length < 2) return { error: 'Please enter your name.' };
   if (lead.phone.replace(/\D/g, '').length < 10) return { error: 'Please enter a valid phone number.' };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) return { error: 'Please enter a valid email address.' };
-  if (!quoteServiceValues.includes(lead.service)) return { error: 'Please choose a service.' };
+  const services: readonly string[] = lead.source ? [...quoteServiceValues, ...CAMPAIGN_SERVICES] : quoteServiceValues;
+  if (!services.includes(lead.service)) return { error: 'Please choose a service.' };
   if (!/^\d{5}(-\d{4})?$/.test(lead.zip)) return { error: 'Please enter a valid ZIP code.' };
   if (lead.budget && !(BUDGETS as readonly string[]).includes(lead.budget)) return { error: 'Please choose a budget range.' };
   if (!(TIMELINES as readonly string[]).includes(lead.timeline)) return { error: 'Please tell us when you are ready to start.' };
@@ -87,13 +98,13 @@ function adParams(href: string) {
 }
 
 /**
- * Where the lead came from: the ad landing page or the main site, plus any ad click IDs / UTMs.
+ * Where the lead came from: an ad landing page or the main site, plus any ad click IDs / UTMs.
  * Uses the form page's own params, else the ones remembered from an earlier page of the visit.
  */
 function attribution(page: string, adLandingUrl: string) {
   let url: URL | undefined;
   try { url = new URL(page); } catch { url = undefined; }
-  const landing = url?.pathname.startsWith('/free-design-consultation') ?? false;
+  const landing = /^\/(free-design-consultation|lp\/)/.test(url?.pathname ?? '');
   const own = adParams(page);
   const params = own.length ? own : adParams(adLandingUrl);
   return { landing, path: url?.pathname ?? '', params };
@@ -141,6 +152,8 @@ async function sendToGhl(lead: Lead) {
     `service-${slug(lead.service)}`,
     src.landing ? 'source-ad-landing-page' : 'source-website',
     `timeline-${slug(lead.timeline)}`,
+    ...(lead.source ? [`campaign-${slug(lead.source)}`] : []),
+    ...(lead.projectChoice ? [`choice-${lead.projectChoice}`] : []),
   ];
 
   const contact = {
@@ -152,7 +165,7 @@ async function sendToGhl(lead: Lead) {
     phone: e164(lead.phone),
     postalCode: lead.zip,
     country: 'US',
-    source: src.landing ? 'Website – free design consultation page' : 'Website quote form',
+    source: lead.source ? 'Website – ad campaign page' : src.landing ? 'Website – free design consultation page' : 'Website quote form',
     tags,
   };
   // Contact custom fields (created in GoHighLevel: Service Requested, Budget Range, Lead Page,
@@ -191,6 +204,10 @@ async function sendToGhl(lead: Lead) {
     `Email: ${lead.email}`,
     `Page: ${src.path || lead.page || '—'}${src.params.length ? `\nTracking: ${src.params.join(', ')}` : ''}`,
     `Form: ${lead.formId || '—'}`,
+    ...(lead.source ? [`Campaign: ${lead.source}`] : []),
+    ...(lead.adHeadline ? [`Ad headline: ${lead.adHeadline}`] : []),
+    ...(lead.projectChoice ? [`Choice: ${lead.projectChoice}`] : []),
+    ...(lead.offer && lead.offer !== 'none' ? [`Offer: ${lead.offer}`] : []),
   ].join('\n');
   extras.push(ghl(`/contacts/${contactId}/notes`, { method: 'POST', body: { body: note } }));
   extras.push(

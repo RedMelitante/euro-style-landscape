@@ -1,0 +1,105 @@
+---
+// Sends a campaign page's [data-campaign-form] to /api/lead, as QuoteForm does, and
+// runs its success state and (on /lp/rebuild-or-refresh) its two steps.
+---
+<script>
+  type Track = { lead?: (d: { eventId: string; service: string; extra: Record<string, string> }) => void };
+
+  const AD_LANDING_MAX_AGE = 30 * 24 * 60 * 60 * 1000;
+
+  /** The ad-tagged page this visitor first arrived on (saved by Tracking.astro), if recent. */
+  const adLandingUrl = () => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('es_ad_landing') || 'null');
+      return saved && Date.now() - saved.t < AD_LANDING_MAX_AGE ? String(saved.url) : '';
+    } catch {
+      return '';
+    }
+  };
+
+  const uuid = () =>
+    (crypto as Crypto & { randomUUID?: () => string }).randomUUID?.() ??
+    `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
+  document.querySelectorAll<HTMLElement>('[data-form-card]').forEach((card) => {
+    const form = card.querySelector<HTMLFormElement>('[data-campaign-form]')!;
+    const success = card.querySelector<HTMLElement>('[data-success]')!;
+    const error = form.querySelector<HTMLElement>('[data-form-error]')!;
+    const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const label = form.querySelector<HTMLElement>('[data-label]')!;
+    const idleLabel = label.textContent;
+    const step1 = card.querySelector<HTMLElement>('[data-step1]');
+    const step2 = card.querySelector<HTMLElement>('[data-step2]');
+    const formHolder = step2 ?? form;
+
+    // Two-step form: only the chosen path's fields are visible and sent.
+    const setChoice = (choice: string) => {
+      form.querySelector<HTMLInputElement>('input[name="project_choice"]')!.value = choice;
+      card.querySelectorAll<HTMLElement>('[data-choice-block]').forEach((block) => {
+        const on = block.dataset.choiceBlock === choice;
+        block.hidden = !on;
+        block.querySelectorAll<HTMLSelectElement>('select').forEach((s) => { s.disabled = !on; });
+      });
+      const title = form.querySelector<HTMLElement>('[data-choice-title]');
+      if (title) title.textContent = title.dataset[choice === 'rebuild' ? 'rebuild' : 'refresh'] ?? '';
+    };
+    if (step1 && step2) {
+      card.querySelectorAll<HTMLElement>('[data-pick]').forEach((b) => b.addEventListener('click', () => {
+        setChoice(b.dataset.pick!);
+        step1.hidden = true;
+        step2.hidden = false;
+        form.querySelector<HTMLInputElement>('input[name="name"]')?.focus();
+      }));
+      card.querySelector('[data-back]')?.addEventListener('click', () => {
+        step2.hidden = true;
+        step1.hidden = false;
+      });
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      error.hidden = true;
+      submit.disabled = true;
+      label.textContent = 'Sending…';
+
+      const eventId = uuid();
+      const data: Record<string, string> = Object.fromEntries(
+        [...new FormData(form)].map(([k, v]) => [k, String(v)]),
+      );
+      data.event_id = eventId;
+      data.page = location.href;
+      data.ad_landing_url = adLandingUrl();
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+
+        formHolder.hidden = true;
+        success.hidden = false;
+        success.focus();
+        // Conversion events fire only after the server accepted the lead.
+        const extra: Record<string, string> = { form: data.source };
+        if (data.ad_headline) extra.ad_headline = data.ad_headline;
+        if (data.project_choice) extra.project_choice = data.project_choice;
+        (window as Window & { esTrack?: Track }).esTrack?.lead?.({ eventId, service: data.service, extra });
+      } catch {
+        error.hidden = false;
+      } finally {
+        submit.disabled = false;
+        label.textContent = idleLabel;
+      }
+    });
+
+    card.querySelector('[data-reset]')?.addEventListener('click', () => {
+      success.hidden = true;
+      formHolder.hidden = false;
+      form.querySelector<HTMLInputElement>('input[name="name"]')?.focus();
+    });
+  });
+</script>

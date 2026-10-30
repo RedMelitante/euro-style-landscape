@@ -1,0 +1,60 @@
+---
+// Ad campaign pages (src/pages/lp/): no site header, footer or nav, never indexed.
+// Each page brings its own styles and passes its fonts through the "head" slot.
+import { getImage } from 'astro:assets';
+import Tracking from '../components/Tracking.astro';
+import { photo } from '../lib/images';
+import '../styles/campaign.css';
+
+interface Props {
+  title: string;
+  /** When Meta ViewContent fires: on load, or once the [data-track-view] gallery is half in view. */
+  viewContent?: 'load' | 'gallery';
+}
+
+const { title, viewContent } = Astro.props;
+const og = await getImage({ src: photo('hero-firepit-patio.jpg'), width: 1200, format: 'jpg' });
+const ogImage = new URL(og.src, Astro.site).href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#1F3A2B" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Euro Style Landscape" />
+    <meta property="og:title" content={title} />
+    <meta property="og:image" content={ogImage} />
+    <slot name="head" />
+    <Tracking />
+  </head>
+  <body>
+    <slot />
+    {viewContent === 'load' && (
+      <script is:inline>
+        if (window.fbq) window.fbq('track', 'ViewContent');
+        if (window.gtag) window.gtag('event', 'view_content');
+      </script>
+    )}
+    {viewContent === 'gallery' && (
+      <script is:inline>
+        (function () {
+          var g = document.querySelector('[data-track-view="gallery"]');
+          if (!g || !('IntersectionObserver' in window)) return;
+          var io = new IntersectionObserver(function (en) {
+            if (!en[0].isIntersecting) return;
+            if (window.fbq) window.fbq('track', 'ViewContent', { content_name: 'gallery' });
+            if (window.gtag) window.gtag('event', 'view_gallery');
+            io.disconnect();
+          }, { threshold: 0.5 });
+          io.observe(g);
+        })();
+      </script>
+    )}
+  </body>
+</html>
