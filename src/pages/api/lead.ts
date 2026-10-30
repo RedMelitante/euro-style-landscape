@@ -340,7 +340,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (!isJson) {
     // No-JS fallback: send the visitor back to the page they came from.
     const back = request.headers.get('referer') || '/contact';
-    return Response.redirect(back, 303);
+    return Response.redirect(new URL(back, request.url).href, 303); // Workers need an absolute URL
   }
   return json({ ok: true });
 };
