@@ -1,0 +1,82 @@
+---
+// Before/after slider. The "before" layer is clipped from the right; an
+// invisible full-size range input drives it (mouse, touch and keyboard).
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  beforeSrc: string;
+  afterSrc: string;
+  before: string; // alt text
+  after: string; // alt text
+  beforeLabel?: string;
+  afterLabel?: string;
+  ratio?: string;
+  sizes?: string;
+  eager?: boolean;
+}
+
+const {
+  beforeSrc, afterSrc, before, after,
+  beforeLabel = 'BEFORE', afterLabel = 'AFTER',
+  ratio = '16 / 10',
+  sizes = '(min-width: 1280px) 620px, (min-width: 768px) 50vw, 100vw',
+  eager = false,
+} = Astro.props;
+const fill = 'display:block;width:100%;height:100%;object-fit:cover';
+---
+<div class="ba" style={`aspect-ratio:${ratio}`} data-ba>
+  <div class="layer">
+    <Photo src={afterSrc} alt={after} sizes={sizes} style={fill} eager={eager} draggable="false" />
+  </div>
+  <div class="layer before">
+    <Photo src={beforeSrc} alt={before} sizes={sizes} style={fill} eager={eager} priority={eager} draggable="false" />
+  </div>
+  <span class="tag-corner left">{beforeLabel}</span>
+  <span class="tag-corner right">{afterLabel}</span>
+  <input class="range" type="range" min="0" max="100" step="1" value="50" aria-label={`Drag to compare ${beforeLabel} and ${afterLabel}`} />
+  <div class="handle">
+    <div class="line"></div>
+    <div class="knob"><Icon name="chevrons" size={22} strokeWidth={2.2} /></div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-ba]').forEach((el) => {
+    const range = el.querySelector<HTMLInputElement>('input[type="range"]')!;
+    const set = () => el.style.setProperty('--pos', `${range.value}%`);
+    range.addEventListener('input', set);
+    set();
+  });
+</script>
+
+<style>
+  .ba {
+    --pos: 50%;
+    position: relative; width: 100%; overflow: hidden; border-radius: 12px;
+    background-color: #4C6A4B; font-family: var(--font-sans); user-select: none;
+  }
+  .layer { position: absolute; inset: 0; }
+  .before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+  .tag-corner {
+    position: absolute; top: 12px; padding: 6px 10px; border-radius: 6px;
+    background: rgba(20, 23, 20, .72); color: #FFFFFF; font-size: 12px; font-weight: 700; letter-spacing: .08em; pointer-events: none;
+  }
+  .left { left: 12px; }
+  .right { right: 12px; }
+  .range {
+    -webkit-appearance: none; appearance: none; background: transparent;
+    position: absolute; inset: 0; width: 100%; height: 100%; margin: 0;
+    cursor: ew-resize; opacity: 0; z-index: 3; touch-action: pan-y;
+  }
+  .range::-webkit-slider-thumb { -webkit-appearance: none; width: 48px; height: 100%; cursor: ew-resize; }
+  .range::-moz-range-thumb { width: 48px; height: 100%; border: 0; background: transparent; cursor: ew-resize; }
+  .handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 0; z-index: 2; pointer-events: none; }
+  .line { position: absolute; top: 0; bottom: 0; left: -1px; width: 2px; background: #FFFFFF; box-shadow: 0 0 6px rgba(0, 0, 0, .35); }
+  .knob {
+    position: absolute; top: 50%; left: -22px; width: 44px; height: 44px; margin-top: -22px; border-radius: 999px;
+    background: #FFFFFF; color: var(--ink); display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .28);
+  }
+  .range:focus-visible ~ .handle .knob { outline: 3px solid var(--sand-500); outline-offset: 3px; }
+</style>

@@ -1,0 +1,38 @@
+---
+// Forest CTA band: heading + line left, sand button + call button right.
+import Icon from './Icon.astro';
+import { PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
+
+interface Props {
+  title: string;
+  text: string;
+  cta: { href: string; label: string };
+  id?: string;
+}
+
+const { title, text, cta, id } = Astro.props;
+---
+<section id={id} class="section-forest" style="padding:clamp(56px, 7vw, 96px) 0">
+  <div class="container row">
+    <div class="copy">
+      <h2 class="h2">{title}</h2>
+      <p class="line">{text}</p>
+    </div>
+    <div class="ctas">
+      <a href={cta.href} class="btn btn-sand btn-xl sand">{cta.label}</a>
+      <a href={PHONE_HREF} class="btn btn-ghost-light call">
+        <Icon name="phone" size={18} />
+        Call {PHONE_DISPLAY}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; }
+  .copy { flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+  .line { margin: 0; font-size: clamp(1.125rem, 1rem + .4vw, 1.375rem); line-height: 1.5; color: var(--on-dark-muted); }
+  .ctas { flex: 0 1 auto; display: flex; flex-wrap: wrap; gap: 12px; width: min(100%, 520px); }
+  .sand { flex: 1 1 240px; }
+  .call { flex: 1 1 200px; height: 56px; padding: 0 20px; font-size: 16px; }
+</style>

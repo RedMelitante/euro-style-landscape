@@ -1,0 +1,78 @@
+---
+import { Font, getImage } from 'astro:assets';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import LandingHeader from '../components/LandingHeader.astro';
+import Footer from '../components/Footer.astro';
+import MobileStickyBar from '../components/MobileStickyBar.astro';
+import Tracking from '../components/Tracking.astro';
+import { photo } from '../lib/images';
+import type { NavKey } from '../lib/site';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Current nav item ('none' for pages outside the nav). */
+  current?: NavKey;
+  /** '#quote' on pages that have a quote form, '/contact' elsewhere. */
+  quoteHref?: string;
+  stickyLabel?: string;
+  /** Ad landing page: logo + call header, minimal footer, noindex. */
+  landing?: boolean;
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description,
+  current = 'none',
+  quoteHref = '/contact',
+  stickyLabel,
+  landing = false,
+  noindex = landing,
+  jsonLd,
+} = Astro.props;
+
+// build.format 'file' makes the pathname '/services.html'; the live URL is '/services'.
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/'), Astro.site);
+// Share image: the home hero mosaic's large photo.
+const og = await getImage({ src: photo('hero-firepit-patio.jpg'), width: 1200, format: 'jpg' });
+const ogImage = new URL(og.src, Astro.site).href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#1F3A2B" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Euro Style Landscape" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content={String(og.attributes.width ?? 1200)} />
+    <meta property="og:image:height" content={String(og.attributes.height ?? 889)} />
+    <meta property="og:image:alt" content="Circular paver patio with a curved stone seat wall" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <Font cssVariable="--font-hanken" preload={[{ weight: 400 }, { weight: 700 }]} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <Tracking />
+  </head>
+  <body>
+    <div class="page">
+      {landing ? <LandingHeader /> : <Header current={current} quoteHref={quoteHref} />}
+      <main>
+        <slot />
+      </main>
+      <Footer minimal={landing} />
+      <MobileStickyBar quoteHref={quoteHref} label={stickyLabel} />
+    </div>
+  </body>
+</html>

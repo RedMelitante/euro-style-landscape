@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageBanner from '../components/PageBanner.astro';
+import GalleryGrid from '../components/GalleryGrid.astro';
+import CtaBand from '../components/CtaBand.astro';
+---
+<BaseLayout
+  title="Our Work: Before & After Projects · Euro Style Landscape"
+  description="Drag to compare real Euro Style Landscape projects: patios, retaining walls, decks, lawns and full backyard makeovers."
+  current="work"
+  stickyLabel="Book a free consultation"
+>
+  <PageBanner
+    crumb="Our Work"
+    title="Our work: before & after"
+    lead="Real Euro Style Landscape projects. Drag any photo to compare, or filter by the type of project you're planning."
+  />
+
+  <section style="padding:clamp(32px, 4vw, 56px) 0 clamp(56px, 7vw, 96px)">
+    <div class="container">
+      <GalleryGrid />
+    </div>
+  </section>
+
+  <CtaBand
+    id="quote"
+    title="Want results like these?"
+    text="Book a free consultation. We'll visit, talk through your ideas and give you a design and written quote."
+    cta={{ href: '/contact', label: 'Book a free consultation' }}
+  />
+</BaseLayout>

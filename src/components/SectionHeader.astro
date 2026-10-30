@@ -1,0 +1,48 @@
+---
+// Theme section header: H2 left; kicker, description and optional link right;
+// green divider below. `badge` adds the sand pill above the H2. Without a
+// kicker the description sits alone on the right.
+interface Props {
+  title: string;
+  kicker?: string;
+  description: string;
+  link?: { href: string; label: string };
+  badge?: string;
+}
+
+const { title, kicker, description, link, badge } = Astro.props;
+---
+<div class="sh">
+  {badge ? (
+    <div class="left stack" style="gap:12px">
+      <span class="pill-sand">{badge}</span>
+      <h2 class="h2">{title}</h2>
+    </div>
+  ) : (
+    <h2 class="h2 left">{title}</h2>
+  )}
+  {kicker ? (
+    <div class="right">
+      {link ? (
+        <div class="kicker-row">
+          <p class="kicker">{kicker}</p>
+          <a href={link.href} class="more">{link.label}</a>
+        </div>
+      ) : (
+        <p class="kicker">{kicker}</p>
+      )}
+      <p class="body-muted">{description}</p>
+    </div>
+  ) : (
+    <p class="body-muted right">{description}</p>
+  )}
+</div>
+<div class="rule"></div>
+
+<style>
+  .sh { display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: flex-end; justify-content: space-between; }
+  .left { flex: 1 1 480px; }
+  .right { flex: 1 1 420px; display: flex; flex-direction: column; gap: 8px; }
+  .kicker-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+  .more { font-size: 15px; color: var(--green-700); }
+</style>

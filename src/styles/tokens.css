@@ -1,0 +1,49 @@
+/* Euro Style Landscape — design tokens (taken directly from the approved designs).
+   Drop into the Astro project's global stylesheet, or map these into tailwind.config theme.extend. */
+:root {
+  /* Brand greens */
+  --forest-900: #183024;   /* footer */
+  --forest-800: #1F3A2B;   /* header, highlight/CTA bands, "What happens next" box */
+  --forest-700: #2B4A38;   /* borders + raised cards on forest */
+  --green-800:  #24523A;   /* link hover */
+  --green-700:  #2F6844;   /* links, eyebrows, active states, primary hover */
+  --green-600:  #3A7D52;   /* PRIMARY button, icon circles on light */
+  --mint-100:   #E6EFE7;   /* icon circle backgrounds, category chips */
+
+  /* Sage (top-of-page sections) */
+  --sage-100:   #E6EEE4;   /* home hero, landing hero, inner page banners */
+  --sage-200:   #D6E1D3;   /* sage dividers, light-ghost hover */
+  --sage-line:  #B9C8B6;   /* outline button border on sage */
+
+  /* Sand / gold accent */
+  --sand-500:   #C9A46A;   /* buttons on forest, accents on dark, wordmark "LANDSCAPE" on dark */
+  --sand-600:   #B8925A;   /* sand button hover */
+
+  /* Neutrals */
+  --stone-50:   #F4F1EA;   /* page background */
+  --white:      #FFFFFF;   /* cards, form, sticky mobile bar */
+  --line:       #E2DCCF;   /* card borders */
+  --line-strong:#CFC8B8;   /* input borders, outline buttons on white */
+  --ink:        #1E2621;   /* body text / headings on light */
+  --ink-muted:  #4F5A52;   /* secondary text on light */
+  --on-dark:    #F3EFE6;   /* text on forest */
+  --on-dark-muted: #BDC3B8;/* secondary text on forest */
+  --charcoal:   #1B1F1B;   /* text on sand buttons */
+
+  /* Type */
+  --font-sans: var(--font-hanken, "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif); /* --font-hanken comes from the Astro Fonts API (Google Fonts) */
+  --fs-h1-home: clamp(2.375rem, 1.5rem + 2.8vw, 3.75rem);  /* 800, -0.03em, lh 1.06 */
+  --fs-h1:      clamp(2.125rem, 1.5rem + 2.2vw, 3.25rem);  /* 700, -0.015em, lh 1.12 */
+  --fs-h2:      clamp(1.875rem, 1.4rem + 1.6vw, 2.75rem);  /* 600, -0.01em, lh 1.12 */
+  --fs-lead:    clamp(1.0625rem, 1rem + .3vw, 1.1875rem);  /* lh 1.6 */
+  --fs-eyebrow: 14px;                                      /* 600, uppercase, .12em */
+
+  /* Layout */
+  --container: 1280px;      /* + 16px side padding = 1248px content, same as the ProCleaning theme */
+  --gutter: 16px;
+  --section-y: clamp(56px, 7vw, 96px);
+  --header-h: 92px;         /* fits the 76px client logo; 80px below 768px (global.css) */
+  --radius-btn: 8px;        /* hero buttons use 10px */
+  --radius-card: 12px;      /* large cards / images 16–18px */
+  --shadow-form: 0 24px 60px rgba(17,22,18,.22);
+}

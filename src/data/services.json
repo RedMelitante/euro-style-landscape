@@ -1,0 +1,222 @@
+{
+  "note": "Services shown on /services, the home services overview, the footer and the quote form. Copy is final; edit here, not in components.",
+  "groups": [
+    {
+      "id": "construction",
+      "title": "Construction",
+      "badge": "Our core service",
+      "intro": "Every project starts with a free on-site consultation. You get a design and a detailed written quote before any work begins, then our crew builds it.",
+      "cta": {
+        "label": "Book a free design consultation",
+        "href": "/contact"
+      },
+      "items": [
+        {
+          "id": "outdoor-backyard-design",
+          "title": "Outdoor backyard design",
+          "text": "We plan your backyard around how you want to use it and show you a 3D design and a written quote before anything is built.",
+          "image": "raised-patio-design.jpg",
+          "alt": "3D design of a raised paver patio with steps",
+          "featured": true,
+          "link": {
+            "label": "See design-to-build projects",
+            "href": "/our-work"
+          }
+        },
+        {
+          "id": "pavers",
+          "title": "Pavers",
+          "text": "Paver patios, walkways and driveways laid on a properly prepared base.",
+          "image": "side-patio.jpg",
+          "alt": "Side-yard paver patio with a granite border",
+          "link": {
+            "label": "See paver projects",
+            "href": "/our-work"
+          }
+        },
+        {
+          "id": "retaining-walls",
+          "title": "Retaining walls",
+          "text": "Walls that level a sloping yard, create usable space and add structure.",
+          "image": "covered-patio-wall.jpg",
+          "alt": "Paver patio under a covered porch beside a block retaining wall",
+          "link": {
+            "label": "See wall projects",
+            "href": "/our-work"
+          }
+        },
+        {
+          "id": "decks",
+          "title": "Decks",
+          "text": "Decks that extend your living space outdoors, built to suit your yard and your home.",
+          "image": "backyard-deck-progress.jpg",
+          "alt": "Composite deck platform and pavers in a fenced backyard",
+          "link": {
+            "label": "See deck projects",
+            "href": "/our-work"
+          }
+        },
+        {
+          "id": "masonry-work",
+          "title": "Masonry work",
+          "text": "Stone and block work, including steps, pillars and walls.",
+          "image": "front-entry-after.jpg",
+          "alt": "Finished stone front entry steps and walkway",
+          "link": {
+            "label": "See masonry projects",
+            "href": "/our-work"
+          }
+        },
+        {
+          "id": "concrete",
+          "title": "Concrete",
+          "text": "Concrete patios, walkways, pads and steps.",
+          "icon": "layers"
+        },
+        {
+          "id": "outdoor-kitchens",
+          "title": "Outdoor kitchens",
+          "text": "Built-in grill stations and outdoor kitchens for cooking and entertaining outside.",
+          "icon": "flame"
+        },
+        {
+          "id": "stone-veneer",
+          "title": "Stone veneer",
+          "text": "Stone facing for walls, steps, pillars and outdoor kitchens.",
+          "icon": "brick-wall"
+        },
+        {
+          "id": "asphalt",
+          "title": "Asphalt",
+          "text": "Asphalt driveways and paved areas.",
+          "icon": "road"
+        }
+      ]
+    },
+    {
+      "id": "lawn-maintenance",
+      "title": "Lawn maintenance",
+      "heading": "Keep your lawn and yard looking cared for",
+      "intro": "Regular lawn care and clean-ups for yards we've built and yards we haven't.",
+      "image": "front-lawn-tree.jpg",
+      "alt": "Well-kept front lawn with a mature tree and mulched beds",
+      "cta": {
+        "label": "Get a maintenance quote",
+        "href": "/contact"
+      },
+      "items": [
+        {
+          "id": "lawn-mowing",
+          "title": "Lawn mowing",
+          "text": "Regular mowing to keep your lawn neat and even.",
+          "icon": "grass"
+        },
+        {
+          "id": "fertilization",
+          "title": "Fertilization",
+          "text": "Feeding your lawn at the right times of year for strong, green growth.",
+          "icon": "sprout"
+        },
+        {
+          "id": "aeration",
+          "title": "Aeration",
+          "text": "Loosening compacted soil so water, air and nutrients reach the roots.",
+          "icon": "dots-grid"
+        },
+        {
+          "id": "property-cleanup",
+          "title": "Property cleanup",
+          "text": "Clearing leaves, debris and overgrowth to get your yard back in shape.",
+          "icon": "leaf"
+        }
+      ]
+    },
+    {
+      "id": "more",
+      "title": "Fencing, planting & landscape install",
+      "intro": "Finish the yard with a new fence, fresh planting, or a complete landscape installed in one go.",
+      "items": [
+        {
+          "id": "fencing",
+          "title": "Fencing",
+          "text": "New fences and gates for privacy, safety and a finished boundary around your yard.",
+          "image": "stone-pillars-gate.jpg",
+          "alt": "White vinyl privacy fence and gate between stacked-stone pillars with lanterns",
+          "link": {
+            "label": "Get a fencing quote",
+            "href": "/contact"
+          }
+        },
+        {
+          "id": "planting",
+          "title": "Planting",
+          "text": "Garden beds, shrubs and trees chosen for your site and the amount of upkeep you want.",
+          "image": "front-lawn-beds.jpg",
+          "alt": "Front lawn with mulched beds, shrubs and an ornamental tree",
+          "link": {
+            "label": "Get a planting quote",
+            "href": "/contact"
+          }
+        },
+        {
+          "id": "landscape-install",
+          "title": "Landscape install",
+          "text": "New lawns, garden beds, mulch and plantings installed as one finished landscape.",
+          "image": "backyard-after.jpg",
+          "alt": "Finished backyard with new lawn, paver walkway and deck",
+          "link": {
+            "label": "See the backyard makeover",
+            "href": "/our-work"
+          }
+        }
+      ]
+    }
+  ],
+  "footerLinks": [
+    {
+      "label": "Construction",
+      "href": "/services#construction"
+    },
+    {
+      "label": "Lawn maintenance",
+      "href": "/services#lawn-maintenance"
+    },
+    {
+      "label": "Fencing",
+      "href": "/services#fencing"
+    },
+    {
+      "label": "Planting",
+      "href": "/services#planting"
+    },
+    {
+      "label": "Landscape install",
+      "href": "/services#landscape-install"
+    }
+  ],
+  "quoteFormOptions": {
+    "Construction": [
+      "Outdoor backyard design",
+      "Pavers",
+      "Concrete",
+      "Outdoor kitchen",
+      "Retaining wall",
+      "Stone veneer",
+      "Decks",
+      "Masonry work",
+      "Asphalt"
+    ],
+    "Lawn maintenance": [
+      "Lawn mowing",
+      "Fertilization",
+      "Aeration",
+      "Property cleanup"
+    ],
+    "Other services": [
+      "Fencing",
+      "Planting",
+      "Landscape install"
+    ],
+    "_last": "Not sure yet"
+  }
+}

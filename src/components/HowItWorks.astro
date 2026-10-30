@@ -1,0 +1,47 @@
+---
+// Three step cards: icon, number, photo, title, text.
+import Icon, { type IconName } from './Icon.astro';
+import Photo from './Photo.astro';
+
+type StepImage = { src: string; alt: string; position?: string };
+
+interface Props {
+  /** Card background: stone on white sections (home), white elsewhere. */
+  cardBg?: string;
+  images: [StepImage, StepImage, StepImage];
+}
+
+const { cardBg = '#FFFFFF', images } = Astro.props;
+const steps: { icon: IconName; title: string; text: string }[] = [
+  { icon: 'chat', title: 'Free consultation', text: 'We visit your property, walk the space with you and talk through ideas, style and budget. No cost, no obligation.' },
+  { icon: 'pen', title: 'Design & quote', text: "You receive a design for your backyard and a detailed written quote, so you know exactly what you're getting before any work starts." },
+  { icon: 'hammer', title: 'Build', text: "Our crew builds your project, keeps the site clean and walks you through the finished space when it's done." },
+];
+---
+<ol class="steps grid-auto" style="--min:300px;--gap:20px">
+  {steps.map((s, i) => (
+    <li style={`background:${cardBg}`}>
+      <div class="top">
+        <span class="icon-circle disc"><Icon name={s.icon} size={24} /></span>
+        <span class="num">{`0${i + 1}`}</span>
+      </div>
+      <Photo
+        src={images[i].src}
+        alt={images[i].alt}
+        sizes="(min-width: 1280px) 360px, (min-width: 700px) 45vw, 90vw"
+        style={`display:block;width:100%;aspect-ratio:16 / 10;object-fit:cover;border-radius:8px${images[i].position ? `;object-position:${images[i].position}` : ''}`}
+      />
+      <h3>{s.title}</h3>
+      <p class="body-muted">{s.text}</p>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .steps { list-style: none; margin: 0; padding: 0; }
+  li { border: 1px solid var(--line); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .top { display: flex; align-items: center; justify-content: space-between; }
+  .disc { width: 52px; height: 52px; background: var(--mint-100); color: var(--green-700); }
+  .num { font-size: 28px; font-weight: 700; color: var(--green-700); }
+  h3 { margin: 0; font-size: 22px; line-height: 1.3; font-weight: 600; }
+</style>

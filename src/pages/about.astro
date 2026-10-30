@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageBanner from '../components/PageBanner.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CheckList from '../components/CheckList.astro';
+import TrustTiles from '../components/TrustTiles.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+---
+<BaseLayout
+  title="About Us · Euro Style Landscape"
+  description="Meet the crew behind Euro Style Landscape: European-inspired landscape design and construction, from the first sketch to the final clean-up."
+  current="about"
+>
+  <PageBanner
+    crumb="About us"
+    title="About Euro Style Landscape"
+    lead="European-inspired landscape design and construction — one team from the first sketch to the finished garden."
+  />
+
+  <!-- Story -->
+  <section class="section">
+    <div class="container story">
+      <div class="story-copy">
+        <p class="kicker">Our story</p>
+        <h2 class="h2">Outdoor spaces with European character, built for the way you live</h2>
+        <p class="body-lg">Our name says it: we bring the character of European outdoor living — natural stone, clean lines and spaces made for gathering — to backyards here at home. Every project is planned around how you want to use your yard, then built with care to last.</p>
+        <p class="body-lg">Today we design and build complete outdoor spaces — pavers, concrete, retaining walls, decks, outdoor kitchens, masonry and fencing — install new landscapes and planting, and look after lawns and yards once they're finished.</p>
+        <CheckList
+          items={['One team, design to build', 'Licensed & insured', 'Detailed written quotes', 'Ongoing maintenance available']}
+          style="margin:4px 0 0"
+        />
+        <div class="btn-row">
+          <a href="/contact" class="btn btn-md btn-primary">Book a free consultation</a>
+          <a href="/our-work" class="btn btn-md btn-outline">See our work
+            <Icon name="arrow-up-right" size={14} strokeWidth={2.2} />
+          </a>
+        </div>
+      </div>
+      <div class="story-media">
+        <Photo src="walkway-steps.jpg" alt="Paver walkway with a dark border leading to wide steps" sizes="(min-width: 1280px) 560px, (min-width: 1000px) 45vw, 92vw" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;border-radius:16px;background-color:#4C6A4B" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust row -->
+  <section style="padding:0 0 clamp(56px, 7vw, 96px)">
+    <div class="container"><TrustTiles /></div>
+  </section>
+
+  <!-- Team -->
+  <section class="section section-white">
+    <div class="container stack" style="gap:32px">
+      <SectionHeader
+        title="The people behind your project"
+        kicker="Our team"
+        description="The same people who design your space are the ones who build it and answer your calls."
+      />
+      <figure class="team">
+        <Photo src="team.jpg" alt="The Euro Style Landscape crew standing together beside the work van" sizes="(min-width: 1280px) 1248px, 100vw" style="display:block;width:100%;aspect-ratio:16 / 9;object-fit:cover;object-position:center 55%;border-radius:16px;background-color:#66705C" />
+        <figcaption>The Euro Style Landscape crew — the people who design, build and look after every project.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- How we work -->
+  <section class="section">
+    <div class="container stack" style="gap:32px">
+      <SectionHeader
+        title="How we work"
+        kicker="Three simple steps"
+        description="Every project starts with a free conversation on site and ends with a walkthrough of your finished space."
+      />
+      <HowItWorks
+        images={[
+          { src: 'backyard-before.jpg', alt: 'A backyard before work begins, with bare soil along the fence' },
+          { src: 'raised-patio-design.jpg', alt: '3D design of a raised paver patio' },
+          { src: 'raised-patio-built.jpg', alt: 'The finished raised paver patio' },
+        ]}
+      />
+    </div>
+  </section>
+
+  <CtaBand
+    title="Let's talk about your backyard"
+    text="Book a free on-site consultation — no cost, no obligation."
+    cta={{ href: '/contact', label: 'Book a free consultation' }}
+  />
+</BaseLayout>
+
+<style>
+  .story { display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center; }
+  .story-copy { flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+  .story-media { flex: 1 1 440px; min-width: 0; position: relative; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .team { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .team figcaption { font-size: 15px; line-height: 1.6; color: var(--ink-muted); }
+</style>

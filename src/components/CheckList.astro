@@ -1,0 +1,29 @@
+---
+// Two-column list with mint check circles (theme "Welcome" checklist).
+import Icon from './Icon.astro';
+
+interface Props {
+  items: string[];
+  min?: number;
+  style?: string;
+}
+
+const { items, min = 220, style = 'margin:0' } = Astro.props;
+---
+<ul class="checks" style={`--min:${min}px;${style}`}>
+  {items.map((item) => (
+    <li>
+      <span class="icon-circle tick"><Icon name="check" size={16} strokeWidth={2.6} /></span>
+      {item}
+    </li>
+  ))}
+</ul>
+
+<style>
+  .checks {
+    list-style: none; padding: 0; display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--min), 100%), 1fr)); gap: 12px 24px;
+  }
+  li { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; }
+  .tick { width: 28px; height: 28px; background: var(--mint-100); color: var(--green-700); }
+</style>

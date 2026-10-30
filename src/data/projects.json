@@ -1,0 +1,42 @@
+{
+  "categories": [
+    { "id": "all", "label": "All projects" },
+    { "id": "patios", "label": "Patios & paving" },
+    { "id": "walls", "label": "Retaining walls" },
+    { "id": "decks", "label": "Decks" },
+    { "id": "lawns", "label": "Lawns" },
+    { "id": "makeovers", "label": "Full makeovers" }
+  ],
+  "projects": [
+    { "id": "backyard-makeover", "title": "Backyard makeover — lawn, pavers & deck", "category": "makeovers", "kind": "pair",
+      "before": { "src": "backyard-before.jpg", "alt": "Backyard before: bare soil along the fence", "label": "BEFORE" },
+      "after":  { "src": "backyard-after.jpg",  "alt": "Backyard after: new lawn, paver walkway and deck", "label": "AFTER" } },
+    { "id": "raised-patio-design-build", "title": "Raised paver patio — from 3D design to build", "category": "patios", "kind": "pair",
+      "before": { "src": "raised-patio-design.jpg", "alt": "3D design of a raised paver patio", "label": "3D DESIGN" },
+      "after":  { "src": "raised-patio-built.jpg",  "alt": "The finished raised paver patio", "label": "FINISHED" } },
+    { "id": "raised-patio-lighting", "title": "Raised patio with built-in step lighting", "category": "patios", "kind": "pair",
+      "before": { "src": "raised-patio-day.jpg",   "alt": "Raised paver patio by day", "label": "DAY" },
+      "after":  { "src": "raised-patio-night.jpg", "alt": "The same patio at night with step lights", "label": "NIGHT" } },
+    { "id": "front-entry-steps", "title": "Stone front entry steps", "category": "patios", "kind": "pair",
+      "before": { "src": "front-steps-during.jpg", "alt": "Front entry steps being built", "label": "DURING" },
+      "after":  { "src": "front-entry-after.jpg",  "alt": "The finished front entry and walkway", "label": "AFTER" } },
+    { "id": "circular-patio", "title": "Circular patio with stone seat wall", "category": "patios", "kind": "single",
+      "image": { "src": "hero-firepit-patio.jpg", "alt": "Circular paver patio with a curved stone seat wall" } },
+    { "id": "side-yard-patio", "title": "Side-yard patio with granite edging", "category": "patios", "kind": "single",
+      "image": { "src": "side-patio.jpg", "alt": "Side-yard paver patio with a granite border" } },
+    { "id": "walkway-steps", "title": "Paver walkway & steps", "category": "patios", "kind": "single",
+      "image": { "src": "walkway-steps.jpg", "alt": "Paver walkway with a dark border leading to wide steps" } },
+    { "id": "curved-front-walkway", "title": "Curved front walkway", "category": "patios", "kind": "single",
+      "image": { "src": "front-walkway.jpg", "alt": "Curved paver walkway to a brick-front home" } },
+    { "id": "retaining-wall-covered-patio", "title": "Retaining wall & covered patio", "category": "walls", "kind": "single",
+      "image": { "src": "covered-patio-wall.jpg", "alt": "Paver patio under a covered porch beside a block retaining wall" } },
+    { "id": "deck-platform", "title": "Low deck platform & paver patio", "category": "decks", "kind": "single",
+      "image": { "src": "backyard-deck-progress.jpg", "alt": "Composite deck platform and pavers in a fenced backyard" } },
+    { "id": "front-lawn-beds", "title": "Front lawn & garden beds", "category": "lawns", "kind": "single",
+      "image": { "src": "front-lawn-beds.jpg", "alt": "Front lawn with mulched beds and shrubs" } },
+    { "id": "lawn-tree-beds", "title": "Lawn & tree bed refresh", "category": "lawns", "kind": "single",
+      "image": { "src": "front-lawn-tree.jpg", "alt": "Well-kept front lawn with a mature tree and mulched beds" } },
+    { "id": "full-rear-yard", "title": "Full rear yard — raised patio & steps", "category": "makeovers", "kind": "single",
+      "image": { "src": "raised-patio-wide.jpg", "alt": "Wide raised paver patio across the back of a house" } }
+  ]
+}

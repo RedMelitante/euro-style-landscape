@@ -1,0 +1,64 @@
+---
+// Our Work gallery with filter chips, rendered from src/data/projects.json.
+// Without JS every project shows; the script filters in place.
+import ProjectCard, { type Project } from './ProjectCard.astro';
+import data from '../data/projects.json';
+
+const categories = data.categories;
+const projects = data.projects as Project[];
+const label = Object.fromEntries(categories.map((c) => [c.id, c.label]));
+---
+<div class="stack" style="gap:24px" data-gallery>
+  <div class="toolbar">
+    <div class="chips" role="group" aria-label="Filter projects by type">
+      {categories.map((c) => (
+        <button type="button" class="chip" aria-pressed={c.id === 'all' ? 'true' : 'false'} data-filter={c.id}>{c.label}</button>
+      ))}
+    </div>
+    <p class="count" aria-live="polite" data-count>Showing {projects.length} projects</p>
+  </div>
+  <div class="grid-auto" style="--min:360px;--gap:24px">
+    {projects.map((p) => <ProjectCard project={p} categoryLabel={label[p.category]} />)}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-gallery]').forEach((root) => {
+    const chips = [...root.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    const cards = [...root.querySelectorAll<HTMLElement>('[data-cat]')];
+    const count = root.querySelector<HTMLElement>('[data-count]')!;
+    chips.forEach((chip) =>
+      chip.addEventListener('click', () => {
+        const f = chip.dataset.filter;
+        chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+        let n = 0;
+        cards.forEach((card) => {
+          const on = f === 'all' || card.dataset.cat === f;
+          card.hidden = !on;
+          if (on) n += 1;
+        });
+        count.textContent = `Showing ${n} ${n === 1 ? 'project' : 'projects'}`;
+      }),
+    );
+  });
+</script>
+
+<style>
+  .toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; }
+  .chip {
+    height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line-strong);
+    background: var(--white); color: var(--ink); font: inherit; font-size: 15px; font-weight: 600; white-space: nowrap; cursor: pointer;
+  }
+  .chip:hover { background: #F0ECE4; }
+  .chip[aria-pressed='true'] { background: var(--ink); color: var(--white); border-color: var(--ink); }
+  .chip:focus-visible { outline: 3px solid var(--sand-500); outline-offset: 2px; }
+  .count { margin: 0; font-size: 15px; color: var(--ink-muted); }
+  @media (max-width: 767px) {
+    .chips {
+      flex: 0 0 calc(100% + 32px); min-width: 0; flex-wrap: nowrap; overflow-x: auto;
+      margin: 0 -16px; padding: 0 16px 4px; scrollbar-width: none;
+    }
+    .chip { flex: none; }
+  }
+</style>

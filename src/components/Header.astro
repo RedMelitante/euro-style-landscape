@@ -1,0 +1,89 @@
+---
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { NAV, PHONE_DISPLAY, PHONE_HREF, type NavKey } from '../lib/site';
+
+interface Props {
+  current: NavKey;
+  /** '#quote' on pages with a form, '/contact' elsewhere. */
+  quoteHref: string;
+}
+
+const { current, quoteHref } = Astro.props;
+---
+<header class="site-header">
+  <div class="container bar">
+    <a href="/" aria-label="Euro Style Landscape home" class="brand"><Logo /></a>
+    <nav class="d-only main-nav" aria-label="Main">
+      {NAV.map((item) => (
+        <a
+          href={item.href}
+          class="nav-link"
+          aria-current={item.key === current ? 'page' : undefined}
+          style={`color:${item.key === current ? '#C9A46A' : '#F3EFE6'}`}
+        >{item.label}</a>
+      ))}
+    </nav>
+    <div class="actions">
+      <a href={PHONE_HREF} class="d-only phone-wide nav-link phone">
+        <Icon name="phone" size={18} stroke="#C9A46A" />
+        {PHONE_DISPLAY}
+      </a>
+      <a href={quoteHref} class="d-only btn btn-sand quote">Get a quote</a>
+      <a href={PHONE_HREF} class="m-only icon-btn" aria-label="Call Euro Style Landscape">
+        <Icon name="phone" size={20} />
+      </a>
+      <button type="button" class="m-only icon-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>
+        <Icon name="menu" size={20} />
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" class="m-only mobile-nav" aria-label="Mobile" hidden>
+    {NAV.map((item) => (
+      <a
+        href={item.href}
+        aria-current={item.key === current ? 'page' : undefined}
+        style={`color:${item.key === current ? '#C9A46A' : '#F3EFE6'}`}
+      >{item.label}</a>
+    ))}
+    <a href={quoteHref} class="btn btn-sand mobile-quote">Get a free quote</a>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.getElementById('mobile-nav');
+  if (toggle && menu) {
+    const setOpen = (open: boolean) => {
+      menu.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+    toggle.addEventListener('click', () => setOpen(menu.hidden));
+    menu.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.hidden) { setOpen(false); toggle.focus(); }
+    });
+  }
+</script>
+
+<style>
+  .site-header { background: var(--forest-800); border-bottom: 1px solid var(--forest-700); }
+  .bar { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; text-decoration: none; }
+  .main-nav { display: flex; align-items: center; gap: 32px; font-size: 16px; }
+  .main-nav a { text-decoration: none; }
+  .actions { display: flex; align-items: center; gap: 12px; }
+  .phone { display: flex; align-items: center; gap: 8px; color: var(--on-dark); text-decoration: none; font-size: 15px; font-weight: 600; white-space: nowrap; }
+  .quote { height: 44px; padding: 0 18px; font-size: 15px; font-weight: 600; white-space: nowrap; }
+  .icon-btn {
+    display: flex; width: 44px; height: 44px; align-items: center; justify-content: center;
+    border: 1px solid rgba(243, 239, 230, .45); border-radius: 8px;
+    background: transparent; color: var(--on-dark); cursor: pointer;
+  }
+  .icon-btn:hover { color: var(--on-dark); }
+  .mobile-nav { display: flex; flex-direction: column; gap: 2px; padding: 8px 16px 20px; border-top: 1px solid var(--forest-700); }
+  .mobile-nav a:not(.btn) { display: flex; align-items: center; min-height: 48px; text-decoration: none; font-size: 17px; font-weight: 600; }
+  .mobile-quote { margin-top: 10px; height: 52px; font-size: 16px; }
+</style>

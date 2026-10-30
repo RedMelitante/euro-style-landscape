@@ -1,0 +1,141 @@
+---
+// Ad landing page (Meta ads). No site navigation, minimal footer, noindex.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CommitmentCards from '../components/CommitmentCards.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import TrustTiles from '../components/TrustTiles.astro';
+import Icon from '../components/Icon.astro';
+import { PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
+
+const pairs = [
+  { title: 'Full backyard makeover', beforeSrc: 'backyard-before.jpg', afterSrc: 'backyard-after.jpg', before: 'Backyard before: bare soil along the fence', after: 'Backyard after: new lawn, paver walkway and deck', beforeLabel: 'BEFORE', afterLabel: 'AFTER' },
+  { title: 'Raised patio with step lighting', beforeSrc: 'raised-patio-day.jpg', afterSrc: 'raised-patio-night.jpg', before: 'Raised paver patio by day', after: 'The same patio at night with step lights', beforeLabel: 'DAY', afterLabel: 'NIGHT' },
+  { title: 'Front entry steps', beforeSrc: 'front-steps-during.jpg', afterSrc: 'front-entry-after.jpg', before: 'Front entry steps being built', after: 'The finished front entry and walkway', beforeLabel: 'DURING', afterLabel: 'AFTER' },
+  { title: 'Raised paver patio & steps', beforeSrc: 'raised-patio-render-2.jpg', afterSrc: 'raised-patio-built-2.jpg', before: '3D design of a raised patio with steps', after: 'The finished raised patio with steps', beforeLabel: '3D DESIGN', afterLabel: 'FINISHED' },
+];
+const heroChecks = ['Free on-site consultation', 'Design & written quote', 'Licensed & insured'];
+const ctaChecks = ['On-site visit and design ideas, free', 'Detailed written quote before any work starts', 'Licensed & insured for your peace of mind'];
+---
+<BaseLayout
+  title="Free Backyard Design Consultation · Euro Style Landscape"
+  description="Patios, retaining walls, decks and planting — designed around how you live and built by Euro Style Landscape. Book a free on-site consultation to get started."
+  landing
+  quoteHref="#quote"
+  stickyLabel="Get my free quote"
+>
+  <!-- Hero: headline + before/after + form -->
+  <section class="sage-top" style="padding:clamp(32px, 5vw, 72px) 0 clamp(40px, 6vw, 88px)">
+    <div class="container hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Free backyard design consultation</p>
+        <h1 class="h1">Transform your backyard into a European-style outdoor retreat.</h1>
+        <p class="lead" style="max-width:620px">Patios, retaining walls, decks and planting — designed around how you live and built by Euro Style Landscape. Book a free on-site consultation to get started.</p>
+        <ul class="inline-checks">
+          {heroChecks.map((c) => <li><Icon name="check" size={18} stroke="#2F6844" strokeWidth={2.4} />{c}</li>)}
+        </ul>
+        <a href="#quote" class="m-only btn btn-primary btn-lg">Book my free consultation
+          <Icon name="arrow-down" size={18} />
+        </a>
+        <figure class="hero-fig">
+          <BeforeAfter
+            beforeSrc="raised-patio-design.jpg"
+            afterSrc="raised-patio-built.jpg"
+            before="3D design of a raised paver patio"
+            after="The finished raised paver patio"
+            beforeLabel="3D DESIGN"
+            afterLabel="FINISHED"
+            ratio="16 / 10"
+            sizes="(min-width: 1280px) 720px, (min-width: 1100px) 56vw, 100vw"
+            eager
+          />
+          <figcaption>From 3D design to finished patio — drag to compare. A real Euro Style Landscape project.</figcaption>
+        </figure>
+      </div>
+      <div id="quote" class="form-col qf-slot">
+        <QuoteForm id="top" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Before & after projects -->
+  <section class="section">
+    <div class="container stack" style="gap:32px">
+      <SectionHeader
+        title="Real backyards, transformed"
+        kicker="Before & after"
+        description="Drag the slider on any project to see the change. Every project shown is a real Euro Style Landscape job."
+      />
+      <div class="grid-auto" style="--min:480px;--gap:32px 24px">
+        {pairs.map((p) => (
+          <div class="stack" style="gap:14px">
+            <BeforeAfter {...p} ratio="3 / 2" sizes="(min-width: 1280px) 612px, (min-width: 1000px) 48vw, 100vw" />
+            <span class="pair-title">{p.title}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CommitmentCards />
+
+  <!-- How it works + trust row -->
+  <section class="section">
+    <div class="container stack" style="gap:32px">
+      <SectionHeader
+        title="How it works"
+        kicker="Three simple steps"
+        description="From the first conversation to the finished space, you deal with one team the whole way through."
+      />
+      <HowItWorks
+        images={[
+          { src: 'team.jpg', alt: 'The Euro Style Landscape crew' },
+          { src: 'design-render-night.jpg', alt: 'A 3D backyard design with evening lighting' },
+          { src: 'front-steps-during.jpg', alt: 'A crew member building stone front steps', position: 'center 70%' },
+        ]}
+      />
+      <TrustTiles style="margin-top:16px" />
+    </div>
+  </section>
+
+  <!-- Repeat CTA + form -->
+  <section class="section-forest" style="padding:clamp(56px, 7vw, 104px) 0">
+    <div class="container cta">
+      <div class="cta-copy">
+        <p class="eyebrow eyebrow-dark">Free, no-obligation consultation</p>
+        <h2 class="h2">Ready to see what your backyard could be?</h2>
+        <p class="cta-lead">Tell us a little about your project. We'll come to you, listen, and show you what's possible for your space and budget.</p>
+        <ul class="cta-checks">
+          {ctaChecks.map((c) => <li><Icon name="check" size={20} stroke="#C9A46A" strokeWidth={2.4} />{c}</li>)}
+        </ul>
+        <a href={PHONE_HREF} class="cta-call">
+          <Icon name="phone" size={20} stroke="#C9A46A" />
+          Prefer to talk? Call {PHONE_DISPLAY}
+        </a>
+      </div>
+      <div id="quote-bottom" class="form-col qf-slot">
+        <QuoteForm id="bottom" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; }
+  .hero-copy { flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+  .form-col { flex: 1 1 460px; max-width: 480px; min-width: 0; }
+  .inline-checks { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 8px 20px; flex-wrap: wrap; font-size: 15px; color: var(--ink); }
+  .inline-checks li { display: flex; align-items: center; gap: 8px; }
+  .hero-fig { margin: 8px 0 0; display: flex; flex-direction: column; gap: 10px; }
+  .hero-fig figcaption { font-size: 14px; color: var(--ink-muted); }
+  .pair-title { font-size: 18px; font-weight: 600; }
+  .cta { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; }
+  .cta-copy { flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+  .cta-lead { margin: 0; font-size: 17px; line-height: 1.6; color: var(--on-dark-muted); max-width: 560px; }
+  .cta-checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .cta-checks li { display: flex; align-items: center; gap: 12px; font-size: 16px; }
+  .cta-call { display: flex; align-items: center; gap: 10px; color: var(--on-dark); text-decoration: none; font-size: 17px; font-weight: 600; margin-top: 4px; }
+  .cta-call:hover { color: var(--on-dark); }
+</style>

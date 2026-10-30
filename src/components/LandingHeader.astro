@@ -1,0 +1,23 @@
+---
+// Ad landing page header: logo + call button only, no site navigation.
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+import { PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
+---
+<header class="site-header">
+  <div class="container bar">
+    <a href="#" aria-label="Euro Style Landscape" class="brand"><Logo /></a>
+    <a href={PHONE_HREF} class="btn btn-ghost-light call">
+      <Icon name="phone" size={18} />
+      <span class="d-only">Call {PHONE_DISPLAY}</span>
+      <span class="m-only">Call</span>
+    </a>
+  </div>
+</header>
+
+<style>
+  .site-header { background: var(--forest-800); border-bottom: 1px solid var(--forest-700); }
+  .bar { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; text-decoration: none; }
+  .call { height: 44px; padding: 0 16px; border-color: rgba(243, 239, 230, .45); font-size: 15px; white-space: nowrap; }
+</style>

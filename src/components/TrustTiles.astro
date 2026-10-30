@@ -1,0 +1,36 @@
+---
+import Icon, { type IconName } from './Icon.astro';
+import { SERVICE_AREA } from '../lib/site';
+
+interface Props {
+  style?: string;
+}
+
+const { style } = Astro.props;
+const tiles: { icon: IconName; title: string; text: string }[] = [
+  { icon: 'shield', title: 'Licensed & insured', text: 'Peace of mind on every project' },
+  { icon: 'calendar', title: 'Design & build, one team', text: 'From 3D design to the final clean-up' },
+  { icon: 'pin', title: 'Areas we serve', text: SERVICE_AREA },
+];
+---
+<div class="grid-auto" style={`--min:300px;--gap:16px;${style ?? ''}`}>
+  {tiles.map((t) => (
+    <div class="tile">
+      <span class="icon-circle disc"><Icon name={t.icon} size={24} /></span>
+      <div class="stack" style="gap:2px">
+        <span class="t">{t.title}</span>
+        <span class="d">{t.text}</span>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .tile {
+    background: var(--white); color: var(--ink); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px 24px; display: flex; align-items: center; gap: 16px;
+  }
+  .disc { width: 52px; height: 52px; background: var(--green-600); color: var(--white); }
+  .t { font-size: 17px; font-weight: 600; }
+  .d { font-size: 15px; color: var(--ink-muted); }
+</style>

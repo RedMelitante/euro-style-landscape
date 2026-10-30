@@ -1,0 +1,33 @@
+---
+// Inner-page banner: sage background, breadcrumb, H1, lead. Extra content
+// (e.g. the Services jump links) goes in the default slot.
+interface Props {
+  title: string;
+  lead: string;
+  crumb: string;
+  /** Tighter bottom padding (Services, which has jump links). */
+  tight?: boolean;
+  /** Lead paragraph max width in px (Services uses 680). */
+  leadMax?: number;
+}
+
+const { title, lead, crumb, tight = false, leadMax = 640 } = Astro.props;
+const padBottom = tight ? 'clamp(32px, 4vw, 56px)' : 'clamp(40px, 5vw, 72px)';
+---
+<section class="sage-top" style={`padding:clamp(40px, 6vw, 80px) 0 ${padBottom}`}>
+  <div class="container stack" style="gap:16px">
+    <nav aria-label="Breadcrumb" class="crumbs">
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page" style="color:#1E2621">{crumb}</span>
+    </nav>
+    <h1 class="h1" style="max-width:760px">{title}</h1>
+    <p class="lead" style={`max-width:${leadMax}px`}>{lead}</p>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .crumbs { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink-muted); }
+  .crumbs a { color: var(--ink-muted); }
+</style>

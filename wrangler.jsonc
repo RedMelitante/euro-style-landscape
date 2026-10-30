@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "euro-style-landscape",
+  "compatibility_date": "2026-10-12",
+  // The live site. www.eurostylelandscape.com redirects here via a
+  // Cloudflare Redirect Rule (Rules → Redirect Rules), not via the Worker.
+  "routes": [{ "pattern": "eurostylelandscape.com", "custom_domain": true }],
+  // Logs from /api/lead (Workers & Pages → euro-style-landscape → Logs)
+  "observability": { "enabled": true },
+  // Secrets are set with `npx wrangler secret put NAME`, never written here:
+  //   GHL_TOKEN           GoHighLevel Private Integration token
+  //   LEAD_BACKUP_URL     Google Apps Script web app URL (docs/google-apps-script-lead-backup.gs)
+  //   LEAD_BACKUP_SECRET  optional; only if SECRET is also set in that script
+  //   META_CAPI_TOKEN     Meta Conversions API token (when tracking is set up)
+  "vars": {
+    // GoHighLevel sub-account "Eurostyle Landscape"
+    "GHL_LOCATION_ID": "kUo666oVrHpsxOixnJSy",
+    // New leads open an opportunity in this pipeline's first stage ("New Lead")
+    "GHL_PIPELINE_NAME": "Marketing Pipeline"
+  }
+}

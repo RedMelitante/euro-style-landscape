@@ -1,0 +1,98 @@
+@import './tokens.css';
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--stone-50);
+  font-family: var(--font-sans);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--green-700); }
+a:hover { color: var(--green-800); }
+h1, h2, h3, p { text-wrap: pretty; }
+img { max-width: 100%; }
+[id] { scroll-margin-top: 16px; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--sand-500); outline-offset: 2px; }
+
+.page { min-height: 100px; background: var(--stone-50); display: flex; flex-direction: column; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- Responsive visibility (≤767px = mobile) ----------
+   .m-only elements set their own display; they are hidden from 768px up.
+   .d-only elements are hidden below 768px. .phone-wide hides below 1180px. */
+@media (max-width: 767px) { .d-only { display: none !important; } }
+@media (min-width: 768px) { .m-only { display: none !important; } }
+@media (max-width: 1179px) { .phone-wide { display: none !important; } }
+
+/* ---------- Type ---------- */
+.h1-home { margin: 0; font-size: var(--fs-h1-home); line-height: 1.06; font-weight: 800; letter-spacing: -0.03em; }
+.h1 { margin: 0; font-size: var(--fs-h1); line-height: 1.12; font-weight: 700; letter-spacing: -0.015em; }
+.h2 { margin: 0; font-size: var(--fs-h2); line-height: 1.12; font-weight: 600; letter-spacing: -0.01em; }
+.lead { margin: 0; font-size: var(--fs-lead); line-height: 1.6; color: var(--ink-muted); }
+.eyebrow { margin: 0; font-size: var(--fs-eyebrow); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--green-700); }
+.eyebrow-dark { color: var(--sand-500); }
+.kicker { margin: 0; font-size: 18px; font-weight: 600; color: var(--green-700); }
+.body-muted { margin: 0; font-size: 16px; line-height: 1.6; color: var(--ink-muted); }
+.body-lg { margin: 0; font-size: 17px; line-height: 1.7; color: var(--ink-muted); }
+
+/* ---------- Sections ---------- */
+.section { padding: var(--section-y) 0; }
+.section-white { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section-forest { background: var(--forest-800); color: var(--on-dark); }
+.sage-top { background: var(--sage-100); color: var(--ink); border-bottom: 1px solid var(--sage-200); }
+.rule { border-top: 1px solid rgba(58, 125, 82, .45); }
+.stack { display: flex; flex-direction: column; }
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--min, 300px), 100%), 1fr));
+  gap: var(--gap, 24px);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  border: 0; border-radius: var(--radius-btn);
+  font-family: inherit; text-decoration: none; cursor: pointer;
+}
+.btn-sm { height: 44px; padding: 0 16px; font-size: 14px; }
+.btn-md { height: 48px; padding: 0 20px; font-size: 15px; }
+.btn-lg { height: 52px; padding: 0 24px; font-size: 16px; }
+.btn-xl { height: 56px; padding: 0 24px; font-size: 17px; }
+.btn-hero { height: 54px; padding: 0 26px; font-size: 16px; border-radius: 10px; }
+
+.btn-primary { background: var(--green-600); color: var(--white); font-weight: 700; }
+.btn-primary:hover { background: var(--green-700); color: var(--white); }
+.btn-sand { background: var(--sand-500); color: var(--charcoal); font-weight: 700; }
+.btn-sand:hover { background: var(--sand-600); color: var(--charcoal); }
+.btn-outline { border: 1px solid var(--ink); color: var(--ink); font-weight: 600; }
+.btn-outline:hover { background: var(--ink); color: var(--white); }
+.btn-light-ghost { border: 1px solid var(--sage-line); color: var(--ink); font-weight: 600; }
+.btn-light-ghost:hover { background: #D6E2D3; color: var(--ink); }
+.btn-ghost-light { border: 1px solid rgba(243, 239, 230, .7); color: var(--on-dark); font-weight: 600; }
+.btn-ghost-light:hover { background: rgba(243, 239, 230, .08); color: var(--on-dark); }
+
+/* ---------- Small shared pieces ---------- */
+.icon-circle { flex: none; border-radius: 999px; display: flex; align-items: center; justify-content: center; }
+.tag { align-self: flex-start; padding: 6px 12px; border-radius: 999px; background: var(--mint-100); color: var(--green-800); font-size: 14px; font-weight: 700; }
+.pill-sand { align-self: flex-start; padding: 6px 12px; border-radius: 999px; background: var(--sand-500); color: var(--charcoal); font-size: 13px; font-weight: 700; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.nav-link:hover { color: #E4C88F !important; }
+.foot-link { color: var(--on-dark-muted); text-decoration: none; }
+.foot-link:hover { color: var(--on-dark); }
+.tile-hover:hover { border-color: var(--green-600) !important; }
+
+/* Leave room for the sticky call/quote bar so it never covers a form's submit button. */
+@media (max-width: 767px) {
+  :root { --header-h: 80px; }
+  html { scroll-padding-bottom: var(--sticky-bar-h); }
+  .qf-slot { padding-bottom: var(--sticky-bar-h); }
+}
+:root { --sticky-bar-h: 77px; }

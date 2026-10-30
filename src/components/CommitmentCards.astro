@@ -1,0 +1,35 @@
+---
+// Landing page "What you can count on". Stands in for the reviews strip
+// until real Google reviews are supplied (HANDOFF §11).
+import Icon, { type IconName } from './Icon.astro';
+
+const cards: { icon: IconName; title: string; text: string }[] = [
+  { icon: 'chat', title: 'No-pressure consultation', text: 'We come to you, listen to what you want and give honest advice — with no cost and no obligation to go ahead.' },
+  { icon: 'pen', title: 'A clear plan before we start', text: 'You see the design and a detailed written quote before any work begins, so there are no surprises.' },
+  { icon: 'home', title: 'Respect for your home', text: "We keep the site clean while we work and walk you through the finished space when it's done." },
+];
+---
+<section class="section-white" style="padding:clamp(56px, 7vw, 88px) 0">
+  <div class="container stack" style="gap:32px">
+    <div class="head">
+      <p class="eyebrow">Our commitment</p>
+      <h2 class="h2">What you can count on</h2>
+    </div>
+    <div class="grid-auto" style="--min:320px;--gap:20px">
+      {cards.map((c) => (
+        <div class="c">
+          <span class="icon-circle disc"><Icon name={c.icon} size={22} /></span>
+          <h3>{c.title}</h3>
+          <p class="body-muted">{c.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .head { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+  .c { background: var(--stone-50); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .disc { width: 48px; height: 48px; background: var(--mint-100); color: var(--green-700); }
+  h3 { margin: 0; font-size: 21px; line-height: 1.3; font-weight: 600; }
+</style>

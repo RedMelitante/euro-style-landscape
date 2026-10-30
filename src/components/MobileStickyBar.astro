@@ -1,0 +1,30 @@
+---
+// Shown at ≤767px only, on every page.
+import Icon from './Icon.astro';
+import { PHONE_HREF } from '../lib/site';
+
+interface Props {
+  quoteHref: string;
+  label?: string;
+}
+
+const { quoteHref, label = 'Get a free quote' } = Astro.props;
+---
+<div class="m-only sticky-bar">
+  <a href={PHONE_HREF} aria-label="Call Euro Style Landscape" class="btn call">
+    <Icon name="phone" size={18} />
+    Call
+  </a>
+  <a href={quoteHref} class="btn btn-primary quote">{label}</a>
+</div>
+
+<style>
+  .sticky-bar {
+    display: flex; position: sticky; bottom: 0; z-index: 20; gap: 10px;
+    padding: 10px 16px 14px; background: var(--white);
+    border-top: 1px solid var(--line); box-shadow: 0 -8px 24px rgba(17, 22, 18, .10);
+  }
+  .call { flex: 1 1 0; height: 52px; border: 1.5px solid var(--ink); color: var(--ink); font-size: 16px; font-weight: 700; }
+  .call:hover { color: var(--ink); }
+  .quote { flex: 2 1 0; height: 52px; font-size: 16px; }
+</style>

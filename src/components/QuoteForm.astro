@@ -1,0 +1,221 @@
+---
+// Quote request form (design/component-quote-form). Several can sit on one
+// page: `id` keeps every field id unique (qf-<field>-<id>).
+import Icon from './Icon.astro';
+import { BUDGETS, PHONE_DISPLAY, TIMELINES } from '../lib/site';
+import { quoteLastOption, quoteOptionGroups } from '../lib/services';
+
+interface Props {
+  id: string;
+  /** "Request a free quote" on Home and Contact, where maintenance leads land too. */
+  title?: string;
+}
+
+const { id: uid, title = 'Book your free design consultation' } = Astro.props;
+const f = (name: string) => `qf-${name}-${uid}`;
+---
+<form class="qf" action="/api/lead" method="post" data-quote-form>
+  <div class="qf-fields" data-qf-fields>
+    <div class="qf-head">
+      <h2 class="qf-title">{title}</h2>
+      <p class="qf-sub">Tell us about your project. It takes under a minute.</p>
+    </div>
+    <div class="qf-group">
+      <label for={f('name')}>Full name</label>
+      <input class="qf-field" id={f('name')} name="name" type="text" autocomplete="name" maxlength="120" required />
+    </div>
+    <div class="qf-row">
+      <div class="qf-group">
+        <label for={f('phone')}>Phone</label>
+        <input class="qf-field" id={f('phone')} name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="30" required />
+      </div>
+      <div class="qf-group">
+        <label for={f('email')}>Email</label>
+        <input class="qf-field" id={f('email')} name="email" type="email" autocomplete="email" maxlength="200" required />
+      </div>
+    </div>
+    <div class="qf-group">
+      <label for={f('service')}>Service needed</label>
+      <select class="qf-field qf-select" id={f('service')} name="service" required>
+        <option value="">Choose a service</option>
+        {quoteOptionGroups.map(([label, options]) => (
+          <optgroup label={label}>
+            {options.map((s) => <option>{s}</option>)}
+          </optgroup>
+        ))}
+        <option>{quoteLastOption}</option>
+      </select>
+    </div>
+    <div class="qf-row">
+      <div class="qf-group">
+        <label for={f('area')}>ZIP code</label>
+        <input class="qf-field" id={f('area')} name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="10" pattern="\d{5}(-\d{4})?" required />
+      </div>
+      <div class="qf-group">
+        <label for={f('budget')}>Rough budget</label>
+        <select class="qf-field qf-select" id={f('budget')} name="budget">
+          <option value="">Choose a range</option>
+          {BUDGETS.map((b) => <option>{b}</option>)}
+        </select>
+      </div>
+    </div>
+    <fieldset class="qf-group qf-fieldset">
+      <legend>When are you ready to start?</legend>
+      <div class="qf-choices">
+        {TIMELINES.map((t) => (
+          <label class="qf-choice">
+            <input type="radio" name="timeline" value={t} required />
+            <span>{t}</span>
+          </label>
+        ))}
+      </div>
+    </fieldset>
+    <div class="qf-group">
+      <label for={f('message')}>Describe the project <span class="qf-optional">(optional)</span></label>
+      <textarea class="qf-field qf-textarea" id={f('message')} name="message" rows="3" maxlength="1000"></textarea>
+    </div>
+    <!-- Honeypot: hidden from people, filled in by bots. -->
+    <div class="qf-hp" aria-hidden="true">
+      <label for={f('website')}>Website</label>
+      <input id={f('website')} name="website" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+    <input type="hidden" name="form_id" value={uid} />
+    <button class="qf-submit" type="submit" data-qf-submit>
+      <span data-qf-label>Book my free consultation</span>
+      <Icon name="arrow-right" size={18} strokeWidth={2.2} />
+    </button>
+    <p class="qf-error" role="alert" data-qf-error hidden>Sorry, your request didn't go through. Please try again or call us on {PHONE_DISPLAY}.</p>
+    <p class="qf-note">Free and no obligation. We'll call you to book a time to visit.</p>
+  </div>
+  <div role="status" class="qf-success" data-qf-success hidden>
+    <span class="qf-tick"><Icon name="check" size={30} strokeWidth={2.4} /></span>
+    <h2 class="qf-title" tabindex="-1" data-qf-success-title>Thanks — your request is in.</h2>
+    <p class="qf-thanks">We'll call you to book your free design consultation.</p>
+    <button class="qf-link" type="button" data-qf-reset>Edit my details</button>
+  </div>
+</form>
+
+<script>
+  type Track = { lead?: (d: { eventId: string; service: string }) => void };
+
+  const AD_LANDING_MAX_AGE = 30 * 24 * 60 * 60 * 1000;
+
+  /** The ad-tagged page this visitor first arrived on (saved by Tracking.astro), if recent. */
+  const adLandingUrl = () => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('es_ad_landing') || 'null');
+      return saved && Date.now() - saved.t < AD_LANDING_MAX_AGE ? String(saved.url) : '';
+    } catch {
+      return '';
+    }
+  };
+
+  const uuid = () =>
+    (crypto as Crypto & { randomUUID?: () => string }).randomUUID?.() ??
+    `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
+  document.querySelectorAll<HTMLFormElement>('[data-quote-form]').forEach((form) => {
+    const fields = form.querySelector<HTMLElement>('[data-qf-fields]')!;
+    const success = form.querySelector<HTMLElement>('[data-qf-success]')!;
+    const error = form.querySelector<HTMLElement>('[data-qf-error]')!;
+    const submit = form.querySelector<HTMLButtonElement>('[data-qf-submit]')!;
+    const label = form.querySelector<HTMLElement>('[data-qf-label]')!;
+    const idleLabel = label.textContent;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      error.hidden = true;
+      submit.disabled = true;
+      label.textContent = 'Sending…';
+
+      const eventId = uuid();
+      const data: Record<string, string> = Object.fromEntries(
+        [...new FormData(form)].map(([k, v]) => [k, String(v)]),
+      );
+      data.event_id = eventId;
+      data.page = location.href;
+      data.ad_landing_url = adLandingUrl();
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+
+        fields.hidden = true;
+        success.hidden = false;
+        success.querySelector<HTMLElement>('[data-qf-success-title]')?.focus();
+        // Conversion events fire only after the server accepted the lead.
+        (window as Window & { esTrack?: Track }).esTrack?.lead?.({ eventId, service: data.service });
+      } catch {
+        error.hidden = false;
+      } finally {
+        submit.disabled = false;
+        label.textContent = idleLabel;
+      }
+    });
+
+    form.querySelector('[data-qf-reset]')?.addEventListener('click', () => {
+      success.hidden = true;
+      fields.hidden = false;
+      form.querySelector<HTMLInputElement>('input[name="name"]')?.focus();
+    });
+  });
+</script>
+
+<style>
+  .qf {
+    background: var(--white); color: var(--ink); border-radius: 16px;
+    padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 18px;
+    box-shadow: var(--shadow-form); font-family: var(--font-sans);
+  }
+  .qf-fields { display: contents; }
+  .qf-head { display: flex; flex-direction: column; gap: 6px; }
+  .qf-title { margin: 0; font-size: 24px; line-height: 1.25; font-weight: 700; }
+  .qf-title:focus { outline: none; }
+  .qf-sub { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink-muted); }
+  .qf-group { display: flex; flex-direction: column; gap: 6px; }
+  .qf-group label { font-size: 14px; font-weight: 600; }
+  .qf-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 18px 14px; }
+  .qf-field {
+    height: 48px; padding: 0 14px; border: 1px solid var(--line-strong); border-radius: 8px;
+    font: inherit; font-size: 16px; color: var(--ink); background: var(--white); min-width: 0; width: 100%;
+  }
+  .qf-select { padding: 0 12px; }
+  .qf-textarea { height: auto; min-height: 96px; padding: 12px 14px; line-height: 1.5; resize: vertical; }
+  .qf-optional { font-weight: 400; color: var(--ink-muted); }
+  .qf-fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  .qf-fieldset legend { padding: 0; margin-bottom: 6px; font-size: 14px; font-weight: 600; }
+  .qf-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .qf-choice {
+    position: relative; height: 48px; display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--line-strong); border-radius: 8px; background: var(--white);
+    font-size: 16px; font-weight: 600; color: var(--ink); cursor: pointer;
+  }
+  .qf-choice input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .qf-choice:hover { border-color: var(--green-600); }
+  .qf-choice:has(input:checked) { border-color: var(--green-600); background: var(--mint-100); color: var(--green-800); box-shadow: inset 0 0 0 1px var(--green-600); }
+  .qf-choice:has(input:focus-visible) { box-shadow: 0 0 0 3px rgba(58, 125, 82, .25); border-color: var(--green-600); }
+  .qf-field:focus { outline: none; border-color: var(--green-600); box-shadow: 0 0 0 3px rgba(58, 125, 82, .25); }
+  .qf-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .qf-submit {
+    height: 56px; border: 0; border-radius: 8px; background: var(--green-600); color: var(--white);
+    font: inherit; font-size: 17px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer;
+  }
+  .qf-submit:hover { background: var(--green-700); }
+  .qf-submit:disabled { cursor: progress; opacity: .85; }
+  .qf-submit:focus-visible, .qf-link:focus-visible { outline: 3px solid var(--sand-500); outline-offset: 2px; }
+  .qf-error { margin: 0; font-size: 15px; line-height: 1.5; color: #9B2C1F; text-align: center; }
+  .qf-note { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink-muted); text-align: center; }
+  .qf-success { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; padding: 32px 8px; }
+  .qf-tick { width: 64px; height: 64px; border-radius: 999px; background: var(--mint-100); color: var(--green-700); display: flex; align-items: center; justify-content: center; }
+  .qf-thanks { margin: 0; font-size: 16px; line-height: 1.6; color: var(--ink-muted); max-width: 340px; }
+  .qf-link {
+    height: 44px; padding: 0 16px; border: 1px solid var(--line-strong); border-radius: 8px;
+    background: var(--white); color: var(--ink); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer;
+  }
+</style>
