@@ -21,7 +21,7 @@ subdomain must serve HTTPS. Turn HSTS off and wait out the max-age before ever m
 | Path | What |
 |---|---|
 | `src/pages/` | `/`, `/about`, `/services`, `/our-work`, `/contact`, `/free-design-consultation` (ad landing, noindex), `/privacy-policy`, `api/lead.ts` |
-| `src/pages/lp/` | Ad campaign pages (noindex, not in the sitemap), built from `design/lp-*.dc.html` in the handoff. They use `CampaignLayout`, not the site header or footer. `src/lib/campaigns.ts` holds their form sources, service options and the `OFFER_ON` flag. Forms post to `/api/lead` like the main form, with the same required email and timeline. |
+| `src/pages/lp/` | Ad campaign pages (noindex, not in the sitemap), built from `design/lp-*.dc.html` in the handoff. They use `CampaignLayout`, not the site header or footer. `src/lib/campaigns.ts` holds their form sources, service options, the `OFFER_ON` flag and the `NEW_CLIENT_OFFER_ON` switch for the 20% new client offer (pieces in `src/components/campaign/offer/`). Forms post to `/api/lead` like the main form, with the same required email and timeline. |
 | `src/layouts/BaseLayout.astro` | Head/SEO/OG, fonts, tracking, header/footer/sticky bar. `landing` prop switches to the ad-landing header and footer. |
 | `src/components/` | Header, LandingHeader, Footer, MobileStickyBar, QuoteForm, BeforeAfter, SectionHeader, PageBanner, TrustTiles, HowItWorks, CommitmentCards, CheckList, CtaBand, PhotoMosaic, GalleryGrid, ProjectCard, Logo, Icon, Photo, Tracking |
 | `src/styles/tokens.css` | Design tokens from the handoff (`global.css` imports it) |

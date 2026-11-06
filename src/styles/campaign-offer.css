@@ -1,0 +1,37 @@
+/* New client offer (20% off the first cleanup or refresh) on the campaign pages: UPDATE-3-OFFERS.md.
+   Used by src/components/campaign/offer/*. Colours and sizes are from the lp-*.dc.html designs. */
+
+/* Offer section */
+.offer20 { position: relative; padding: 44px 0; }
+.o20 { position: relative; overflow: hidden; background: #1F3A2B; color: #F4EFE4; border-radius: 22px; padding: 30px 22px 28px; text-align: center; box-shadow: 0 0 0 2px #C9A46A, 0 22px 50px rgba(17, 22, 18, .25); }
+.o20::before { content: ""; position: absolute; inset: 8px; border: 1px solid rgba(201, 164, 106, .45); border-radius: 16px; pointer-events: none; }
+.o20-tag { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 999px; background: #C9A46A; color: #16291F; font-family: var(--font-barlow-condensed); font-weight: 800; font-size: 15px; letter-spacing: .14em; text-transform: uppercase; }
+.o20-num { display: block; margin-top: 10px; font-family: var(--font-barlow-condensed); font-weight: 800; text-transform: uppercase; font-size: 92px; line-height: .9; color: #C9A46A; letter-spacing: -.01em; }
+.o20-script { display: block; font-family: var(--font-great-vibes); font-size: 40px; line-height: 1.05; color: #F4EFE4; margin-top: 2px; }
+.o20-script.kaushan { font-family: var(--font-kaushan); font-weight: 400; text-transform: none; font-size: 34px; line-height: 1.1; margin-top: 4px; }
+.o20-list { list-style: none; margin: 18px auto 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 720px; }
+.o20-list li { padding: 6px 12px; border: 1px solid rgba(201, 164, 106, .5); border-radius: 999px; font-size: 14.5px; font-weight: 600; color: #E9E3D6; }
+.o20 .o20-btn { margin-top: 22px; }
+.o20-terms { margin-top: 14px !important; font-size: 13px; line-height: 1.45; color: #BDC7BC; }
+
+/* Gold pill in the hero */
+.hero-offer { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 7px 14px; border-radius: 999px; background: #C9A46A; color: #16291F; font-family: var(--font-barlow-condensed); font-weight: 800; font-size: 15px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
+
+/* Dark strip in the form card */
+.form-offer { display: flex; align-items: center; gap: 8px; margin: 10px 0 0; padding: 9px 12px; border-radius: 10px; background: #1F3A2B; color: #F4EFE4; font-family: var(--font-barlow-condensed); font-weight: 700; font-size: 16px; letter-spacing: .06em; text-transform: uppercase; }
+.form-offer svg { color: #C9A46A; flex: none; }
+.form-offer b { color: #C9A46A; font-weight: 800; }
+
+/* Line in the final call to action (dark background; .light on the cream refresh pages) */
+p.o20-line.o20-line { font-family: var(--font-barlow-condensed); font-weight: 700; font-size: 20px; letter-spacing: .04em; text-transform: uppercase; color: #C9A46A; margin: 14px auto 0; position: relative; z-index: 2; }
+.o20-line small { display: block; font-family: var(--font-barlow); font-weight: 500; font-size: 13px; letter-spacing: 0; text-transform: none; color: #BDC7BC; margin-top: 4px; }
+p.o20-line.o20-line.light { color: #8A6A3A; }
+.o20-line.light small { color: #5A655D; }
+
+@media (min-width: 1024px) {
+  .offer20 { padding: 70px 0; }
+  .o20 { padding: 48px 40px 44px; }
+  .o20-num { font-size: 150px; }
+  .o20-script { font-size: 58px; }
+  .o20-script.kaushan { font-size: 50px; }
+}

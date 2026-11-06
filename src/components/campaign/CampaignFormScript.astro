@@ -1,8 +1,12 @@
 ---
 // Sends a campaign page's [data-campaign-form] to /api/lead, as QuoteForm does, and
 // runs its success state and (on /lp/rebuild-or-refresh) its two steps.
+// The hidden `offer` field also goes on the Lead / generate_lead events: new_client_20 for the
+// 20% new client offer, otherwise none.
 ---
 <script>
+  import { NEW_CLIENT_OFFER_CODE } from '../../lib/campaigns';
+
   type Track = { lead?: (d: { eventId: string; service: string; extra: Record<string, string> }) => void };
 
   const AD_LANDING_MAX_AGE = 30 * 24 * 60 * 60 * 1000;
@@ -39,6 +43,10 @@
         const on = block.dataset.choiceBlock === choice;
         block.hidden = !on;
         block.querySelectorAll<HTMLSelectElement>('select').forEach((s) => { s.disabled = !on; });
+      });
+      // An offer that only applies to one path (the 20% refresh offer) is sent with that path only.
+      form.querySelectorAll<HTMLInputElement>('input[name="offer"][data-offer-choice]').forEach((o) => {
+        o.value = choice === o.dataset.offerChoice ? (o.dataset.offerValue ?? 'none') : 'none';
       });
       const title = form.querySelector<HTMLElement>('[data-choice-title]');
       if (title) title.textContent = title.dataset[choice === 'rebuild' ? 'rebuild' : 'refresh'] ?? '';
@@ -87,6 +95,10 @@
         const extra: Record<string, string> = { form: data.source };
         if (data.ad_headline) extra.ad_headline = data.ad_headline;
         if (data.project_choice) extra.project_choice = data.project_choice;
+        if ('offer' in data) {
+          extra.offer = data.offer === NEW_CLIENT_OFFER_CODE ? 'new_client_20'
+            : data.offer && data.offer !== 'none' ? data.offer.replace(/-/g, '_') : 'none';
+        }
         (window as Window & { esTrack?: Track }).esTrack?.lead?.({ eventId, service: data.service, extra });
       } catch {
         error.hidden = false;

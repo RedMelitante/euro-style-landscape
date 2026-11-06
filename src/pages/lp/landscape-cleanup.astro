@@ -2,16 +2,20 @@
 // Ad campaign page, from design/lp-landscape-cleanup-awareness.dc.html (see CAMPAIGN-PAGES-UPDATE.md).
 import { Font, Image } from 'astro:assets';
 import CampaignLayout from '../../layouts/CampaignLayout.astro';
+import NewClientOffer from '../../components/campaign/offer/NewClientOffer.astro';
+import OfferPill from '../../components/campaign/offer/OfferPill.astro';
+import OfferLine from '../../components/campaign/offer/OfferLine.astro';
 import { photo } from '../../lib/images';
 import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
 
 ---
-<CampaignLayout title="Fall Yard Cleanup · Euro Style Landscape" viewContent="load">
+<CampaignLayout title="Fall Yard Cleanup · Euro Style Landscape" viewContent="load" trackPage="yard_cleanup_awareness">
   <Fragment slot="head">
     <Font cssVariable="--font-barlow-condensed" />
     <Font cssVariable="--font-barlow" preload={[{ weight: 400 }]} />
     <Font cssVariable="--font-montserrat" />
     <Font cssVariable="--font-kaushan" />
+    <Font cssVariable="--font-great-vibes" />
   </Fragment>
 <div style="background:#F4EFE4">
 
@@ -29,6 +33,7 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
       </div>
       <div class="h2o-body">
         <div class="h2o-copy">
+          <OfferPill />
           <p class="h2o-eyebrow"><span class="dot"></span>Now booking · Fall cleanup season</p>
           <h1>Fall landscape cleanup<span>for a cleaner, healthier yard</span></h1>
           <p class="sub">Leaves, beds and lawn cleared and ready for winter, then cared for all year by one local team in Middlesex County.</p>
@@ -110,6 +115,16 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
     </div>
   </section>
 
+  <NewClientOffer
+    id="new-client-offer"
+    service="landscape cleanup"
+    chips={['Leaf & debris cleanup', 'Bed cleanup & refresh', 'Final mow & edges', 'Aeration & fertilization']}
+    label="Claim 20% Off Your First Cleanup"
+    href="/lp/landscape-cleanup-quote"
+    track="estimate_click"
+    terms="*Valid on your first landscape cleanup with Euro Style Landscape. New clients only."
+  />
+
   
   <section class="og">
     <div class="wrap og-in">
@@ -160,6 +175,7 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
     <div class="wrap">
       <div class="gr"></div>
       <h2>Ready for a cleaner yard before winter?</h2>
+      <OfferLine text="New clients save 20% on their first landscape cleanup." />
       <a href="/lp/landscape-cleanup-quote" class="btn-gold" data-track="estimate_click" data-track-location="cta_band">Book Your Free Cleanup Estimate <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
       <a href="tel:+17328039646" class="call" data-track-location="cta_band">Or call (732) 803-9646</a>
     </div>

@@ -2,11 +2,14 @@
 // Ad campaign page, from design/lp-property-refresh-awareness.dc.html (see CAMPAIGN-PAGES-UPDATE.md).
 import { Font, Image } from 'astro:assets';
 import CampaignLayout from '../../layouts/CampaignLayout.astro';
+import NewClientOffer from '../../components/campaign/offer/NewClientOffer.astro';
+import OfferPill from '../../components/campaign/offer/OfferPill.astro';
+import OfferLine from '../../components/campaign/offer/OfferLine.astro';
 import { photo } from '../../lib/images';
 import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
 
 ---
-<CampaignLayout title="Property Refresh · Euro Style Landscape" viewContent="load">
+<CampaignLayout title="Property Refresh · Euro Style Landscape" viewContent="load" trackPage="property_refresh">
   <Fragment slot="head">
     <Font cssVariable="--font-barlow-condensed" />
     <Font cssVariable="--font-barlow" preload={[{ weight: 400 }]} />
@@ -26,6 +29,7 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
       </div>
       <div class="h2o-body">
         <div class="h2o-copy">
+          <OfferPill text="New clients · 20% off your first refresh" />
           <p class="h2o-eyebrow"><span class="dot"></span>Design · Build · Maintain</p>
           <h1>Premium care.<span>Beautiful results.</span></h1>
           <p class="sub">European-style landscaping that refreshes your property and boosts curb appeal, from one local team in Middlesex County.</p>
@@ -74,6 +78,16 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
     </div>
   </section>
 
+  <NewClientOffer
+    id="new-client-offer"
+    service="property refresh"
+    chips={['Yard & bed cleanup', 'Planting & landscape install', 'Garden bed refresh', 'Lawn maintenance', 'Fencing & gates']}
+    label="Claim 20% Off Your First Refresh"
+    href="/lp/rebuild-or-refresh"
+    track="estimate_click"
+    terms="*Valid on your first property refresh with Euro Style Landscape. New clients only."
+  />
+
   
   <section class="gal" id="work">
     <div class="wrap">
@@ -88,6 +102,8 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
         <figure class="gi "><Image src={photo('stone-pillars-gate.jpg')} alt="White vinyl gate between stacked-stone pillars with lanterns" widths={[480, 800, 1200, 1600]} sizes="(min-width: 1024px) 50vw, 100vw" format="webp" quality={70} decoding="async" loading="lazy" /><span class="tab cond">Stone Pillars &amp; Gate</span></figure>
         <figure class="gi "><Image src={photo('front-walkway.jpg')} alt="Curved paver walkway lined with topiaries leading to a brick-front home" widths={[480, 800, 1200, 1600]} sizes="(min-width: 1024px) 50vw, 100vw" format="webp" quality={70} decoding="async" loading="lazy" /><span class="tab cond">Front Walkway</span></figure>
       </div>
+      {/* Before/after: add the BeforeAfter slider (design/component-before-after.dc.html) here once the client
+          sends real before photos of these projects. No placeholder at launch. */}
     </div>
   </section>
 
@@ -146,6 +162,7 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
     <div class="wrap">
       <div class="gr"></div>
       <h2>Ready to see what your property could look like?</h2>
+      <OfferLine text="New clients get 20% off their first property refresh." light />
       <a href="/lp/rebuild-or-refresh" class="btn-gold" data-track="estimate_click" data-track-location="cta_band">Get a Free Estimate <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
       <a href="tel:+17328039646" class="call" data-track-location="cta_band">Or call (732) 803-9646</a>
     </div>
@@ -275,7 +292,7 @@ a:focus-visible{outline:3px solid #E07A2B;outline-offset:3px}
 /* gallery */
 .gal{background:#FFFDF8;border-top:1px solid #E3DACA;border-bottom:1px solid #E3DACA;padding:60px 0 64px}
 .gal h2{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:44px;line-height:.95;color:#1F3A2B;margin-top:12px}
-.gal h2 .script{display:block;font-size:62px;line-height:1;color:#A8895B;text-transform:none;font-weight:400;margin-top:2px}
+.gal h2 .script{display:block;font-size:clamp(44px,14vw,62px);overflow-wrap:break-word;line-height:1;color:#A8895B;text-transform:none;font-weight:400;margin-top:2px}
 .swoosh{display:block;width:220px;height:14px;margin-top:2px}
 .ggrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
 .gi{position:relative;margin:0;border-radius:14px;overflow:hidden;background:#16291F}
@@ -284,8 +301,6 @@ a:focus-visible{outline:3px solid #E07A2B;outline-offset:3px}
 .gi.big img{aspect-ratio:4/3}
 .gi .tab{font-size:13px;padding:6px 16px 6px 10px;bottom:10px}
 .gi.big .tab{font-size:16px}
-.ba-ph{margin-top:16px;border:2px dashed #C9A46A;border-radius:14px;padding:16px;background:#F3EEE4;display:flex;flex-direction:column;gap:6px;font-size:14.5px;line-height:1.5;color:#5A5040}
-.ba-ph b{font-family:var(--font-barlow-condensed);text-transform:uppercase;letter-spacing:.1em;font-size:14px;color:#A8895B}
 /* team */
 .team{background:#1F3A2B;color:#F3EEE4;padding:60px 0 64px;position:relative;overflow:hidden}
 .team-in{display:flex;flex-direction:column;gap:28px;position:relative;z-index:2}

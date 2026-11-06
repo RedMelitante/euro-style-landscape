@@ -10,9 +10,11 @@ interface Props {
   title: string;
   /** When Meta ViewContent fires: on load, or once the [data-track-view] gallery is half in view. */
   viewContent?: 'load' | 'gallery';
+  /** Sent as `page` with the QuoteClick / EstimateClick events of the awareness pages. */
+  trackPage?: string;
 }
 
-const { title, viewContent } = Astro.props;
+const { title, viewContent, trackPage } = Astro.props;
 const og = await getImage({ src: photo('hero-firepit-patio.jpg'), width: 1200, format: 'jpg' });
 const ogImage = new URL(og.src, Astro.site).href;
 ---
@@ -33,7 +35,7 @@ const ogImage = new URL(og.src, Astro.site).href;
     <slot name="head" />
     <Tracking />
   </head>
-  <body>
+  <body data-track-page={trackPage}>
     <slot />
     {viewContent === 'load' && (
       <script is:inline>

@@ -4,6 +4,11 @@ import { Font, Image } from 'astro:assets';
 import CampaignLayout from '../../layouts/CampaignLayout.astro';
 import TimelineField from '../../components/campaign/TimelineField.astro';
 import CampaignFormScript from '../../components/campaign/CampaignFormScript.astro';
+import NewClientOffer from '../../components/campaign/offer/NewClientOffer.astro';
+import OfferPill from '../../components/campaign/offer/OfferPill.astro';
+import OfferFormStrip from '../../components/campaign/offer/OfferFormStrip.astro';
+import OfferLine from '../../components/campaign/offer/OfferLine.astro';
+import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/campaigns';
 import { photo } from '../../lib/images';
 import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
 
@@ -36,6 +41,7 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-copy">
+          <OfferPill />
           <h1><span class="ograd">Fall leaf</span><span class="cream">Cleanup</span><span class="g">Keep your yard clean this fall!</span></h1>
         </div>
         <div class="form-wrap">
@@ -46,8 +52,10 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
             <div>
               <p class="cond form-title">Get your free estimate</p>
               <p class="form-sub">Takes under a minute.</p>
+              <OfferFormStrip service="leaf cleanup" />
             </div>
             <input type="hidden" name="source" value="fb-leaf-cleanup-landing">
+            <input type="hidden" name="offer" value={offer ? NEW_CLIENT_OFFER_CODE : 'none'}>
             <input type="hidden" name="form_id" value="fb-leaf-cleanup-landing">
             <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
             <label class="fld"><span>Full name</span><input class="qf" name="name" type="text" autocomplete="name" required></label>
@@ -70,7 +78,7 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
             <label class="fld"><span>Anything we should know about your yard? <em>(optional)</em></span><textarea class="qf" name="message" rows="3"></textarea></label>
             <button type="submit" class="submit cond"><span data-label>Get my free estimate</span> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button>
             <p class="form-error" role="alert" data-form-error hidden>Sorry, your request didn't go through. Please try again or call us on (732) 803-9646.</p>
-            <p class="fine">Free and no obligation. We'll call you to book a time to visit.</p>
+            <p class="fine">Free and no obligation. We'll call you to book a time to visit.{offer && <><br>*20% off applies to your first leaf cleanup. New clients only.</>}</p>
           </form>
           
           
@@ -126,6 +134,15 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
       </div>
     </div>
   </section>
+
+  <NewClientOffer
+    service="leaf cleanup"
+    chips={['Leaf blowing & raking', 'Bed & shrub clean-out', 'Collection & haul-away', 'One-time or seasonal']}
+    label="Claim my 20% off"
+    href="#quote"
+    terms="*Valid on your first leaf cleanup with Euro Style Landscape. New clients only."
+    script="kaushan"
+  />
 
   
   <section class="results">
@@ -192,6 +209,12 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
           <summary><span>Are you licensed and insured?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
           <p>Yes, Euro Style Landscape is licensed and insured.</p>
         </details>
+        {offer && (
+        <details class="faq">
+          <summary><span>How does the 20% new client offer work?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
+          <p>If you are new to Euro Style Landscape, you get 20% off your first leaf cleanup with us. Send the form or call to book your free estimate.</p>
+        </details>
+        )}
       </div>
     </div>
   </section>
@@ -206,6 +229,7 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
       <span class="brushf">All Fall Long.</span>
       <h2>Don't let the leaves<br><span>pile up.</span></h2>
       <p>Free estimate, one-time or seasonal service.</p>
+      <OfferLine text="New clients save 20% on their first leaf cleanup." />
       <div class="final-btns">
         <a href="#quote" class="btn-gold">Get my free estimate <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
         <a href="tel:+17328039646" class="btn-line" data-track-location="final_cta"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>Call (732) 803-9646</span></a>
@@ -222,7 +246,7 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Sayreville, NJ · Serving Middlesex County</span></li>
       </ul>
       <div class="legal">
-        <span>© 2026 Euro Style Landscape · Powered by Digital Services Master</span>
+        <span>Powered by Digital Services Master Copyright © 2026. All rights reserved</span>
         <a href="/privacy-policy" style="color:#BDC7BC;text-decoration:underline">Privacy policy</a>
       </div>
     </div>

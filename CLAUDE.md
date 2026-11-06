@@ -64,13 +64,19 @@ token, build and push, and the owner deploys from their computer.
   converter was a one-off, so edit the `.astro` files directly.
 - `src/lib/campaigns.ts` holds each form's `source`, the extra service options `/api/lead` accepts from those
   sources, and `OFFER_ON` (the "first month free" offer, off until the client confirms it in writing).
+- **20% new client offer** (handoff `UPDATE-3-OFFERS.md`, matches the running ads): `NEW_CLIENT_OFFER_ON` in
+  `src/lib/campaigns.ts` turns it on or off on all eight pages. Off hides every offer piece and the offer FAQ, puts
+  back the regular wording, and makes the forms send `offer: none`. The client ends it after the season. The
+  pieces are in `src/components/campaign/offer/` and `src/styles/campaign-offer.css`; keep the offer copy word for
+  word. The lead forms send `offer: new-client-20-off` (on `/lp/rebuild-or-refresh` only with the Refresh choice),
+  which shows in the GoHighLevel note, and the Lead / `generate_lead` events carry `offer: new_client_20` or `none`.
 - `?h=` swaps the headline on `/lp/landscape-cleanup-quote` (`fall`, `overgrown`, `offer`) and the hero on
   `/lp/rebuild-or-refresh` (`2027`, `fall`).
 
-## Open items (as of 2026-11-05)
+## Open items (as of 2026-11-06)
 
-- Client to confirm: "Licensed & insured" (on all campaign pages), haul-away and whether they need to be home for
-  the estimate, the town list, 2027 start timing, and the privacy policy text. Remove the privacy page's
+- Client to confirm: haul-away and whether they need to be home for the estimate, the town list, 2027 start
+  timing, and the privacy policy text. ("Licensed & insured" was confirmed by the client in handoff update 3.) Remove the privacy page's
   `noindex` only after they approve it.
 - No ads point at the campaign pages yet.
 - Real lead delivery from a campaign page has been tested once (GoHighLevel and Meta received it), but it updated

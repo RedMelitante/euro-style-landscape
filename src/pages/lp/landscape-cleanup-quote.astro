@@ -4,7 +4,11 @@ import { Font, Image } from 'astro:assets';
 import CampaignLayout from '../../layouts/CampaignLayout.astro';
 import TimelineField from '../../components/campaign/TimelineField.astro';
 import CampaignFormScript from '../../components/campaign/CampaignFormScript.astro';
-import { OFFER_ON } from '../../lib/campaigns';
+import NewClientOffer from '../../components/campaign/offer/NewClientOffer.astro';
+import OfferPill from '../../components/campaign/offer/OfferPill.astro';
+import OfferFormStrip from '../../components/campaign/offer/OfferFormStrip.astro';
+import OfferLine from '../../components/campaign/offer/OfferLine.astro';
+import { OFFER_ON, NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/campaigns';
 import { photo } from '../../lib/images';
 import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
 
@@ -43,6 +47,7 @@ const HEADLINES = {
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-copy" style="display:flex;flex-direction:column">
+          <OfferPill />
           <span class="locpill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Sayreville • Old Bridge • Middlesex County, NJ</span>
           <h1 class="anton"><span class="l1" data-h1a>{HEADLINES.fall.a}</span><span class="l2" data-h1b>{HEADLINES.fall.b}</span></h1>
           <p class="sl caps" data-subline>{HEADLINES.fall.sub}</p>
@@ -56,10 +61,11 @@ const HEADLINES = {
             <div>
               <p class="cond form-title">Get your free estimate</p>
               <p class="form-sub">Takes under a minute.</p>
+              <OfferFormStrip service="landscape cleanup" />
             </div>
             
             <input type="hidden" name="ad_headline" value="fall">
-            <input type="hidden" name="offer" value={OFFER_ON ? 'first-month-free-spring-maintenance' : 'none'}>
+            <input type="hidden" name="offer" value={OFFER_ON ? 'first-month-free-spring-maintenance' : offer ? NEW_CLIENT_OFFER_CODE : 'none'}>
             <input type="hidden" name="source" value="fb-fall-yard-cleanup-landing">
             <input type="hidden" name="form_id" value="fb-fall-yard-cleanup-landing">
             <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
@@ -88,7 +94,7 @@ const HEADLINES = {
             <label class="fld"><span>Tell us about your yard <em>(optional)</em></span><textarea class="qf" name="message" rows="3"></textarea></label>
             <button type="submit" class="submit cond"><span data-label>Get my free estimate</span> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button>
             <p class="form-error" role="alert" data-form-error hidden>Sorry, your request didn't go through. Please try again or call us on (732) 803-9646.</p>
-            <p class="fine">Free and no obligation. We'll call you to book a time to visit.</p>
+            <p class="fine">Free and no obligation. We'll call you to book a time to visit.{offer && <><br>*20% off applies to your first landscape cleanup. New clients only.</>}</p>
           </form>
           
           
@@ -163,6 +169,15 @@ const HEADLINES = {
     </div>
   </section>
 
+  <NewClientOffer
+    id="new-client-offer"
+    service="landscape cleanup"
+    chips={['Leaf & debris cleanup', 'Bed cleanup & refresh', 'Final mow & edges', 'Aeration & fertilization']}
+    label="Claim 20% off your first cleanup"
+    href="#quote"
+    terms="*Valid on your first landscape cleanup with Euro Style Landscape. New clients only."
+  />
+
   
   <section class="results">
     <svg class="leaf d" style="left:92%;top:8%;width:24px;height:24px;--r:-20deg;animation-delay:2s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#C45A2C"></polygon><path d="M12 19.5V23.5" stroke="#C45A2C" stroke-width="1.4" stroke-linecap="round"></path></svg>
@@ -233,6 +248,12 @@ const HEADLINES = {
           <summary><span>Are you licensed and insured?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
           <p>Yes, Euro Style Landscape is licensed and insured.</p>
         </details>
+        {offer && (
+        <details class="faq">
+          <summary><span>How does the 20% new client offer work?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
+          <p>If you are new to Euro Style Landscape, you get 20% off your first landscape cleanup with us. Send the form or call to book your free estimate.</p>
+        </details>
+        )}
       </div>
     </div>
   </section>
@@ -244,6 +265,7 @@ const HEADLINES = {
     <svg class="leaf " style="left:88%;top:20%;width:22px;height:22px;--r:30deg;animation-delay:3s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#C9A46A"></polygon><path d="M12 19.5V23.5" stroke="#C9A46A" stroke-width="1.4" stroke-linecap="round"></path></svg>
     <div class="wrap">
       <h2 class="anton"><span>Cleaner yards.</span><span>Healthier lawns.</span><span style="color:#C9A46A">A more beautiful home.</span></h2>
+      <OfferLine text="New clients save 20% on their first landscape cleanup." />
       <div class="final-btns">
         <a href="#quote" class="btn-gold">Get my free estimate <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
         <a href="tel:+17328039646" class="btn-line" data-track-location="final_cta"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>Call (732) 803-9646</span></a>
@@ -260,7 +282,7 @@ const HEADLINES = {
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Sayreville, NJ · Serving Middlesex County</span></li>
       </ul>
       <div class="legal">
-        <span>© 2026 Euro Style Landscape · Powered by Digital Services Master</span>
+        <span>Powered by Digital Services Master Copyright © 2026. All rights reserved</span>
         <a href="/privacy-policy" style="color:#BDC7BC;text-decoration:underline">Privacy policy</a>
       </div>
     </div>

@@ -1,0 +1,15 @@
+---
+// Offer line in a campaign page's final call to action. Hidden while the offer is off.
+import { NEW_CLIENT_OFFER_ON } from '../../../lib/campaigns';
+import '../../../styles/campaign-offer.css';
+
+interface Props {
+  text: string;
+  small?: string;
+  /** Darker gold for a cream background (the refresh pages). */
+  light?: boolean;
+}
+
+const { text, small = '*New clients only.', light = false } = Astro.props;
+---
+{NEW_CLIENT_OFFER_ON && <p class:list={['o20-line', { light }]}>{text}<small>{small}</small></p>}

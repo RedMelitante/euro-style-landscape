@@ -6,6 +6,8 @@ import TimelineField from '../../components/campaign/TimelineField.astro';
 import CampaignFormScript from '../../components/campaign/CampaignFormScript.astro';
 import { photo } from '../../lib/images';
 import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
+import NewClientOffer from '../../components/campaign/offer/NewClientOffer.astro';
+import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/campaigns';
 
 ---
 <CampaignLayout title="Free Fall Cleanup Estimate · Euro Style Landscape">
@@ -33,10 +35,10 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-copy">
-          <span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#16291F" stroke="none"></polygon></svg>Fall cleanup season</span>
+          <span class:list={['badge', { 'badge-offer': offer }]}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#16291F" stroke="none"></polygon></svg>{offer ? '20% off · New clients' : 'Fall cleanup season'}</span>
           <h1>Property<span class="g">Cleanups</span></h1>
           <span class="script">A cleaner yard. A better-looking home.</span>
-          <p class="sub">Fall cleanup season is here. Book your free on-site consultation in Middlesex County.</p>
+          <p class="sub">Fall cleanup season is here. {offer ? 'New clients get 20% off their first property cleanup in Middlesex County.' : 'Book your free on-site consultation in Middlesex County.'}</p>
         </div>
         <div class="form-wrap">
         <div class="form-card" id="quote" data-form-card>
@@ -44,10 +46,11 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
           
           <form action="/api/lead" method="post" data-campaign-form style="display:flex;flex-direction:column;gap:14px">
             <div>
-              <p class="cond form-title">Get your free quote</p>
-              <p class="form-sub">Takes under a minute.</p>
+              <p class="cond form-title">{offer ? 'Claim 20% off your first cleanup' : 'Get your free quote'}</p>
+              <p class="form-sub">{offer && 'New clients only. '}Takes under a minute.</p>
             </div>
             <input type="hidden" name="source" value="fb-fall-cleanup-landing">
+            <input type="hidden" name="offer" value={offer ? NEW_CLIENT_OFFER_CODE : 'none'}>
             <input type="hidden" name="form_id" value="fb-fall-cleanup-landing">
             <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
             <label class="fld"><span>Full name</span><input class="qf" name="name" type="text" autocomplete="name" required></label>
@@ -68,9 +71,9 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
             </label>
             <TimelineField />
             <label class="fld"><span>Tell us about your yard <em>(optional)</em></span><textarea class="qf" name="message" rows="3"></textarea></label>
-            <button type="submit" class="submit cond"><span data-label>Book my free consultation</span> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button>
+            <button type="submit" class="submit cond"><span data-label>{offer ? 'Claim my 20% off' : 'Book my free consultation'}</span> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button>
             <p class="form-error" role="alert" data-form-error hidden>Sorry, your request didn't go through. Please try again or call us on (732) 803-9646.</p>
-            <p class="fine">Free and no obligation. We'll call you to book a time to visit.</p>
+            <p class="fine">Free and no obligation. We'll call you to book a time to visit.{offer && <><br>*20% off applies to your first property cleanup. New clients only.</>}</p>
           </form>
           
           
@@ -85,6 +88,7 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
         </div>
         </div>
         <ul class="hero-checks">
+          {offer && <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>20% off your first cleanup*</li>}
           <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Free on-site consultation</li>
           <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Detailed written quote</li>
           <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Licensed &amp; insured</li>
@@ -113,19 +117,28 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
   </section>
   <div aria-hidden="true" style="background:#16291F;line-height:0;margin-top:-1px"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="display:block;width:100%;height:26px"><path d="M0,24 L0,28 L45,31 L90,28 L122,30 L167,32 L191,19 L234,30 L267,34 L304,19 L325,28 L352,18 L372,31 L415,34 L434,33 L464,28 L502,33 L540,19 L577,14 L621,30 L641,15 L660,20 L706,21 L743,14 L785,28 L813,28 L849,20 L883,21 L921,23 L954,14 L993,16 L1025,34 L1051,27 L1086,16 L1126,22 L1154,21 L1188,23 L1206,16 L1242,17 L1272,17 L1317,23 L1347,16 L1365,14 L1389,20 L1408,29 L1438,26 L1440,24 L1440,48 L0,48 Z" fill="#F4EFE4"></path></svg></div>
 
+  <NewClientOffer
+    service="property cleanup"
+    chips={['Leaf & debris removal', 'Bed cleanup & weeding', 'Shrub & hedge trimming', 'Mulch & bed edging', 'Lawn mowing & blowing', 'Leaf bagging & removal']}
+    label="Claim 20% off"
+    href="#quote"
+    terms="*New clients only. Valid on your first property cleanup."
+  />
+
   
   <section class="inc">
     <div class="wrap">
       <p class="eyebrow">What's included</p>
       <h2 class="big">Everything your yard<br><span style="color:#B8925A">needs this fall</span></h2>
       <ul>
-        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path><path d="M10 21v-6h4v6"></path></svg></span><span><b class="cond">Property cleanups</b><span>Clears debris and gets your yard back in shape.</span></span></li>
-        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M6 21v-5M9 21v-8M12 21v-6M15 21v-9M18 21v-5"></path></svg></span><span><b class="cond">Lawn mowing</b><span>Keeps your lawn neat and cared for all season.</span></span></li>
-        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"></path><path d="M12 20v-8"></path><path d="M12 12c0-3.5 2.5-6 6-6 0 3.5-2.5 6-6 6z"></path><path d="M12 14c0-3-2-5-5-5 0 3 2 5 5 5z"></path></svg></span><span><b class="cond">Fertilization &amp; aeration</b><span>Helps your lawn grow back thicker and healthier.</span></span></li>
-        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"></circle><path d="M12 11v10M12 16c-2.5 0-4.5-1.5-5-4M12 18c2.5 0 4.5-1.5 5-4"></path></svg></span><span><b class="cond">Planting &amp; bed refresh</b><span>New shrubs, plants and finished garden beds.</span></span></li>
+        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v13"></path><path d="M6 15h12"></path><path d="M6 15v5M9 15v5M12 15v5M15 15v5M18 15v5"></path></svg></span><span><b class="cond">Leaf &amp; debris removal</b><span>Leaves, sticks and yard waste cleared away.</span></span></li>
+        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"></circle><path d="M12 11v10M12 16c-2.5 0-4.5-1.5-5-4M12 18c2.5 0 4.5-1.5 5-4"></path></svg></span><span><b class="cond">Bed cleanup &amp; weeding</b><span>Beds cut back, weeded and refreshed.</span></span></li>
+        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"></path></svg></span><span><b class="cond">Shrub &amp; hedge trimming</b><span>Neat, shaped shrubs that look cared for.</span></span></li>
+        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"></path><path d="M5 20c0-4 3-7 7-7s7 3 7 7"></path><path d="M12 13V8"></path><path d="M12 8c0-2 1.5-4 4-4 0 2.5-1.5 4-4 4z"></path></svg></span><span><b class="cond">Mulch &amp; bed edging</b><span>Fresh mulch and clean, crisp bed edges.</span></span></li>
+        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10a3 3 0 1 0-3-3"></path><path d="M3 12h15a3 3 0 1 1-3 3"></path><path d="M3 16h7"></path></svg></span><span><b class="cond">Lawn mowing &amp; blowing</b><span>A neat cut, with walks and driveway blown clean.</span></span></li>
         <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span><b class="cond">Licensed &amp; insured</b><span>Peace of mind on every job.</span></span></li>
       </ul>
-      <div class="inc-cta"><a href="#quote" class="btn-gold">Get my free quote <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div>
+      <div class="inc-cta"><a href="#quote" class="btn-gold">{offer ? 'Claim 20% off' : 'Get my free quote'} <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div>
     </div>
   </section>
 
@@ -193,13 +206,19 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
       <div class="faq-inner">
         <p class="eyebrow">Questions</p>
         <h2 class="big" style="margin-bottom:16px">Good to know</h2>
+        {offer && (
         <details class="faq" open>
+          <summary><span>How does the 20% new client offer work?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
+          <p>If you are new to Euro Style Landscape, you get 20% off your first property cleanup with us. Send the form or call to book your free estimate.</p>
+        </details>
+        )}
+        <details class="faq" open={!offer}>
           <summary><span>Is the consultation really free?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
           <p>Yes. We visit your property, walk it with you and give you a written quote. There is no charge and no obligation to go ahead.</p>
         </details>
         <details class="faq">
-          <summary><span>What does a fall cleanup include?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
-          <p>It can include clearing leaves and debris, final lawn mowing, aeration and fertilization, and refreshing your planting beds. We agree the exact list with you at the visit.</p>
+          <summary><span>What does a property cleanup include?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
+          <p>It can include leaf and debris removal, bed cleanup and weeding, shrub and hedge trimming, mulch and bed edging, and lawn mowing and blowing. We agree the exact list with you at the visit.</p>
         </details>
         <details class="faq">
           <summary><span>Do I need to be home for the visit?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
@@ -225,9 +244,9 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
     <svg class="leaf d" style="left:80%;top:74%;width:28px;height:28px;--r:60deg;animation-delay:5s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#D4892A"></polygon><path d="M12 19.5V23.5" stroke="#D4892A" stroke-width="1.4" stroke-linecap="round"></path></svg>
     <div class="wrap">
       <h2>Get your yard ready<br><span>before winter.</span></h2>
-      <p>Free on-site consultation and a detailed written quote.</p>
+      <p>{offer ? 'New clients save 20% on their first property cleanup.' : 'Free on-site consultation and a detailed written quote.'}</p>
       <div class="final-btns">
-        <a href="#quote" class="btn-gold">Book my free consultation <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+        <a href="#quote" class="btn-gold">{offer ? 'Claim 20% off' : 'Book my free consultation'} <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
         <a href="tel:+17328039646" class="btn-line" data-track-location="final_cta"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>Call (732) 803-9646</span></a>
       </div>
     </div>
@@ -242,7 +261,7 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
         <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Sayreville, NJ · Serving Middlesex County</span></li>
       </ul>
       <div class="legal">
-        <span>© 2026 Euro Style Landscape · Powered by Digital Services Master</span>
+        <span>Powered by Digital Services Master Copyright © 2026. All rights reserved</span>
         <a href="/privacy-policy" style="color:#BDC7BC;text-decoration:underline">Privacy policy</a>
       </div>
     </div>
@@ -251,7 +270,7 @@ import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
   
   <div class="sticky">
     <a href="tel:+17328039646" class="s-call" data-track-location="sticky_bar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>Call now</a>
-    <a href="#quote" class="s-quote">Free quote <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+    <a href="#quote" class="s-quote">{offer ? 'Get 20% off' : <>Free quote <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></>}</a>
   </div>
 
 </div>
@@ -294,6 +313,7 @@ h2.big{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:u
 .hero-grid > *{min-width:0}
 .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr);gap:22px;padding:34px 0 40px}
 .badge{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:#D4892A;color:#16291F;font-family:var(--font-barlow-condensed);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:15px}
+.badge.badge-offer{background:#C9A46A;font-weight:800}
 .hero h1{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:64px;line-height:.88;margin-top:14px;text-shadow:0 2px 18px rgba(0,0,0,.3)}
 .hero h1 .g{display:block;color:#C9A46A}
 .hero .script{display:block;font-size:34px;line-height:1.1;color:#F4EFE4;margin-top:10px}
@@ -400,6 +420,7 @@ textarea.qf{min-height:84px;resize:vertical}
 .sticky .s-call{border:2px solid #C9A46A;color:#F4EFE4}
 .sticky .s-call svg{color:#C9A46A}
 .sticky .s-quote{background:#C9A46A;color:#1F3A2B}
+.sticky a{white-space:nowrap}
 @media (min-width:768px){
  .res-duo{grid-template-columns:1fr 1fr}
  .wrap{padding:0 32px}

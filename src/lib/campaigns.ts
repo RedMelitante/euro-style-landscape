@@ -3,6 +3,16 @@
 /** "First month free" offer on /lp/landscape-cleanup-quote. Stays off until the client confirms it in writing. */
 export const OFFER_ON = false;
 
+/**
+ * New client special: 20% off the first cleanup or refresh, on all eight campaign pages (matches the ads).
+ * Set to false when the client ends it after the season: every offer piece and the offer FAQ disappear,
+ * the pages go back to their regular wording, and the forms send `offer: none`.
+ */
+export const NEW_CLIENT_OFFER_ON = true;
+
+/** Hidden `offer` value the lead forms send while the new client offer is on (shown in the GoHighLevel note). */
+export const NEW_CLIENT_OFFER_CODE = 'new-client-20-off';
+
 /** Value of the hidden `source` field on each lead page. Other values are ignored by /api/lead. */
 export const CAMPAIGN_SOURCES = [
   'fb-fall-cleanup-landing',

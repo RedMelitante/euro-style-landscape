@@ -1,0 +1,43 @@
+---
+// "New client special" section: 20% off the first cleanup or refresh (UPDATE-3-OFFERS.md).
+// Renders nothing while NEW_CLIENT_OFFER_ON is false.
+import { NEW_CLIENT_OFFER_ON } from '../../../lib/campaigns';
+import '../../../styles/campaign-offer.css';
+
+interface Props {
+  /** Section id the page's own links point at. */
+  id?: string;
+  /** "property cleanup", "leaf cleanup", ... completes "your first …". */
+  service: string;
+  /** Service chips under the script line. */
+  chips: string[];
+  /** Button text and target: the leads page on awareness pages, #quote on leads pages. */
+  label: string;
+  href: string;
+  /** Click event for links to a leads page (Tracking.astro): quote_click or estimate_click. */
+  track?: 'quote_click' | 'estimate_click';
+  /** The terms line under the button, word for word. */
+  terms: string;
+  /** Script font of "your first …": Great Vibes, or Kaushan Script on the leaf cleanup pages. */
+  script?: 'great-vibes' | 'kaushan';
+  /** The page's own button class and, where the page styles buttons inline, its inline style. */
+  btnClass?: string;
+  btnStyle?: string;
+}
+
+const { id = 'offer', service, chips, label, href, track, terms, script = 'great-vibes', btnClass = 'btn-gold', btnStyle } = Astro.props;
+---
+{NEW_CLIENT_OFFER_ON && (
+  <section class="offer20" id={id} aria-label="New client special">
+    <div class="wrap">
+      <div class="o20">
+        <span class="o20-tag"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"></path><circle cx="7.5" cy="7.5" r="1.5"></circle></svg>New client special</span>
+        <span class="o20-num">20% off</span>
+        <span class:list={['o20-script', { kaushan: script === 'kaushan' }]}>your first {service}</span>
+        <ul class="o20-list">{chips.map((c) => <li>{c}</li>)}</ul>
+        <a href={href} class={`${btnClass} o20-btn`} style={btnStyle} data-track={track} data-track-location={track ? 'offer_band' : undefined}>{label} <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+        <p class="o20-terms">{terms}</p>
+      </div>
+    </div>
+  </section>
+)}
