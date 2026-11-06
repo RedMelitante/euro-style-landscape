@@ -2,16 +2,18 @@
 // Quote request form (design/component-quote-form). Several can sit on one
 // page: `id` keeps every field id unique (qf-<field>-<id>).
 import Icon from './Icon.astro';
-import { BUDGETS, PHONE_DISPLAY, TIMELINES } from '../lib/site';
+import { BUDGETS, PHONE_DISPLAY, PROPERTY_TYPES, TIMELINES } from '../lib/site';
 import { quoteLastOption, quoteOptionGroups } from '../lib/services';
 
 interface Props {
   id: string;
   /** "Request a free quote" on Home and Contact, where maintenance leads land too. */
   title?: string;
+  /** Hidden `source` (e.g. service-area-sayreville on the town pages), shown on the lead in GoHighLevel. */
+  source?: string;
 }
 
-const { id: uid, title = 'Book your free design consultation' } = Astro.props;
+const { id: uid, title = 'Book your free design consultation', source } = Astro.props;
 const f = (name: string) => `qf-${name}-${uid}`;
 ---
 <form class="qf" action="/api/lead" method="post" data-quote-form>
@@ -33,6 +35,13 @@ const f = (name: string) => `qf-${name}-${uid}`;
         <label for={f('email')}>Email</label>
         <input class="qf-field" id={f('email')} name="email" type="email" autocomplete="email" maxlength="200" required />
       </div>
+    </div>
+    <div class="qf-group">
+      <label for={f('type')}>Property type</label>
+      <select class="qf-field qf-select" id={f('type')} name="property_type" required>
+        <option value="">Choose one</option>
+        {PROPERTY_TYPES.map((t) => <option>{t}</option>)}
+      </select>
     </div>
     <div class="qf-group">
       <label for={f('service')}>Service needed</label>
@@ -80,6 +89,7 @@ const f = (name: string) => `qf-${name}-${uid}`;
       <input id={f('website')} name="website" type="text" tabindex="-1" autocomplete="off" />
     </div>
     <input type="hidden" name="form_id" value={uid} />
+    {source && <input type="hidden" name="source" value={source} />}
     <button class="qf-submit" type="submit" data-qf-submit>
       <span data-qf-label>Book my free consultation</span>
       <Icon name="arrow-right" size={18} strokeWidth={2.2} />

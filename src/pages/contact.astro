@@ -3,12 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageBanner from '../components/PageBanner.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import Icon, { type IconName } from '../components/Icon.astro';
-import { EMAIL, PHONE_DISPLAY, PHONE_HREF, SERVICE_AREA } from '../lib/site';
+import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
+import { NEW_CLIENT_OFFER_ON, NEW_CLIENT_OFFER_TERMS } from '../lib/campaigns';
 
 const tiles: { icon: IconName; title: string; text: string; href?: string }[] = [
   { icon: 'phone', title: 'Call us', text: PHONE_DISPLAY, href: PHONE_HREF },
   { icon: 'mail', title: 'Email us', text: EMAIL, href: `mailto:${EMAIL}` },
-  { icon: 'pin', title: 'Areas we serve', text: SERVICE_AREA },
+  { icon: 'pin', title: 'Areas we serve', text: 'Based in Sayreville, NJ · serving Middlesex, Monmouth & Union County towns' },
   { icon: 'calendar', title: 'Free on-site consultations', text: 'No cost, no obligation' },
 ];
 ---
@@ -29,6 +30,16 @@ const tiles: { icon: IconName; title: string; text: string; href?: string }[] = 
       <div class="info">
         <h2 class="h2">Find us</h2>
         <div class="stack" style="gap:12px">
+          {NEW_CLIENT_OFFER_ON && (
+            // NEW CLIENT OFFER tile (hidden while NEW_CLIENT_OFFER_ON is false)
+            <a href="#quote" class="tile tile-hover offer-tile">
+              <span class="icon-circle disc disc-sand"><Icon name="tag" size={22} /></span>
+              <span class="stack" style="gap:4px;min-width:0">
+                <span class="ot">New clients: <span class="gold">20% off</span> your first cleanup or property refresh*</span>
+                <span class="oterms">{NEW_CLIENT_OFFER_TERMS}</span>
+              </span>
+            </a>
+          )}
           {tiles.map((t) => {
             const Tag = t.href ? 'a' : 'div';
             return (
@@ -70,6 +81,12 @@ const tiles: { icon: IconName; title: string; text: string; href?: string }[] = 
   .disc { width: 52px; height: 52px; background: var(--green-600); color: var(--white); }
   .t { font-size: 17px; font-weight: 600; }
   .d { font-size: 16px; color: var(--ink-muted); overflow-wrap: anywhere; }
+  .offer-tile { background: var(--forest-800); color: var(--on-dark); border-color: var(--sand-500); }
+  a.offer-tile:hover { color: var(--on-dark); }
+  .disc-sand { background: var(--sand-500); color: var(--charcoal); }
+  .ot { font-size: 17px; font-weight: 700; }
+  .gold { color: var(--sand-500); }
+  .oterms { font-size: 13px; line-height: 1.5; color: var(--on-dark-muted); }
   .next { background: var(--forest-800); color: var(--on-dark); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
   .next-title { margin: 0; font-size: 18px; font-weight: 600; }
   ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }

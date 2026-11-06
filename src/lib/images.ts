@@ -13,6 +13,7 @@ const BG: Record<string, string> = {
   'front-lawn-beds.jpg': '#5A7354',
   'front-lawn-tree.jpg': '#66705C',
   'backyard-after.jpg': '#4C6A4B',
+  'deck-pavers-backyard.jpg': '#5A7354',
 };
 export const photoBg = (name: string) => BG[name] ?? '#4C6A4B';
 

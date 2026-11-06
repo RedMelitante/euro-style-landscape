@@ -1,0 +1,391 @@
+---
+// Service-area town pages (UPDATE-4-SITE.md §2): one template for all 14 towns, with the
+// town copy in src/data/towns.json (from design/service-area-*.dc.html). Main-site pages:
+// indexable, in the sitemap, with LandscapingBusiness, FAQPage and BreadcrumbList JSON-LD.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import OfferBanner from '../../components/offer/OfferBanner.astro';
+import Photo from '../../components/Photo.astro';
+import Icon from '../../components/Icon.astro';
+import { PHONE_DISPLAY, PHONE_HREF } from '../../lib/site';
+import { NEW_CLIENT_OFFER_ON } from '../../lib/campaigns';
+import { photoBg } from '../../lib/images';
+import { townHref, towns, townSource, type Town } from '../../lib/towns';
+
+export function getStaticPaths() {
+  return towns.map((town) => ({ params: { town: town.slug }, props: { town } }));
+}
+
+interface Props {
+  town: Town;
+}
+
+const { town } = Astro.props;
+const { hero, intro, local, work, faq } = town;
+
+// The same four cards on every town page; only the photos change.
+const serviceCards = [
+  { title: 'Construction', text: 'Paver patios, retaining walls, outdoor kitchens, decks, concrete, masonry, stone veneer and asphalt, designed and built by one team.', label: 'Construction', href: '/services#construction' },
+  { title: 'Lawn maintenance', text: 'Lawn mowing, fertilization, aeration and property cleanups to keep your yard looking cared for.', label: 'Lawn maintenance', href: '/services#lawn-maintenance' },
+  { title: 'Fencing', text: 'New fences and gates for privacy, safety and a finished boundary around your yard.', label: 'Fencing', href: '/services#fencing' },
+  { title: 'Planting & landscape install', text: 'New lawns, garden beds, shrubs and trees, installed as one finished landscape.', label: 'Planting & install', href: '/services#planting' },
+].map((c, i) => ({ ...c, ...town.services.photos[i] }));
+
+const steps = [
+  { n: '01', title: 'Request your free consultation', text: "Send the form or call. We'll call you back to book a time." },
+  { n: '02', title: 'We visit your property', text: 'We walk the space with you and talk through ideas and budget.' },
+  { n: '03', title: 'Design & written quote', text: "You know exactly what you're getting before any work starts." },
+];
+
+// The first question is the town's own; the rest are shared. The offer question follows the offer switch.
+const faqs = [
+  faq.first,
+  {
+    q: `What landscaping services do you offer in ${town.name}?`,
+    a: 'Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties.',
+  },
+  // NEW CLIENT OFFER FAQ
+  ...(NEW_CLIENT_OFFER_ON
+    ? [{ q: 'Do you offer a discount for new clients?', a: 'Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.' }]
+    : []),
+  { q: 'Is the consultation really free?', a: "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation." },
+  { q: 'Are you licensed and insured?', a: 'Yes, Euro Style Landscape is licensed and insured.' },
+  { q: 'How do I get a quote?', a: `Send the form on this page or call ${PHONE_DISPLAY}. We'll call you back to book your free on-site consultation.` },
+];
+
+const site = Astro.site!;
+const url = new URL(townHref(town.slug), site).href;
+const plain = (html: string) => html.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&');
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LandscapingBusiness',
+      name: 'Euro Style Landscape',
+      url: site.href,
+      telephone: '+1-732-803-9646',
+      // streetAddress is left out until the client approves publishing it.
+      address: { '@type': 'PostalAddress', addressLocality: 'Sayreville', addressRegion: 'NJ', postalCode: '08872', addressCountry: 'US' },
+      areaServed: { '@type': 'City', name: town.place },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: plain(f.a) } })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: site.href },
+        { '@type': 'ListItem', position: 2, name: 'Service areas', item: new URL('/service-areas', site).href },
+        { '@type': 'ListItem', position: 3, name: town.place, item: url },
+      ],
+    },
+  ],
+};
+
+const fill = 'display:block;width:100%;height:100%;object-fit:cover';
+---
+<BaseLayout title={town.title} description={town.description} quoteHref="#quote" jsonLd={jsonLd}>
+  <!-- Hero -->
+  <section class="sage-top hero-sec">
+    <div class="container stack" style="gap:28px">
+      <nav aria-label="Breadcrumb" class="crumbs">
+        <a href="/">Home</a><span aria-hidden="true">/</span>
+        <span>Service areas</span><span aria-hidden="true">/</span>
+        <span aria-current="page" class="crumb-now">{town.place}</span>
+      </nav>
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow dash-row"><span aria-hidden="true" class="dash"></span>{hero.eyebrow}</p>
+          {NEW_CLIENT_OFFER_ON && (
+            // NEW CLIENT OFFER pill (hidden while NEW_CLIENT_OFFER_ON is false)
+            <span class="offer-pill"><Icon name="tag" size={16} strokeWidth={2.4} />New clients · 20% off first cleanup or refresh</span>
+          )}
+          <h1 class="h1-town">{hero.h1}</h1>
+          <p class="lead" style="max-width:580px">{hero.lede}</p>
+          <div class="hero-ctas">
+            <a href="#quote" class="btn btn-hero btn-primary">Get a Free Quote</a>
+            <a href={PHONE_HREF} class="btn btn-hero btn-light-ghost"><Icon name="phone" size={18} />{PHONE_DISPLAY}</a>
+          </div>
+          <div class="hero-checks">
+            {['Free on-site consultation', 'Licensed & insured', hero.check].map((c) => (
+              <span><Icon name="check" size={18} stroke="#2F6844" strokeWidth={2.4} />{c}</span>
+            ))}
+          </div>
+        </div>
+        <div class="mosaic">
+          <div class="tile big" style={`background-color:${photoBg(hero.photos[0].src)}`}>
+            <Photo src={hero.photos[0].src} alt={hero.photos[0].alt} sizes="(min-width: 1280px) 400px, (min-width: 1100px) 32vw, (min-width: 640px) 58vw, 92vw" style={fill} eager priority />
+            <span class="chip"><Icon name="check" size={14} stroke="#2F6844" strokeWidth={2.4} />Real Euro Style projects</span>
+          </div>
+          {hero.photos.slice(1).map((p) => (
+            <div class="tile small" style={`background-color:${photoBg(p.src)}`}>
+              <Photo src={p.src} alt={p.alt} sizes="(min-width: 1280px) 280px, (min-width: 1100px) 22vw, 40vw" style={fill} eager />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local intro: neighborhoods + ZIP codes -->
+  <section class="section">
+    <div class="container two-col">
+      <div class="col-copy">
+        <p class="eyebrow dash-row"><span aria-hidden="true" class="dash"></span>Your local landscaper</p>
+        <h2 class="h2">{intro.h2}</h2>
+        {intro.paras.map((p) => <p class="body-lg" set:html={p} />)}
+      </div>
+      <div class="col-side">
+        <div class="hood-card">
+          <p class="hood-title"><span class="icon-circle hood-disc"><Icon name="pin" size={18} /></span>{intro.chipsTitle}</p>
+          <ul class="chips">{intro.chips.map((c) => <li class="chip-item">{c}</li>)}</ul>
+          <div class="zips">
+            <span class="zips-label">{intro.zips[0]}</span>
+            {intro.zips.slice(1).map((z) => <span>{z}</span>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services in town -->
+  <section class="section svc-sec">
+    <div class="container stack" style="gap:32px">
+      <div class="sec-head">
+        <div class="stack" style="flex:1 1 520px;gap:14px">
+          <p class="eyebrow dash-row"><span aria-hidden="true" class="dash"></span>Services</p>
+          <h2 class="h2">{town.services.h2}</h2>
+        </div>
+        <p class="body-muted" style="flex:1 1 360px">From a new patio to regular mowing, one team handles it. We confirm the details with you at the free consultation.</p>
+      </div>
+      <div class="svc-grid">
+        {serviceCards.map((c) => (
+          <article class="card svc-card">
+            <div class="svc-img" style={`background-color:${photoBg(c.src)}`}>
+              <Photo src={c.src} alt={c.alt} sizes="(min-width: 1280px) 300px, (min-width: 640px) 45vw, 92vw" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+            </div>
+            <div class="svc-body">
+              <h3 class="svc-title">{c.title}</h3>
+              <p class="body-muted">{c.text}</p>
+              <a href={c.href} class="btn btn-sm btn-outline svc-link">{c.label} <Icon name="arrow-up-right" size={14} strokeWidth={2.2} /></a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW CLIENT OFFER band (hidden while NEW_CLIENT_OFFER_ON is false) -->
+  <OfferBanner />
+
+  <!-- Local knowledge -->
+  <section class="section-forest local-sec">
+    <div class="container two-col" style="align-items:center">
+      <div class="col-copy">
+        <p class="eyebrow eyebrow-dark dash-row"><span aria-hidden="true" class="dash dash-gold"></span>{local.kicker}</p>
+        <h2 class="h2">{local.h2}</h2>
+        {local.paras.map((p) => <p class="body-lg on-dark-muted" set:html={p} />)}
+      </div>
+      <ul class="points">
+        {local.points.map((pt) => (
+          <li>
+            <span class="icon-circle point-disc"><Icon name="check" size={16} strokeWidth={2.4} /></span>
+            <span class="stack" style="gap:4px"><strong class="point-title">{pt.title}</strong><span class="point-text">{pt.text}</span></span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Recent work (captions say only what each photo shows, never a town) -->
+  <section class="section">
+    <div class="container stack" style="gap:28px">
+      <div class="sec-head">
+        <div class="stack" style="gap:14px">
+          <p class="eyebrow dash-row"><span aria-hidden="true" class="dash"></span>Our work</p>
+          <h2 class="h2">Recent Euro Style projects</h2>
+        </div>
+        <a href="/our-work" class="see-all">See all our work</a>
+      </div>
+      <div class="gal-grid">
+        {work.map((w) => (
+          <figure class="gal-item">
+            <div class="gal-img" style={`background-color:${photoBg(w.src)}`}>
+              <Photo src={w.src} alt={w.alt} sizes="(min-width: 1280px) 300px, (min-width: 1024px) 23vw, 46vw" style={fill} />
+            </div>
+            <figcaption>{w.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section how-sec">
+    <div class="container stack" style="gap:28px">
+      <p class="eyebrow dash-row"><span aria-hidden="true" class="dash"></span>How it works</p>
+      <h2 class="h2">Three simple steps</h2>
+      <ol class="steps">
+        {steps.map((s) => (
+          <li><span class="step-n">{s.n}</span><strong class="step-title">{s.title}</strong><span class="step-text">{s.text}</span></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- FAQ (FAQPage JSON-LD above) -->
+  <section class="section">
+    <div class="container faq-wrap">
+      <div class="stack" style="flex:1 1 320px;gap:14px">
+        <p class="eyebrow dash-row"><span aria-hidden="true" class="dash"></span>Questions</p>
+        <h2 class="h2">{faq.h2}</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f, i) => (
+          <details class="faq" open={i === 0}>
+            <summary>{f.q}<span class="faq-icon"><Icon name="chevron-down" size={20} strokeWidth={2.2} /></span></summary>
+            <p set:html={f.a} />
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote form -->
+  <section class="section-forest quote-sec">
+    <div class="container quote-wrap">
+      <div class="quote-copy">
+        <p class="eyebrow eyebrow-dark dash-row"><span aria-hidden="true" class="dash dash-gold"></span>Free consultation</p>
+        <h2 class="h2">Get a free quote in {town.name}</h2>
+        <p class="lead on-dark-muted">Tell us about your project and we'll call you to book a free on-site consultation.</p>
+        <div class="stack" style="gap:10px;font-size:16px">
+          <a href={PHONE_HREF} class="q-phone"><span class="gold"><Icon name="phone" size={18} /></span>{PHONE_DISPLAY}</a>
+          <span class="q-based"><span class="gold"><Icon name="pin" size={18} /></span>{town.based}</span>
+        </div>
+      </div>
+      <div id="quote" class="quote-form qf-slot">
+        <QuoteForm id={town.slug} source={townSource(town.slug)} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Other towns we serve -->
+  <section class="others">
+    <div class="container stack" style="gap:18px">
+      <h2 class="others-title">Other towns we serve</h2>
+      <ul class="chips">
+        {towns.filter((t) => t.slug !== town.slug).map((t) => (
+          <li><a href={townHref(t.slug)} class="chip-item chip-link">{t.name}</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-sec { padding: clamp(40px, 6vw, 72px) 0 clamp(48px, 6vw, 88px); }
+  .crumbs { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink-muted); flex-wrap: wrap; }
+  .crumbs a { color: var(--ink-muted); }
+  .crumb-now { color: var(--ink); }
+  .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 40px 56px; }
+  .hero-copy { flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+  .dash-row { display: flex; align-items: center; gap: 10px; }
+  .dash { width: 28px; height: 2px; background: var(--green-600); flex: none; }
+  .dash-gold { background: var(--sand-500); }
+  .offer-pill {
+    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 7px 14px; border-radius: 999px;
+    background: var(--sand-500); color: var(--charcoal); font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+  }
+  .h1-town { margin: 0; font-size: var(--fs-h1-home); line-height: 1.06; font-weight: 800; letter-spacing: -0.03em; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .hero-ctas .btn { flex: 0 1 auto; min-width: min(220px, 100%); }
+  .hero-ctas .btn-light-ghost { padding: 0 22px; }
+  .hero-checks { display: flex; align-items: center; gap: 8px 20px; flex-wrap: wrap; margin-top: 4px; font-size: 15px; color: var(--ink-muted); }
+  .hero-checks span { display: flex; align-items: center; gap: 8px; }
+  .mosaic {
+    flex: 1.15 1 480px; min-width: 0; display: grid; grid-template-columns: 1.45fr 1fr; grid-template-rows: 1fr 1fr;
+    gap: 12px; height: clamp(340px, 38vw, 520px);
+  }
+  .tile { position: relative; border-radius: 18px; overflow: hidden; }
+  .big { grid-row: span 2; }
+  .chip {
+    position: absolute; left: 14px; bottom: 14px; display: flex; align-items: center; gap: 8px; padding: 8px 12px;
+    border-radius: 999px; background: rgba(255, 255, 255, .92); color: var(--ink); font-size: 13px; font-weight: 700; white-space: nowrap;
+  }
+  @media (max-width: 639px) {
+    .mosaic { grid-template-columns: 1fr; grid-template-rows: 1fr; height: 260px; }
+    .big { grid-row: auto; }
+    .small { display: none; }
+  }
+
+  .two-col { display: flex; flex-wrap: wrap; gap: 40px 64px; }
+  .col-copy { flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+  .col-side { flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+  .hood-card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: clamp(20px, 3vw, 28px); display: flex; flex-direction: column; gap: 16px; }
+  .hood-title { margin: 0; display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; }
+  .hood-disc { width: 40px; height: 40px; background: var(--green-600); color: var(--white); }
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip-item { display: inline-flex; padding: 8px 12px; border-radius: 999px; background: var(--stone-50); border: 1px solid var(--line); font-size: 14px; font-weight: 600; }
+  .zips { border-top: 1px solid var(--line); padding-top: 14px; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; color: var(--ink-muted); }
+  .zips-label { font-weight: 700; color: var(--ink); }
+
+  .svc-sec { background: #FFFDF8; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .sec-head { display: flex; flex-wrap: wrap; gap: 16px 48px; align-items: flex-end; justify-content: space-between; }
+  .svc-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+  @media (max-width: 1179px) { .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 639px) { .svc-grid { grid-template-columns: 1fr; } }
+  .svc-card { display: flex; flex-direction: column; }
+  .svc-img { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+  .svc-body { padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .svc-title { margin: 0; font-size: 22px; line-height: 1.3; font-weight: 700; }
+  .svc-link { align-self: flex-start; margin-top: auto; }
+
+  .local-sec { padding: clamp(56px, 7vw, 104px) 0; }
+  .on-dark-muted { color: var(--on-dark-muted); }
+  .local-sec .col-copy :global(a), .faq :global(a) { font-weight: 600; }
+  .local-sec .col-copy :global(a) { color: var(--sand-500); }
+  .points { flex: 1 1 400px; min-width: 0; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .points li { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; border: 1px solid rgba(243, 239, 230, .16); border-radius: 12px; background: rgba(243, 239, 230, .04); }
+  .point-disc { width: 30px; height: 30px; background: var(--sand-500); color: var(--charcoal); }
+  .point-title { font-size: 17px; }
+  .point-text { font-size: 15px; line-height: 1.55; color: var(--on-dark-muted); }
+
+  .see-all { font-size: 15px; font-weight: 600; color: var(--green-700); }
+  .gal-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 1023px) { .gal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .gal-item { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .gal-img { aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; }
+  .gal-item figcaption { font-size: 15px; font-weight: 600; }
+  @media (max-width: 639px) { .gal-grid { gap: 12px; } .gal-item figcaption { font-size: 13.5px; } }
+
+  .how-sec { background: var(--sage-100); border-top: 1px solid var(--sage-200); border-bottom: 1px solid var(--sage-200); }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 16px; }
+  .steps li { background: var(--white); border: 1px solid var(--sage-200); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+  .step-n { font-size: 15px; font-weight: 800; color: var(--green-600); }
+  .step-title { font-size: 19px; }
+  .step-text { font-size: 15.5px; line-height: 1.6; color: var(--ink-muted); }
+
+  .faq-wrap { display: flex; flex-wrap: wrap; gap: 32px 64px; }
+  .faq-list { flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+  .faq { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 0 20px; }
+  .faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; font-size: 17px; font-weight: 700; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq-icon { flex: none; color: var(--green-700); display: flex; }
+  .faq[open] .faq-icon { transform: rotate(180deg); }
+  .faq p { margin: 0 0 18px; font-size: 16px; line-height: 1.65; color: var(--ink-muted); }
+
+  .quote-sec { padding: var(--section-y) 0; }
+  .quote-wrap { display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center; }
+  .quote-copy { flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
+  .quote-form { flex: 1 1 440px; max-width: 520px; min-width: 0; }
+  .gold { color: var(--sand-500); display: flex; }
+  .q-phone { display: flex; align-items: center; gap: 10px; color: var(--on-dark); text-decoration: none; font-weight: 600; }
+  .q-phone:hover { color: var(--on-dark); }
+  .q-based { display: flex; align-items: center; gap: 10px; color: var(--on-dark-muted); }
+
+  .others { background: #FFFDF8; border-top: 1px solid var(--line); padding: clamp(40px, 5vw, 64px) 0; }
+  .others-title { margin: 0; font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); line-height: 1.2; font-weight: 600; }
+  .chip-link { background: var(--white); color: var(--ink); text-decoration: none; }
+  .chip-link:hover { border-color: var(--green-600); color: var(--ink); }
+</style>

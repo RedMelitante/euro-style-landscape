@@ -18,4 +18,7 @@ export const NAV: { key: NavKey; href: string; label: string }[] = [
 // Quote form budget options (HANDOFF §6). Service options live in services.json.
 export const TIMELINES = ['Right now', 'Just looking'] as const;
 
+/** Quote form "Property type" (UPDATE-4-SITE.md §5). Required on the main site's forms. */
+export const PROPERTY_TYPES = ['Home', 'Commercial property'] as const;
+
 export const BUDGETS = ['Under $5k', '$5k – $15k', '$15k – $30k', '$30k+', 'Not sure yet'] as const;

@@ -49,8 +49,8 @@
           "id": "decks",
           "title": "Decks",
           "text": "Decks that extend your living space outdoors, built to suit your yard and your home.",
-          "image": "backyard-deck-progress.jpg",
-          "alt": "Composite deck platform and pavers in a fenced backyard",
+          "image": "deck-pavers-backyard.jpg",
+          "alt": "Composite deck beside a new paver patio behind a house",
           "link": {
             "label": "See deck projects",
             "href": "/our-work"
@@ -59,7 +59,7 @@
         {
           "id": "masonry-work",
           "title": "Masonry work",
-          "text": "Stone and block work, including steps, pillars and walls.",
+          "text": "Brick, block and stone work, including steps, pillars and walls.",
           "image": "front-entry-after.jpg",
           "alt": "Finished stone front entry steps and walkway",
           "link": {
@@ -88,8 +88,14 @@
         {
           "id": "asphalt",
           "title": "Asphalt",
-          "text": "Asphalt driveways and paved areas.",
+          "text": "Asphalt driveways and paved areas, plus asphalt repair and patching.",
           "icon": "road"
+        },
+        {
+          "id": "carpentry",
+          "title": "Carpentry",
+          "text": "Railings and carpentry repairs, along with new decks.",
+          "icon": "carpentry"
         }
       ]
     },
@@ -107,8 +113,8 @@
       "items": [
         {
           "id": "lawn-mowing",
-          "title": "Lawn mowing",
-          "text": "Regular mowing to keep your lawn neat and even.",
+          "title": "Mowing & edging",
+          "text": "Regular mowing and edging to keep your lawn neat and even.",
           "icon": "grass"
         },
         {
@@ -128,6 +134,24 @@
           "title": "Property cleanup",
           "text": "Clearing leaves, debris and overgrowth to get your yard back in shape.",
           "icon": "leaf"
+        },
+        {
+          "id": "shrub-hedge-trimming",
+          "title": "Shrub & hedge trimming",
+          "text": "Shrubs and hedges trimmed and shaped so they stay neat.",
+          "icon": "scissors"
+        },
+        {
+          "id": "mulching",
+          "title": "Mulching & bed maintenance",
+          "text": "Fresh mulch, weeding and edging to keep beds tidy.",
+          "icon": "mound"
+        },
+        {
+          "id": "spring-fall-cleanups",
+          "title": "Spring & fall cleanups",
+          "text": "Seasonal cleanups to start spring fresh and finish the fall clean.",
+          "icon": "calendar"
         }
       ]
     },
@@ -150,7 +174,7 @@
         {
           "id": "planting",
           "title": "Planting",
-          "text": "Garden beds, shrubs and trees chosen for your site and the amount of upkeep you want.",
+          "text": "Trees, shrubs and garden beds chosen for your site and the amount of upkeep you want.",
           "image": "front-lawn-beds.jpg",
           "alt": "Front lawn with mulched beds, shrubs and an ornamental tree",
           "link": {
@@ -161,7 +185,7 @@
         {
           "id": "landscape-install",
           "title": "Landscape install",
-          "text": "New lawns, garden beds, mulch and plantings installed as one finished landscape.",
+          "text": "New lawn installation, garden beds, mulch and plantings installed as one finished landscape, plus entrance and curb appeal upgrades.",
           "image": "backyard-after.jpg",
           "alt": "Finished backyard with new lawn, paver walkway and deck",
           "link": {
@@ -170,9 +194,195 @@
           }
         }
       ]
+    },
+    {
+      "id": "cleanups",
+      "title": "Cleanups & property refresh",
+      "heading": "Get your yard cleaned up and looking fresh",
+      "intro": "Seasonal cleanups and property refreshes from one local crew. We do the work and haul everything away, one time or on a schedule.",
+      "items": [
+        {
+          "id": "property-cleanups",
+          "title": "Property cleanups",
+          "text": "Leaves and debris cleared, beds weeded and edged, shrubs trimmed and fresh mulch, so the whole property looks cared for.",
+          "image": "front-lawn-beds.jpg",
+          "alt": "Front lawn with mulched beds and shrubs",
+          "link": {
+            "label": "Get a free quote",
+            "href": "/contact#quote"
+          }
+        },
+        {
+          "id": "leaf-cleanups",
+          "title": "Leaf cleanups",
+          "text": "Leaves blown and raked off the lawn, beds and walkways, then collected and hauled away. One-time or seasonal.",
+          "image": "autumn-leaves.jpg",
+          "alt": "Autumn trees and fallen leaves behind a curved stone seat wall",
+          "link": {
+            "label": "Get a free quote",
+            "href": "/contact#quote"
+          }
+        },
+        {
+          "id": "landscape-cleanups",
+          "title": "Landscape cleanups",
+          "text": "Leaf and debris cleanup, a bed refresh, a final mow and edges, plus aeration and fertilization where your lawn needs it.",
+          "image": "front-yard-work.jpg",
+          "alt": "A front yard being cleared and regraded by the Euro Style crew",
+          "link": {
+            "label": "Get a free quote",
+            "href": "/contact#quote"
+          }
+        },
+        {
+          "id": "property-refresh",
+          "title": "Property refresh",
+          "text": "Planting, garden bed refresh, lawn care and fencing to give a tired yard a fresh, finished look.",
+          "image": "raised-patio-wide.jpg",
+          "alt": "Wide raised paver patio with steps across the back of a house",
+          "link": {
+            "label": "Get a free quote",
+            "href": "/contact#quote"
+          }
+        }
+      ]
+    },
+    {
+      "id": "snow-removal",
+      "title": "Snow removal",
+      "heading": "Snow removal and winter care",
+      "intro": "When the snow comes, we keep lots, driveways, sidewalks and entrances clear. Ask about a seasonal contract so winter is covered before the first storm.",
+      "cta": {
+        "label": "Get a snow removal quote",
+        "href": "/contact#quote"
+      },
+      "items": [
+        {
+          "id": "plowing",
+          "title": "Lot & driveway plowing",
+          "text": "Plowing for parking lots and driveways.",
+          "icon": "truck"
+        },
+        {
+          "id": "shoveling",
+          "title": "Sidewalk & entrance shoveling",
+          "text": "Sidewalks, walkways and entrances shoveled clear.",
+          "icon": "shovel"
+        },
+        {
+          "id": "salting",
+          "title": "Salting & de-icing",
+          "text": "Salt and de-icer on walks, lots and entrances to cut down on ice.",
+          "icon": "drop"
+        },
+        {
+          "id": "snow-contracts",
+          "title": "Seasonal snow contracts",
+          "text": "One agreement for the season, so snow removal is planned ahead.",
+          "icon": "document"
+        }
+      ]
     }
   ],
+  "commercial": {
+    "title": "Commercial property services",
+    "heading": "One team for your property, all year round",
+    "intro": "Snow removal, small construction, grounds care and cleanups for commercial properties, with one call and one invoice.",
+    "lists": [
+      {
+        "title": "Snow removal",
+        "items": [
+          "Lot & driveway plowing",
+          "Sidewalk & entrance shoveling",
+          "Salting & de-icing",
+          "Seasonal snow contracts"
+        ]
+      },
+      {
+        "title": "Cleanups",
+        "items": [
+          "Property cleanups",
+          "Leaf cleanups",
+          "Landscape cleanups",
+          "Property refresh"
+        ]
+      },
+      {
+        "title": "Lawn maintenance",
+        "items": [
+          "Mowing & edging",
+          "Fertilization & aeration",
+          "Shrub & hedge trimming",
+          "Mulching & bed maintenance",
+          "Spring & fall cleanups"
+        ]
+      },
+      {
+        "title": "Small construction",
+        "items": [
+          "Masonry: brick, block, stone veneer, steps, pillars",
+          "Carpentry: decks, railings, repairs",
+          "Concrete work & pavers",
+          "Retaining walls",
+          "Asphalt repair & patching",
+          "Fencing & gates"
+        ]
+      },
+      {
+        "title": "Landscape install & upgrades",
+        "items": [
+          "Planting: trees, shrubs, garden beds",
+          "New lawn installation",
+          "Entrance & curb appeal upgrades"
+        ]
+      }
+    ],
+    "why": [
+      "One call, one invoice",
+      "Licensed & insured",
+      "Free on-site assessment",
+      "Year-round service"
+    ],
+    "cta": {
+      "label": "Request a free on-site assessment",
+      "href": "/contact#quote"
+    }
+  },
   "footerLinks": [
+    {
+      "label": "Construction",
+      "href": "/services#construction"
+    },
+    {
+      "label": "Lawn maintenance",
+      "href": "/services#lawn-maintenance"
+    },
+    {
+      "label": "Cleanups & refresh",
+      "href": "/services#cleanups"
+    },
+    {
+      "label": "Snow removal",
+      "href": "/services#snow-removal"
+    },
+    {
+      "label": "Commercial",
+      "href": "/services#commercial"
+    },
+    {
+      "label": "Fencing",
+      "href": "/services#fencing"
+    },
+    {
+      "label": "Planting",
+      "href": "/services#planting"
+    },
+    {
+      "label": "Landscape install",
+      "href": "/services#landscape-install"
+    }
+  ],
+  "jumpLinks": [
     {
       "label": "Construction",
       "href": "/services#construction"
@@ -192,6 +402,18 @@
     {
       "label": "Landscape install",
       "href": "/services#landscape-install"
+    },
+    {
+      "label": "Cleanups & refresh",
+      "href": "/services#cleanups"
+    },
+    {
+      "label": "Snow removal",
+      "href": "/services#snow-removal"
+    },
+    {
+      "label": "Commercial",
+      "href": "/services#commercial"
     }
   ],
   "quoteFormOptions": {
@@ -204,18 +426,35 @@
       "Stone veneer",
       "Decks",
       "Masonry work",
-      "Asphalt"
+      "Asphalt",
+      "Asphalt repair & patching",
+      "Carpentry: railings & repairs"
     ],
     "Lawn maintenance": [
-      "Lawn mowing",
+      "Lawn mowing & edging",
       "Fertilization",
       "Aeration",
-      "Property cleanup"
+      "Shrub & hedge trimming",
+      "Mulching & bed maintenance",
+      "Spring & fall cleanup"
+    ],
+    "Cleanups & refresh": [
+      "Property cleanup",
+      "Leaf cleanup",
+      "Landscape cleanup",
+      "Property refresh"
+    ],
+    "Snow removal": [
+      "Snow plowing",
+      "Shoveling & salting",
+      "Seasonal snow contract"
     ],
     "Other services": [
       "Fencing",
       "Planting",
-      "Landscape install"
+      "Landscape install",
+      "New lawn installation",
+      "Entrance & curb appeal upgrade"
     ],
     "_last": "Not sure yet"
   }

@@ -34,7 +34,20 @@ export const group = (id: string) => {
   return g;
 };
 
+export type CommercialServices = {
+  title: string;
+  heading: string;
+  intro: string;
+  lists: { title: string; items: string[] }[];
+  why: string[];
+  cta: { label: string; href: string };
+};
+/** "Commercial property services" on /services#commercial (mirrors the client's commercial flyer). */
+export const commercial = data.commercial as CommercialServices;
+
 export const footerLinks = data.footerLinks;
+/** The /services jump links, in the page's section order. */
+export const jumpLinks = data.jumpLinks;
 
 const { _last, ...optionGroups } = data.quoteFormOptions;
 /** Quote form <optgroup>s in order, then the final standalone option. */

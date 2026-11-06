@@ -1,0 +1,62 @@
+---
+// /service-areas: the list of town pages. Not in the handoff designs; it exists so the town pages'
+// breadcrumb (Home › Service areas › Town, also in their JSON-LD) has a real page to point to.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageBanner from '../../components/PageBanner.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { townHref, towns } from '../../lib/towns';
+
+const site = Astro.site!;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: site.href },
+    { '@type': 'ListItem', position: 2, name: 'Service areas', item: new URL('/service-areas', site).href },
+  ],
+};
+---
+<BaseLayout
+  title="Service Areas · Landscaping in Middlesex, Monmouth & Union County, NJ · Euro Style Landscape"
+  description="Euro Style Landscape is based in Sayreville, NJ and serves Middlesex, Monmouth & Union County towns. Find your town."
+  jsonLd={jsonLd}
+>
+  <PageBanner
+    crumb="Service areas"
+    title="Service areas"
+    lead="Based in Sayreville, NJ · serving Middlesex, Monmouth & Union County towns"
+  />
+
+  <section class="section">
+    <div class="container">
+      <ul class="town-grid">
+        {towns.map((t) => (
+          <li>
+            <a href={townHref(t.slug)} class="card town tile-hover">
+              <span class="stack" style="gap:2px;min-width:0">
+                <span class="town-name">{t.name}</span>
+                <span class="town-county">{t.county}</span>
+              </span>
+              <Icon name="arrow-right" size={18} strokeWidth={2.2} />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Not sure what you need?"
+    text="Book a free consultation and we'll talk it through on site."
+    cta={{ href: '/contact', label: 'Book a free consultation' }}
+  />
+</BaseLayout>
+
+<style>
+  .town-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 12px; }
+  .town { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 20px; color: var(--ink); text-decoration: none; border-radius: 12px; }
+  .town:hover { color: var(--ink); }
+  .town-name { font-size: 17px; font-weight: 600; }
+  .town-county { font-size: 15px; color: var(--ink-muted); }
+</style>

@@ -21,12 +21,13 @@ subdomain must serve HTTPS. Turn HSTS off and wait out the max-age before ever m
 | Path | What |
 |---|---|
 | `src/pages/` | `/`, `/about`, `/services`, `/our-work`, `/contact`, `/free-design-consultation` (ad landing, noindex), `/privacy-policy`, `api/lead.ts` |
+| `src/pages/service-areas/` | 14 indexable town pages (`/service-areas/<town>`) from one template, `[town].astro`, with the copy in `src/data/towns.json` (read via `src/lib/towns.ts`), plus the `/service-areas` list. Each has LandscapingBusiness, FAQPage and BreadcrumbList JSON-LD, and its form sends `source=service-area-<town>`. Photo captions describe only the photo, never a town. |
 | `src/pages/lp/` | Ad campaign pages (noindex, not in the sitemap), built from `design/lp-*.dc.html` in the handoff. They use `CampaignLayout`, not the site header or footer. `src/lib/campaigns.ts` holds their form sources, service options, the `OFFER_ON` flag and the `NEW_CLIENT_OFFER_ON` switch for the 20% new client offer (pieces in `src/components/campaign/offer/`). Forms post to `/api/lead` like the main form, with the same required email and timeline. |
 | `src/layouts/BaseLayout.astro` | Head/SEO/OG, fonts, tracking, header/footer/sticky bar. `landing` prop switches to the ad-landing header and footer. |
 | `src/components/` | Header, LandingHeader, Footer, MobileStickyBar, QuoteForm, BeforeAfter, SectionHeader, PageBanner, TrustTiles, HowItWorks, CommitmentCards, CheckList, CtaBand, PhotoMosaic, GalleryGrid, ProjectCard, Logo, Icon, Photo, Tracking |
 | `src/styles/tokens.css` | Design tokens from the handoff (`global.css` imports it) |
 | `src/data/projects.json` | Our Work gallery data |
-| `src/data/services.json` | All service copy: `/services` cards, home chips, footer links, quote form options (read via `src/lib/services.ts`). When the client sends photos for Concrete, Outdoor kitchens, Stone veneer or Asphalt, add `image` + `alt` there and the icon card becomes a photo card. |
+| `src/data/services.json` | All service copy: `/services` cards (including Cleanups & refresh, Snow removal and the Commercial lists), home chips, footer and jump links, quote form options (read via `src/lib/services.ts`). When the client sends photos for Concrete, Outdoor kitchens, Stone veneer or Asphalt, add `image` + `alt` there and the icon card becomes a photo card. |
 | `src/assets/images/` | Project photos, served as AVIF/WebP via `<Photo>` |
 
 ## Leads
@@ -34,7 +35,8 @@ subdomain must serve HTTPS. Turn HSTS off and wait out the max-age before ever m
 `POST /api/lead` validates the form server-side and drops honeypot submissions, then delivers the lead:
 
 1. **GoHighLevel** (sub-account "Eurostyle Landscape"): upserts the contact with tags `website-lead`,
-   `service-<name>`, `timeline-<right-now|just-looking>` and `source-website` / `source-ad-landing-page`,
+   `service-<name>`, `timeline-<right-now|just-looking>`, `property-<home|commercial>`, `service-area-<town>` (town
+   pages) and `source-website` / `source-ad-landing-page`,
    adds a note with the request and any UTM / click IDs, and opens an opportunity in the first stage of
    `GHL_PIPELINE_NAME` (a returning contact keeps their existing opportunity).
    It also fills contact custom fields `service_requested`, `budget_range`, `lead_page`, `start_timeline`

@@ -17,9 +17,13 @@ import {
   META_TEST_EVENT_CODE,
 } from 'astro:env/server';
 import { PUBLIC_META_PIXEL_ID } from 'astro:env/client';
-import { BUDGETS, TIMELINES } from '../../lib/site';
+import { BUDGETS, PROPERTY_TYPES, TIMELINES } from '../../lib/site';
 import { quoteServiceValues } from '../../lib/services';
 import { CAMPAIGN_SERVICES, CAMPAIGN_SOURCES } from '../../lib/campaigns';
+import { TOWN_SOURCES } from '../../lib/towns';
+
+/** Older service names still accepted, so a page cached before Update 4 can still send a lead. */
+const LEGACY_SERVICES = ['Lawn mowing'];
 
 export const prerender = false;
 
@@ -28,6 +32,8 @@ type Lead = {
   phone: string;
   email: string;
   service: string;
+  /** "Home" or "Commercial property": required on the main site's forms; the campaign forms don't ask. */
+  propertyType: string;
   zip: string;
   budget: string;
   timeline: string;
@@ -42,6 +48,8 @@ type Lead = {
   adHeadline: string;
   offer: string;
   projectChoice: string;
+  /** Set on the service-area town pages, e.g. service-area-sayreville. */
+  townPage: string;
 };
 
 const json = (body: unknown, status = 200) =>
@@ -55,6 +63,7 @@ function validate(raw: Record<string, unknown>): { lead?: Lead; error?: string }
     phone: str(raw.phone, 30),
     email: str(raw.email, 200),
     service: str(raw.service, 60),
+    propertyType: str(raw.property_type, 30),
     zip: str(raw.zip, 10),
     budget: str(raw.budget, 30),
     timeline: str(raw.timeline, 30),
@@ -67,12 +76,18 @@ function validate(raw: Record<string, unknown>): { lead?: Lead; error?: string }
     adHeadline: str(raw.ad_headline, 20),
     offer: str(raw.offer, 60),
     projectChoice: ['rebuild', 'refresh'].includes(str(raw.project_choice, 10)) ? str(raw.project_choice, 10) : '',
+    townPage: TOWN_SOURCES.includes(str(raw.source, 60)) ? str(raw.source, 60) : '',
   };
   if (lead.name.length < 2) return { error: 'Please enter your name.' };
   if (lead.phone.replace(/\D/g, '').length < 10) return { error: 'Please enter a valid phone number.' };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) return { error: 'Please enter a valid email address.' };
-  const services: readonly string[] = lead.source ? [...quoteServiceValues, ...CAMPAIGN_SERVICES] : quoteServiceValues;
+  const services: readonly string[] = lead.source
+    ? [...quoteServiceValues, ...CAMPAIGN_SERVICES, ...LEGACY_SERVICES]
+    : [...quoteServiceValues, ...LEGACY_SERVICES];
   if (!services.includes(lead.service)) return { error: 'Please choose a service.' };
+  const propertyOk = (PROPERTY_TYPES as readonly string[]).includes(lead.propertyType);
+  // Required in the form, but not here: a page cached from before the field existed must still get its lead through.
+  if (lead.propertyType && !propertyOk) return { error: 'Please choose a property type.' };
   if (!/^\d{5}(-\d{4})?$/.test(lead.zip)) return { error: 'Please enter a valid ZIP code.' };
   if (lead.budget && !(BUDGETS as readonly string[]).includes(lead.budget)) return { error: 'Please choose a budget range.' };
   if (!(TIMELINES as readonly string[]).includes(lead.timeline)) return { error: 'Please tell us when you are ready to start.' };
@@ -152,6 +167,8 @@ async function sendToGhl(lead: Lead) {
     `service-${slug(lead.service)}`,
     src.landing ? 'source-ad-landing-page' : 'source-website',
     `timeline-${slug(lead.timeline)}`,
+    ...(lead.propertyType ? [`property-${lead.propertyType === 'Home' ? 'home' : 'commercial'}`] : []),
+    ...(lead.townPage ? [lead.townPage] : []),
     ...(lead.source ? [`campaign-${slug(lead.source)}`] : []),
     ...(lead.projectChoice ? [`choice-${lead.projectChoice}`] : []),
   ];
@@ -165,7 +182,9 @@ async function sendToGhl(lead: Lead) {
     phone: e164(lead.phone),
     postalCode: lead.zip,
     country: 'US',
-    source: lead.source ? 'Website – ad campaign page' : src.landing ? 'Website – free design consultation page' : 'Website quote form',
+    source: lead.source
+      ? 'Website – ad campaign page'
+      : src.landing ? 'Website – free design consultation page' : lead.townPage ? 'Website – service area page' : 'Website quote form',
     tags,
   };
   // Contact custom fields (created in GoHighLevel: Service Requested, Budget Range, Lead Page,
@@ -196,6 +215,7 @@ async function sendToGhl(lead: Lead) {
   const note = [
     'Website quote request',
     `Service: ${lead.service}`,
+    ...(lead.propertyType ? [`Property type: ${lead.propertyType}`] : []),
     `Budget: ${lead.budget || 'Not given'}`,
     `Ready to start: ${lead.timeline}`,
     `Project: ${lead.message || 'Not given'}`,
@@ -205,6 +225,7 @@ async function sendToGhl(lead: Lead) {
     `Page: ${src.path || lead.page || '—'}${src.params.length ? `\nTracking: ${src.params.join(', ')}` : ''}`,
     `Form: ${lead.formId || '—'}`,
     ...(lead.source ? [`Campaign: ${lead.source}`] : []),
+    ...(lead.townPage ? [`Town page: ${lead.townPage}`] : []),
     ...(lead.adHeadline ? [`Ad headline: ${lead.adHeadline}`] : []),
     ...(lead.projectChoice ? [`Choice: ${lead.projectChoice}`] : []),
     ...(lead.offer && lead.offer !== 'none' ? [`Offer: ${lead.offer}`] : []),

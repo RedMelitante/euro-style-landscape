@@ -31,10 +31,13 @@ On Windows PowerShell use `npm.cmd` / `npx.cmd`.
 1. **Keep the live setup.** When handoff notes or designs conflict with what is live, the live setup wins:
    - leads go to GoHighLevel, with the Google Apps Script sheet as backup (not Brevo or other form services)
    - every quote form requires **email** and **"When are you ready to start?"** (`timeline`); the GoHighLevel
-     thank-you email and Meta match quality depend on email
+     thank-you email and Meta match quality depend on email. Main-site forms also require **Property type**
+     (`property_type`: Home / Commercial property); `/api/lead` checks the value but accepts a lead without it, so a
+     page cached from before the field still gets through
    - phone taps send GA4 `click_to_call` (a key event) and Meta `Contact`
    - the bot trap field is `website`
    - the header and footer use the client's own logo (`src/assets/logo/euro-style-landscape-logo.jpg`)
+   - the main website never links to the ad pages (`/lp/*`)
 2. **Ask before deploying** and before pushing to `main`. Deploys go live immediately.
 3. **Never send a valid lead to the live site without asking.** It creates a real GoHighLevel contact, emails the
    client an owner alert, and counts as a real Lead in Meta. Test against a local Worker with a fake backup:
@@ -70,14 +73,29 @@ token, build and push, and the owner deploys from their computer.
   pieces are in `src/components/campaign/offer/` and `src/styles/campaign-offer.css`; keep the offer copy word for
   word. The lead forms send `offer: new-client-20-off` (on `/lp/rebuild-or-refresh` only with the Refresh choice),
   which shows in the GoHighLevel note, and the Lead / `generate_lead` events carry `offer: new_client_20` or `none`.
+- The same `NEW_CLIENT_OFFER_ON` switch also controls the offer on the main site (handoff `UPDATE-4-SITE.md`): the
+  banner under the Home hero and on the town pages, the card at the top of `/services#cleanups`, the Contact tile,
+  and the town pages' hero pill and "Do you offer a discount for new clients?" FAQ (`src/components/offer/`).
 - `?h=` swaps the headline on `/lp/landscape-cleanup-quote` (`fall`, `overgrown`, `offer`) and the hero on
   `/lp/rebuild-or-refresh` (`2027`, `fall`).
+
+## Service-area town pages (`src/pages/service-areas/`)
+
+- 14 indexable pages, one template (`[town].astro`) + `src/data/towns.json`, pulled from the handoff's
+  `service-area-*.dc.html`. Edit the JSON for copy; the four service cards, "How it works" and the shared FAQs are in
+  the template. Captions describe only what the photo shows, never a town.
+- `/service-areas` (a list of the towns) isn't in the designs; it exists so the breadcrumb JSON-LD points to a real page.
+- No review or rating markup until there are real reviews.
 
 ## Open items (as of 2026-11-06)
 
 - Client to confirm: haul-away and whether they need to be home for the estimate, the town list, 2027 start
   timing, and the privacy policy text. ("Licensed & insured" was confirmed by the client in handoff update 3.) Remove the privacy page's
   `noindex` only after they approve it.
+- Client to confirm (update 4): whether snow removal is offered to homes as well as commercial properties, and the
+  Monroe page's lines about adult communities / HOAs.
+- The Google Apps Script backup (`docs/google-apps-script-lead-backup.gs`) now has Property type and Source columns;
+  paste the new version into the script and redeploy it for the backup sheet to show them.
 - No ads point at the campaign pages yet.
 - Real lead delivery from a campaign page has been tested once (GoHighLevel and Meta received it), but it updated
   an existing test contact, so the GoHighLevel thank-you and owner-alert emails are not yet confirmed for these

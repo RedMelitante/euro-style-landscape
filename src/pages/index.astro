@@ -9,6 +9,7 @@ import HowItWorks from '../components/HowItWorks.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import Photo from '../components/Photo.astro';
 import Icon from '../components/Icon.astro';
+import OfferBanner from '../components/offer/OfferBanner.astro';
 import { EMAIL, PHONE_DISPLAY, PHONE_HREF, SERVICE_AREA } from '../lib/site';
 import { group, groups } from '../lib/services';
 
@@ -88,6 +89,9 @@ const recent = [
       <PhotoMosaic />
     </div>
   </section>
+
+  <!-- NEW CLIENT OFFER (hidden while NEW_CLIENT_OFFER_ON is false) -->
+  <OfferBanner />
 
   <!-- Services overview -->
   <section class="section">

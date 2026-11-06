@@ -2,6 +2,7 @@
 import Logo from './Logo.astro';
 import { EMAIL, LOCATION, PHONE_DISPLAY, PHONE_HREF, SERVICE_AREA } from '../lib/site';
 import { footerLinks } from '../lib/services';
+import { townHref, towns } from '../lib/towns';
 
 interface Props {
   /** Ad landing version: contact details only, no site navigation. */
@@ -40,6 +41,10 @@ const { minimal = false } = Astro.props;
           <a href="/about" class="foot-link">About us</a>
           <a href="/our-work" class="foot-link">Our work</a>
           <a href="/contact" class="foot-link">Contact</a>
+        </nav>
+        <nav aria-label="Service areas" class="col">
+          <span class="col-title">Service areas</span>
+          {towns.map((t) => <a href={townHref(t.slug)} class="foot-link">{t.name}</a>)}
         </nav>
         <div class="col">
           <span class="col-title">Get in touch</span>

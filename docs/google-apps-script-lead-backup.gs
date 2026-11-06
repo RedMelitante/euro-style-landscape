@@ -19,7 +19,7 @@
 const SECRET = '';
 const NOTIFY = 'seannachajski@eurostylelandscape.com';
 const SHEET_NAME = 'Leads';
-const COLUMNS = ['Received', 'Name', 'Phone', 'Email', 'Service', 'ZIP', 'Budget', 'Page', 'Form', 'Why backup was used', 'Ready to start', 'Project description'];
+const COLUMNS = ['Received', 'Name', 'Phone', 'Email', 'Service', 'ZIP', 'Budget', 'Page', 'Form', 'Why backup was used', 'Ready to start', 'Project description', 'Property type', 'Source'];
 
 function doPost(e) {
   let data;
@@ -36,10 +36,11 @@ function doPost(e) {
   // Header row is (re)written every time so columns added later appear in existing sheets too.
   sheet.getRange(1, 1, 1, COLUMNS.length).setValues([COLUMNS]);
   // Leading apostrophe keeps ZIPs as text so New Jersey's leading zero (08872) isn't dropped.
-  sheet.appendRow([new Date(), data.name, data.phone, data.email, data.service, "'" + data.zip, data.budget || '', data.page || '', data.formId || '', data.reason || '', data.timeline || '', data.message || '']);
+  sheet.appendRow([new Date(), data.name, data.phone, data.email, data.service, "'" + data.zip, data.budget || '', data.page || '', data.formId || '', data.reason || '', data.timeline || '', data.message || '', data.propertyType || '', data.townPage || data.source || '']);
 
   const rows = [
     ['Name', data.name], ['Phone', data.phone], ['Email', data.email], ['Service', data.service],
+    ['Property type', data.propertyType || 'Not given'],
     ['Ready to start', data.timeline || '—'], ['Project', data.message || 'Not given'],
     ['ZIP', data.zip], ['Budget', data.budget || 'Not given'], ['Page', data.page || '—'],
   ];
