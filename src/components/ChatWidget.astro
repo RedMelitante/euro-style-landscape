@@ -1,0 +1,50 @@
+---
+// GoHighLevel chat widget, only when GHL_CHAT_WIDGET_ID is set (src/lib/site.ts).
+// Its script is fetched only after the page has loaded and gone idle, or on the visitor's first
+// scroll, tap or key press, so it doesn't slow the first view. Chats go straight to
+// GoHighLevel Conversations; they don't pass through /api/lead or fire Lead / generate_lead.
+import { GHL_CHAT_WIDGET_ID as widgetId } from '../lib/site';
+---
+{widgetId && (
+  <script is:inline define:vars={{ widgetId }}>
+    (function () {
+      var done = false;
+      var events = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
+      function load() {
+        if (done) return;
+        done = true;
+        events.forEach(function (ev) { window.removeEventListener(ev, load); });
+        var s = document.createElement('script');
+        s.src = 'https://widgets.leadconnectorhq.com/loader.js';
+        s.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+        s.setAttribute('data-widget-id', widgetId);
+        s.async = true;
+        document.body.appendChild(s);
+        liftAboveStickyBar();
+      }
+      // On phones the bubble would cover the sticky Call / Get a free quote bar (77px tall, shown below
+      // 768px). The widget draws inside its own shadow DOM, which the site's CSS can't reach, so add the
+      // rule there once it appears.
+      function liftAboveStickyBar() {
+        var tries = 0;
+        var timer = setInterval(function () {
+          var host = document.querySelector('chat-widget');
+          var root = host && host.shadowRoot;
+          if (root && root.getElementById('lc_text-widget')) {
+            clearInterval(timer);
+            var st = document.createElement('style');
+            st.textContent = '@media (max-width: 767px) { #lc_text-widget, #lc_text-widget--btn { bottom: 96px !important; } }';
+            root.appendChild(st);
+          } else if (++tries > 60) {
+            clearInterval(timer);
+          }
+        }, 500);
+      }
+      events.forEach(function (ev) { window.addEventListener(ev, load, { once: true, passive: true }); });
+      window.addEventListener('load', function () {
+        if ('requestIdleCallback' in window) window.requestIdleCallback(load, { timeout: 4000 });
+        else setTimeout(load, 3000);
+      });
+    })();
+  </script>
+)}

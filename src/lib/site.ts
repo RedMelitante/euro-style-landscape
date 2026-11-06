@@ -22,3 +22,10 @@ export const TIMELINES = ['Right now', 'Just looking'] as const;
 export const PROPERTY_TYPES = ['Home', 'Commercial property'] as const;
 
 export const BUDGETS = ['Under $5k', '$5k – $15k', '$15k – $30k', '$30k+', 'Not sure yet'] as const;
+
+/**
+ * GoHighLevel chat widget (Sites → Chat Widget → Get code: the `data-widget-id` value). Public, like any
+ * embed code. Empty = no chat anywhere. When set, it shows on the main site and town pages only, never on
+ * ad landing pages (/lp/*, /free-design-consultation).
+ */
+export const GHL_CHAT_WIDGET_ID = '6aee2b493c83530a42d5c594';

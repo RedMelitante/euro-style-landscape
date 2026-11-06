@@ -38,6 +38,8 @@ On Windows PowerShell use `npm.cmd` / `npx.cmd`.
    - the bot trap field is `website`
    - the header and footer use the client's own logo (`src/assets/logo/euro-style-landscape-logo.jpg`)
    - the main website never links to the ad pages (`/lp/*`)
+   - the GoHighLevel chat widget (`GHL_CHAT_WIDGET_ID` in `src/lib/site.ts`, see README) stays off the ad pages
+     (`/lp/*`, `/free-design-consultation`)
 2. **Ask before deploying** and before pushing to `main`. Deploys go live immediately.
 3. **Never send a valid lead to the live site without asking.** It creates a real GoHighLevel contact, emails the
    client an owner alert, and counts as a real Lead in Meta. Test against a local Worker with a fake backup:

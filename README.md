@@ -50,6 +50,18 @@ It also sends a Meta CAPI `Lead` event when configured (deduplicated with the br
 Non-secret settings are in `wrangler.jsonc`; secrets are set with `npx wrangler secret put GHL_TOKEN`
 (and `LEAD_BACKUP_URL`, optional `LEAD_BACKUP_SECRET`, `META_CAPI_TOKEN`).
 
+## Chat widget
+
+A GoHighLevel chat widget loads when `GHL_CHAT_WIDGET_ID` in `src/lib/site.ts` is set (empty = no chat). It
+shows on the main site and the town pages, not on `/lp/*` or `/free-design-consultation`, and its script is
+fetched only after the page goes idle or on the first scroll, tap or key press. The privacy policy's
+"Website chat" line appears only while it is set. The widget in use is GoHighLevel's "A2P Compliance Chat Widget
+Marketing" (SMS / Email type, with the texting consent checkbox for the A2P 10DLC registration), so change its
+consent text only together with the privacy policy's "Text messages" section. On phones `ChatWidget.astro` lifts the
+bubble above the sticky Call / quote bar (a style added inside the widget's shadow DOM). Chats go straight to GoHighLevel Conversations: they don't
+pass through `/api/lead`, get the `website-lead` tag or fire Lead / `generate_lead`, so client alerts for chats
+need their own GoHighLevel workflow.
+
 ## Tracking
 
 Meta Pixel, GA4 and Google Ads load only when their `PUBLIC_*` IDs are set. `Lead` / Ads lead

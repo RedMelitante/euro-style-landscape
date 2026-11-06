@@ -2,7 +2,7 @@
 // Required before ads run. Draft text from design/privacy-policy.dc.html, plus email and
 // Conversions API / advanced matching. Remove `noindex` once the client approves it.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
+import { EMAIL, GHL_CHAT_WIDGET_ID, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
 ---
 <BaseLayout title="Privacy Policy · Euro Style Landscape" noindex>
   <section class="sage-top" style="padding:clamp(40px, 6vw, 80px) 0 clamp(40px, 5vw, 72px)">
@@ -13,7 +13,7 @@ import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
         <span aria-current="page" style="color:#1E2621">Privacy policy</span>
       </nav>
       <h1 class="h1">Privacy policy</h1>
-      <p style="margin:0;font-size:16px;color:var(--ink-muted)">Last updated: October 2026</p>
+      <p style="margin:0;font-size:16px;color:var(--ink-muted)">Last updated: November 2026</p>
     </div>
   </section>
   <section class="section">
@@ -24,6 +24,7 @@ import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
         <ul>
           <li><strong>Information you give us:</strong> when you fill in a quote or consultation form, we collect your name, phone number, email address, ZIP code, the service you are interested in, when you are ready to start and anything you write in the message box. Some forms also ask whether it is a home or a commercial property, and for a rough budget.</li>
           <li><strong>Calls and emails:</strong> if you call or email us, we receive your phone number or email address and what you tell us.</li>
+          {GHL_CHAT_WIDGET_ID && <li><strong>Website chat:</strong> if you message us through the chat on our website, we receive the contact details you enter, such as your name and phone number, and everything you write. Chats are stored in our customer management system so we can reply, including by text or email after you leave the site.</li>}
           <li><strong>Website usage:</strong> like most websites, we use cookies and similar technology to see how visitors use the site, such as which pages were visited and which buttons were clicked.</li>
         </ul>
         <h2>How we use your information</h2>
@@ -37,8 +38,11 @@ import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
         <p>We use the Meta Pixel (Facebook and Instagram) and Google Analytics. These tools use cookies to record visits and actions on our pages, such as submitting a form or tapping our phone number, so we can measure our ads and show them to people who have visited our site. Meta and Google process this information under their own privacy policies.</p>
         <p>We also share hashed (scrambled) contact details with Meta, such as your email address, phone number, name and location, through the Meta Pixel's advanced matching and the Conversions API. Meta uses them to match website visits and form submissions to Meta accounts, so we can measure our ads and reach people through remarketing.</p>
         <p>You can manage ad preferences in your <a href="https://www.facebook.com/adpreferences" rel="noopener">Facebook ad settings</a> and your <a href="https://adssettings.google.com" rel="noopener">Google ad settings</a>, opt out of Google Analytics with the <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">Google Analytics opt-out add-on</a>, or block cookies in your browser.</p>
+        <h2>Text messages</h2>
+        <p>If you tick the box agreeing to receive text messages, for example in the chat on our website, SN Landscaping LLC (doing business as Euro Style Landscape) may text or call the number you gave us about your request, our services and offers, possibly using automated means. Message frequency varies. Message and data rates may apply. Consent is not a condition of purchase. Reply STOP to any message to unsubscribe, or HELP for help. You can also call or email us to opt out.</p>
         <h2>Sharing your information</h2>
         <p>We do not sell your personal information. We only share it with service providers who help us run our business, such as our website, form, customer management and email providers, and only so they can provide those services to us. We may also share information if the law requires it.</p>
+        <p>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging opt-in data and consent are not shared with any third parties.</p>
         <h2>How long we keep it</h2>
         <p>We keep your information for as long as we need it to respond to your request, carry out any work and keep normal business records.</p>
         <h2>Your choices</h2>
@@ -48,7 +52,7 @@ import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
         <h2>Changes to this policy</h2>
         <p>We may update this policy from time to time. The date at the top shows when it was last changed.</p>
         <h2>Contact us</h2>
-        <p>Euro Style Landscape<br />Sayreville, NJ 08872<br />Phone: <a href={PHONE_HREF}>{PHONE_DISPLAY}</a><br />Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+        <p>Euro Style Landscape (SN Landscaping LLC)<br />Sayreville, NJ 08872<br />Phone: <a href={PHONE_HREF}>{PHONE_DISPLAY}</a><br />Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
       </div>
     </div>
   </section>

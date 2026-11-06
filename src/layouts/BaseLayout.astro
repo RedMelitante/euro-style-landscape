@@ -6,6 +6,7 @@ import LandingHeader from '../components/LandingHeader.astro';
 import Footer from '../components/Footer.astro';
 import MobileStickyBar from '../components/MobileStickyBar.astro';
 import Tracking from '../components/Tracking.astro';
+import ChatWidget from '../components/ChatWidget.astro';
 import { photo } from '../lib/images';
 import type { NavKey } from '../lib/site';
 
@@ -74,5 +75,6 @@ const ogImage = new URL(og.src, Astro.site).href;
       <Footer minimal={landing} />
       <MobileStickyBar quoteHref={quoteHref} label={stickyLabel} />
     </div>
+    {!landing && <ChatWidget />}
   </body>
 </html>
