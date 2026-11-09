@@ -1,7 +1,7 @@
 ---
 import Logo from './Logo.astro';
-import { EMAIL, LOCATION, PHONE_DISPLAY, PHONE_HREF, SERVICE_AREA } from '../lib/site';
-import { footerLinks } from '../lib/services';
+import { EMAIL, LOCATION, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, SERVICE_AREA } from '../lib/site';
+import { serviceHref, servicePages } from '../lib/servicePages';
 import { townHref, towns } from '../lib/towns';
 
 interface Props {
@@ -34,7 +34,7 @@ const { minimal = false } = Astro.props;
       <>
         <nav aria-label="Services" class="col">
           <span class="col-title">Services</span>
-          {footerLinks.map((l) => <a href={l.href} class="foot-link">{l.label}</a>)}
+          {servicePages.map((s) => <a href={serviceHref(s.key)} class="foot-link">{s.menu}</a>)}
         </nav>
         <nav aria-label="Company" class="col">
           <span class="col-title">Company</span>
@@ -50,7 +50,7 @@ const { minimal = false } = Astro.props;
           <span class="col-title">Get in touch</span>
           <a href={PHONE_HREF} class="foot-link">{PHONE_DISPLAY}</a>
           <a href={`mailto:${EMAIL}`} class="foot-link">{EMAIL}</a>
-          <span>{LOCATION}</span>
+          <a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps" class="foot-link">{LOCATION}</a>
         </div>
       </>
     )}

@@ -3,6 +3,14 @@
 // town pages (UPDATE-4-SITE.md §4). Hidden while NEW_CLIENT_OFFER_ON is false.
 import Icon from '../Icon.astro';
 import { NEW_CLIENT_OFFER_ON, NEW_CLIENT_OFFER_TERMS } from '../../lib/campaigns';
+import { PHONE_DISPLAY, PHONE_HREF } from '../../lib/site';
+
+interface Props {
+  /** 'call' (the Cleanups service page): Claim 20% off + Call, instead of See cleanup services + Claim 20% off. */
+  buttons?: 'default' | 'call';
+}
+
+const { buttons = 'default' } = Astro.props;
 ---
 {NEW_CLIENT_OFFER_ON && (
   <section aria-label="New client special" class="offer-banner">
@@ -14,8 +22,17 @@ import { NEW_CLIENT_OFFER_ON, NEW_CLIENT_OFFER_TERMS } from '../../lib/campaigns
         <p class="ob-terms">{NEW_CLIENT_OFFER_TERMS}</p>
       </div>
       <div class="ob-btns">
-        <a href="/services#cleanups" class="btn btn-sand ob-btn">See cleanup services</a>
-        <a href="#quote" class="btn btn-ghost-light ob-btn">Claim 20% off <Icon name="arrow-right" size={18} strokeWidth={2.2} /></a>
+        {buttons === 'call' ? (
+          <>
+            <a href="#quote" class="btn btn-sand ob-btn">Claim 20% off</a>
+            <a href={PHONE_HREF} class="btn btn-ghost-light ob-btn">Call {PHONE_DISPLAY}</a>
+          </>
+        ) : (
+          <>
+            <a href="/services/cleanups" class="btn btn-sand ob-btn">See cleanup services</a>
+            <a href="#quote" class="btn btn-ghost-light ob-btn">Claim 20% off <Icon name="arrow-right" size={18} strokeWidth={2.2} /></a>
+          </>
+        )}
       </div>
     </div>
   </section>

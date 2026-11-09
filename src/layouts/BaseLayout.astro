@@ -22,6 +22,8 @@ interface Props {
   landing?: boolean;
   noindex?: boolean;
   jsonLd?: Record<string, unknown>;
+  /** Service page key, highlighted in the header's Services menus. */
+  currentService?: string;
 }
 
 const {
@@ -33,6 +35,7 @@ const {
   landing = false,
   noindex = landing,
   jsonLd,
+  currentService,
 } = Astro.props;
 
 // build.format 'file' makes the pathname '/services.html'; the live URL is '/services'.
@@ -68,7 +71,7 @@ const ogImage = new URL(og.src, Astro.site).href;
   </head>
   <body>
     <div class="page">
-      {landing ? <LandingHeader /> : <Header current={current} quoteHref={quoteHref} />}
+      {landing ? <LandingHeader /> : <Header current={current} quoteHref={quoteHref} currentService={currentService} />}
       <main>
         <slot />
       </main>

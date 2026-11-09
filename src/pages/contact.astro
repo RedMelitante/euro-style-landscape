@@ -3,13 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageBanner from '../components/PageBanner.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import Icon, { type IconName } from '../components/Icon.astro';
-import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
+import { EMAIL, MAPS_URL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
 import { NEW_CLIENT_OFFER_ON, NEW_CLIENT_OFFER_TERMS } from '../lib/campaigns';
 
 const tiles: { icon: IconName; title: string; text: string; href?: string }[] = [
   { icon: 'phone', title: 'Call us', text: PHONE_DISPLAY, href: PHONE_HREF },
   { icon: 'mail', title: 'Email us', text: EMAIL, href: `mailto:${EMAIL}` },
-  { icon: 'pin', title: 'Areas we serve', text: 'Based in Sayreville, NJ · serving Middlesex, Monmouth & Union County towns' },
+  { icon: 'pin', title: 'Areas we serve', text: 'Based in Sayreville, NJ · serving Middlesex, Monmouth & Union County towns', href: MAPS_URL },
   { icon: 'calendar', title: 'Free on-site consultations', text: 'No cost, no obligation' },
 ];
 ---
@@ -43,7 +43,11 @@ const tiles: { icon: IconName; title: string; text: string; href?: string }[] = 
           {tiles.map((t) => {
             const Tag = t.href ? 'a' : 'div';
             return (
-              <Tag href={t.href} class="tile tile-hover">
+              <Tag
+                href={t.href}
+                class="tile tile-hover"
+                {...(t.href === MAPS_URL ? { target: '_blank', rel: 'noopener', title: 'Open in Google Maps' } : {})}
+              >
                 <span class="icon-circle disc"><Icon name={t.icon} size={22} /></span>
                 <span class="stack" style="gap:2px;min-width:0">
                   <span class="t">{t.title}</span>

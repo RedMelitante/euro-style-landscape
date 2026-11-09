@@ -2,7 +2,7 @@
 // Required before ads run. Draft text from design/privacy-policy.dc.html, plus email and
 // Conversions API / advanced matching. Remove `noindex` once the client approves it.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { EMAIL, GHL_CHAT_WIDGET_ID, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
+import { EMAIL, GHL_CHAT_WIDGET_ID, MAPS_URL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
 ---
 <BaseLayout title="Privacy Policy · Euro Style Landscape" noindex>
   <section class="sage-top" style="padding:clamp(40px, 6vw, 80px) 0 clamp(40px, 5vw, 72px)">
@@ -52,7 +52,7 @@ import { EMAIL, GHL_CHAT_WIDGET_ID, PHONE_DISPLAY, PHONE_HREF } from '../lib/sit
         <h2>Changes to this policy</h2>
         <p>We may update this policy from time to time. The date at the top shows when it was last changed.</p>
         <h2>Contact us</h2>
-        <p>Euro Style Landscape (SN Landscaping LLC)<br />Sayreville, NJ 08872<br />Phone: <a href={PHONE_HREF}>{PHONE_DISPLAY}</a><br />Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+        <p>Euro Style Landscape (SN Landscaping LLC)<br /><a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps">Sayreville, NJ 08872</a><br />Phone: <a href={PHONE_HREF}>{PHONE_DISPLAY}</a><br />Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
       </div>
     </div>
   </section>

@@ -11,9 +11,13 @@ interface Props {
   title?: string;
   /** Hidden `source` (e.g. service-area-sayreville on the town pages), shown on the lead in GoHighLevel. */
   source?: string;
+  /** Preselected "Service needed" / "Property type" (the service pages). */
+  service?: string | null;
+  propertyType?: string | null;
 }
 
-const { id: uid, title = 'Book your free design consultation', source } = Astro.props;
+const { id: uid, title = 'Book your free design consultation', source, service, propertyType } = Astro.props;
+if (service && ![...quoteOptionGroups.flatMap(([, o]) => o), quoteLastOption].includes(service)) throw new Error(`QuoteForm: unknown service "${service}"`);
 const f = (name: string) => `qf-${name}-${uid}`;
 ---
 <form class="qf" action="/api/lead" method="post" data-quote-form>
@@ -40,7 +44,7 @@ const f = (name: string) => `qf-${name}-${uid}`;
       <label for={f('type')}>Property type</label>
       <select class="qf-field qf-select" id={f('type')} name="property_type" required>
         <option value="">Choose one</option>
-        {PROPERTY_TYPES.map((t) => <option>{t}</option>)}
+        {PROPERTY_TYPES.map((t) => <option selected={t === propertyType}>{t}</option>)}
       </select>
     </div>
     <div class="qf-group">
@@ -49,7 +53,7 @@ const f = (name: string) => `qf-${name}-${uid}`;
         <option value="">Choose a service</option>
         {quoteOptionGroups.map(([label, options]) => (
           <optgroup label={label}>
-            {options.map((s) => <option>{s}</option>)}
+            {options.map((s) => <option selected={s === service}>{s}</option>)}
           </optgroup>
         ))}
         <option>{quoteLastOption}</option>

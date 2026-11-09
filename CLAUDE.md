@@ -81,6 +81,16 @@ token, build and push, and the owner deploys from their computer.
 - `?h=` swaps the headline on `/lp/landscape-cleanup-quote` (`fall`, `overgrown`, `offer`) and the hero on
   `/lp/rebuild-or-refresh` (`2027`, `fall`).
 
+## Service pages (`src/pages/services/`)
+
+- 7 indexable pages, one template (`[service].astro`) + `src/data/service-pages.json`, pulled from the handoff's
+  `service-*.dc.html` (update 5). The hero is a photo mosaic or, for Snow removal and Commercial (no real photos yet),
+  an info panel. Cleanups has the offer pill, band and FAQ, all on `NEW_CLIENT_OFFER_ON`.
+- `src/lib/servicePages.ts` order = header Services dropdown, footer Services column, `/services` jump links and each
+  page's "Other services". The header dropdown opens on hover, keyboard focus and tap (tablets).
+- "Sayreville, NJ 08872" links to `MAPS_URL` in `src/lib/site.ts` (footer, Areas we serve tiles, contact strips,
+  privacy policy). Swap in the client's Google Business Profile link there when they send it.
+
 ## Service-area town pages (`src/pages/service-areas/`)
 
 - 14 indexable pages, one template (`[town].astro`) + `src/data/towns.json`, pulled from the handoff's
@@ -89,13 +99,14 @@ token, build and push, and the owner deploys from their computer.
 - `/service-areas` (a list of the towns) isn't in the designs; it exists so the breadcrumb JSON-LD points to a real page.
 - No review or rating markup until there are real reviews.
 
-## Open items (as of 2026-11-06)
+## Open items (as of 2026-11-09)
 
 - Client to confirm: haul-away and whether they need to be home for the estimate, the town list, 2027 start
   timing, and the privacy policy text. ("Licensed & insured" was confirmed by the client in handoff update 3.) Remove the privacy page's
   `noindex` only after they approve it.
-- Client to confirm (update 4): whether snow removal is offered to homes as well as commercial properties, and the
-  Monroe page's lines about adult communities / HOAs.
+- Client to confirm (updates 4–5): whether snow removal is offered to homes as well as commercial properties, the
+  Monroe page's lines about adult communities / HOAs, which fence materials they install (the Fencing page names
+  none), and their Google Business Profile link (to replace `MAPS_URL`).
 - The Google Apps Script backup (`docs/google-apps-script-lead-backup.gs`) now has Property type and Source columns;
   paste the new version into the script and redeploy it for the backup sheet to show them.
 - No ads point at the campaign pages yet.

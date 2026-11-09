@@ -5,6 +5,13 @@ export const EMAIL = 'seannachajski@eurostylelandscape.com';
 export const LOCATION = 'Sayreville, NJ 08872';
 export const SERVICE_AREA = 'Based in Sayreville, NJ · serving Middlesex County';
 
+/**
+ * "Sayreville, NJ 08872" links here, in a new tab (UPDATE-5-SITE.md §5): footer, the "Areas we serve" tiles,
+ * the contact strip on town and service pages, and the privacy policy. Replace it with the client's Google
+ * Business Profile share link when they send it. The ad landing pages keep the address as plain text.
+ */
+export const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=Euro+Style+Landscape%2C+Sayreville%2C+NJ+08872';
+
 export type NavKey = 'home' | 'about' | 'services' | 'work' | 'contact' | 'none';
 
 export const NAV: { key: NavKey; href: string; label: string }[] = [

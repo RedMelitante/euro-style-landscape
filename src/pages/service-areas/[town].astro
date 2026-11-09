@@ -7,7 +7,9 @@ import QuoteForm from '../../components/QuoteForm.astro';
 import OfferBanner from '../../components/offer/OfferBanner.astro';
 import Photo from '../../components/Photo.astro';
 import Icon from '../../components/Icon.astro';
-import { PHONE_DISPLAY, PHONE_HREF } from '../../lib/site';
+import ServiceIconCards from '../../components/ServiceIconCards.astro';
+import { serviceHref } from '../../lib/servicePages';
+import { MAPS_URL, PHONE_DISPLAY, PHONE_HREF } from '../../lib/site';
 import { NEW_CLIENT_OFFER_ON } from '../../lib/campaigns';
 import { photoBg } from '../../lib/images';
 import { townHref, towns, townSource, type Town } from '../../lib/towns';
@@ -23,12 +25,12 @@ interface Props {
 const { town } = Astro.props;
 const { hero, intro, local, work, faq } = town;
 
-// The same four cards on every town page; only the photos change.
+// The same four photo cards on every town page (only the photos change), then the 3 icon cards.
 const serviceCards = [
-  { title: 'Construction', text: 'Paver patios, retaining walls, outdoor kitchens, decks, concrete, masonry, stone veneer and asphalt, designed and built by one team.', label: 'Construction', href: '/services#construction' },
-  { title: 'Lawn maintenance', text: 'Lawn mowing, fertilization, aeration and property cleanups to keep your yard looking cared for.', label: 'Lawn maintenance', href: '/services#lawn-maintenance' },
-  { title: 'Fencing', text: 'New fences and gates for privacy, safety and a finished boundary around your yard.', label: 'Fencing', href: '/services#fencing' },
-  { title: 'Planting & landscape install', text: 'New lawns, garden beds, shrubs and trees, installed as one finished landscape.', label: 'Planting & install', href: '/services#planting' },
+  { title: 'Construction', text: 'Paver patios, retaining walls, outdoor kitchens, decks, concrete, masonry, stone veneer and asphalt, designed and built by one team.', label: 'Construction', href: serviceHref('construction') },
+  { title: 'Lawn maintenance', text: 'Mowing and edging, fertilization, aeration and seasonal cleanups to keep your yard looking cared for.', label: 'Lawn maintenance', href: serviceHref('lawn-maintenance') },
+  { title: 'Fencing', text: 'New fences and gates for privacy, safety and a finished boundary around your yard.', label: 'Fencing', href: serviceHref('fencing') },
+  { title: 'Planting & landscape install', text: 'New lawns, garden beds, shrubs and trees, installed as one finished landscape.', label: 'Planting & install', href: serviceHref('planting') },
 ].map((c, i) => ({ ...c, ...town.services.photos[i] }));
 
 const steps = [
@@ -173,6 +175,7 @@ const fill = 'display:block;width:100%;height:100%;object-fit:cover';
           </article>
         ))}
       </div>
+      <ServiceIconCards />
     </div>
   </section>
 
@@ -261,7 +264,7 @@ const fill = 'display:block;width:100%;height:100%;object-fit:cover';
         <p class="lead on-dark-muted">Tell us about your project and we'll call you to book a free on-site consultation.</p>
         <div class="stack" style="gap:10px;font-size:16px">
           <a href={PHONE_HREF} class="q-phone"><span class="gold"><Icon name="phone" size={18} /></span>{PHONE_DISPLAY}</a>
-          <span class="q-based"><span class="gold"><Icon name="pin" size={18} /></span>{town.based}</span>
+          <a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps" class="q-based"><span class="gold"><Icon name="pin" size={18} /></span>{town.based}</a>
         </div>
       </div>
       <div id="quote" class="quote-form qf-slot">
@@ -382,7 +385,8 @@ const fill = 'display:block;width:100%;height:100%;object-fit:cover';
   .gold { color: var(--sand-500); display: flex; }
   .q-phone { display: flex; align-items: center; gap: 10px; color: var(--on-dark); text-decoration: none; font-weight: 600; }
   .q-phone:hover { color: var(--on-dark); }
-  .q-based { display: flex; align-items: center; gap: 10px; color: var(--on-dark-muted); }
+  .q-based { display: flex; align-items: center; gap: 10px; color: var(--on-dark-muted); text-decoration: none; }
+  .q-based:hover { color: var(--on-dark); }
 
   .others { background: #FFFDF8; border-top: 1px solid var(--line); padding: clamp(40px, 5vw, 64px) 0; }
   .others-title { margin: 0; font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); line-height: 1.2; font-weight: 600; }

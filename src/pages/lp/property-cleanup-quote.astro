@@ -473,4 +473,10 @@ textarea.qf{min-height:84px;resize:vertical}
  .foot .legal{width:100%}
  .sticky{display:none}
 }
+/* Phones under 360px: both sticky bar buttons fit (UPDATE-5-SITE.md §7) */
+@media (max-width: 359px) {
+ .sticky{gap:8px;padding-left:10px;padding-right:10px}
+ .sticky a{min-width:0;gap:6px;font-size:16px;letter-spacing:.02em}
+ .sticky a svg{width:18px;height:18px;flex:none}
+}
 </style>

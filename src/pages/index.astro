@@ -10,7 +10,9 @@ import QuoteForm from '../components/QuoteForm.astro';
 import Photo from '../components/Photo.astro';
 import Icon from '../components/Icon.astro';
 import OfferBanner from '../components/offer/OfferBanner.astro';
-import { EMAIL, PHONE_DISPLAY, PHONE_HREF, SERVICE_AREA } from '../lib/site';
+import ServiceIconCards from '../components/ServiceIconCards.astro';
+import { serviceHref } from '../lib/servicePages';
+import { EMAIL, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, SERVICE_AREA } from '../lib/site';
 import { group, groups } from '../lib/services';
 
 const site = Astro.site!;
@@ -49,11 +51,11 @@ const construction = group('construction');
 // Chip order from design/home.dc.html; titles from services.json.
 const chipOrder = ['outdoor-backyard-design', 'pavers', 'concrete', 'outdoor-kitchens', 'retaining-walls', 'stone-veneer', 'decks', 'masonry-work', 'asphalt'];
 const coreChips = chipOrder.map((id) => construction.items.find((i) => i.id === id)?.title).filter(Boolean);
-// Home-specific card copy from design/home.dc.html; each links to its Services anchor.
+// Home-specific card copy from design/home.dc.html; each links to its service page.
 const sideCards = [
-  { title: 'Lawn maintenance', text: 'Lawn mowing, fertilization, aeration and property cleanups to keep your yard looking cared for.', cta: 'Lawn maintenance', href: '/services#lawn-maintenance', src: 'front-lawn-tree.jpg', alt: 'Well-kept front lawn with a mature tree and mulched beds', bg: '#66705C' },
-  { title: 'Planting & landscape install', text: 'New lawns, garden beds, shrubs and trees, installed as one finished landscape.', cta: 'Planting & install', href: '/services#planting', src: 'front-lawn-beds.jpg', alt: 'Front lawn with mulched beds and shrubs', bg: '#5A7354' },
-  { title: 'Fencing', text: 'New fences and gates for privacy, safety and a finished boundary around your yard.', cta: 'Fencing', href: '/services#fencing', src: 'stone-pillars-gate.jpg', alt: 'White vinyl fence and gate between stacked-stone pillars', bg: '#8A8F92' },
+  { title: 'Lawn maintenance', text: 'Mowing and edging, fertilization, aeration and seasonal cleanups to keep your yard looking cared for.', cta: 'Lawn maintenance', href: serviceHref('lawn-maintenance'), src: 'front-lawn-tree.jpg', alt: 'Well-kept front lawn with a mature tree and mulched beds', bg: '#66705C' },
+  { title: 'Fencing', text: 'New fences and gates for privacy, safety and a finished boundary around your yard.', cta: 'Fencing', href: serviceHref('fencing'), src: 'stone-pillars-gate.jpg', alt: 'White vinyl fence and gate between stacked-stone pillars', bg: '#8A8F92' },
+  { title: 'Planting & landscape install', text: 'New lawns, garden beds, shrubs and trees, installed as one finished landscape.', cta: 'Planting & install', href: serviceHref('planting'), src: 'front-lawn-beds.jpg', alt: 'Front lawn with mulched beds and shrubs', bg: '#5A7354' },
 ];
 const recent = [
   { title: 'Raised patio with step lighting', src: 'raised-patio-night.jpg', alt: 'Raised paver patio at night with lit steps', bg: '#1B1F1B' },
@@ -99,7 +101,7 @@ const recent = [
       <SectionHeader
         title="Everything your outdoor space needs"
         kicker="Services"
-        description="Construction, lawn maintenance, fencing, planting and landscape installation, all from one local team."
+        description="Construction, lawn maintenance, cleanups, snow removal, fencing, planting and landscape installation for homes and commercial properties, all from one local team."
         link={{ href: '/services', label: 'All services' }}
       />
       <div class="grid-auto" style="--min:440px;--gap:24px">
@@ -134,6 +136,7 @@ const recent = [
           </article>
         ))}
       </div>
+      <ServiceIconCards />
     </div>
   </section>
 
@@ -249,10 +252,10 @@ const recent = [
             <span class="icon-circle ddisc"><Icon name="mail" size={22} /></span>
             <span class="stack" style="gap:2px;min-width:0"><span class="dt">Email us</span><span class="dd" style="overflow-wrap:anywhere">{EMAIL}</span></span>
           </a>
-          <div class="dtile">
+          <a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps" class="dtile">
             <span class="icon-circle ddisc"><Icon name="pin" size={22} /></span>
             <span class="stack" style="gap:2px"><span class="dt">Areas we serve</span><span class="dd">{SERVICE_AREA}</span></span>
-          </div>
+          </a>
         </div>
       </div>
       <div class="form-col qf-slot">

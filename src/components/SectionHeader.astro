@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro';
 // Theme section header: H2 left; kicker, description and optional link right;
 // green divider below. `badge` adds the sand pill above the H2. Without a
 // kicker the description sits alone on the right.
@@ -8,9 +9,11 @@ interface Props {
   description: string;
   link?: { href: string; label: string };
   badge?: string;
+  /** Links under the description, e.g. "See the full construction page" on /services. */
+  pageLinks?: { href: string; label: string }[];
 }
 
-const { title, kicker, description, link, badge } = Astro.props;
+const { title, kicker, description, link, badge, pageLinks = [] } = Astro.props;
 ---
 <div class="sh">
   {badge ? (
@@ -32,6 +35,12 @@ const { title, kicker, description, link, badge } = Astro.props;
         <p class="kicker">{kicker}</p>
       )}
       <p class="body-muted">{description}</p>
+      {pageLinks.map((l) => <a href={l.href} class="page-link">{l.label} <Icon name="arrow-right" size={14} strokeWidth={2.2} /></a>)}
+    </div>
+  ) : pageLinks.length ? (
+    <div class="right" style="gap:6px">
+      <p class="body-muted">{description}</p>
+      {pageLinks.map((l) => <a href={l.href} class="page-link">{l.label} <Icon name="arrow-right" size={14} strokeWidth={2.2} /></a>)}
     </div>
   ) : (
     <p class="body-muted right">{description}</p>
@@ -45,4 +54,5 @@ const { title, kicker, description, link, badge } = Astro.props;
   .right { flex: 1 1 420px; display: flex; flex-direction: column; gap: 8px; }
   .kicker-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
   .more { font-size: 15px; color: var(--green-700); }
+  .page-link { align-self: flex-start; display: flex; align-items: center; gap: 6px; min-height: 44px; font-size: 15px; font-weight: 600; color: var(--green-700); }
 </style>

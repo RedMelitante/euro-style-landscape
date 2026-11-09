@@ -36,7 +36,7 @@ function doPost(e) {
   // Header row is (re)written every time so columns added later appear in existing sheets too.
   sheet.getRange(1, 1, 1, COLUMNS.length).setValues([COLUMNS]);
   // Leading apostrophe keeps ZIPs as text so New Jersey's leading zero (08872) isn't dropped.
-  sheet.appendRow([new Date(), data.name, data.phone, data.email, data.service, "'" + data.zip, data.budget || '', data.page || '', data.formId || '', data.reason || '', data.timeline || '', data.message || '', data.propertyType || '', data.townPage || data.source || '']);
+  sheet.appendRow([new Date(), data.name, data.phone, data.email, data.service, "'" + data.zip, data.budget || '', data.page || '', data.formId || '', data.reason || '', data.timeline || '', data.message || '', data.propertyType || '', data.pageSource || data.townPage || data.source || '']);
 
   const rows = [
     ['Name', data.name], ['Phone', data.phone], ['Email', data.email], ['Service', data.service],

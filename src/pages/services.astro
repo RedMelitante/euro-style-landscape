@@ -8,7 +8,8 @@ import CtaBand from '../components/CtaBand.astro';
 import Photo from '../components/Photo.astro';
 import Icon from '../components/Icon.astro';
 import { PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
-import { commercial, group, groups, jumpLinks } from '../lib/services';
+import { commercial, group, groups } from '../lib/services';
+import { serviceHref, servicePages } from '../lib/servicePages';
 import { NEW_CLIENT_OFFER_ON, NEW_CLIENT_OFFER_TERMS } from '../lib/campaigns';
 import { photoBg } from '../lib/images';
 
@@ -50,7 +51,7 @@ const jsonLd = {
     tight
   >
     <div class="jump">
-      {jumpLinks.map((l) => <a href={l.href.replace('/services', '')} class="btn btn-light-ghost jump-link">{l.label}</a>)}
+      {servicePages.map((sp) => <a href={`#${sp.key}`} class="btn btn-light-ghost jump-link">{sp.menu}</a>)}
     </div>
   </PageBanner>
 
@@ -62,6 +63,7 @@ const jsonLd = {
         title={construction.title}
         kicker="Designed and built by one team"
         description={construction.intro}
+        pageLinks={[{ href: serviceHref('construction'), label: 'See the full construction page' }]}
       />
       <div class="svc-grid">
         {photoItems.map((item) => <ServiceCard item={item} class={item.featured ? 'svc-feature' : undefined} />)}
@@ -89,6 +91,7 @@ const jsonLd = {
         <p class="kicker">{lawn.title}</p>
         <h2 class="h2">{lawn.heading}</h2>
         <p class="body-lg">{lawn.intro}</p>
+        <a href={serviceHref('lawn-maintenance')} class="page-link">See the full lawn maintenance page <Icon name="arrow-right" size={14} strokeWidth={2.2} /></a>
         <div class="grid-auto" style="--min:230px;--gap:12px">
           {lawn.items.map((item) => <ServiceCard item={item} variant="mini" />)}
         </div>
@@ -106,7 +109,14 @@ const jsonLd = {
   <!-- 3. Fencing, planting & landscape install (ids on the cards) -->
   <section class="section">
     <div class="container stack" style="gap:32px">
-      <SectionHeader title={more.title} description={more.intro} />
+      <SectionHeader
+        title={more.title}
+        description={more.intro}
+        pageLinks={[
+          { href: serviceHref('fencing'), label: 'See the full fencing page' },
+          { href: serviceHref('planting'), label: 'See the planting & landscape install page' },
+        ]}
+      />
       <div class="grid-auto" style="--min:300px;--gap:24px">
         {more.items.map((item) => <ServiceCard item={item} anchor />)}
       </div>
@@ -121,7 +131,10 @@ const jsonLd = {
           <p class="kicker">{cleanups.title}</p>
           <h2 class="h2">{cleanups.heading}</h2>
         </div>
-        <p class="body-muted" style="flex:1 1 380px">{cleanups.intro}</p>
+        <div class="stack" style="flex:1 1 380px;gap:6px">
+          <p class="body-muted">{cleanups.intro}</p>
+          <a href={serviceHref('cleanups')} class="page-link">See the full cleanups page <Icon name="arrow-right" size={14} strokeWidth={2.2} /></a>
+        </div>
       </div>
       {NEW_CLIENT_OFFER_ON && (
         // NEW CLIENT OFFER card (hidden while NEW_CLIENT_OFFER_ON is false)
@@ -159,7 +172,10 @@ const jsonLd = {
           <p class="kicker">{snow.title}</p>
           <h2 class="h2">{snow.heading}</h2>
         </div>
-        <p class="body-muted" style="flex:1 1 380px">{snow.intro}</p>
+        <div class="stack" style="flex:1 1 380px;gap:6px">
+          <p class="body-muted">{snow.intro}</p>
+          <a href={serviceHref('snow-removal')} class="page-link">See the full snow removal page <Icon name="arrow-right" size={14} strokeWidth={2.2} /></a>
+        </div>
       </div>
       <div class="grid-auto" style="--min:240px;--gap:16px">
         {snow.items.map((item) => (
@@ -185,7 +201,10 @@ const jsonLd = {
           <p class="kicker">{commercial.title}</p>
           <h2 class="h2">{commercial.heading}</h2>
         </div>
-        <p class="body-muted" style="flex:1 1 380px">{commercial.intro}</p>
+        <div class="stack" style="flex:1 1 380px;gap:6px">
+          <p class="body-muted">{commercial.intro}</p>
+          <a href={serviceHref('commercial')} class="page-link">See the full commercial services page <Icon name="arrow-right" size={14} strokeWidth={2.2} /></a>
+        </div>
       </div>
       <div class="comm">
         <div class="comm-lists">
@@ -219,7 +238,7 @@ const jsonLd = {
 <script is:inline>
   // Old anchors (previous site, ads, bookmarks) → new sections.
   (function () {
-    var map = { '#design': '#construction', '#maintenance': '#lawn-maintenance' };
+    var map = { '#design': '#construction', '#maintenance': '#lawn-maintenance', '#landscape-install': '#planting' };
     function fix() {
       var to = map[location.hash];
       if (!to) return;
@@ -257,6 +276,7 @@ const jsonLd = {
   .feature-media { flex: 1 1 440px; min-width: 0; }
   .feature-copy { flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
   .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .page-link { align-self: flex-start; display: flex; align-items: center; gap: 6px; min-height: 44px; font-size: 15px; font-weight: 600; color: var(--green-700); }
   /* Wraps instead of overflowing at 320px (UPDATE-4-SITE.md §7). */
   .plan-btn { flex: 0 1 auto; height: auto; min-height: 52px; text-align: center; }
   .sec-head { display: flex; flex-wrap: wrap; gap: 16px 48px; align-items: flex-end; justify-content: space-between; }

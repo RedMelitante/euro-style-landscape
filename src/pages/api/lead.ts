@@ -21,6 +21,7 @@ import { BUDGETS, PROPERTY_TYPES, TIMELINES } from '../../lib/site';
 import { quoteServiceValues } from '../../lib/services';
 import { CAMPAIGN_SERVICES, CAMPAIGN_SOURCES } from '../../lib/campaigns';
 import { TOWN_SOURCES } from '../../lib/towns';
+import { SERVICE_SOURCES } from '../../lib/servicePages';
 
 /** Older service names still accepted, so a page cached before Update 4 can still send a lead. */
 const LEGACY_SERVICES = ['Lawn mowing'];
@@ -48,8 +49,8 @@ type Lead = {
   adHeadline: string;
   offer: string;
   projectChoice: string;
-  /** Set on the service-area town pages, e.g. service-area-sayreville. */
-  townPage: string;
+  /** Set on the town and service pages, e.g. service-area-sayreville or service-fencing. */
+  pageSource: string;
 };
 
 const json = (body: unknown, status = 200) =>
@@ -76,7 +77,7 @@ function validate(raw: Record<string, unknown>): { lead?: Lead; error?: string }
     adHeadline: str(raw.ad_headline, 20),
     offer: str(raw.offer, 60),
     projectChoice: ['rebuild', 'refresh'].includes(str(raw.project_choice, 10)) ? str(raw.project_choice, 10) : '',
-    townPage: TOWN_SOURCES.includes(str(raw.source, 60)) ? str(raw.source, 60) : '',
+    pageSource: [...TOWN_SOURCES, ...SERVICE_SOURCES].includes(str(raw.source, 60)) ? str(raw.source, 60) : '',
   };
   if (lead.name.length < 2) return { error: 'Please enter your name.' };
   if (lead.phone.replace(/\D/g, '').length < 10) return { error: 'Please enter a valid phone number.' };
@@ -168,7 +169,7 @@ async function sendToGhl(lead: Lead) {
     src.landing ? 'source-ad-landing-page' : 'source-website',
     `timeline-${slug(lead.timeline)}`,
     ...(lead.propertyType ? [`property-${lead.propertyType === 'Home' ? 'home' : 'commercial'}`] : []),
-    ...(lead.townPage ? [lead.townPage] : []),
+    ...(lead.pageSource ? [lead.pageSource] : []),
     ...(lead.source ? [`campaign-${slug(lead.source)}`] : []),
     ...(lead.projectChoice ? [`choice-${lead.projectChoice}`] : []),
   ];
@@ -184,7 +185,9 @@ async function sendToGhl(lead: Lead) {
     country: 'US',
     source: lead.source
       ? 'Website – ad campaign page'
-      : src.landing ? 'Website – free design consultation page' : lead.townPage ? 'Website – service area page' : 'Website quote form',
+      : src.landing ? 'Website – free design consultation page' : lead.pageSource.startsWith('service-area-')
+        ? 'Website – service area page'
+        : lead.pageSource ? 'Website – service page' : 'Website quote form',
     tags,
   };
   // Contact custom fields (created in GoHighLevel: Service Requested, Budget Range, Lead Page,
@@ -225,7 +228,7 @@ async function sendToGhl(lead: Lead) {
     `Page: ${src.path || lead.page || '—'}${src.params.length ? `\nTracking: ${src.params.join(', ')}` : ''}`,
     `Form: ${lead.formId || '—'}`,
     ...(lead.source ? [`Campaign: ${lead.source}`] : []),
-    ...(lead.townPage ? [`Town page: ${lead.townPage}`] : []),
+    ...(lead.pageSource ? [`Page source: ${lead.pageSource}`] : []),
     ...(lead.adHeadline ? [`Ad headline: ${lead.adHeadline}`] : []),
     ...(lead.projectChoice ? [`Choice: ${lead.projectChoice}`] : []),
     ...(lead.offer && lead.offer !== 'none' ? [`Offer: ${lead.offer}`] : []),

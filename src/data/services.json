@@ -173,24 +173,13 @@
         },
         {
           "id": "planting",
-          "title": "Planting",
-          "text": "Trees, shrubs and garden beds chosen for your site and the amount of upkeep you want.",
+          "title": "Planting & landscape install",
+          "text": "Trees, shrubs and garden beds, new lawn installation, and entrance and curb appeal upgrades, installed as one finished landscape.",
           "image": "front-lawn-beds.jpg",
           "alt": "Front lawn with mulched beds, shrubs and an ornamental tree",
           "link": {
-            "label": "Get a planting quote",
+            "label": "Get a planting & landscape quote",
             "href": "/contact"
-          }
-        },
-        {
-          "id": "landscape-install",
-          "title": "Landscape install",
-          "text": "New lawn installation, garden beds, mulch and plantings installed as one finished landscape, plus entrance and curb appeal upgrades.",
-          "image": "backyard-after.jpg",
-          "alt": "Finished backyard with new lawn, paver walkway and deck",
-          "link": {
-            "label": "See the backyard makeover",
-            "href": "/our-work"
           }
         }
       ]
@@ -348,74 +337,6 @@
       "href": "/contact#quote"
     }
   },
-  "footerLinks": [
-    {
-      "label": "Construction",
-      "href": "/services#construction"
-    },
-    {
-      "label": "Lawn maintenance",
-      "href": "/services#lawn-maintenance"
-    },
-    {
-      "label": "Cleanups & refresh",
-      "href": "/services#cleanups"
-    },
-    {
-      "label": "Snow removal",
-      "href": "/services#snow-removal"
-    },
-    {
-      "label": "Commercial",
-      "href": "/services#commercial"
-    },
-    {
-      "label": "Fencing",
-      "href": "/services#fencing"
-    },
-    {
-      "label": "Planting",
-      "href": "/services#planting"
-    },
-    {
-      "label": "Landscape install",
-      "href": "/services#landscape-install"
-    }
-  ],
-  "jumpLinks": [
-    {
-      "label": "Construction",
-      "href": "/services#construction"
-    },
-    {
-      "label": "Lawn maintenance",
-      "href": "/services#lawn-maintenance"
-    },
-    {
-      "label": "Fencing",
-      "href": "/services#fencing"
-    },
-    {
-      "label": "Planting",
-      "href": "/services#planting"
-    },
-    {
-      "label": "Landscape install",
-      "href": "/services#landscape-install"
-    },
-    {
-      "label": "Cleanups & refresh",
-      "href": "/services#cleanups"
-    },
-    {
-      "label": "Snow removal",
-      "href": "/services#snow-removal"
-    },
-    {
-      "label": "Commercial",
-      "href": "/services#commercial"
-    }
-  ],
   "quoteFormOptions": {
     "Construction": [
       "Outdoor backyard design",
