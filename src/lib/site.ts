@@ -12,7 +12,7 @@ export const SERVICE_AREA = 'Based in Sayreville, NJ · serving Middlesex County
  */
 export const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=Euro+Style+Landscape%2C+Sayreville%2C+NJ+08872';
 
-export type NavKey = 'home' | 'about' | 'services' | 'work' | 'contact' | 'none';
+export type NavKey = 'home' | 'about' | 'services' | 'commercial' | 'who' | 'work' | 'areas' | 'contact' | 'none';
 
 export const NAV: { key: NavKey; href: string; label: string }[] = [
   { key: 'home', href: '/', label: 'Home' },
@@ -36,3 +36,12 @@ export const BUDGETS = ['Under $5k', '$5k – $15k', '$15k – $30k', '$30k+', '
  * ad landing pages (/lp/*, /free-design-consultation).
  */
 export const GHL_CHAT_WIDGET_ID = '6aee2b493c83530a42d5c594';
+
+/** Social profiles: footer icons and `sameAs` in the LandscapingBusiness JSON-LD (UPDATE-6-REDESIGN.md §6). */
+export const SOCIAL = [
+  { name: 'Facebook', href: 'https://www.facebook.com/p/EuroStyle-Landscape-61579931630985/' },
+  { name: 'Instagram', href: 'https://www.instagram.com/eurostylelandscape' },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@eurostylelandscape' },
+  { name: 'YouTube', href: 'https://www.youtube.com/@eurostylelandscape' },
+] as const;
+export const SAME_AS = SOCIAL.map((s) => s.href);

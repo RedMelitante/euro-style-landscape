@@ -1,21 +1,21 @@
 /* Shared by the ad campaign pages (src/pages/lp/). Everything else is in each page's own styles. */
 [hidden] { display: none !important; }
 
-/* The client logo's background is #1F3A2B, so it reads as a rounded tile on other backgrounds. */
+/* The client logo's background is #0F4A2F, so it reads as a rounded tile on other backgrounds. */
 .es-logo { border-radius: 10px; }
 
 /* "When are you ready to start?": the same question and answers as the main site's quote form. */
 .tl { border: 0; margin: 0; padding: 0; min-width: 0; }
-.tl legend { padding: 0; margin-bottom: 6px; font-size: 15px; font-weight: 600; color: #1F3A2B; }
+.tl legend { padding: 0; margin-bottom: 6px; font-size: 15px; font-weight: 600; color: #0F4A2F; }
 .tl-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .tl-choice {
   position: relative; min-height: 52px; display: flex; align-items: center; justify-content: center;
   border: 1.5px solid #D6CCB6; border-radius: 10px; background: #FFFFFF;
-  font-size: 16px; font-weight: 600; color: #22302A; cursor: pointer;
+  font-size: 16px; font-weight: 600; color: #0B3A25; cursor: pointer;
 }
 .tl-choice input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
-.tl-choice:hover { border-color: #1F3A2B; }
-.tl-choice:has(input:checked) { border-color: #1F3A2B; background: #1F3A2B; color: #F4EFE4; }
+.tl-choice:hover { border-color: #0F4A2F; }
+.tl-choice:has(input:checked) { border-color: #0F4A2F; background: #0F4A2F; color: #EFF4E7; }
 .tl-choice:has(input:focus-visible) { box-shadow: 0 0 0 3px rgba(201, 164, 106, .45); }
 
 /* The thank-you panel takes focus for screen readers; it isn't a control, so no outline. */

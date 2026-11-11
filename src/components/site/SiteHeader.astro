@@ -1,0 +1,121 @@
+---
+// White sticky header (UPDATE-6-REDESIGN.md §3.2, Who We Serve from update 7): Services and Areas dropdowns
+// open on hover, keyboard focus and tap (tablets); under 1024px a call button and menu button.
+import { Image } from 'astro:assets';
+import logo from '../../assets/logo/esl-logo-on-light.png';
+import { PHONE_DISPLAY, PHONE_HREF, type NavKey } from '../../lib/site';
+import { serviceHref, servicePages } from '../../lib/servicePages';
+import { townHref, towns } from '../../lib/towns';
+import { ICONS } from './icons';
+
+interface Props {
+  current: NavKey;
+  currentService?: string;
+  currentTown?: string;
+  quoteHref: string;
+}
+
+const { current, currentService, currentTown, quoteHref } = Astro.props;
+const on = (yes: boolean) => (yes ? 'color: #197148' : undefined);
+const cur = (yes: boolean) => (yes ? 'page' : undefined);
+const links: { key: NavKey; href: string; label: string }[] = [
+  { key: 'commercial', href: serviceHref('commercial'), label: 'Commercial' },
+  { key: 'who', href: '/who-we-serve', label: 'Who We Serve' },
+  { key: 'work', href: '/our-work', label: 'Our Work' },
+];
+const tail: { key: NavKey; href: string; label: string }[] = [
+  { key: 'about', href: '/about', label: 'About' },
+  { key: 'contact', href: '/contact', label: 'Contact' },
+];
+---
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a href="/" aria-label="Euro Style Landscape home" style="display: flex; align-items: center; text-decoration: none">
+      <Image class="logo" src={logo} alt="Euro Style Landscape" width={76} height={76} densities={[1, 2]} loading="eager" />
+    </a>
+    <nav class="nav d-only" aria-label="Main">
+      <div class="dd" data-dd>
+        <a href="/services" aria-haspopup="true" aria-expanded="false" aria-current={cur(current === 'services' && !currentService)} style={on(current === 'services')} data-dd-trigger>Services <span class="chev" set:html={ICONS.chev} /></a>
+        <div class="dd-menu">
+          {servicePages.map((s) => <a href={serviceHref(s.key)} aria-current={cur(s.key === currentService)} style={on(s.key === currentService)}>{s.menu}</a>)}
+          <a href="/services" class="all">All services <Fragment set:html={ICONS.all} /></a>
+        </div>
+      </div>
+      {links.map((l) => <a href={l.href} aria-current={cur(l.key === current)} style={on(l.key === current)}>{l.label}</a>)}
+      <div class="dd" data-dd>
+        <a href={townHref('sayreville')} aria-haspopup="true" aria-expanded="false" style={on(current === 'areas')} data-dd-trigger>Areas <span class="chev" set:html={ICONS.chev} /></a>
+        <div class="dd-menu cols">
+          {towns.map((t) => <a href={townHref(t.slug)} aria-current={cur(t.slug === currentTown)} style={on(t.slug === currentTown)}>{t.name}</a>)}
+        </div>
+      </div>
+      {tail.map((l) => <a href={l.href} aria-current={cur(l.key === current)} style={on(l.key === current)}>{l.label}</a>)}
+    </nav>
+    <div style="display: flex; align-items: center; gap: 16px">
+      <a href={PHONE_HREF} class="hdr-phone d-only">{PHONE_DISPLAY}</a>
+      <a href={quoteHref} class="btn btn-g d-only">Book a free consultation</a>
+      <a href={PHONE_HREF} class="m-only ibtn" aria-label="Call Euro Style Landscape" set:html={ICONS.call} />
+      <button type="button" class="m-only ibtn" aria-label="Menu" aria-expanded="false" aria-controls="mnav" data-menu-toggle set:html={ICONS.menu} />
+    </div>
+  </div>
+  <nav id="mnav" class="m-only mnav" aria-label="Mobile" hidden>
+    <a href="/services" style={on(current === 'services')}>Services</a>
+    <div class="sub">
+      {servicePages.map((s) => <a href={serviceHref(s.key)} aria-current={cur(s.key === currentService)} style={on(s.key === currentService)}>{s.menu}</a>)}
+    </div>
+    <a href="/who-we-serve" style={on(current === 'who')}>Who We Serve</a>
+    <a href="/our-work" style={on(current === 'work')}>Our Work</a>
+    <a href={townHref('sayreville')} style={on(current === 'areas')}>Service areas</a>
+    <a href="/about" style={on(current === 'about')}>About</a>
+    <a href="/contact" style={on(current === 'contact')}>Contact</a>
+    <a href={quoteHref} class="btn btn-g">Book a free consultation</a>
+  </nav>
+</header>
+
+<style>
+  /* The design hides the mobile menu with a template flag; here it's the hidden attribute. */
+  .mnav[hidden] { display: none !important; }
+  .mnav .btn { margin-top: 10px; justify-content: center; }
+</style>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const menu = document.getElementById('mnav');
+  if (toggle && menu) {
+    const setOpen = (open: boolean) => { menu.hidden = !open; toggle.setAttribute('aria-expanded', String(open)); };
+    toggle.addEventListener('click', () => setOpen(menu.hidden === true));
+    menu.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a')) setOpen(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) { setOpen(false); toggle.focus(); } });
+  }
+  // Dropdowns: CSS opens them on hover and focus. On touch screens (tablets get the desktop menu)
+  // the first tap on the trigger opens the menu and a second tap follows the link.
+  document.querySelectorAll<HTMLElement>('[data-dd]').forEach((dd) => {
+    const trigger = dd.querySelector<HTMLAnchorElement>('[data-dd-trigger]')!;
+    const menu = dd.querySelector<HTMLElement>('.dd-menu')!;
+    const show = (open: boolean) => {
+      if (!open) delete dd.dataset.tapped;
+      menu.style.display = open ? (menu.classList.contains('cols') ? 'grid' : 'flex') : '';
+      trigger.setAttribute('aria-expanded', String(open));
+    };
+    let touch = false;
+    trigger.addEventListener('pointerdown', (e) => { touch = e.pointerType === 'touch'; });
+    trigger.addEventListener('click', (e) => {
+      // focus (and emulated hover) on the tap already set aria-expanded, so check whether the tap opened the menu itself
+      if (touch && !dd.dataset.tapped) { e.preventDefault(); dd.dataset.tapped = '1'; show(true); }
+    });
+    dd.addEventListener('mouseenter', () => trigger.setAttribute('aria-expanded', 'true'));
+    dd.addEventListener('mouseleave', () => { if (!menu.style.display) trigger.setAttribute('aria-expanded', 'false'); });
+    dd.addEventListener('focusin', () => trigger.setAttribute('aria-expanded', 'true'));
+    dd.addEventListener('focusout', (e) => { if (!dd.contains(e.relatedTarget as Node)) show(false); });
+    document.addEventListener('click', (e) => { if (!dd.contains(e.target as Node)) show(false); });
+    dd.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      menu.style.display = 'none'; trigger.setAttribute('aria-expanded', 'false'); delete dd.dataset.tapped;
+      dd.dataset.escaped = '1'; trigger.focus();
+    });
+    trigger.addEventListener('focus', () => {
+      if (dd.dataset.escaped) { delete dd.dataset.escaped; return; }
+      if (menu.style.display === 'none') menu.style.display = '';
+    });
+    dd.addEventListener('mouseleave', () => { if (menu.style.display === 'none') menu.style.display = ''; });
+  });
+</script>

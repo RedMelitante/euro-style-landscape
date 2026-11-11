@@ -1,0 +1,132 @@
+---
+// Generated from design/service-construction.dc.html (handoff update 7) by the one-off converter; edit this file directly.
+import BeforeAfter from '../BeforeAfter.astro';
+import Img from '../site/Img.astro';
+import QuoteSection from '../site/QuoteSection.astro';
+import ReviewCards from '../site/ReviewCards.astro';
+import Sidebar from '../site/Sidebar.astro';
+import Video from '../site/Video.astro';
+import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
+---
+  <section class="shero">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="crumb"><a href="/">Home</a><span aria-hidden="true">&rsaquo;</span><a href="/services">Services</a><span aria-hidden="true">&rsaquo;</span><span aria-current="page" style="color: #2E343A">Construction</span></nav>
+      <div class="shgrid">
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <p class="eb">Construction</p>
+          <h1 class="hd sh1">Patios, walls and outdoor living, designed and built by one team</h1>
+          <p class="lede">Paver patios, retaining walls, decks, masonry, outdoor kitchens and more, for homes and properties across Middlesex, Monmouth and Union County towns. Every project starts with a free on-site consultation.</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 4px">
+            <a href="#quote" class="btn btn-g">Book a free design consultation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="tel:+17328039646" class="lnk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> (732) 803-9646</a>
+          </div>
+          <div class="checks"><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Free on-site consultation</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>3D design &amp; written quote</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Licensed &amp; insured</span></div>
+        </div>
+        <figure class="hfig"><Img src={"raised-patio-wide.jpg"} alt={"Wide raised paver patio with steps across the back of a house"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} eager priority /><figcaption>Wide raised paver patio with steps across the back of a house</figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <div class="sec" style="padding-top: clamp(48px, 6vw, 72px)">
+    <div class="wrap layout">
+      <div class="art">
+        <section id="included">
+          <h2 class="ah2">Construction services</h2>
+          <p class="tx">Plan one project or combine several. We design them together so everything fits.</p>
+          <div class="inc">
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Outdoor backyard design</b><span>We plan your backyard around how you want to use it and show you a 3D design and a written quote before anything is built.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Pavers</b><span>Paver patios, walkways and driveways laid on a properly prepared base.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Retaining walls</b><span>Walls that level a sloping yard, create usable space and add structure.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Decks</b><span>Decks that extend your living space outdoors, built to suit your yard and your home.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Masonry work</b><span>Brick, block and stone work, including steps, pillars and walls.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Stone veneer</b><span>Stone facing for walls, steps, pillars and outdoor kitchens.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Outdoor kitchens</b><span>Built-in grill stations and outdoor kitchens for cooking and entertaining outside.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Concrete</b><span>Concrete patios, walkways, pads and steps.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Asphalt</b><span>Asphalt driveways and paved areas, plus asphalt repair and patching.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Carpentry</b><span>Railings and carpentry repairs, along with new decks.</span></p></div>
+          </div>
+          <div class="pgrid p3">
+            <figure class="ph"><Img src={"raised-patio-design.jpg"} alt={"3D design of a raised paver patio with steps"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Outdoor backyard design</figcaption></figure>
+            <figure class="ph"><Img src={"side-patio.jpg"} alt={"Side-yard paver patio with a granite border"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Pavers</figcaption></figure>
+            <figure class="ph"><Img src={"covered-patio-wall.jpg"} alt={"Paver patio under a covered porch beside a block retaining wall"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Retaining walls</figcaption></figure>
+            <figure class="ph"><Img src={"deck-pavers-backyard.jpg"} alt={"Composite deck beside a new paver patio behind a house"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} /><figcaption>Decks</figcaption></figure>
+            <figure class="ph"><Img src={"front-entry-after.jpg"} alt={"Finished stone front entry steps and walkway"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} /><figcaption>Masonry work</figcaption></figure>
+            <figure class="ph"><Img src={"stone-pillars-gate.jpg"} alt={"Stone veneer pillars with lanterns framing a white gate"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} /><figcaption>Stone veneer</figcaption></figure>
+          </div>
+        </section>
+        <section id="how">
+          <h2 class="ah2">From first visit to final clean-up</h2>
+          <ol class="nsteps2">
+            <li><span class="n">01</span><p><b>Free on-site consultation</b><span>We walk your property with you and talk through what you want and your budget.</span></p></li>
+            <li><span class="n">02</span><p><b>3D design &amp; written quote</b><span>You see the design and a detailed written quote before any work begins.</span></p></li>
+            <li><span class="n">03</span><p><b>We build it, then clean up</b><span>Our crew builds the project and leaves your property clean.</span></p></li>
+          </ol>
+        </section>
+        <section id="work">
+          <h2 class="ah2">Recent construction projects</h2>
+          <p class="tx"><b style="color: #2E343A">From 3D design to finished patio.</b> We show you a 3D design before we build. Drag the slider to compare the design with the finished raised patio.</p>
+          <BeforeAfter before={"3D design of a raised paver patio"} after={"The finished raised paver patio"} beforeSrc={"raised-patio-design.jpg"} afterSrc={"raised-patio-built.jpg"} beforeLabel={"3D DESIGN"} afterLabel={"FINISHED"} />
+          <figure class="vid solo"><Video name="video-project-walkthrough" label="Walkthrough of a finished project: paver walkway, front garden beds, paver patio with seat walls and a gazebo, and vinyl fencing" /><figcaption>Walkthrough of a finished project: paver walkway, front garden beds, paver patio with seat walls and a gazebo, and vinyl fencing</figcaption></figure>
+          <div class="pgrid">
+            <figure class="ph"><Img src={"raised-patio-rear.jpg"} alt={"Raised paver patio with wide steps behind a white house"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Raised patio with wide steps</figcaption></figure>
+            <figure class="ph"><Img src={"walkway-steps.jpg"} alt={"Paver walkway with a dark border leading to wide paver steps"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Walkway &amp; wide steps</figcaption></figure>
+            <figure class="ph"><Img src={"front-walkway.jpg"} alt={"Curved paver walkway lined with topiaries in front of a brick home"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Curved front walkway</figcaption></figure>
+            <figure class="ph"><Img src={"design-3d-pavilion-firepit.jpg"} alt={"3D design of a paver patio with a pavilion, fire pit, seat walls and lighting"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} /><figcaption>3D design: patio, pavilion &amp; fire pit</figcaption></figure>
+            <figure class="ph"><Img src={"chimney-masonry-work.jpg"} alt={"Crew member working on the masonry of a chimney from a ladder"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} /><figcaption>Chimney masonry in progress</figcaption></figure>
+            <figure class="ph"><Img src={"asphalt-driveway-paver-borders.jpg"} alt={"Asphalt driveway with paver borders and a new concrete sidewalk"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} /><figcaption>Asphalt driveway with paver borders</figcaption></figure>
+            <figure class="ph"><Img src={"curved-paver-steps.jpg"} alt={"Curved paver steps leading up to a door"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} /><figcaption>Curved paver steps</figcaption></figure>
+            <figure class="ph"><Img src={"stone-veneer-front-steps.jpg"} alt={"Stone veneer front steps with white railings"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} /><figcaption>Stone veneer front steps</figcaption></figure>
+          </div>
+          <a href="/our-work" class="lnk">See all our work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+        </section>
+        <section id="reviews">
+          <h2 class="ah2">{RATING} from {REVIEW_COUNT} Google reviews</h2>
+          <p class="tx">Real reviews from Euro Style Landscape&rsquo;s Google Business Profile, quoted as written. <a href={REVIEWS_URL} target="_blank" rel="noopener">Read all {REVIEW_COUNT} on Google</a>.</p>
+          <ReviewCards ids={["caleb-d", "frank", "shraga-k"]} />
+        </section>
+        <section id="questions">
+          <h2 class="ah2">Construction FAQ</h2>
+          <div class="qa">
+            <details><summary>Is the design consultation really free?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We visit your property, talk through what you want and follow up with a design and a detailed written quote. There's no charge and no obligation.</p></details>
+            <details><summary>Do you design the project as well as build it?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We plan your project around how you want to use the space and show you a 3D design and a written quote before anything is built.</p></details>
+            <details><summary>What construction services do you offer?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Outdoor backyard design, paver patios, walkways and driveways, retaining walls, decks and carpentry, masonry, stone veneer, outdoor kitchens, concrete, and asphalt including repair and patching.</p></details>
+            <details><summary>Do you work on commercial properties?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We also handle small construction for commercial properties, including masonry, pavers, concrete, asphalt repair and fencing.</p></details>
+            <details><summary>Are you licensed and insured?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes, Euro Style Landscape is licensed and insured.</p></details>
+            <details><summary>Which areas do you serve?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold.</p></details>
+          </div>
+        </section>
+        <section id="towns">
+          <h2 class="ah2">Construction in your town</h2>
+          <div class="chips">
+            <a href="/service-areas/sayreville">Sayreville</a>
+            <a href="/service-areas/south-amboy">South Amboy</a>
+            <a href="/service-areas/old-bridge">Old Bridge</a>
+            <a href="/service-areas/matawan">Matawan</a>
+            <a href="/service-areas/marlboro">Marlboro</a>
+            <a href="/service-areas/manalapan">Manalapan</a>
+            <a href="/service-areas/monroe">Monroe</a>
+            <a href="/service-areas/freehold">Freehold</a>
+            <a href="/service-areas/woodbridge">Woodbridge</a>
+            <a href="/service-areas/rahway">Rahway</a>
+            <a href="/service-areas/sewaren">Sewaren</a>
+            <a href="/service-areas/colonia">Colonia</a>
+            <a href="/service-areas/east-brunswick">East Brunswick</a>
+            <a href="/service-areas/south-river">South River</a>
+          </div>
+        </section>
+        <section id="more">
+          <h2 class="ah2">Other services</h2>
+          <nav aria-label="Other services" class="olist">
+            <a href="/services/lawn-maintenance">Lawn maintenance <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/cleanups">Cleanups &amp; property refresh <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/snow-removal">Snow removal <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/fencing">Fencing <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/planting">Planting &amp; landscape install <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/commercial">Commercial services <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+          </nav>
+        </section>
+      </div>
+      <Sidebar toc={[{"href": "#included", "label": "What's included"}, {"href": "#how", "label": "How it works"}, {"href": "#work", "label": "Recent work"}, {"href": "#reviews", "label": "Reviews"}, {"href": "#questions", "label": "Questions"}, {"href": "#towns", "label": "Towns we serve"}, {"href": "#more", "label": "Other services"}]} why={[{"title": "One team, design to build", "text": "The same local crew plans and builds your project."}, {"title": "Free on-site consultation", "text": "No cost, no obligation."}, {"title": "Detailed written quote", "text": "You know exactly what you're getting before work starts."}, {"title": "Licensed &amp; insured", "text": "Peace of mind on every job."}]} />
+    </div>
+  </div>
+  <QuoteSection eyebrow={"Free design consultation"} title={"Plan your project with us"} lede={"Tell us what you have in mind and we'll call you to book a free on-site consultation."} formId={"svc2-construction"} source={"service-construction"} service={"Outdoor backyard design"} />
+  

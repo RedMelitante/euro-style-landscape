@@ -6,7 +6,7 @@ import TimelineField from '../../components/campaign/TimelineField.astro';
 import SmsConsent from '../../components/SmsConsent.astro';
 import CampaignFormScript from '../../components/campaign/CampaignFormScript.astro';
 import { photo } from '../../lib/images';
-import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
+import logo from '../../assets/logo/esl-logo-on-dark.png';
 import NewClientOffer from '../../components/campaign/offer/NewClientOffer.astro';
 import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/campaigns';
 
@@ -17,7 +17,7 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
     <Font cssVariable="--font-barlow" preload={[{ weight: 400 }]} />
     <Font cssVariable="--font-great-vibes" />
   </Fragment>
-<div style="background:#F4EFE4">
+<div style="background:#EFF4E7">
 
   
   <header class="topbar">
@@ -31,12 +31,12 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
   <section class="hero">
     <div class="hero-photo"><Image src={photo('front-lawn-tree.jpg')} alt="A well-kept front yard with a mature tree, fresh mulch beds and trimmed shrubs" widths={[480, 800, 1200, 1440]} sizes="100vw" format="webp" quality={45} decoding="async" loading="eager" fetchpriority="high" /></div>
     <svg class="leaf " style="left:84%;top:6%;width:30px;height:30px;--r:20deg;animation-delay:0s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#D4892A"></polygon><path d="M12 19.5V23.5" stroke="#D4892A" stroke-width="1.4" stroke-linecap="round"></path></svg>
-    <svg class="leaf d" style="left:48%;top:70%;width:26px;height:26px;--r:-30deg;animation-delay:2s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#C9A46A"></polygon><path d="M12 19.5V23.5" stroke="#C9A46A" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <svg class="leaf d" style="left:48%;top:70%;width:26px;height:26px;--r:-30deg;animation-delay:2s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#B9BB4A"></polygon><path d="M12 19.5V23.5" stroke="#B9BB4A" stroke-width="1.4" stroke-linecap="round"></path></svg>
     <svg class="leaf d" style="left:4%;top:88%;width:22px;height:22px;--r:50deg;animation-delay:4s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#D4892A"></polygon><path d="M12 19.5V23.5" stroke="#D4892A" stroke-width="1.4" stroke-linecap="round"></path></svg>
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-copy">
-          <span class:list={['badge', { 'badge-offer': offer }]}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#16291F" stroke="none"></polygon></svg>{offer ? '20% off · New clients' : 'Fall cleanup season'}</span>
+          <span class:list={['badge', { 'badge-offer': offer }]}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#0B3A25" stroke="none"></polygon></svg>{offer ? '20% off · New clients' : 'Fall cleanup season'}</span>
           <h1>Property<span class="g">Cleanups</span></h1>
           <span class="script">A cleaner yard. A better-looking home.</span>
           <p class="sub">Fall cleanup season is here. {offer ? 'New clients get 20% off their first property cleanup in Middlesex County.' : 'Book your free on-site consultation in Middlesex County.'}</p>
@@ -80,7 +80,7 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
           
           
             <div role="status" class="success" tabindex="-1" data-success hidden>
-              <span class="ok"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>
+              <span class="ok"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>
               <p class="cond form-title">Thanks!</p>
               <p>We'll call you shortly to book your visit.</p>
               <a href="tel:+17328039646" class="call-pill" data-track-location="form_success"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>Call (732) 803-9646</span></a>
@@ -90,15 +90,15 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
         </div>
         </div>
         <ul class="hero-checks">
-          {offer && <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>20% off your first cleanup*</li>}
-          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Free on-site consultation</li>
-          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Detailed written quote</li>
-          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Licensed &amp; insured</li>
+          {offer && <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>20% off your first cleanup*</li>}
+          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Free on-site consultation</li>
+          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Detailed written quote</li>
+          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Licensed &amp; insured</li>
         </ul>
       </div>
     </div>
   </section>
-  <div aria-hidden="true" style="background:#1F3A2B;line-height:0;margin-top:-1px"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="display:block;width:100%;height:26px"><path d="M0,24 L0,21 L36,31 L58,25 L95,29 L133,32 L153,33 L171,29 L197,31 L222,20 L262,29 L297,31 L330,26 L368,18 L393,34 L415,30 L445,14 L484,16 L507,32 L526,23 L568,14 L612,22 L645,33 L686,26 L726,27 L756,32 L788,18 L834,25 L855,15 L877,29 L901,22 L940,27 L982,34 L1027,23 L1058,30 L1102,26 L1138,25 L1173,32 L1204,32 L1229,24 L1268,14 L1313,22 L1350,19 L1390,24 L1425,32 L1440,24 L1440,48 L0,48 Z" fill="#16291F"></path></svg></div>
+  <div aria-hidden="true" style="background:#0F4A2F;line-height:0;margin-top:-1px"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="display:block;width:100%;height:26px"><path d="M0,24 L0,21 L36,31 L58,25 L95,29 L133,32 L153,33 L171,29 L197,31 L222,20 L262,29 L297,31 L330,26 L368,18 L393,34 L415,30 L445,14 L484,16 L507,32 L526,23 L568,14 L612,22 L645,33 L686,26 L726,27 L756,32 L788,18 L834,25 L855,15 L877,29 L901,22 L940,27 L982,34 L1027,23 L1058,30 L1102,26 L1138,25 L1173,32 L1204,32 L1229,24 L1268,14 L1313,22 L1350,19 L1390,24 L1425,32 L1440,24 L1440,48 L0,48 Z" fill="#0B3A25"></path></svg></div>
 
   
   <section class="ba">
@@ -117,7 +117,7 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
       </div>
     </div>
   </section>
-  <div aria-hidden="true" style="background:#16291F;line-height:0;margin-top:-1px"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="display:block;width:100%;height:26px"><path d="M0,24 L0,28 L45,31 L90,28 L122,30 L167,32 L191,19 L234,30 L267,34 L304,19 L325,28 L352,18 L372,31 L415,34 L434,33 L464,28 L502,33 L540,19 L577,14 L621,30 L641,15 L660,20 L706,21 L743,14 L785,28 L813,28 L849,20 L883,21 L921,23 L954,14 L993,16 L1025,34 L1051,27 L1086,16 L1126,22 L1154,21 L1188,23 L1206,16 L1242,17 L1272,17 L1317,23 L1347,16 L1365,14 L1389,20 L1408,29 L1438,26 L1440,24 L1440,48 L0,48 Z" fill="#F4EFE4"></path></svg></div>
+  <div aria-hidden="true" style="background:#0B3A25;line-height:0;margin-top:-1px"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="display:block;width:100%;height:26px"><path d="M0,24 L0,28 L45,31 L90,28 L122,30 L167,32 L191,19 L234,30 L267,34 L304,19 L325,28 L352,18 L372,31 L415,34 L434,33 L464,28 L502,33 L540,19 L577,14 L621,30 L641,15 L660,20 L706,21 L743,14 L785,28 L813,28 L849,20 L883,21 L921,23 L954,14 L993,16 L1025,34 L1051,27 L1086,16 L1126,22 L1154,21 L1188,23 L1206,16 L1242,17 L1272,17 L1317,23 L1347,16 L1365,14 L1389,20 L1408,29 L1438,26 L1440,24 L1440,48 L0,48 Z" fill="#EFF4E7"></path></svg></div>
 
   <NewClientOffer
     service="property cleanup"
@@ -131,14 +131,14 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
   <section class="inc">
     <div class="wrap">
       <p class="eyebrow">What's included</p>
-      <h2 class="big">Everything your yard<br><span style="color:#B8925A">needs this fall</span></h2>
+      <h2 class="big">Everything your yard<br><span style="color:#197148">needs this fall</span></h2>
       <ul>
-        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v13"></path><path d="M6 15h12"></path><path d="M6 15v5M9 15v5M12 15v5M15 15v5M18 15v5"></path></svg></span><span><b class="cond">Leaf &amp; debris removal</b><span>Leaves, sticks and yard waste cleared away.</span></span></li>
-        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"></circle><path d="M12 11v10M12 16c-2.5 0-4.5-1.5-5-4M12 18c2.5 0 4.5-1.5 5-4"></path></svg></span><span><b class="cond">Bed cleanup &amp; weeding</b><span>Beds cut back, weeded and refreshed.</span></span></li>
-        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"></path></svg></span><span><b class="cond">Shrub &amp; hedge trimming</b><span>Neat, shaped shrubs that look cared for.</span></span></li>
-        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"></path><path d="M5 20c0-4 3-7 7-7s7 3 7 7"></path><path d="M12 13V8"></path><path d="M12 8c0-2 1.5-4 4-4 0 2.5-1.5 4-4 4z"></path></svg></span><span><b class="cond">Mulch &amp; bed edging</b><span>Fresh mulch and clean, crisp bed edges.</span></span></li>
-        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10a3 3 0 1 0-3-3"></path><path d="M3 12h15a3 3 0 1 1-3 3"></path><path d="M3 16h7"></path></svg></span><span><b class="cond">Lawn mowing &amp; blowing</b><span>A neat cut, with walks and driveway blown clean.</span></span></li>
-        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span><b class="cond">Licensed &amp; insured</b><span>Peace of mind on every job.</span></span></li>
+        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v13"></path><path d="M6 15h12"></path><path d="M6 15v5M9 15v5M12 15v5M15 15v5M18 15v5"></path></svg></span><span><b class="cond">Leaf &amp; debris removal</b><span>Leaves, sticks and yard waste cleared away.</span></span></li>
+        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"></circle><path d="M12 11v10M12 16c-2.5 0-4.5-1.5-5-4M12 18c2.5 0 4.5-1.5 5-4"></path></svg></span><span><b class="cond">Bed cleanup &amp; weeding</b><span>Beds cut back, weeded and refreshed.</span></span></li>
+        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"></path></svg></span><span><b class="cond">Shrub &amp; hedge trimming</b><span>Neat, shaped shrubs that look cared for.</span></span></li>
+        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"></path><path d="M5 20c0-4 3-7 7-7s7 3 7 7"></path><path d="M12 13V8"></path><path d="M12 8c0-2 1.5-4 4-4 0 2.5-1.5 4-4 4z"></path></svg></span><span><b class="cond">Mulch &amp; bed edging</b><span>Fresh mulch and clean, crisp bed edges.</span></span></li>
+        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10a3 3 0 1 0-3-3"></path><path d="M3 12h15a3 3 0 1 1-3 3"></path><path d="M3 16h7"></path></svg></span><span><b class="cond">Lawn mowing &amp; blowing</b><span>A neat cut, with walks and driveway blown clean.</span></span></li>
+        <li><span class="gc"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span><b class="cond">Licensed &amp; insured</b><span>Peace of mind on every job.</span></span></li>
       </ul>
       <div class="inc-cta"><a href="#quote" class="btn-gold">{offer ? 'Claim 20% off' : 'Get my free quote'} <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div>
     </div>
@@ -153,10 +153,10 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
           <p class="eyebrow">Why Euro Style</p>
           <h2>A local crew<br><span>you deal with directly</span></h2>
           <ul>
-          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>One local team</li>
-          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Free on-site consultation</li>
-          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Detailed written quotes</li>
-          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Ongoing maintenance available</li>
+          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>One local team</li>
+          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Free on-site consultation</li>
+          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Detailed written quotes</li>
+          <li><span class="ck"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>Ongoing maintenance available</li>
           </ul>
         </div>
       </div>
@@ -183,21 +183,21 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
       <div class="area-inner">
         <div>
           <p class="eyebrow">Service area</p>
-          <p class="lead"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Based in Sayreville, NJ · Serving Middlesex County</span></p>
+          <p class="lead"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Based in Sayreville, NJ · Serving Middlesex County</span></p>
           <ul>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Sayreville</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>South Amboy</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Perth Amboy</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Old Bridge</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>East Brunswick</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>South River</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Spotswood</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Woodbridge</li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Edison</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Sayreville</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>South Amboy</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Perth Amboy</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Old Bridge</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>East Brunswick</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>South River</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Spotswood</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Woodbridge</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Edison</li>
           </ul>
           <p class="note">Not sure if we cover you? <a href="tel:+17328039646" data-track-location="service_area">Call (732) 803-9646</a></p>
         </div>
-        <div class="map"><svg viewBox="0 0 440 440" role="img" aria-label="Stylized map: Euro Style Landscape is based in Sayreville and serves Middlesex County towns around it"><rect width="440" height="440" fill="#1F3A2B"></rect><path d="M360 0 C 340 120 390 200 372 300 S 400 420 392 440 L440 440 L440 0Z" fill="#16291F"></path><path d="M0 248 C 80 236 150 262 220 244 S 330 232 372 236" fill="none" stroke="#2F5A43" stroke-width="10" stroke-linecap="round"></path><circle cx="220" cy="220" r="70" fill="none" stroke="#C9A46A" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="4 6"></circle><circle cx="220" cy="220" r="130" fill="none" stroke="#C9A46A" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="4 6"></circle><circle cx="220" cy="220" r="190" fill="none" stroke="#C9A46A" stroke-opacity="0.2" stroke-width="1.5" stroke-dasharray="4 6"></circle><circle cx="220" cy="220" r="16" fill="#C9A46A" fill-opacity=".25"></circle><path d="M220 224 c-9-11-13-16-13-22a13 13 0 0 1 26 0c0 6-4 11-13 22z" fill="#C9A46A" transform="translate(0,-8)"></path><circle cx="220" cy="194" r="4.5" fill="#1F3A2B"></circle><text x="220" y="246" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="20" fill="#F4EFE4" letter-spacing="1">SAYREVILLE</text><circle cx="318" cy="214" r="5" fill="#F4EFE4"></circle><text x="318" y="203" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#D9D2C2">South Amboy</text><circle cx="300" cy="128" r="5" fill="#F4EFE4"></circle><text x="300" y="117" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#D9D2C2">Perth Amboy</text><circle cx="214" cy="96" r="5" fill="#F4EFE4"></circle><text x="214" y="85" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#D9D2C2">Woodbridge</text><circle cx="118" cy="118" r="5" fill="#F4EFE4"></circle><text x="118" y="107" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#D9D2C2">Edison</text><circle cx="112" cy="222" r="5" fill="#F4EFE4"></circle><text x="112" y="211" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#D9D2C2">South River</text><circle cx="98" cy="300" r="5" fill="#F4EFE4"></circle><text x="98" y="289" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#D9D2C2">East Brunswick</text><circle cx="150" cy="356" r="5" fill="#F4EFE4"></circle><text x="150" y="345" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#D9D2C2">Spotswood</text><circle cx="236" cy="330" r="5" fill="#F4EFE4"></circle><text x="236" y="319" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#D9D2C2">Old Bridge</text><text x="20" y="420" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="14" letter-spacing="2" fill="#C9A46A">MIDDLESEX COUNTY, NJ</text></svg></div>
+        <div class="map"><svg viewBox="0 0 440 440" role="img" aria-label="Stylized map: Euro Style Landscape is based in Sayreville and serves Middlesex County towns around it"><rect width="440" height="440" fill="#0F4A2F"></rect><path d="M360 0 C 340 120 390 200 372 300 S 400 420 392 440 L440 440 L440 0Z" fill="#0B3A25"></path><path d="M0 248 C 80 236 150 262 220 244 S 330 232 372 236" fill="none" stroke="#2F5A43" stroke-width="10" stroke-linecap="round"></path><circle cx="220" cy="220" r="70" fill="none" stroke="#B9BB4A" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="4 6"></circle><circle cx="220" cy="220" r="130" fill="none" stroke="#B9BB4A" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="4 6"></circle><circle cx="220" cy="220" r="190" fill="none" stroke="#B9BB4A" stroke-opacity="0.2" stroke-width="1.5" stroke-dasharray="4 6"></circle><circle cx="220" cy="220" r="16" fill="#B9BB4A" fill-opacity=".25"></circle><path d="M220 224 c-9-11-13-16-13-22a13 13 0 0 1 26 0c0 6-4 11-13 22z" fill="#B9BB4A" transform="translate(0,-8)"></path><circle cx="220" cy="194" r="4.5" fill="#0F4A2F"></circle><text x="220" y="246" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="20" fill="#EFF4E7" letter-spacing="1">SAYREVILLE</text><circle cx="318" cy="214" r="5" fill="#EFF4E7"></circle><text x="318" y="203" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#CFD8C5">South Amboy</text><circle cx="300" cy="128" r="5" fill="#EFF4E7"></circle><text x="300" y="117" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#CFD8C5">Perth Amboy</text><circle cx="214" cy="96" r="5" fill="#EFF4E7"></circle><text x="214" y="85" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#CFD8C5">Woodbridge</text><circle cx="118" cy="118" r="5" fill="#EFF4E7"></circle><text x="118" y="107" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#CFD8C5">Edison</text><circle cx="112" cy="222" r="5" fill="#EFF4E7"></circle><text x="112" y="211" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#CFD8C5">South River</text><circle cx="98" cy="300" r="5" fill="#EFF4E7"></circle><text x="98" y="289" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#CFD8C5">East Brunswick</text><circle cx="150" cy="356" r="5" fill="#EFF4E7"></circle><text x="150" y="345" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#CFD8C5">Spotswood</text><circle cx="236" cy="330" r="5" fill="#EFF4E7"></circle><text x="236" y="319" text-anchor="middle" font-family="Barlow, sans-serif" font-weight="600" font-size="13" fill="#CFD8C5">Old Bridge</text><text x="20" y="420" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="14" letter-spacing="2" fill="#B9BB4A">MIDDLESEX COUNTY, NJ</text></svg></div>
       </div>
     </div>
   </section>
@@ -210,28 +210,28 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
         <h2 class="big" style="margin-bottom:16px">Good to know</h2>
         {offer && (
         <details class="faq" open>
-          <summary><span>How does the 20% new client offer work?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
+          <summary><span>How does the 20% new client offer work?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
           <p>If you are new to Euro Style Landscape, you get 20% off your first property cleanup with us. Send the form or call to book your free estimate.</p>
         </details>
         )}
         <details class="faq" open={!offer}>
-          <summary><span>Is the consultation really free?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
+          <summary><span>Is the consultation really free?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
           <p>Yes. We visit your property, walk it with you and give you a written quote. There is no charge and no obligation to go ahead.</p>
         </details>
         <details class="faq">
-          <summary><span>What does a property cleanup include?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
+          <summary><span>What does a property cleanup include?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
           <p>It can include leaf and debris removal, bed cleanup and weeding, shrub and hedge trimming, mulch and bed edging, and lawn mowing and blowing. We agree the exact list with you at the visit.</p>
         </details>
         <details class="faq">
-          <summary><span>Do I need to be home for the visit?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
+          <summary><span>Do I need to be home for the visit?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
           <p>It helps, so we can walk the property together and hear what you want. If you can't be there, tell us when we call to book and we'll work something out.</p>
         </details>
         <details class="faq">
-          <summary><span>Do you offer ongoing maintenance?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
+          <summary><span>Do you offer ongoing maintenance?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
           <p>Yes. We offer lawn mowing, fertilization, aeration and property cleanups, so we can keep your yard looking cared for after the cleanup.</p>
         </details>
         <details class="faq">
-          <summary><span>Are you licensed and insured?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F3A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
+          <summary><span>Are you licensed and insured?</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F4A2F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
           <p>Yes, Euro Style Landscape is licensed and insured.</p>
         </details>
       </div>
@@ -239,10 +239,10 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
   </section>
 
   
-  <div aria-hidden="true" style="background:#F4EFE4;line-height:0;margin-top:-1px"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="display:block;width:100%;height:26px"><path d="M0,24 L0,19 L31,27 L69,23 L102,20 L145,29 L188,30 L211,30 L245,21 L288,14 L306,25 L342,27 L362,18 L405,21 L430,15 L461,27 L498,28 L517,24 L552,29 L592,17 L630,25 L648,18 L689,16 L710,14 L742,19 L777,24 L807,29 L829,19 L868,15 L901,21 L921,20 L945,32 L986,16 L1007,31 L1040,31 L1084,26 L1108,24 L1130,31 L1161,23 L1190,28 L1224,26 L1252,29 L1282,22 L1300,16 L1323,29 L1341,29 L1361,31 L1398,30 L1423,32 L1440,24 L1440,48 L0,48 Z" fill="#1F3A2B"></path></svg></div>
+  <div aria-hidden="true" style="background:#EFF4E7;line-height:0;margin-top:-1px"><svg viewBox="0 0 1440 48" preserveAspectRatio="none" style="display:block;width:100%;height:26px"><path d="M0,24 L0,19 L31,27 L69,23 L102,20 L145,29 L188,30 L211,30 L245,21 L288,14 L306,25 L342,27 L362,18 L405,21 L430,15 L461,27 L498,28 L517,24 L552,29 L592,17 L630,25 L648,18 L689,16 L710,14 L742,19 L777,24 L807,29 L829,19 L868,15 L901,21 L921,20 L945,32 L986,16 L1007,31 L1040,31 L1084,26 L1108,24 L1130,31 L1161,23 L1190,28 L1224,26 L1252,29 L1282,22 L1300,16 L1323,29 L1341,29 L1361,31 L1398,30 L1423,32 L1440,24 L1440,48 L0,48 Z" fill="#0F4A2F"></path></svg></div>
   <section class="final">
     <svg class="leaf " style="left:8%;top:14%;width:30px;height:30px;--r:-24deg;animation-delay:0s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#D4892A"></polygon><path d="M12 19.5V23.5" stroke="#D4892A" stroke-width="1.4" stroke-linecap="round"></path></svg>
-    <svg class="leaf " style="left:88%;top:20%;width:24px;height:24px;--r:30deg;animation-delay:3s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#C9A46A"></polygon><path d="M12 19.5V23.5" stroke="#C9A46A" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <svg class="leaf " style="left:88%;top:20%;width:24px;height:24px;--r:30deg;animation-delay:3s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#B9BB4A"></polygon><path d="M12 19.5V23.5" stroke="#B9BB4A" stroke-width="1.4" stroke-linecap="round"></path></svg>
     <svg class="leaf d" style="left:80%;top:74%;width:28px;height:28px;--r:60deg;animation-delay:5s" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#D4892A"></polygon><path d="M12 19.5V23.5" stroke="#D4892A" stroke-width="1.4" stroke-linecap="round"></path></svg>
     <div class="wrap">
       <h2>Get your yard ready<br><span>before winter.</span></h2>
@@ -258,13 +258,13 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
   <footer class="foot">
     <div class="wrap">
       <ul>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><a href="tel:+17328039646" data-track-location="footer">(732) 803-9646</a></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><span>eurostylelandscape.com</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Sayreville, NJ · Serving Middlesex County</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><a href="tel:+17328039646" data-track-location="footer">(732) 803-9646</a></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><span>eurostylelandscape.com</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Sayreville, NJ · Serving Middlesex County</span></li>
       </ul>
       <div class="legal">
         <span>Copyright © 2026 Euro Style Landscape (SN Landscaping LLC). All rights reserved</span>
-        <span style="display:inline-flex;gap:18px"><a href="/privacy-policy" style="color:#BDC7BC;text-decoration:underline">Privacy policy</a><a href="/terms" style="color:#BDC7BC;text-decoration:underline">Terms</a></span>
+        <span style="display:inline-flex;gap:18px"><a href="/privacy-policy" style="color:#C9D3CD;text-decoration:underline">Privacy policy</a><a href="/terms" style="color:#C9D3CD;text-decoration:underline">Terms</a></span>
       </div>
     </div>
   </footer>
@@ -281,147 +281,147 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
 
 <style is:global>
 *{box-sizing:border-box}
-body{margin:0;background:#F4EFE4;color:#22302A;font-family:var(--font-barlow);-webkit-font-smoothing:antialiased}
+body{margin:0;background:#EFF4E7;color:#0B3A25;font-family:var(--font-barlow);-webkit-font-smoothing:antialiased}
 h1,h2,h3,p{margin:0;text-wrap:pretty}
 .cond{font-family:var(--font-barlow-condensed);text-transform:uppercase}
 .script{font-family:var(--font-great-vibes);font-weight:400;text-transform:none}
 .wrap{max-width:1240px;margin:0 auto;padding:0 20px}
-.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--font-barlow-condensed);font-weight:700;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:#1F3A2B}
-.eyebrow::before{content:"";width:32px;height:2px;background:#C9A46A}
-h2.big{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:42px;line-height:.95;color:#1F3A2B;margin-top:12px}
-.ck{flex:none;width:28px;height:28px;border-radius:999px;border:2px solid #C9A46A;display:flex;align-items:center;justify-content:center}
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--font-barlow-condensed);font-weight:700;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:#0F4A2F}
+.eyebrow::before{content:"";width:32px;height:2px;background:#B9BB4A}
+h2.big{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:42px;line-height:.95;color:#0F4A2F;margin-top:12px}
+.ck{flex:none;width:28px;height:28px;border-radius:999px;border:2px solid #B9BB4A;display:flex;align-items:center;justify-content:center}
 .confirm{display:inline-block;padding:3px 9px;border:1.5px dashed #D4892A;border-radius:6px;color:#A35F12;background:#FFF4E6;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .leaf{position:absolute;z-index:1;opacity:.9;transform:rotate(var(--r));animation:sway 7s ease-in-out infinite alternate;pointer-events:none}
 @keyframes sway{from{transform:translateY(-6px) rotate(var(--r))}to{transform:translateY(14px) rotate(calc(var(--r) + 28deg))}}
 @media (prefers-reduced-motion: reduce){.leaf{animation:none}}
 .leaf.d{display:none}
 /* buttons */
-.btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;background:#C9A46A;color:#1F3A2B;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase;border:0;cursor:pointer}
-.btn-gold:hover{background:#B8925A}
-.btn-line{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;border:2px solid rgba(244,239,228,.85);color:#F4EFE4;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase}
+.btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;background:#B9BB4A;color:#0F4A2F;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase;border:0;cursor:pointer}
+.btn-gold:hover{background:#A6A83E}
+.btn-line{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;border:2px solid rgba(244,239,228,.85);color:#EFF4E7;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase}
 .btn-line:hover{background:rgba(244,239,228,.1)}
 /* top bar */
-.topbar{background:#1F3A2B;border-bottom:1px solid rgba(201,164,106,.35)}
+.topbar{background:#0F4A2F;border-bottom:1px solid rgba(201,164,106,.35)}
 .topbar .wrap{height:76px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .topbar img{display:block;width:62px;height:62px}
-.call-pill{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;border-radius:999px;border:2px solid #C9A46A;color:#F4EFE4;text-decoration:none;font-weight:700;font-size:16px;white-space:nowrap}
-.call-pill svg{color:#C9A46A}
+.call-pill{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 16px;border-radius:999px;border:2px solid #B9BB4A;color:#EFF4E7;text-decoration:none;font-weight:700;font-size:16px;white-space:nowrap}
+.call-pill svg{color:#B9BB4A}
 .call-pill:hover{background:rgba(201,164,106,.15)}
 /* hero */
-.hero{position:relative;background:#1F3A2B;color:#F4EFE4;overflow:hidden}
+.hero{position:relative;background:#0F4A2F;color:#EFF4E7;overflow:hidden}
 .hero-photo{position:absolute;left:0;right:0;top:0;height:400px}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
-.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,58,43,.55) 0%,rgba(31,58,43,.55) 40%,#1F3A2B 100%)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,58,43,.55) 0%,rgba(31,58,43,.55) 40%,#0F4A2F 100%)}
 .hero-grid > *{min-width:0}
 .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr);gap:22px;padding:34px 0 40px}
-.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:#D4892A;color:#16291F;font-family:var(--font-barlow-condensed);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:15px}
-.badge.badge-offer{background:#C9A46A;font-weight:800}
+.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:#D4892A;color:#0B3A25;font-family:var(--font-barlow-condensed);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:15px}
+.badge.badge-offer{background:#B9BB4A;font-weight:800}
 .hero h1{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:64px;line-height:.88;margin-top:14px;text-shadow:0 2px 18px rgba(0,0,0,.3)}
-.hero h1 .g{display:block;color:#C9A46A}
-.hero .script{display:block;font-size:34px;line-height:1.1;color:#F4EFE4;margin-top:10px}
+.hero h1 .g{display:block;color:#B9BB4A}
+.hero .script{display:block;font-size:34px;line-height:1.1;color:#EFF4E7;margin-top:10px}
 .hero .sub{font-size:17.5px;line-height:1.55;color:rgba(244,239,228,.9);margin-top:14px;max-width:520px}
 .hero-checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .hero-checks li{display:flex;align-items:center;gap:12px;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;text-transform:uppercase;letter-spacing:.02em}
 /* form */
-.form-card{background:#F4EFE4;color:#22302A;border-radius:18px;padding:22px 18px;box-shadow:0 24px 60px rgba(0,0,0,.35);border-top:5px solid #C9A46A;scroll-margin-top:12px}
-.form-title{font-weight:800;font-size:32px;line-height:1;color:#1F3A2B}
+.form-card{background:#EFF4E7;color:#0B3A25;border-radius:18px;padding:22px 18px;box-shadow:0 24px 60px rgba(0,0,0,.35);border-top:5px solid #B9BB4A;scroll-margin-top:12px}
+.form-title{font-weight:800;font-size:32px;line-height:1;color:#0F4A2F}
 .form-sub{font-size:15px;color:#5A655D;margin-top:4px}
-.fld{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:600;color:#1F3A2B}
+.fld{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:600;color:#0F4A2F}
 .fld em{font-weight:400;font-style:normal;color:#6A746C}
-.qf{width:100%;min-height:52px;padding:12px 14px;border:1.5px solid #D6CCB6;border-radius:10px;background:#FFFFFF;font:inherit;font-size:16px;font-weight:400;color:#22302A}
+.qf{width:100%;min-height:52px;padding:12px 14px;border:1.5px solid #D6CCB6;border-radius:10px;background:#FFFFFF;font:inherit;font-size:16px;font-weight:400;color:#0B3A25}
 textarea.qf{min-height:84px;resize:vertical}
-.qf:focus{outline:none;border-color:#1F3A2B;box-shadow:0 0 0 3px rgba(201,164,106,.45)}
+.qf:focus{outline:none;border-color:#0F4A2F;box-shadow:0 0 0 3px rgba(201,164,106,.45)}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.submit{display:flex;align-items:center;justify-content:center;gap:10px;min-height:60px;border:0;border-radius:999px;background:#C9A46A;color:#1F3A2B;font-weight:800;font-size:22px;letter-spacing:.04em;cursor:pointer;margin-top:4px}
-.submit:hover{background:#B8925A}
+.submit{display:flex;align-items:center;justify-content:center;gap:10px;min-height:60px;border:0;border-radius:999px;background:#B9BB4A;color:#0F4A2F;font-weight:800;font-size:22px;letter-spacing:.04em;cursor:pointer;margin-top:4px}
+.submit:hover{background:#A6A83E}
 .submit:focus-visible,.btn-gold:focus-visible,.call-pill:focus-visible{outline:3px solid #D4892A;outline-offset:3px}
 .fine{font-size:14px;line-height:1.5;color:#5A655D;text-align:center}
 .success{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:30px 4px}
-.success .ok{width:68px;height:68px;border-radius:999px;background:#C9A46A;display:flex;align-items:center;justify-content:center}
+.success .ok{width:68px;height:68px;border-radius:999px;background:#B9BB4A;display:flex;align-items:center;justify-content:center}
 .success p{font-size:17px;line-height:1.5}
-.success .call-pill{color:#1F3A2B;background:#FFFFFF;margin-top:6px}
+.success .call-pill{color:#0F4A2F;background:#FFFFFF;margin-top:6px}
 .success .edit{border:0;background:none;color:#5A655D;text-decoration:underline;font:inherit;font-size:14px;cursor:pointer;min-height:44px}
 /* before/after */
-.ba{background:#16291F;color:#F4EFE4;padding:46px 0 56px;position:relative;overflow:hidden}
-.ba .script{font-size:46px;line-height:1;color:#C9A46A}
+.ba{background:#0B3A25;color:#EFF4E7;padding:46px 0 56px;position:relative;overflow:hidden}
+.ba .script{font-size:46px;line-height:1;color:#B9BB4A}
 .ba h2{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:34px;line-height:1;margin-top:6px}
-.ba p{font-size:16.5px;line-height:1.55;color:#BDC7BC;margin-top:10px}
+.ba p{font-size:16.5px;line-height:1.55;color:#C9D3CD;margin-top:10px}
 .ba-inner{display:flex;flex-direction:column;gap:22px;position:relative;z-index:2}
-.ba-frame{border-radius:16px;overflow:hidden;box-shadow:0 0 0 3px #C9A46A}
+.ba-frame{border-radius:16px;overflow:hidden;box-shadow:0 0 0 3px #B9BB4A}
 .res-duo{display:grid;grid-template-columns:1fr;gap:14px;flex:1}
-.res-duo figure{position:relative;margin:0;background:#FFFFFF;padding:7px;border-radius:16px;box-shadow:0 0 0 2px #C9A46A}
+.res-duo figure{position:relative;margin:0;background:#FFFFFF;padding:7px;border-radius:16px;box-shadow:0 0 0 2px #B9BB4A}
 .res-duo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:10px}
-.res-duo figcaption{position:absolute;left:18px;top:18px;padding:5px 12px;border-radius:999px;background:#C9A46A;color:#16291F;font-family:var(--font-barlow-condensed);font-weight:800;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
+.res-duo figcaption{position:absolute;left:18px;top:18px;padding:5px 12px;border-radius:999px;background:#B9BB4A;color:#0B3A25;font-family:var(--font-barlow-condensed);font-weight:800;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
 .ph-note{margin-top:16px !important;border:2px dashed #D4892A;border-radius:12px;padding:10px 12px;background:rgba(212,137,42,.12);font-size:14px !important;color:#F2D9B8 !important}
-.ph-tag{display:inline-block;margin-right:6px;padding:2px 8px;border-radius:6px;background:#D4892A;color:#16291F;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.ph-tag{display:inline-block;margin-right:6px;padding:2px 8px;border-radius:6px;background:#D4892A;color:#0B3A25;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 /* included */
 .inc{padding:56px 0 60px}
 .inc ul{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:1fr;gap:12px}
-.inc li{display:flex;align-items:center;gap:16px;background:#FFFDF8;border:1px solid #E5DCC8;border-radius:14px;padding:16px}
-.gc{flex:none;width:54px;height:54px;border-radius:999px;background:#C9A46A;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #F4EFE4,0 0 0 5px #C9A46A}
-.inc b{display:block;font-weight:800;font-size:23px;line-height:1;color:#1F3A2B}
+.inc li{display:flex;align-items:center;gap:16px;background:#FFFFFF;border:1px solid #DCE4D2;border-radius:14px;padding:16px}
+.gc{flex:none;width:54px;height:54px;border-radius:999px;background:#B9BB4A;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #EFF4E7,0 0 0 5px #B9BB4A}
+.inc b{display:block;font-weight:800;font-size:23px;line-height:1;color:#0F4A2F}
 .inc li span span{display:block;font-size:15.5px;line-height:1.45;color:#4A554D;margin-top:4px}
 .inc-cta{margin-top:26px;display:flex}
 /* why */
-.why{background:#16291F;color:#F4EFE4;padding:50px 0 58px}
+.why{background:#0B3A25;color:#EFF4E7;padding:50px 0 58px}
 .why-inner{display:flex;flex-direction:column;gap:30px}
-.why img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:16px;box-shadow:0 0 0 3px #C9A46A}
+.why img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:16px;box-shadow:0 0 0 3px #B9BB4A}
 .why h2{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:42px;line-height:.95;margin-top:12px}
-.why h2 span{color:#C9A46A}
+.why h2 span{color:#B9BB4A}
 .why ul{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
 .why li{display:flex;align-items:center;gap:12px;font-family:var(--font-barlow-condensed);font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:.02em}
-.why .eyebrow{color:#C9A46A}
+.why .eyebrow{color:#B9BB4A}
 /* steps */
 .how{padding:56px 0 60px}
 .steps{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:1fr;gap:14px;counter-reset:s}
-.step{position:relative;background:#FFFDF8;border:1px solid #E5DCC8;border-radius:14px;padding:20px 20px 20px 86px;min-height:96px}
-.step .num{position:absolute;left:18px;top:18px;width:52px;height:52px;border-radius:999px;background:#1F3A2B;color:#C9A46A;font-weight:800;font-size:24px;display:flex;align-items:center;justify-content:center}
-.step h3{font-weight:800;font-size:23px;line-height:1.02;color:#1F3A2B}
+.step{position:relative;background:#FFFFFF;border:1px solid #DCE4D2;border-radius:14px;padding:20px 20px 20px 86px;min-height:96px}
+.step .num{position:absolute;left:18px;top:18px;width:52px;height:52px;border-radius:999px;background:#0F4A2F;color:#B9BB4A;font-weight:800;font-size:24px;display:flex;align-items:center;justify-content:center}
+.step h3{font-weight:800;font-size:23px;line-height:1.02;color:#0F4A2F}
 .step p{font-size:15.5px;line-height:1.5;color:#4A554D;margin-top:6px}
 /* reviews placeholder */
 .reviews{padding:0 0 56px}
 .rv-box{border:2px dashed #D4892A;border-radius:16px;padding:22px;background:#FFF9EF;display:flex;flex-direction:column;gap:8px}
 .rv-box p{font-size:15px;line-height:1.5;color:#5A4A33}
 /* area */
-.area{background:#FFFDF8;border-top:1px solid #E5DCC8;border-bottom:1px solid #E5DCC8;padding:54px 0 58px}
+.area{background:#FFFFFF;border-top:1px solid #DCE4D2;border-bottom:1px solid #DCE4D2;padding:54px 0 58px}
 .area-inner{display:flex;flex-direction:column;gap:26px}
-.area .lead{font-family:var(--font-barlow-condensed);font-weight:700;font-size:24px;line-height:1.1;text-transform:uppercase;color:#1F3A2B;margin-top:10px;display:flex;align-items:flex-start;gap:8px}
+.area .lead{font-family:var(--font-barlow-condensed);font-weight:700;font-size:24px;line-height:1.1;text-transform:uppercase;color:#0F4A2F;margin-top:10px;display:flex;align-items:flex-start;gap:8px}
 .area .lead svg{flex:none;margin-top:1px}
 .area ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.area li{display:flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:#F4EFE4;border:1px solid #E5DCC8;font-size:15px;font-weight:600;color:#1F3A2B}
+.area li{display:flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:#EFF4E7;border:1px solid #DCE4D2;font-size:15px;font-weight:600;color:#0F4A2F}
 .area .note{font-size:15.5px;color:#4A554D;margin-top:16px}
-.area .note a{color:#1F3A2B;font-weight:700}
-.map{width:100%;max-width:440px;aspect-ratio:1/1;border-radius:20px;background:#1F3A2B;position:relative;overflow:hidden;align-self:center}
+.area .note a{color:#0F4A2F;font-weight:700}
+.map{width:100%;max-width:440px;aspect-ratio:1/1;border-radius:20px;background:#0F4A2F;position:relative;overflow:hidden;align-self:center}
 .map svg{display:block;width:100%;height:100%}
 /* faq */
 .faqs{padding:56px 0 60px}
-.faq{background:#FFFDF8;border:1px solid #E5DCC8;border-radius:14px;margin-top:10px}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px;padding:14px 18px;font-weight:700;font-size:17px;color:#1F3A2B}
+.faq{background:#FFFFFF;border:1px solid #DCE4D2;border-radius:14px;margin-top:10px}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px;padding:14px 18px;font-weight:700;font-size:17px;color:#0F4A2F}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary svg{flex:none;transition:transform .2s}
 .faq[open] summary svg{transform:rotate(180deg)}
 .faq p{padding:0 18px 16px;font-size:16px;line-height:1.6;color:#4A554D}
 .faq p + p{padding-top:0}
 /* final cta */
-.final{position:relative;background:#1F3A2B;color:#F4EFE4;padding:58px 0 64px;overflow:hidden;text-align:center}
+.final{position:relative;background:#0F4A2F;color:#EFF4E7;padding:58px 0 64px;overflow:hidden;text-align:center}
 .final h2{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:46px;line-height:.95;position:relative;z-index:2}
-.final h2 span{color:#C9A46A}
-.final p{font-size:17px;color:#BDC7BC;margin-top:12px;position:relative;z-index:2}
+.final h2 span{color:#B9BB4A}
+.final p{font-size:17px;color:#C9D3CD;margin-top:12px;position:relative;z-index:2}
 .final-btns{display:flex;flex-direction:column;gap:12px;margin-top:26px;position:relative;z-index:2}
 /* footer */
-.foot{background:#16291F;color:#BDC7BC;padding:30px 0 28px;font-size:15px}
+.foot{background:#0B3A25;color:#C9D3CD;padding:30px 0 28px;font-size:15px}
 .foot .wrap{display:flex;flex-direction:column;gap:14px}
 .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .foot li{display:flex;align-items:center;gap:10px}
-.foot a{color:#E9E3D6;text-decoration:none}
+.foot a{color:#E1E8D8;text-decoration:none}
 .foot .legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;border-top:1px solid rgba(244,239,228,.1);padding-top:14px;font-size:13.5px}
 /* sticky bar */
-.sticky{position:sticky;bottom:0;z-index:30;display:flex;gap:10px;padding:10px 12px calc(12px + env(safe-area-inset-bottom));background:#16291F;border-top:1px solid rgba(201,164,106,.45);box-shadow:0 -10px 30px rgba(0,0,0,.25)}
+.sticky{position:sticky;bottom:0;z-index:30;display:flex;gap:10px;padding:10px 12px calc(12px + env(safe-area-inset-bottom));background:#0B3A25;border-top:1px solid rgba(201,164,106,.45);box-shadow:0 -10px 30px rgba(0,0,0,.25)}
 .sticky a{flex:1;min-height:54px;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:.04em}
-.sticky .s-call{border:2px solid #C9A46A;color:#F4EFE4}
-.sticky .s-call svg{color:#C9A46A}
-.sticky .s-quote{background:#C9A46A;color:#1F3A2B}
+.sticky .s-call{border:2px solid #B9BB4A;color:#EFF4E7}
+.sticky .s-call svg{color:#B9BB4A}
+.sticky .s-quote{background:#B9BB4A;color:#0F4A2F}
 .sticky a{white-space:nowrap}
 @media (min-width:768px){
  .res-duo{grid-template-columns:1fr 1fr}

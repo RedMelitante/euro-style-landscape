@@ -1,18 +1,15 @@
 ---
-// Service pages (UPDATE-5-SITE.md §2): one template for all 7, with the copy in
-// src/data/service-pages.json (from design/service-*.dc.html). Main-site pages: indexable,
-// in the sitemap, with Service, FAQPage and BreadcrumbList JSON-LD.
+// Service pages (/services/<key>). SEO values in src/data/service-pages.json; the page body for each service is
+// src/components/pages/service-<key>.astro (converted from design/service-*.dc.html, update 6-7).
+// Indexable, in the sitemap, with Service, FAQPage and BreadcrumbList JSON-LD.
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import QuoteForm from '../../components/QuoteForm.astro';
-import OfferBanner from '../../components/offer/OfferBanner.astro';
-import BeforeAfter from '../../components/BeforeAfter.astro';
-import Photo from '../../components/Photo.astro';
-import Icon from '../../components/Icon.astro';
-import { MAPS_URL, PHONE_DISPLAY, PHONE_HREF } from '../../lib/site';
 import { NEW_CLIENT_OFFER_ON } from '../../lib/campaigns';
-import { photoBg } from '../../lib/images';
-import { townHref, towns } from '../../lib/towns';
-import { serviceHref, servicePages, serviceSource, type ServicePage } from '../../lib/servicePages';
+import { towns } from '../../lib/towns';
+import { servicePages, type ServicePage } from '../../lib/servicePages';
+import { business, breadcrumbs, faqPage } from '../../lib/schema';
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+
+const bodies = import.meta.glob<{ default: AstroComponentFactory }>('../../components/pages/service-*.astro', { eager: true });
 
 export function getStaticPaths() {
   return servicePages.map((page) => ({ params: { service: page.key }, props: { page } }));
@@ -23,15 +20,12 @@ interface Props {
 }
 
 const { page } = Astro.props;
-const { hero, items, process, work, why, quote } = page;
-// The offer FAQ and the offer sentence in the meta description follow the NEW_CLIENT_OFFER_ON switch.
-const faq = { ...page.faq, items: page.faq.items.filter((f) => !f.offer || NEW_CLIENT_OFFER_ON) };
+const Body = bodies[`../../components/pages/service-${page.key}.astro`]?.default;
+if (!Body) throw new Error(`Missing page body for ${page.key}`);
+// The offer sentence in the Cleanups meta description follows the NEW_CLIENT_OFFER_ON switch.
 const description = NEW_CLIENT_OFFER_ON ? page.description : page.descriptionNoOffer ?? page.description;
 
 const site = Astro.site!;
-const url = new URL(serviceHref(page.key), site).href;
-const plain = (html: string) =>
-  html.replace(/<[^>]+>/g, '').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -40,359 +34,15 @@ const jsonLd = {
       name: page.name,
       serviceType: page.serviceType,
       description,
-      url,
-      provider: {
-        '@type': 'LandscapingBusiness',
-        name: 'Euro Style Landscape',
-        url: site.href,
-        telephone: '+1-732-803-9646',
-        // streetAddress is left out until the client approves publishing it.
-        address: { '@type': 'PostalAddress', addressLocality: 'Sayreville', addressRegion: 'NJ', postalCode: '08872', addressCountry: 'US' },
-      },
+      url: new URL(`/services/${page.key}`, site).href,
+      provider: business(site),
       areaServed: towns.map((t) => ({ '@type': 'City', name: t.place })),
     },
-    {
-      '@type': 'FAQPage',
-      mainEntity: faq.items.map((f) => ({ '@type': 'Question', name: plain(f.q), acceptedAnswer: { '@type': 'Answer', text: plain(f.a) } })),
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: site.href },
-        { '@type': 'ListItem', position: 2, name: 'Services', item: new URL('/services', site).href },
-        { '@type': 'ListItem', position: 3, name: page.name, item: url },
-      ],
-    },
+    faqPage(page.key),
+    breadcrumbs(site, ['Services', '/services'], [page.name, `/services/${page.key}`]),
   ],
 };
-
-const fill = 'display:block;width:100%;height:100%;object-fit:cover';
 ---
-<BaseLayout title={page.title} description={description} current="services" currentService={page.key} quoteHref="#quote" jsonLd={jsonLd}>
-  <!-- Hero -->
-  <section class="sage-top hero-sec">
-    <div class="container stack" style="gap:28px">
-      <nav aria-label="Breadcrumb" class="crumbs">
-        <a href="/">Home</a><span aria-hidden="true">/</span>
-        <a href="/services">Services</a><span aria-hidden="true">/</span>
-        <span aria-current="page" class="crumb-now">{page.name}</span>
-      </nav>
-      <div class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow dash-row"><span aria-hidden="true" class="dash"></span>{hero.eyebrow}</p>
-          {page.offer && NEW_CLIENT_OFFER_ON && (
-            // NEW CLIENT OFFER pill, Cleanups only (hidden while NEW_CLIENT_OFFER_ON is false)
-            <span class="offer-pill"><Icon name="tag" size={16} strokeWidth={2.4} />New clients · 20% off first cleanup or refresh</span>
-          )}
-          <h1 class="h1-svc">{hero.h1}</h1>
-          <p class="lead" style="max-width:580px">{hero.lede}</p>
-          <div class="hero-ctas">
-            <a href="#quote" class="btn btn-hero btn-primary">{hero.cta}</a>
-            <a href={PHONE_HREF} class="btn btn-hero btn-light-ghost"><Icon name="phone" size={18} />{PHONE_DISPLAY}</a>
-          </div>
-          <div class="hero-checks">
-            {hero.checks.map((c) => <span><Icon name="check" size={18} stroke="#2F6844" strokeWidth={2.4} />{c}</span>)}
-          </div>
-        </div>
-        {hero.type === 'mosaic' ? (
-          <div class="mosaic">
-            <div class="tile big" style={`background-color:${photoBg(hero.photos[0].src)}`}>
-              <Photo src={hero.photos[0].src} alt={hero.photos[0].alt} sizes="(min-width: 1280px) 400px, (min-width: 1100px) 32vw, (min-width: 640px) 58vw, 92vw" style={fill} eager priority />
-              <span class="chip"><Icon name="check" size={14} stroke="#2F6844" strokeWidth={2.4} />{hero.label}</span>
-            </div>
-            {hero.photos.slice(1).map((p) => (
-              <div class="tile small" style={`background-color:${photoBg(p.src)}`}>
-                <Photo src={p.src} alt={p.alt} sizes="(min-width: 1280px) 280px, (min-width: 1100px) 22vw, 40vw" style={fill} eager />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div class="panel">
-            <p class="panel-title">{hero.title}</p>
-            <ul class="panel-list">
-              {hero.items.map((it) => (
-                <li>
-                  <span class="icon-circle panel-disc"><Icon name={it.icon} size={22} /></span>
-                  <span class="stack" style="gap:3px"><strong class="panel-item">{it.title}</strong><span class="panel-text">{it.text}</span></span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
-    </div>
-  </section>
-
-  {/* NEW CLIENT OFFER band, Cleanups only (hidden while NEW_CLIENT_OFFER_ON is false) */}
-  {page.offer && <OfferBanner buttons="call" />}
-
-  <!-- What's included -->
-  <section class="section">
-    <div class="container stack" style="gap:32px">
-      <div class="sec-head">
-        <div class="stack" style="flex:1 1 520px;gap:14px">
-          <p class="eyebrow dash-row"><span aria-hidden="true" class="dash"></span>{items.kicker}</p>
-          <h2 class="h2">{items.h2}</h2>
-        </div>
-        <p class="body-muted" style="flex:1 1 380px">{items.side}</p>
-      </div>
-      <div class="item-grid">
-        {items.cards.map((c) => (
-          <article class="card item-card">
-            {'src' in c && (
-              <div class="item-img" style={`background-color:${photoBg(c.src)}`}>
-                <Photo src={c.src} alt={c.alt} sizes="(min-width: 1280px) 300px, (min-width: 640px) 45vw, 92vw" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-              </div>
-            )}
-            <div class="item-body">
-              {'icon' in c && <span class="icon-circle item-disc"><Icon name={c.icon} size={24} /></span>}
-              <h3 class="item-title">{c.title}</h3>
-              <p class="body-muted">{c.text}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- How it works -->
-  <section class="section section-forest">
-    <div class="container stack" style="gap:28px">
-      <p class="eyebrow eyebrow-dark dash-row"><span aria-hidden="true" class="dash dash-gold"></span>{process.kicker}</p>
-      <h2 class="h2">{process.h2}</h2>
-      <ol class="steps">
-        {process.steps.map((s) => (
-          <li><span class="step-n">{s.n}</span><strong class="step-title">{s.title}</strong><span class="step-text">{s.text}</span></li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  {/* Recent work: hidden when the page has no photos yet (Snow removal) */}
-  {work && (
-    <section class="section">
-      <div class="container stack" style="gap:28px">
-        <div class="sec-head">
-          <div class="stack" style="gap:14px">
-            <p class="eyebrow dash-row"><span aria-hidden="true" class="dash"></span>Our work</p>
-            <h2 class="h2">{work.h2}</h2>
-          </div>
-          <a href="/our-work" class="see-all">See all our work</a>
-        </div>
-        {work.beforeAfter && (
-          <div class="ba-row">
-            <div class="stack" style="flex:1 1 300px;min-width:0;gap:10px">
-              <h3 class="ba-title">{work.beforeAfter.title}</h3>
-              <p class="body-muted">{work.beforeAfter.text}</p>
-            </div>
-            <div style="flex:2 1 480px;min-width:0">
-              <BeforeAfter
-                beforeSrc={work.beforeAfter.beforeSrc}
-                afterSrc={work.beforeAfter.afterSrc}
-                before={work.beforeAfter.before}
-                after={work.beforeAfter.after}
-                beforeLabel={work.beforeAfter.beforeLabel}
-                afterLabel={work.beforeAfter.afterLabel}
-                ratio={work.beforeAfter.ratio}
-                sizes="(min-width: 1280px) 800px, (min-width: 768px) 62vw, 100vw"
-              />
-            </div>
-          </div>
-        )}
-        <div class="gal-grid">
-          {work.gallery.map((w) => (
-            <figure class="gal-item">
-              <div class="gal-img" style={`background-color:${photoBg(w.src)}`}>
-                <Photo src={w.src} alt={w.alt} sizes="(min-width: 1280px) 300px, (min-width: 1024px) 23vw, 46vw" style={fill} />
-              </div>
-              <figcaption>{w.caption}</figcaption>
-            </figure>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- Why Euro Style -->
-  <section class="why-sec">
-    <div class="container why-wrap">
-      <div class="stack" style="flex:1 1 380px;gap:14px">
-        <p class="eyebrow dash-row"><span aria-hidden="true" class="dash"></span>{why.kicker}</p>
-        <h2 class="h2">{why.h2}</h2>
-      </div>
-      <ul class="why-list">
-        {why.points.map((p) => (
-          <li>
-            <span class="icon-circle why-disc"><Icon name="check" size={16} strokeWidth={2.4} /></span>
-            <span class="stack" style="gap:4px"><strong class="why-title">{p.title}</strong><span class="why-text">{p.text}</span></span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <!-- FAQ (FAQPage JSON-LD above) -->
-  <section class="section">
-    <div class="container faq-wrap">
-      <div class="stack" style="flex:1 1 320px;gap:14px">
-        <p class="eyebrow dash-row"><span aria-hidden="true" class="dash"></span>Questions</p>
-        <h2 class="h2">{faq.h2}</h2>
-      </div>
-      <div class="faq-list">
-        {faq.items.map((f, i) => (
-          <details class="faq" open={i === 0}>
-            <summary>{f.q}<span class="faq-icon"><Icon name="chevron-down" size={20} strokeWidth={2.2} /></span></summary>
-            <p set:html={f.a} />
-          </details>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Quote form -->
-  <section class="section-forest quote-sec">
-    <div class="container quote-wrap">
-      <div class="quote-copy">
-        <p class="eyebrow eyebrow-dark dash-row"><span aria-hidden="true" class="dash dash-gold"></span>{quote.kicker}</p>
-        <h2 class="h2">{quote.h2}</h2>
-        <p class="lead on-dark-muted">{quote.lede}</p>
-        <div class="stack" style="gap:10px;font-size:16px">
-          <a href={PHONE_HREF} class="q-phone"><span class="gold"><Icon name="phone" size={18} /></span>{PHONE_DISPLAY}</a>
-          <a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps" class="q-based"><span class="gold"><Icon name="pin" size={18} /></span>Based in Sayreville, NJ · serving Middlesex, Monmouth &amp; Union County towns</a>
-        </div>
-      </div>
-      <div id="quote" class="quote-form qf-slot">
-        <QuoteForm id={`svc-${page.key}`} source={serviceSource(page.key)} service={quote.service} propertyType={quote.propertyType} />
-      </div>
-    </div>
-  </section>
-
-  <!-- Towns + other services -->
-  <section class="links-sec">
-    <div class="container stack" style="gap:32px">
-      <div class="stack" style="gap:16px">
-        <h2 class="links-title">{page.townsTitle}</h2>
-        <ul class="chips">
-          {towns.map((t) => <li><a href={townHref(t.slug)} class="chip-link">{t.name}</a></li>)}
-        </ul>
-      </div>
-      <div class="stack" style="gap:16px">
-        <h2 class="links-title">Other services</h2>
-        <ul class="chips">
-          {servicePages.filter((s) => s.key !== page.key).map((s) => (
-            <li><a href={serviceHref(s.key)} class="chip-link">{s.menu} <Icon name="arrow-right" size={14} strokeWidth={2.2} /></a></li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </section>
+<BaseLayout title={page.title} description={description} current={page.key === 'commercial' ? 'commercial' : 'services'} currentService={page.key} jsonLd={jsonLd}>
+  <Body />
 </BaseLayout>
-
-<style>
-  .hero-sec { padding: clamp(40px, 6vw, 72px) 0 clamp(48px, 6vw, 88px); }
-  .crumbs { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink-muted); flex-wrap: wrap; }
-  .crumbs a { color: var(--ink-muted); }
-  .crumb-now { color: var(--ink); }
-  .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 40px 56px; }
-  .hero-copy { flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
-  .dash-row { display: flex; align-items: center; gap: 10px; }
-  .dash { width: 28px; height: 2px; background: var(--green-600); flex: none; }
-  .dash-gold { background: var(--sand-500); }
-  .offer-pill {
-    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; padding: 7px 14px; border-radius: 999px;
-    background: var(--sand-500); color: var(--charcoal); font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
-  }
-  .h1-svc { margin: 0; font-size: var(--fs-h1-home); line-height: 1.06; font-weight: 800; letter-spacing: -0.03em; }
-  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
-  .hero-ctas .btn { flex: 0 1 auto; min-width: min(220px, 100%); height: auto; min-height: 54px; text-align: center; }
-  .hero-ctas .btn-light-ghost { padding: 0 22px; }
-  .hero-checks { display: flex; align-items: center; gap: 8px 20px; flex-wrap: wrap; margin-top: 4px; font-size: 15px; color: var(--ink-muted); }
-  .hero-checks span { display: flex; align-items: center; gap: 8px; }
-  .mosaic {
-    flex: 1.15 1 480px; min-width: 0; display: grid; grid-template-columns: 1.45fr 1fr; grid-template-rows: 1fr 1fr;
-    gap: 12px; height: clamp(340px, 38vw, 520px);
-  }
-  .tile { position: relative; border-radius: 18px; overflow: hidden; }
-  .big { grid-row: span 2; }
-  .chip {
-    position: absolute; left: 14px; bottom: 14px; display: flex; align-items: center; gap: 8px; padding: 8px 12px;
-    border-radius: 999px; background: rgba(255, 255, 255, .92); color: var(--ink); font-size: 13px; font-weight: 700; white-space: nowrap;
-  }
-  @media (max-width: 639px) {
-    .mosaic { grid-template-columns: 1fr; grid-template-rows: 1fr; height: 260px; }
-    .big { grid-row: auto; }
-    .small { display: none; }
-  }
-  .panel {
-    flex: 1 1 420px; min-width: 0; background: var(--forest-800); color: var(--on-dark); border-radius: 18px;
-    padding: clamp(22px, 3vw, 32px); box-shadow: 0 24px 60px rgba(17, 22, 18, .18);
-  }
-  .panel-title { margin: 0 0 6px; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--sand-500); }
-  .panel-list { list-style: none; margin: 0; padding: 0; }
-  .panel-list li { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-top: 1px solid rgba(243, 239, 230, .14); }
-  .panel-disc { width: 44px; height: 44px; background: var(--sand-500); color: var(--charcoal); }
-  .panel-item { font-size: 17px; }
-  .panel-text { font-size: 15px; line-height: 1.5; color: var(--on-dark-muted); }
-
-  .sec-head { display: flex; flex-wrap: wrap; gap: 16px 48px; align-items: flex-end; justify-content: space-between; }
-  .item-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(270px, 100%), 1fr)); gap: 20px; }
-  .item-card { display: flex; flex-direction: column; }
-  .item-img { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
-  .item-body { padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-  .item-disc { width: 52px; height: 52px; background: var(--mint-100); color: var(--green-700); }
-  .item-title { margin: 0; font-size: 21px; line-height: 1.3; font-weight: 700; }
-
-  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 16px; }
-  .steps li { border: 1px solid rgba(243, 239, 230, .16); background: rgba(243, 239, 230, .04); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
-  .step-n { font-size: 15px; font-weight: 800; color: var(--sand-500); }
-  .step-title { font-size: 19px; }
-  .step-text { font-size: 15.5px; line-height: 1.6; color: var(--on-dark-muted); }
-
-  .see-all { font-size: 15px; font-weight: 600; color: var(--green-700); }
-  .ba-row { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
-  .ba-title { margin: 0; font-size: 24px; line-height: 1.25; font-weight: 700; }
-  .gal-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-  @media (max-width: 1023px) { .gal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  .gal-item { margin: 0; display: flex; flex-direction: column; gap: 10px; }
-  .gal-img { aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; }
-  .gal-item figcaption { font-size: 15px; font-weight: 600; }
-  @media (max-width: 639px) { .gal-grid { gap: 12px; } .gal-item figcaption { font-size: 13.5px; } }
-
-  .why-sec { background: var(--sage-100); border-top: 1px solid var(--sage-200); border-bottom: 1px solid var(--sage-200); padding: clamp(48px, 6vw, 80px) 0; }
-  .why-wrap { display: flex; flex-wrap: wrap; gap: 28px 64px; align-items: center; }
-  .why-list { flex: 1.4 1 520px; min-width: 0; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 12px; }
-  .why-list li { background: var(--white); border: 1px solid var(--sage-200); border-radius: 12px; padding: 18px; display: flex; gap: 12px; align-items: flex-start; }
-  .why-disc { width: 30px; height: 30px; background: var(--green-600); color: var(--white); }
-  .why-title { font-size: 16.5px; }
-  .why-text { font-size: 15px; line-height: 1.55; color: var(--ink-muted); }
-
-  .faq-wrap { display: flex; flex-wrap: wrap; gap: 32px 64px; }
-  .faq-list { flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 10px; }
-  .faq { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 0 20px; }
-  .faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; font-size: 17px; font-weight: 700; }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq-icon { flex: none; color: var(--green-700); display: flex; }
-  .faq[open] .faq-icon { transform: rotate(180deg); }
-  .faq p { margin: 0 0 18px; font-size: 16px; line-height: 1.65; color: var(--ink-muted); }
-  .faq :global(a) { font-weight: 600; }
-
-  .quote-sec { padding: var(--section-y) 0; }
-  .quote-wrap { display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center; }
-  .quote-copy { flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 18px; }
-  .quote-form { flex: 1 1 440px; max-width: 520px; min-width: 0; }
-  .on-dark-muted { color: var(--on-dark-muted); }
-  .gold { color: var(--sand-500); display: flex; flex: none; }
-  .q-phone { display: flex; align-items: center; gap: 10px; color: var(--on-dark); text-decoration: none; font-weight: 600; }
-  .q-phone:hover { color: var(--on-dark); }
-  .q-based { display: flex; align-items: center; gap: 10px; color: var(--on-dark-muted); text-decoration: none; }
-  .q-based:hover { color: var(--on-dark); }
-
-  .links-sec { background: #FFFDF8; border-top: 1px solid var(--line); padding: clamp(48px, 6vw, 72px) 0; }
-  .links-title { margin: 0; font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); line-height: 1.2; font-weight: 600; }
-  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip-link {
-    display: inline-flex; gap: 6px; align-items: center; padding: 8px 12px; border-radius: 999px; background: var(--white);
-    border: 1px solid var(--line); font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none;
-  }
-  .chip-link:hover { border-color: var(--green-600); color: var(--ink); }
-</style>

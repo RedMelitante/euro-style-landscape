@@ -1,0 +1,129 @@
+---
+// Generated from design/service-area-matawan.dc.html (handoff update 7) by the one-off converter; edit this file directly.
+import { MAPS_URL } from '../../lib/site';
+import Img from '../site/Img.astro';
+import QuoteSection from '../site/QuoteSection.astro';
+import ReviewCards from '../site/ReviewCards.astro';
+import Sidebar from '../site/Sidebar.astro';
+import { NEW_CLIENT_OFFER_ON } from '../../lib/campaigns';
+import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
+---
+  <section class="shero">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="crumb"><a href="/">Home</a><span aria-hidden="true">&rsaquo;</span><a href="/service-areas/sayreville">Service areas</a><span aria-hidden="true">&rsaquo;</span><span aria-current="page" style="color: #2E343A">Matawan, NJ</span></nav>
+      <div class="shgrid">
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <p class="eb">Service area · Matawan, NJ (Monmouth County)</p>
+          {NEW_CLIENT_OFFER_ON && (<a href="/services/cleanups" class="pill" style="align-self: flex-start; margin: 0; padding: 6px 14px; font-size: 13px; text-decoration: none">New clients: 20% off your first cleanup or property refresh</a>)}
+          <h1 class="hd sh1">Landscaping in Matawan, NJ</h1>
+          <p class="lede">Patios, retaining walls, lawn care, fencing and planting for Matawan homes, from Freneau to the streets around Lake Lefferts.</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 4px">
+            <a href="#quote" class="btn btn-g">Book a free consultation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="tel:+17328039646" class="lnk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> (732) 803-9646</a>
+          </div>
+          <div class="checks"><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Free on-site consultation</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Licensed &amp; insured</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Based nearby in Sayreville</span></div>
+        </div>
+        <div class="glance"><span class="k">Matawan at a glance</span><dl><div><dt>County</dt><dd>Monmouth County</dd></div><div><dt>ZIP codes</dt><dd>07747 Matawan</dd></div><div><dt>Communities we serve</dt><dd>8 including Main Street area, Freneau, Oak Shades</dd></div><div><dt>From our base</dt><dd><a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps">Sayreville, NJ 08872</a></dd></div></dl></div>
+      </div>
+    </div>
+  </section>
+  <div class="sec" style="padding-top: clamp(48px, 6vw, 72px)">
+    <div class="wrap layout">
+      <div class="art">
+        <section id="local">
+          <h2 class="ah2">Landscaping across Matawan</h2>
+          <p class="tx">Matawan is a short drive from our Sayreville base, so it's easy to come out for a free on-site consultation and to keep coming back for lawn care and seasonal cleanups.</p>
+          <p class="tx">We work across the borough, from the historic Main Street area to Freneau, Oak Shades and the neighborhoods near Lake Lefferts and Lake Matawan.</p>
+          <p style="font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #197148">Matawan areas we serve</p>
+          <div class="chips">
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Main Street area</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Freneau</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Oak Shades</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Claire Court</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Tina Place</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Near Lake Lefferts</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Near Lake Matawan</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Near Aberdeen-Matawan station</span>
+          </div>
+        </section>
+        <section id="services">
+          <h2 class="ah2">Landscaping services in Matawan</h2>
+          <p class="tx">From a new patio to regular mowing, one team handles it. We confirm the details with you at the free consultation.</p>
+          <div class="scards">
+            <a href="/services/construction" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 12h18M12 3v18"></path></svg></span><p><b>Construction</b><span>Paver patios, retaining walls, outdoor kitchens, decks and masonry.</span></p></a>
+            <a href="/services/lawn-maintenance" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M6 21v-5M9 21v-8M12 21v-6M15 21v-9M18 21v-5"></path></svg></span><p><b>Lawn maintenance</b><span>Mowing and edging, fertilization, aeration and seasonal cleanups.</span></p></a>
+            <a href="/services/cleanups" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v13"></path><path d="M6 15h12"></path><path d="M6 15v5M9 15v5M12 15v5M15 15v5M18 15v5"></path></svg></span><p><b>Cleanups &amp; property refresh</b><span>Property, leaf and landscape cleanups, plus property refreshes.</span>{NEW_CLIENT_OFFER_ON && (<span class="pill">New clients: 20% off</span>)}</p></a>
+            <a href="/services/snow-removal" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"></path></svg></span><p><b>Snow removal</b><span>Plowing, shoveling, salting and de-icing, plus seasonal snow contracts.</span></p></a>
+            <a href="/services/fencing" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3 2 5v15h4V5zM12 3l-2 2v15h4V5zM20 3l-2 2v15h4V5z"></path><path d="M6 8h4M6 15h4M14 8h4M14 15h4"></path></svg></span><p><b>Fencing</b><span>New fences and gates for privacy, safety and a finished boundary.</span></p></a>
+            <a href="/services/planting" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-6"></path><path d="M12 16c-4 0-7-2.5-7-6a7 7 0 0 1 14 0c0 3.5-3 6-7 6z"></path></svg></span><p><b>Planting &amp; landscape install</b><span>Trees, shrubs, garden beds, new lawns and curb appeal upgrades.</span></p></a>
+            <a href="/services/commercial" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14"></path><path d="M9 9h1M14 9h1M9 13h1M14 13h1M10 21v-4h4v4"></path></svg></span><p><b>Commercial services</b><span>Grounds care, snow removal, small construction and cleanups, with one invoice.</span></p></a>
+          </div>
+        </section>
+        {NEW_CLIENT_OFFER_ON && (<div id="offer" class="offerband">
+          <span class="pill" style="align-self: flex-start; margin: 0">New client special</span>
+          <h2 class="hd" style="font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.4rem)">20% off <span class="acc acc-o">your first cleanup or property refresh</span></h2>
+          <p style="font-size: 15px; color: #E6EAE7">Property cleanups · Leaf cleanups · Landscape cleanups · Property refresh</p>
+          <p style="font-size: 14px; color: #C9D3CD">*New clients only. Valid on your first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px"><a href="#quote" class="btn btn-o">Claim 20% off <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a><a href="/services/cleanups" class="btn btn-line">See cleanup services</a></div>
+        </div>)}
+        <section id="know">
+          <h2 class="ah2">Lakes, creeks and hills</h2>
+          <p class="tx">Matawan's two lakes were made by damming its waterways: Lake Matawan on Gravelly Brook in 1923 and Lake Lefferts on Matawan Creek in 1928. Freneau, named after the poet Philip Freneau, is a hilly, wooded area.</p>
+          <p class="tx">Sloped and wooded lots bring their own jobs: walls and steps to make level space, and leaves to clear every fall. We'll plan around your yard's slope when we visit.</p>
+          <div class="inc">
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Retaining walls and steps</b><span>Level patios and safe steps on sloped yards.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Fall cleanups</b><span>Leaves and debris cleared from wooded lots before winter.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Planting</b><span>Beds, shrubs and trees chosen for sun or shade.</span></p></div>
+          </div>
+        </section>
+        <section id="work">
+          <h2 class="ah2">Recent work</h2>
+          <p class="tx">Real Euro Style Landscape projects. Captions describe what each photo shows.</p>
+          <div class="pgrid">
+            <figure class="ph"><Img src={"raised-patio-wide.jpg"} alt={"Wide raised paver patio with steps across the back of a house"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Raised patio across a house</figcaption></figure>
+            <figure class="ph"><Img src={"front-entry-after.jpg"} alt={"Stone front entry steps and walkway"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Stone front steps</figcaption></figure>
+            <figure class="ph"><Img src={"raised-patio-night.jpg"} alt={"Raised paver patio at night with lights in the steps"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Patio with step lighting</figcaption></figure>
+            <figure class="ph"><Img src={"backyard-after.jpg"} alt={"Finished backyard with new lawn, paver walkway and deck"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} /><figcaption>New lawn, walkway &amp; deck</figcaption></figure>
+          </div>
+          <a href="/our-work" class="lnk">See all our work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+        </section>
+        <section id="reviews">
+          <h2 class="ah2">{RATING} from {REVIEW_COUNT} Google reviews</h2>
+          <p class="tx">Real reviews from Euro Style Landscape&rsquo;s Google Business Profile, quoted as written. <a href={REVIEWS_URL} target="_blank" rel="noopener">Read all {REVIEW_COUNT} on Google</a>.</p>
+          <ReviewCards ids={["caleb-d", "jennifer-w", "frank"]} />
+        </section>
+        <section id="questions">
+          <h2 class="ah2">Matawan landscaping FAQ</h2>
+          <div class="qa">
+            <details><summary>Do you work in Matawan?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We serve the whole borough, including Freneau, Oak Shades and the areas around Lake Lefferts and Lake Matawan.</p></details>
+            <details><summary>What landscaping services do you offer in Matawan?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties.</p></details>
+            {NEW_CLIENT_OFFER_ON && (<details><summary>Do you offer a discount for new clients?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.</p></details>)}
+            <details><summary>Is the consultation really free?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation.</p></details>
+            <details><summary>Are you licensed and insured?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes, Euro Style Landscape is licensed and insured.</p></details>
+            <details><summary>How do I get a quote?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation.</p></details>
+          </div>
+        </section>
+        <section id="towns">
+          <h2 class="ah2">Other towns we serve</h2>
+          <div class="chips">
+            <a href="/service-areas/sayreville">Sayreville</a>
+            <a href="/service-areas/south-amboy">South Amboy</a>
+            <a href="/service-areas/old-bridge">Old Bridge</a>
+            <a href="/service-areas/marlboro">Marlboro</a>
+            <a href="/service-areas/manalapan">Manalapan</a>
+            <a href="/service-areas/monroe">Monroe</a>
+            <a href="/service-areas/freehold">Freehold</a>
+            <a href="/service-areas/woodbridge">Woodbridge</a>
+            <a href="/service-areas/rahway">Rahway</a>
+            <a href="/service-areas/sewaren">Sewaren</a>
+            <a href="/service-areas/colonia">Colonia</a>
+            <a href="/service-areas/east-brunswick">East Brunswick</a>
+            <a href="/service-areas/south-river">South River</a>
+          </div>
+        </section>
+      </div>
+      <Sidebar toc={[{"href": "#local", "label": "Your local landscaper"}, {"href": "#services", "label": "Services in Matawan"}, {"href": "#offer", "label": "New client offer", "offer": true}, {"href": "#know", "label": "Local know-how"}, {"href": "#work", "label": "Recent work"}, {"href": "#reviews", "label": "Reviews"}, {"href": "#questions", "label": "Questions"}, {"href": "#towns", "label": "Nearby towns"}]} why={[{"title": "One team, design to build", "text": "The same local crew plans and builds your project."}, {"title": "Free on-site consultation", "text": "No cost, no obligation."}, {"title": "Detailed written quote", "text": "You know exactly what you&rsquo;re getting before work starts."}, {"title": "Licensed &amp; insured", "text": "Peace of mind on every job."}]} />
+    </div>
+  </div>
+  <QuoteSection eyebrow={"Free consultation"} title={"Get a free quote in Matawan"} lede={"Tell us about your project and we'll call you to book a free on-site consultation."} formId={"town2-matawan"} source={"service-area-matawan"} />
+  

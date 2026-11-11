@@ -1,0 +1,15 @@
+---
+// Mobile sticky call / quote bar (UPDATE-6-REDESIGN.md §3.7), shown under 1024px.
+import { PHONE_HREF } from '../../lib/site';
+import { ICONS } from './icons';
+
+interface Props {
+  quoteHref: string;
+}
+
+const { quoteHref } = Astro.props;
+---
+<div class="m-only mbar">
+  <a href={PHONE_HREF} class="btn" aria-label="Call Euro Style Landscape" style="flex: 1 1 0; min-height: 52px; border: 1.5px solid #0F4A2F; color: #0F4A2F"><Fragment set:html={ICONS.mbarcall} /> Call</a>
+  <a href={quoteHref} class="btn btn-g" style="flex: 2 1 0; min-height: 52px">Free consultation</a>
+</div>

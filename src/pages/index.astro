@@ -1,318 +1,42 @@
 ---
+// Home (handoff update 6 §4 and update 7 §5). Body: src/components/pages/home.astro.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PhotoMosaic from '../components/PhotoMosaic.astro';
-import SectionHeader from '../components/SectionHeader.astro';
-import BeforeAfter from '../components/BeforeAfter.astro';
-import CheckList from '../components/CheckList.astro';
-import TrustTiles from '../components/TrustTiles.astro';
-import HowItWorks from '../components/HowItWorks.astro';
-import QuoteForm from '../components/QuoteForm.astro';
-import Photo from '../components/Photo.astro';
-import Icon from '../components/Icon.astro';
-import OfferBanner from '../components/offer/OfferBanner.astro';
-import ServiceIconCards from '../components/ServiceIconCards.astro';
-import { serviceHref } from '../lib/servicePages';
-import { EMAIL, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, SERVICE_AREA } from '../lib/site';
-import { group, groups } from '../lib/services';
+import Home from '../components/pages/home.astro';
+import { EMAIL } from '../lib/site';
+import { groups } from '../lib/services';
+import { business, faqPage } from '../lib/schema';
 
 const site = Astro.site!;
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Euro Style Landscape',
-  url: site.href,
-  telephone: '+1-732-803-9646',
-  email: EMAIL,
-  logo: new URL('/logo.webp', site).href,
-  // streetAddress is left out until the client approves publishing it.
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Sayreville',
-    addressRegion: 'NJ',
-    postalCode: '08872',
-    addressCountry: 'US',
-  },
-  areaServed: { '@type': 'AdministrativeArea', name: 'Middlesex County, NJ' },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Landscape services',
-    itemListElement: groups.map((g) => ({
-      '@type': 'OfferCatalog',
-      name: g.title,
-      itemListElement: g.items.map((i) => ({
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: i.title, description: i.text },
-      })),
-    })),
-  },
+  '@graph': [
+    business(site, {
+      email: EMAIL,
+      logo: new URL('/logo.webp', site).href,
+      areaServed: { '@type': 'AdministrativeArea', name: 'Middlesex County, NJ' },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Landscape services',
+        itemListElement: groups.map((g) => ({
+          '@type': 'OfferCatalog',
+          name: g.title,
+          itemListElement: g.items.map((i) => ({
+            '@type': 'Offer',
+            itemOffered: { '@type': 'Service', name: i.title, description: i.text },
+          })),
+        })),
+      },
+    }),
+    faqPage('home'),
+  ],
 };
-
-const construction = group('construction');
-// Chip order from design/home.dc.html; titles from services.json.
-const chipOrder = ['outdoor-backyard-design', 'pavers', 'concrete', 'outdoor-kitchens', 'retaining-walls', 'stone-veneer', 'decks', 'masonry-work', 'asphalt'];
-const coreChips = chipOrder.map((id) => construction.items.find((i) => i.id === id)?.title).filter(Boolean);
-// Home-specific card copy from design/home.dc.html; each links to its service page.
-const sideCards = [
-  { title: 'Lawn maintenance', text: 'Mowing and edging, fertilization, aeration and seasonal cleanups to keep your yard looking cared for.', cta: 'Lawn maintenance', href: serviceHref('lawn-maintenance'), src: 'front-lawn-tree.jpg', alt: 'Well-kept front lawn with a mature tree and mulched beds', bg: '#66705C' },
-  { title: 'Fencing', text: 'New fences and gates for privacy, safety and a finished boundary around your yard.', cta: 'Fencing', href: serviceHref('fencing'), src: 'stone-pillars-gate.jpg', alt: 'White vinyl fence and gate between stacked-stone pillars', bg: '#8A8F92' },
-  { title: 'Planting & landscape install', text: 'New lawns, garden beds, shrubs and trees, installed as one finished landscape.', cta: 'Planting & install', href: serviceHref('planting'), src: 'front-lawn-beds.jpg', alt: 'Front lawn with mulched beds and shrubs', bg: '#5A7354' },
-];
-const recent = [
-  { title: 'Raised patio with step lighting', src: 'raised-patio-night.jpg', alt: 'Raised paver patio at night with lit steps', bg: '#1B1F1B' },
-  { title: 'Paver walkway & steps', src: 'walkway-steps.jpg', alt: 'Paver walkway with a dark border leading to wide steps', bg: '#4C6A4B' },
-  { title: 'Curved front walkway', src: 'front-walkway.jpg', alt: 'Curved paver walkway to a brick-front home', bg: '#4C6A4B' },
-];
 ---
 <BaseLayout
   title="Euro Style Landscape · Landscape Design & Build in Middlesex County, NJ"
   description="European-style patios, retaining walls, decks, planting and garden care — designed and built by one local team. Book a free on-site consultation."
   current="home"
-  quoteHref="#quote"
+  ogPhoto="front-lawn-beds.jpg"
   jsonLd={jsonLd}
 >
-  <!-- Hero: copy left, real-project photo mosaic right -->
-  <section class="sage-top" style="padding:clamp(32px, 5vw, 72px) 0 clamp(48px, 6vw, 88px)">
-    <div class="container hero">
-      <div class="hero-copy">
-        <p class="eyebrow hero-eyebrow"><span aria-hidden="true" class="dash"></span>Landscape design &amp; build · Middlesex County, NJ</p>
-        <h1 class="h1-home">European-style outdoor living, designed and built for your home.</h1>
-        <p class="lead" style="max-width:560px">From stone patios and retaining walls to decks, planting and ongoing garden care — one team, from the first sketch to the final clean-up.</p>
-        <div class="hero-ctas">
-          <a href="#quote" class="btn btn-hero btn-primary">Get a Free Quote</a>
-          <a href="/our-work" class="btn btn-hero btn-light-ghost">View Our Work
-            <Icon name="arrow-up-right" size={16} />
-          </a>
-        </div>
-        <div class="hero-checks">
-          <span><Icon name="check" size={18} stroke="#2F6844" strokeWidth={2.4} />Free on-site consultation</span>
-          <span><Icon name="check" size={18} stroke="#2F6844" strokeWidth={2.4} />Licensed &amp; insured</span>
-        </div>
-      </div>
-      <PhotoMosaic />
-    </div>
-  </section>
-
-  <!-- NEW CLIENT OFFER (hidden while NEW_CLIENT_OFFER_ON is false) -->
-  <OfferBanner />
-
-  <!-- Services overview -->
-  <section class="section">
-    <div class="container stack" style="gap:32px">
-      <SectionHeader
-        title="Everything your outdoor space needs"
-        kicker="Services"
-        description="Construction, lawn maintenance, cleanups, snow removal, fencing, planting and landscape installation for homes and commercial properties, all from one local team."
-        link={{ href: '/services', label: 'All services' }}
-      />
-      <div class="grid-auto" style="--min:440px;--gap:24px">
-        <article class="card featured">
-          <div class="feat-img">
-            <Photo src="raised-patio-rear.jpg" alt="Raised paver patio with wide steps behind a white house" sizes="(min-width: 1280px) 612px, (min-width: 960px) 48vw, 100vw" style="display:block;width:100%;height:100%;object-fit:cover" />
-            <span class="pill-sand feat-pill">Our core service</span>
-          </div>
-          <div class="feat-body">
-            <h3 class="feat-title">{construction.title}</h3>
-            <p class="feat-text">Backyard projects designed and built by one team. We plan around how you want to use the space, show you the design, then build it to last.</p>
-            <ul class="chips">
-              {coreChips.map((c) => <li>{c}</li>)}
-            </ul>
-            <div class="feat-cta">
-              <a href="#quote" class="btn btn-md btn-primary">Book a free design consultation</a>
-            </div>
-          </div>
-        </article>
-        {sideCards.map((c) => (
-          <article class="card side">
-            <div class="side-img" style={`background-color:${c.bg}`}>
-              <Photo src={c.src} alt={c.alt} sizes="(min-width: 1280px) 300px, (min-width: 768px) 25vw, 100vw" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
-            </div>
-            <div class="side-body">
-              <h3 class="side-title">{c.title}</h3>
-              <p class="body-muted">{c.text}</p>
-              <a href={c.href} class="btn btn-sm btn-outline side-cta">{c.cta}
-                <Icon name="arrow-up-right" size={14} strokeWidth={2.2} />
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
-      <ServiceIconCards />
-    </div>
-  </section>
-
-  <!-- Before & after teaser -->
-  <section class="section-forest" style="padding:clamp(56px, 7vw, 104px) 0">
-    <div class="container teaser">
-      <div class="teaser-copy">
-        <p class="eyebrow eyebrow-dark">Before &amp; after</p>
-        <h2 class="h2">See the difference a Euro Style backyard makes</h2>
-        <p class="teaser-text">Drag the slider to compare. Then browse more finished projects — patios, retaining walls, decks, lawns and full makeovers.</p>
-        <a href="/our-work" class="btn btn-md btn-ghost-light" style="align-self:flex-start">View the full gallery
-          <Icon name="arrow-right" size={16} />
-        </a>
-      </div>
-      <figure class="teaser-fig">
-        <BeforeAfter
-          beforeSrc="backyard-before.jpg"
-          afterSrc="backyard-after.jpg"
-          before="Backyard before: bare soil along the fence"
-          after="Backyard after: new lawn, paver walkway and deck"
-          ratio="16 / 10"
-          sizes="(min-width: 1280px) 700px, (min-width: 1000px) 56vw, 100vw"
-        />
-        <figcaption>
-          <span style="font-weight:600;color:#F3EFE6">Full backyard makeover</span>
-          <span>Drag to compare</span>
-        </figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- Why Euro Style + trust tiles -->
-  <section class="section">
-    <div class="container stack" style="gap:clamp(40px, 5vw, 64px)">
-      <div class="why">
-        <div class="why-media">
-          <Photo src="side-patio.jpg" alt="Side-yard paver patio with a granite border" sizes="(min-width: 1280px) 520px, (min-width: 1000px) 42vw, 90vw" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;border-radius:16px;background-color:#4C6A4B" />
-          <Photo src="stone-pillars-gate.jpg" alt="Stone veneer pillars with lanterns framing a white gate" sizes="(min-width: 1280px) 300px, 50vw" style="position:absolute;right:0;bottom:0;width:52%;aspect-ratio:1 / 1;object-fit:cover;border-radius:16px;border:8px solid #F4F1EA;background-color:#6F6556;box-sizing:border-box" />
-        </div>
-        <div class="why-copy">
-          <p class="kicker">Why Euro Style</p>
-          <h2 class="h2">Welcome to Euro Style Landscape</h2>
-          <p class="body-lg">We bring European-inspired design to local backyards. You deal with one team from the first conversation to the finished space — and we can keep it looking its best afterwards.</p>
-          <CheckList
-            items={['One team, design to build', 'Free on-site consultation', 'Detailed written quotes', 'Licensed & insured', 'Ongoing maintenance available']}
-            style="margin:4px 0 0"
-          />
-          <div class="btn-row">
-            <a href="#quote" class="btn btn-md btn-primary">Book a free consultation</a>
-            <a href="/about" class="btn btn-md btn-outline">More about us
-              <Icon name="arrow-up-right" size={14} strokeWidth={2.2} />
-            </a>
-          </div>
-        </div>
-      </div>
-      <TrustTiles />
-    </div>
-  </section>
-
-  <!-- How it works -->
-  <section class="section section-white">
-    <div class="container stack" style="gap:32px">
-      <SectionHeader
-        title="How it works"
-        kicker="Three simple steps"
-        description="From the first conversation to the finished space, you deal with one team the whole way through."
-      />
-      <HowItWorks
-        cardBg="#F4F1EA"
-        images={[
-          { src: 'team.jpg', alt: 'The Euro Style Landscape crew' },
-          { src: 'design-render-night.jpg', alt: 'A 3D backyard design with evening lighting' },
-          { src: 'front-steps-during.jpg', alt: 'A crew member building stone front steps', position: 'center 70%' },
-        ]}
-      />
-    </div>
-  </section>
-
-  <!-- Recent projects (stands in for testimonials until real Google reviews are added) -->
-  <section class="section">
-    <div class="container stack" style="gap:32px">
-      <SectionHeader
-        title="Recent projects"
-        kicker="Our work"
-        description="Every project shown on this site is a real Euro Style Landscape job."
-        link={{ href: '/our-work', label: 'See all projects' }}
-      />
-      <div class="grid-auto" style="--min:320px;--gap:24px">
-        {recent.map((r) => (
-          <a href="/our-work" class="recent">
-            <Photo src={r.src} alt={r.alt} sizes="(min-width: 1280px) 400px, (min-width: 700px) 45vw, 92vw" style={`display:block;width:100%;aspect-ratio:4 / 3;object-fit:cover;border-radius:12px;background-color:${r.bg}`} />
-            <span class="recent-title">{r.title}</span>
-            <span class="tag">Patios &amp; paving</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact + quote form -->
-  <section id="quote" class="section-forest" style="padding:clamp(56px, 7vw, 104px) 0">
-    <div class="container contact">
-      <div class="contact-copy">
-        <p class="eyebrow eyebrow-dark">Free, no-obligation consultation</p>
-        <h2 class="h2">Get your free quote</h2>
-        <p class="contact-lead">Tell us about your project and we'll call you to book a time to visit.</p>
-        <div class="tiles">
-          <a href={PHONE_HREF} class="dtile">
-            <span class="icon-circle ddisc"><Icon name="phone" size={22} /></span>
-            <span class="stack" style="gap:2px"><span class="dt">Call us</span><span class="dd">{PHONE_DISPLAY}</span></span>
-          </a>
-          <a href={`mailto:${EMAIL}`} class="dtile">
-            <span class="icon-circle ddisc"><Icon name="mail" size={22} /></span>
-            <span class="stack" style="gap:2px;min-width:0"><span class="dt">Email us</span><span class="dd" style="overflow-wrap:anywhere">{EMAIL}</span></span>
-          </a>
-          <a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps" class="dtile">
-            <span class="icon-circle ddisc"><Icon name="pin" size={22} /></span>
-            <span class="stack" style="gap:2px"><span class="dt">Areas we serve</span><span class="dd">{SERVICE_AREA}</span></span>
-          </a>
-        </div>
-      </div>
-      <div class="form-col qf-slot">
-        <QuoteForm id="home" title="Request a free quote" />
-      </div>
-    </div>
-  </section>
+  <Home />
 </BaseLayout>
-
-<style>
-  .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 40px 56px; }
-  .hero-copy { flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
-  .hero-eyebrow { display: flex; align-items: center; gap: 10px; }
-  .dash { width: 28px; height: 2px; background: var(--green-600); flex: none; }
-  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
-  .hero-ctas .btn { flex: 0 1 auto; min-width: min(220px, 100%); }
-  .hero-checks { display: flex; align-items: center; gap: 8px 20px; flex-wrap: wrap; margin-top: 4px; font-size: 15px; color: var(--ink-muted); }
-  .hero-checks span { display: flex; align-items: center; gap: 8px; }
-
-  .featured { grid-row: span 3; display: flex; flex-direction: column; }
-  .feat-img { position: relative; aspect-ratio: 4 / 3; background-color: #4C6A4B; }
-  .feat-pill { position: absolute; top: 16px; left: 16px; }
-  .feat-body { padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px; flex: 1; }
-  .feat-title { margin: 0; font-size: clamp(1.5rem, 1.3rem + .6vw, 1.875rem); line-height: 1.2; font-weight: 700; }
-  .feat-text { margin: 0; font-size: 17px; line-height: 1.6; color: var(--ink-muted); }
-  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-  .chips li { padding: 8px 12px; border-radius: 999px; background: var(--stone-50); border: 1px solid var(--line); font-size: 14px; font-weight: 600; }
-  .feat-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; padding-top: 8px; }
-  .side { display: flex; flex-wrap: wrap; }
-  .side-img { position: relative; flex: 1 1 200px; min-height: 200px; }
-  .side-body { flex: 1 1 240px; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
-  .side-title { margin: 0; font-size: 24px; line-height: 1.3; font-weight: 600; }
-  .side-cta { align-self: flex-start; margin-top: auto; }
-
-  .teaser { display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center; }
-  .teaser-copy { flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
-  .teaser-text { margin: 0; font-size: 17px; line-height: 1.6; color: var(--on-dark-muted); }
-  .teaser-fig { flex: 1.5 1 560px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
-  .teaser-fig figcaption { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 15px; color: var(--on-dark-muted); }
-
-  .why { display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center; }
-  .why-media { flex: 1 1 440px; min-width: 0; position: relative; padding: 0 clamp(24px, 6vw, 72px) clamp(40px, 6vw, 72px) 0; }
-  .why-copy { flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
-  .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
-
-  .recent { display: flex; flex-direction: column; gap: 12px; color: var(--ink); text-decoration: none; }
-  .recent:hover { color: var(--ink); }
-  .recent-title { font-size: 18px; font-weight: 600; }
-
-  .contact { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; }
-  .contact-copy { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
-  .contact-lead { margin: 0; font-size: 17px; line-height: 1.6; color: var(--on-dark-muted); max-width: 560px; }
-  .tiles { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
-  .dtile { background: var(--forest-700); border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; color: var(--on-dark); text-decoration: none; }
-  a.dtile:hover { color: var(--on-dark); }
-  .ddisc { width: 48px; height: 48px; background: var(--sand-500); color: var(--charcoal); }
-  .dt { font-size: 17px; font-weight: 600; }
-  .dd { font-size: 15px; color: var(--on-dark-muted); }
-  .form-col { flex: 1 1 460px; max-width: 480px; min-width: 0; }
-</style>

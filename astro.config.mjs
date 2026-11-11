@@ -36,7 +36,7 @@ export default defineConfig({
     },
     // Ad campaign pages (src/pages/lp/); each page loads only the families it uses.
     { provider: fontProviders.google(), name: 'Barlow', cssVariable: '--font-barlow', weights: [400, 500, 600, 700], styles: ['normal'], subsets: ['latin'], display: 'swap', fallbacks: ['ui-sans-serif', 'system-ui', 'sans-serif'] },
-    { provider: fontProviders.google(), name: 'Barlow Condensed', cssVariable: '--font-barlow-condensed', weights: [600, 700, 800], styles: ['normal'], subsets: ['latin'], display: 'swap', fallbacks: ['ui-sans-serif', 'system-ui', 'sans-serif'] },
+    { provider: fontProviders.google(), name: 'Barlow Condensed', cssVariable: '--font-barlow-condensed', weights: [500, 600, 700, 800], styles: ['normal', 'italic'], subsets: ['latin'], display: 'swap', fallbacks: ['ui-sans-serif', 'system-ui', 'sans-serif'] },
     { provider: fontProviders.google(), name: 'Montserrat', cssVariable: '--font-montserrat', weights: [600, 700, 800], styles: ['normal'], subsets: ['latin'], display: 'swap', fallbacks: ['sans-serif'] },
     { provider: fontProviders.google(), name: 'Anton', cssVariable: '--font-anton', weights: [400], styles: ['normal'], subsets: ['latin'], display: 'swap', fallbacks: ['sans-serif'] },
     { provider: fontProviders.google(), name: 'Great Vibes', cssVariable: '--font-great-vibes', weights: [400], styles: ['normal'], subsets: ['latin'], display: 'swap', fallbacks: ['cursive'] },

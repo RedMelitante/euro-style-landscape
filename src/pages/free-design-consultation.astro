@@ -1,6 +1,6 @@
 ---
 // Ad landing page (Meta ads). No site navigation, minimal footer, noindex.
-import BaseLayout from '../layouts/BaseLayout.astro';
+import LandingLayout from '../layouts/LandingLayout.astro';
 import BeforeAfter from '../components/BeforeAfter.astro';
 import QuoteForm from '../components/QuoteForm.astro';
 import SectionHeader from '../components/SectionHeader.astro';
@@ -19,10 +19,9 @@ const pairs = [
 const heroChecks = ['Free on-site consultation', 'Design & written quote', 'Licensed & insured'];
 const ctaChecks = ['On-site visit and design ideas, free', 'Detailed written quote before any work starts', 'Licensed & insured for your peace of mind'];
 ---
-<BaseLayout
+<LandingLayout
   title="Free Backyard Design Consultation · Euro Style Landscape"
   description="Patios, retaining walls, decks and planting — designed around how you live and built by Euro Style Landscape. Book a free on-site consultation to get started."
-  landing
   quoteHref="#quote"
   stickyLabel="Get my free quote"
 >
@@ -34,7 +33,7 @@ const ctaChecks = ['On-site visit and design ideas, free', 'Detailed written quo
         <h1 class="h1">Transform your backyard into a European-style outdoor retreat.</h1>
         <p class="lead" style="max-width:620px">Patios, retaining walls, decks and planting — designed around how you live and built by Euro Style Landscape. Book a free on-site consultation to get started.</p>
         <ul class="inline-checks">
-          {heroChecks.map((c) => <li><Icon name="check" size={18} stroke="#2F6844" strokeWidth={2.4} />{c}</li>)}
+          {heroChecks.map((c) => <li><Icon name="check" size={18} stroke="#197148" strokeWidth={2.4} />{c}</li>)}
         </ul>
         <a href="#quote" class="m-only btn btn-primary btn-lg">Book my free consultation
           <Icon name="arrow-down" size={18} />
@@ -108,10 +107,10 @@ const ctaChecks = ['On-site visit and design ideas, free', 'Detailed written quo
         <h2 class="h2">Ready to see what your backyard could be?</h2>
         <p class="cta-lead">Tell us a little about your project. We'll come to you, listen, and show you what's possible for your space and budget.</p>
         <ul class="cta-checks">
-          {ctaChecks.map((c) => <li><Icon name="check" size={20} stroke="#C9A46A" strokeWidth={2.4} />{c}</li>)}
+          {ctaChecks.map((c) => <li><Icon name="check" size={20} stroke="#B9BB4A" strokeWidth={2.4} />{c}</li>)}
         </ul>
         <a href={PHONE_HREF} class="cta-call">
-          <Icon name="phone" size={20} stroke="#C9A46A" />
+          <Icon name="phone" size={20} stroke="#B9BB4A" />
           Prefer to talk? Call {PHONE_DISPLAY}
         </a>
       </div>
@@ -120,7 +119,7 @@ const ctaChecks = ['On-site visit and design ideas, free', 'Detailed written quo
       </div>
     </div>
   </section>
-</BaseLayout>
+</LandingLayout>
 
 <style>
   .hero { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; }

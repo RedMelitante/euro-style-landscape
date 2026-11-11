@@ -1,0 +1,20 @@
+---
+// Google review cards (update 6 §3.8). `ids` picks reviews from src/data/reviews.json; an entry can override the tag.
+import { RATING, REVIEWS_URL, STAR_SVG, reviewById } from '../../lib/reviews';
+
+interface Props {
+  ids: (string | { id: string; tag: string })[];
+}
+const cards = Astro.props.ids.map((x) => (typeof x === 'string' ? reviewById(x) : { ...reviewById(x.id), tag: x.tag }));
+const stars = STAR_SVG.repeat(5);
+---
+<div class="rcards">
+  {cards.map((r) => (
+    <figure class="rcard">
+      <span class="rq" aria-hidden="true">&rdquo;</span>
+      <span class="rtag">{r.tag}</span>
+      <blockquote><span class="rstars"><span class="stars" role="img" aria-label={`${RATING} out of 5 stars`} set:html={stars} /></span><Fragment set:html={r.html} /></blockquote>
+      <figcaption><b>{r.name}</b> <a href={REVIEWS_URL} target="_blank" rel="noopener">Review on Google</a></figcaption>
+    </figure>
+  ))}
+</div>

@@ -1,0 +1,14 @@
+---
+// Silent project video (update 7 §7): controls, poster, playsinline, preload none, no autoplay.
+// Files in public/videos/<name>.mp4; poster src/assets/images/<name>-poster.jpg.
+import { getImage } from 'astro:assets';
+import { photo } from '../../lib/images';
+
+interface Props {
+  name: string;
+  label: string;
+}
+const { name, label } = Astro.props;
+const poster = await getImage({ src: photo(`${name}-poster.jpg`), width: 960, format: 'webp' });
+---
+<video controls playsinline preload="none" poster={poster.src} aria-label={label}><source src={`/videos/${name}.mp4`} type="video/mp4" /></video>

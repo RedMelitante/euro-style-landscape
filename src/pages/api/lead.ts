@@ -23,6 +23,9 @@ import { CAMPAIGN_SERVICES, CAMPAIGN_SOURCES } from '../../lib/campaigns';
 import { TOWN_SOURCES } from '../../lib/towns';
 import { SERVICE_SOURCES } from '../../lib/servicePages';
 
+// Hidden `source` on the main website pages' quote forms (update 6-7 designs).
+const SITE_SOURCES = ['home', 'about', 'contact', 'our-work', 'services', 'service-areas', 'who-we-serve'];
+
 /** Older service names still accepted, so a page cached before Update 4 can still send a lead. */
 const LEGACY_SERVICES = ['Lawn mowing'];
 
@@ -49,7 +52,7 @@ type Lead = {
   adHeadline: string;
   offer: string;
   projectChoice: string;
-  /** Set on the town and service pages, e.g. service-area-sayreville or service-fencing. */
+  /** Set on the website pages' quote forms, e.g. service-area-sayreville, service-fencing or home. */
   pageSource: string;
   /** SMS opt-ins from SmsConsent.astro (both optional, never pre-ticked). */
   smsService: boolean;
@@ -80,7 +83,7 @@ function validate(raw: Record<string, unknown>): { lead?: Lead; error?: string }
     adHeadline: str(raw.ad_headline, 20),
     offer: str(raw.offer, 60),
     projectChoice: ['rebuild', 'refresh'].includes(str(raw.project_choice, 10)) ? str(raw.project_choice, 10) : '',
-    pageSource: [...TOWN_SOURCES, ...SERVICE_SOURCES].includes(str(raw.source, 60)) ? str(raw.source, 60) : '',
+    pageSource: [...TOWN_SOURCES, ...SERVICE_SOURCES, ...SITE_SOURCES].includes(str(raw.source, 60)) ? str(raw.source, 60) : '',
     smsService: str(raw.sms_consent_service, 10) === 'yes',
     smsMarketing: str(raw.sms_consent_marketing, 10) === 'yes',
   };
@@ -174,7 +177,8 @@ async function sendToGhl(lead: Lead) {
     src.landing ? 'source-ad-landing-page' : 'source-website',
     `timeline-${slug(lead.timeline)}`,
     ...(lead.propertyType ? [`property-${lead.propertyType === 'Home' ? 'home' : 'commercial'}`] : []),
-    ...(lead.pageSource ? [lead.pageSource] : []),
+    // Main-site pages get a page- prefix so a `home` tag isn't mistaken for the Home property type.
+    ...(lead.pageSource ? [SITE_SOURCES.includes(lead.pageSource) ? `page-${lead.pageSource}` : lead.pageSource] : []),
     ...(lead.source ? [`campaign-${slug(lead.source)}`] : []),
     ...(lead.projectChoice ? [`choice-${lead.projectChoice}`] : []),
     // SMS opt-in record for A2P 10DLC: workflows should only text contacts with the matching tag.
@@ -196,7 +200,9 @@ async function sendToGhl(lead: Lead) {
       ? 'Website – ad campaign page'
       : src.landing ? 'Website – free design consultation page' : lead.pageSource.startsWith('service-area-')
         ? 'Website – service area page'
-        : lead.pageSource ? 'Website – service page' : 'Website quote form',
+        : lead.pageSource.startsWith('service-')
+          ? 'Website – service page'
+          : 'Website quote form',
     tags,
   };
   // Contact custom fields (created in GoHighLevel: Service Requested, Budget Range, Lead Page,
