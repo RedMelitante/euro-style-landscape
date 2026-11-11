@@ -2,6 +2,7 @@
 // Quote request form (design/component-quote-form). Several can sit on one
 // page: `id` keeps every field id unique (qf-<field>-<id>).
 import Icon from './Icon.astro';
+import SmsConsent from './SmsConsent.astro';
 import { BUDGETS, PHONE_DISPLAY, PROPERTY_TYPES, TIMELINES } from '../lib/site';
 import { quoteLastOption, quoteOptionGroups } from '../lib/services';
 
@@ -94,6 +95,7 @@ const f = (name: string) => `qf-${name}-${uid}`;
     </div>
     <input type="hidden" name="form_id" value={uid} />
     {source && <input type="hidden" name="source" value={source} />}
+    <SmsConsent id={uid} />
     <button class="qf-submit" type="submit" data-qf-submit>
       <span data-qf-label>Book my free consultation</span>
       <Icon name="arrow-right" size={18} strokeWidth={2.2} />

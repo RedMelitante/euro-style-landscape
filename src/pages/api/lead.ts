@@ -51,6 +51,9 @@ type Lead = {
   projectChoice: string;
   /** Set on the town and service pages, e.g. service-area-sayreville or service-fencing. */
   pageSource: string;
+  /** SMS opt-ins from SmsConsent.astro (both optional, never pre-ticked). */
+  smsService: boolean;
+  smsMarketing: boolean;
 };
 
 const json = (body: unknown, status = 200) =>
@@ -78,6 +81,8 @@ function validate(raw: Record<string, unknown>): { lead?: Lead; error?: string }
     offer: str(raw.offer, 60),
     projectChoice: ['rebuild', 'refresh'].includes(str(raw.project_choice, 10)) ? str(raw.project_choice, 10) : '',
     pageSource: [...TOWN_SOURCES, ...SERVICE_SOURCES].includes(str(raw.source, 60)) ? str(raw.source, 60) : '',
+    smsService: str(raw.sms_consent_service, 10) === 'yes',
+    smsMarketing: str(raw.sms_consent_marketing, 10) === 'yes',
   };
   if (lead.name.length < 2) return { error: 'Please enter your name.' };
   if (lead.phone.replace(/\D/g, '').length < 10) return { error: 'Please enter a valid phone number.' };
@@ -172,6 +177,10 @@ async function sendToGhl(lead: Lead) {
     ...(lead.pageSource ? [lead.pageSource] : []),
     ...(lead.source ? [`campaign-${slug(lead.source)}`] : []),
     ...(lead.projectChoice ? [`choice-${lead.projectChoice}`] : []),
+    // SMS opt-in record for A2P 10DLC: workflows should only text contacts with the matching tag.
+    ...(lead.smsService ? ['sms-consent-service'] : []),
+    ...(lead.smsMarketing ? ['sms-consent-marketing'] : []),
+    ...(!lead.smsService && !lead.smsMarketing ? ['sms-no-consent'] : []),
   ];
 
   const contact = {
@@ -232,6 +241,7 @@ async function sendToGhl(lead: Lead) {
     ...(lead.adHeadline ? [`Ad headline: ${lead.adHeadline}`] : []),
     ...(lead.projectChoice ? [`Choice: ${lead.projectChoice}`] : []),
     ...(lead.offer && lead.offer !== 'none' ? [`Offer: ${lead.offer}`] : []),
+    `SMS consent: request texts ${lead.smsService ? 'YES' : 'no'}, marketing texts ${lead.smsMarketing ? 'YES' : 'no'} (web form, ${new Date().toISOString()})`,
   ].join('\n');
   extras.push(ghl(`/contacts/${contactId}/notes`, { method: 'POST', body: { body: note } }));
   extras.push(

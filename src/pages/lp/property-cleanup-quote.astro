@@ -3,6 +3,7 @@
 import { Font, Image } from 'astro:assets';
 import CampaignLayout from '../../layouts/CampaignLayout.astro';
 import TimelineField from '../../components/campaign/TimelineField.astro';
+import SmsConsent from '../../components/SmsConsent.astro';
 import CampaignFormScript from '../../components/campaign/CampaignFormScript.astro';
 import { photo } from '../../lib/images';
 import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
@@ -71,6 +72,7 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
             </label>
             <TimelineField />
             <label class="fld"><span>Tell us about your yard <em>(optional)</em></span><textarea class="qf" name="message" rows="3"></textarea></label>
+            <SmsConsent id="lp-pc" />
             <button type="submit" class="submit cond"><span data-label>{offer ? 'Claim my 20% off' : 'Book my free consultation'}</span> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button>
             <p class="form-error" role="alert" data-form-error hidden>Sorry, your request didn't go through. Please try again or call us on (732) 803-9646.</p>
             <p class="fine">Free and no obligation. We'll call you to book a time to visit.{offer && <><br>*20% off applies to your first property cleanup. New clients only.</>}</p>
@@ -262,7 +264,7 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
       </ul>
       <div class="legal">
         <span>Copyright © 2026 Euro Style Landscape. All rights reserved</span>
-        <a href="/privacy-policy" style="color:#BDC7BC;text-decoration:underline">Privacy policy</a>
+        <span style="display:inline-flex;gap:18px"><a href="/privacy-policy" style="color:#BDC7BC;text-decoration:underline">Privacy policy</a><a href="/terms" style="color:#BDC7BC;text-decoration:underline">Terms</a></span>
       </div>
     </div>
   </footer>

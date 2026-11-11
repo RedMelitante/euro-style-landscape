@@ -20,7 +20,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       // noindex pages stay out of the sitemap
-      filter: (page) => !page.includes('/free-design-consultation') && !page.includes('/privacy-policy') && !page.includes('/lp/'),
+      filter: (page) => !page.includes('/free-design-consultation') && !page.includes('/privacy-policy') && !page.includes('/terms') && !page.includes('/lp/'),
     }),
   ],
   fonts: [

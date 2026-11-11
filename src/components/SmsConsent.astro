@@ -1,0 +1,40 @@
+---
+// SMS opt-in for every quote form (QuoteForm and the campaign forms in src/pages/lp/).
+// Required for A2P 10DLC approval: the boxes are optional, never pre-ticked and never
+// required to send the form, and service texts and marketing texts have separate boxes.
+// /api/lead records the answers as GoHighLevel tags and a line in the lead note.
+// Keep the wording in step with the Text messages section of /privacy-policy and /terms.
+interface Props {
+  /** Keeps ids unique when a page has more than one form. */
+  id: string;
+}
+const { id } = Astro.props;
+const svc = `sms-svc-${id}`;
+const mkt = `sms-mkt-${id}`;
+---
+<div class="sms">
+  <label class="sms-box" for={svc}>
+    <input id={svc} type="checkbox" name="sms_consent_service" value="yes" />
+    <span>I agree to receive text messages from SN Landscaping LLC (Euro Style Landscape) about my request, such as estimate scheduling, reminders and updates. Message frequency varies. Message and data rates may apply. Reply HELP for help, STOP to opt out.</span>
+  </label>
+  <label class="sms-box" for={mkt}>
+    <input id={mkt} type="checkbox" name="sms_consent_marketing" value="yes" />
+    <span>I agree to receive marketing text messages from SN Landscaping LLC (Euro Style Landscape), such as seasonal offers and promotions, which may be sent using automated technology. Message frequency varies. Message and data rates may apply. Reply HELP for help, STOP to opt out.</span>
+  </label>
+  <p class="sms-legal">Ticking a box is optional and not a condition of purchase. See our <a href="/terms" target="_blank" rel="noopener">Terms of Service</a> and <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+</div>
+
+<style>
+  .sms { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+  .sms-box {
+    display: flex; align-items: flex-start; gap: 10px; cursor: pointer;
+    font-size: 13px; line-height: 1.45; font-weight: 400; color: #4A554D;
+    text-transform: none; letter-spacing: normal;
+  }
+  .sms-box input {
+    flex: none; width: 18px; height: 18px; margin: 1px 0 0; cursor: pointer; accent-color: #3A7D52;
+  }
+  .sms-box input:focus-visible { outline: 3px solid rgba(58, 125, 82, .35); outline-offset: 2px; }
+  .sms-legal { margin: 0; font-size: 13px; line-height: 1.45; color: #4A554D; }
+  .sms-legal a { color: inherit; text-decoration: underline; }
+</style>

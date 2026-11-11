@@ -61,6 +61,16 @@ it in the Cloudflare dashboard (My Profile → API Tokens → "Edit Cloudflare W
 account) and adds it to the cloud environment's settings. Never paste it into chat or commit it. Without the
 token, build and push, and the owner deploys from their computer.
 
+## SMS consent (A2P 10DLC)
+
+- Every quote form includes `src/components/SmsConsent.astro`: two optional, unticked boxes (texts about the
+  request, marketing texts) linking `/terms` and `/privacy-policy`. Never make them required or pre-tick them;
+  carriers reject the A2P registration if you do.
+- `/api/lead` tags the GoHighLevel contact `sms-consent-service`, `sms-consent-marketing` or `sms-no-consent` and
+  adds an "SMS consent" line to the note. GoHighLevel text workflows should only text contacts with the matching tag.
+- `/terms` holds the SMS terms; keep its wording, the consent boxes and the privacy policy's Text messages section
+  in step.
+
 ## Ad campaign pages (`src/pages/lp/`)
 
 - Eight `noindex` pages for the fall cleanup and rebuild-or-refresh ads, kept out of the sitemap. They use
