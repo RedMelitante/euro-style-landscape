@@ -1,0 +1,39 @@
+---
+// Article sidebar (update 6 §3.4): free estimate card, "On this page" and "Why Euro Style".
+// Sticky on desktop, below the article under 1024px (site.css .side).
+import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from '../../lib/site';
+import { NEW_CLIENT_OFFER_ON } from '../../lib/campaigns';
+import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
+
+interface Props {
+  /** Article section links; "Free estimate" (#quote) is added last. `offer` items follow NEW_CLIENT_OFFER_ON. */
+  toc: { href: string; label: string; offer?: boolean }[];
+  /** The page's why-points (text may hold HTML); the Google rating point is added last. */
+  why: { title: string; text: string }[];
+}
+const toc = Astro.props.toc.filter((t) => !t.offer || NEW_CLIENT_OFFER_ON);
+const { why } = Astro.props;
+---
+<aside class="side">
+  <div class="est">
+    <span class="k">Free estimate</span>
+    <p style="font-size: 16px; line-height: 1.55">We visit, walk the property with you and follow up with a detailed written quote.</p>
+    <a href={PHONE_HREF} class="ph2">{PHONE_DISPLAY}</a>
+    <a href="#quote" class="btn btn-w">Book a free consultation</a>
+    <a href={`mailto:${EMAIL}`} class="em">{EMAIL}</a>
+  </div>
+  <nav aria-label="On this page" class="scard">
+    <span class="k">On this page</span>
+    <div class="toc">
+      {toc.map((t) => <a href={t.href}>{t.label}</a>)}
+      <a href="#quote">Free estimate</a>
+    </div>
+  </nav>
+  <div class="scard">
+    <span class="k">Why Euro Style</span>
+    <div class="whyl">
+      {why.map((w) => <p><b set:html={w.title} /><span set:html={w.text} /></p>)}
+      <p><b>{RATING} out of 5</b><span>{REVIEW_COUNT} reviews on <a href={REVIEWS_URL} target="_blank" rel="noopener">Euro Style&rsquo;s Google profile</a>.</span></p>
+    </div>
+  </div>
+</aside>

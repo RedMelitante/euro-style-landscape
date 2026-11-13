@@ -1,100 +1,18 @@
 ---
+// Contact. Body: src/components/pages/contact.astro.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageBanner from '../components/PageBanner.astro';
-import QuoteForm from '../components/QuoteForm.astro';
-import Icon, { type IconName } from '../components/Icon.astro';
-import { EMAIL, MAPS_URL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
-import { NEW_CLIENT_OFFER_ON, NEW_CLIENT_OFFER_TERMS } from '../lib/campaigns';
+import Contact from '../components/pages/contact.astro';
+import { EMAIL } from '../lib/site';
+import { business, breadcrumbs } from '../lib/schema';
 
-const tiles: { icon: IconName; title: string; text: string; href?: string }[] = [
-  { icon: 'phone', title: 'Call us', text: PHONE_DISPLAY, href: PHONE_HREF },
-  { icon: 'mail', title: 'Email us', text: EMAIL, href: `mailto:${EMAIL}` },
-  { icon: 'pin', title: 'Areas we serve', text: 'Based in Sayreville, NJ · serving Middlesex, Monmouth & Union County towns', href: MAPS_URL },
-  { icon: 'calendar', title: 'Free on-site consultations', text: 'No cost, no obligation' },
-];
+const site = Astro.site!;
+const jsonLd = { '@context': 'https://schema.org', '@graph': [business(site, { email: EMAIL }), breadcrumbs(site, ['Contact', '/contact'])] };
 ---
 <BaseLayout
   title="Contact Us · Free Consultation · Euro Style Landscape"
   description="Call (732) 803-9646 or send the form to book a free on-site design consultation."
   current="contact"
-  quoteHref="#quote"
+  jsonLd={jsonLd}
 >
-  <PageBanner
-    crumb="Contact"
-    title="Contact us"
-    lead="Book a free consultation or ask us anything. Send the form or give us a call and we'll take it from there."
-  />
-
-  <section style="padding:clamp(40px, 6vw, 88px) 0 clamp(56px, 7vw, 96px)">
-    <div class="container wrap">
-      <div class="info">
-        <h2 class="h2">Find us</h2>
-        <div class="stack" style="gap:12px">
-          {NEW_CLIENT_OFFER_ON && (
-            // NEW CLIENT OFFER tile (hidden while NEW_CLIENT_OFFER_ON is false)
-            <a href="#quote" class="tile tile-hover offer-tile">
-              <span class="icon-circle disc disc-sand"><Icon name="tag" size={22} /></span>
-              <span class="stack" style="gap:4px;min-width:0">
-                <span class="ot">New clients: <span class="gold">20% off</span> your first cleanup or property refresh*</span>
-                <span class="oterms">{NEW_CLIENT_OFFER_TERMS}</span>
-              </span>
-            </a>
-          )}
-          {tiles.map((t) => {
-            const Tag = t.href ? 'a' : 'div';
-            return (
-              <Tag
-                href={t.href}
-                class="tile tile-hover"
-                {...(t.href === MAPS_URL ? { target: '_blank', rel: 'noopener', title: 'Open in Google Maps' } : {})}
-              >
-                <span class="icon-circle disc"><Icon name={t.icon} size={22} /></span>
-                <span class="stack" style="gap:2px;min-width:0">
-                  <span class="t">{t.title}</span>
-                  <span class="d">{t.text}</span>
-                </span>
-              </Tag>
-            );
-          })}
-        </div>
-        <div class="next">
-          <p class="next-title">What happens next</p>
-          <ol>
-            <li><span class="n">01</span><span><strong>We call you</strong> <span class="m">to book a time that suits.</span></span></li>
-            <li><span class="n">02</span><span><strong>Free on-site consultation</strong> <span class="m">— we walk the space and talk through ideas and budget.</span></span></li>
-            <li><span class="n">03</span><span><strong>Design &amp; written quote</strong> <span class="m">so you know exactly what you're getting.</span></span></li>
-          </ol>
-        </div>
-      </div>
-      <div id="quote" class="form-col qf-slot">
-        <QuoteForm id="contact" title="Request a free quote" />
-      </div>
-    </div>
-  </section>
+  <Contact />
 </BaseLayout>
-
-<style>
-  .wrap { display: flex; flex-wrap: wrap-reverse; gap: 48px; align-items: flex-end; }
-  .info { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
-  .form-col { flex: 1 1 460px; max-width: 520px; min-width: 0; }
-  .tile {
-    background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px;
-    display: flex; align-items: center; gap: 16px; color: var(--ink); text-decoration: none;
-  }
-  a.tile:hover { color: var(--ink); }
-  .disc { width: 52px; height: 52px; background: var(--green-600); color: var(--white); }
-  .t { font-size: 17px; font-weight: 600; }
-  .d { font-size: 16px; color: var(--ink-muted); overflow-wrap: anywhere; }
-  .offer-tile { background: var(--forest-800); color: var(--on-dark); border-color: var(--sand-500); }
-  a.offer-tile:hover { color: var(--on-dark); }
-  .disc-sand { background: var(--sand-500); color: var(--charcoal); }
-  .ot { font-size: 17px; font-weight: 700; }
-  .gold { color: var(--sand-500); }
-  .oterms { font-size: 13px; line-height: 1.5; color: var(--on-dark-muted); }
-  .next { background: var(--forest-800); color: var(--on-dark); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
-  .next-title { margin: 0; font-size: 18px; font-weight: 600; }
-  ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-  li { display: flex; gap: 14px; align-items: baseline; font-size: 16px; line-height: 1.5; }
-  .n { flex: none; font-weight: 700; color: var(--sand-500); }
-  .m { color: var(--on-dark-muted); }
-</style>

@@ -1,0 +1,85 @@
+---
+// Generated from design/about.dc.html (handoff update 7) by the one-off converter; edit this file directly.
+import BeforeAfter from '../BeforeAfter.astro';
+import Img from '../site/Img.astro';
+import QuoteSection from '../site/QuoteSection.astro';
+import ReviewCards from '../site/ReviewCards.astro';
+import Sidebar from '../site/Sidebar.astro';
+import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
+---
+  <section class="shero">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="crumb"><a href="/">Home</a><span aria-hidden="true">&rsaquo;</span><span aria-current="page" style="color: #2E343A">About us</span></nav>
+      <div class="shgrid">
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <p class="eb">About us</p>
+          <h1 class="hd sh1">About Euro Style Landscape</h1>
+          <p class="lede">European-inspired landscape design and construction — one team from the first sketch to the finished garden.</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 4px">
+            <a href="#quote" class="btn btn-g">Book a free consultation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="tel:+17328039646" class="lnk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> (732) 803-9646</a>
+          </div>
+        </div>
+        <figure class="hfig"><Img src={"walkway-steps.jpg"} alt={"Paver walkway with a dark border leading to wide steps"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} eager priority /><figcaption>Paver walkway with a dark border leading to wide steps</figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <div class="sec" style="padding-top: clamp(48px, 6vw, 72px)">
+    <div class="wrap layout">
+      <div class="art">
+        <section id="story">
+          <h2 class="ah2">Outdoor spaces with European character, built for the way you live</h2>
+          <p class="tx">Our name says it: we bring the character of European outdoor living — natural stone, clean lines and spaces made for gathering — to backyards here at home. Every project is planned around how you want to use your yard, then built with care to last.</p>
+          <p class="tx">Today we design and build complete outdoor spaces — pavers, concrete, retaining walls, steps, outdoor kitchens, pergolas, ponds, masonry and fencing — add landscape lighting and drainage, install new landscapes and planting, and look after lawns and yards once they're finished.</p>
+          <div class="inc">
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>One team, design to build</b><span>From 3D design to the final clean-up.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Licensed &amp; insured</b><span>Peace of mind on every project.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Detailed written quotes</b><span>You know exactly what you&rsquo;re getting before any work starts.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Ongoing maintenance available</b><span>We can look after lawns and yards once they&rsquo;re finished.</span></p></div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center"><a href="#quote" class="btn btn-g">Book a free consultation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a><a href="/our-work" class="lnk">See our work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a></div>
+        </section>
+        <section id="team">
+          <h2 class="ah2">The people behind your project</h2>
+          <p class="tx">The same people who design your space are the ones who build it and answer your calls.</p>
+          <figure class="crew"><Img src={"team.jpg"} alt={"The Euro Style Landscape crew standing together beside the work van"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} /><figcaption>The Euro Style Landscape crew — the people who design, build and look after every project.</figcaption></figure>
+        </section>
+        <section id="design">
+          <h2 class="ah2">From 3D design to finished patio</h2>
+          <p class="tx">We show you a 3D design before we build. Drag the slider to compare the design with the finished raised patio.</p>
+          <BeforeAfter before={"3D design of a raised paver patio"} after={"The finished raised paver patio"} beforeSrc={"raised-patio-design.jpg"} afterSrc={"raised-patio-built.jpg"} beforeLabel={"3D DESIGN"} afterLabel={"FINISHED"} />
+        </section>
+        <section id="how">
+          <h2 class="ah2">How we work</h2>
+          <p class="tx">Every project starts with a free conversation on site and ends with a walkthrough of your finished space.</p>
+          <ol class="nsteps2">
+            <li><span class="n">01</span><p><b>Free consultation</b><span>We visit your property, walk the space with you and talk through ideas, style and budget. No cost, no obligation.</span></p></li>
+            <li><span class="n">02</span><p><b>Design &amp; quote</b><span>You receive a design for your backyard and a detailed written quote, so you know exactly what you're getting before any work starts.</span></p></li>
+            <li><span class="n">03</span><p><b>Build</b><span>Our crew builds your project, keeps the site clean and walks you through the finished space when it's done.</span></p></li>
+          </ol>
+        </section>
+        <section id="reviews">
+          <h2 class="ah2">{RATING} from {REVIEW_COUNT} Google reviews</h2>
+          <p class="tx">Real reviews from Euro Style Landscape&rsquo;s Google Business Profile, quoted as written. <a href={REVIEWS_URL} target="_blank" rel="noopener">Read all {REVIEW_COUNT} on Google</a>.</p>
+          <ReviewCards ids={["caleb-d", "shraga-k", "luke-l"]} />
+        </section>
+        <section id="services">
+          <h2 class="ah2">What we do</h2>
+          <div class="scards">
+            <a href="/services/construction" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 12h18M12 3v18"></path></svg></span><p><b>Construction &amp; landscape construction</b><span>Landscape design, retaining walls, pavers, steps, concrete, asphalt, masonry, outdoor kitchens and more.</span></p></a>
+            <a href="/services/lawn-maintenance" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M6 21v-5M9 21v-8M12 21v-6M15 21v-9M18 21v-5"></path></svg></span><p><b>Landscape maintenance</b><span>Lawn mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch and weeding.</span></p></a>
+            <a href="/services/cleanups" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v13"></path><path d="M6 15h12"></path><path d="M6 15v5M9 15v5M12 15v5M15 15v5M18 15v5"></path></svg></span><p><b>Cleanups &amp; property refresh</b><span>Property, leaf and landscape cleanups, plus property refreshes.</span></p></a>
+            <a href="/services/snow-removal" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"></path></svg></span><p><b>Snow removal</b><span>Plowing, shoveling, salting and de-icing, plus seasonal snow contracts.</span></p></a>
+            <a href="/services/fencing" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3 2 5v15h4V5zM12 3l-2 2v15h4V5zM20 3l-2 2v15h4V5z"></path><path d="M6 8h4M6 15h4M14 8h4M14 15h4"></path></svg></span><p><b>Fencing</b><span>New fences and gates for privacy, safety and a finished boundary.</span></p></a>
+            <a href="/services/planting" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-6"></path><path d="M12 16c-4 0-7-2.5-7-6a7 7 0 0 1 14 0c0 3.5-3 6-7 6z"></path></svg></span><p><b>Planting &amp; landscape install</b><span>Trees, shrubs, garden beds, new lawns and curb appeal upgrades.</span></p></a>
+            <a href="/services/commercial" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14"></path><path d="M9 9h1M14 9h1M9 13h1M14 13h1M10 21v-4h4v4"></path></svg></span><p><b>Commercial services</b><span>Grounds care, snow removal, small construction and cleanups, with one invoice.</span></p></a>
+            <a href="/services/landscape-lighting" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"></path><path d="M12 2a7 7 0 0 0-4 12.7V16h8v-1.3A7 7 0 0 0 12 2z"></path></svg></span><p><b>Landscape lighting</b><span>Retaining wall lighting, step lighting and paver lighting.</span></p></a>
+            <a href="/services/drainage" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7S5 10 5 14.5a7 7 0 0 0 14 0C19 10 12 2.7 12 2.7z"></path></svg></span><p><b>Drainage</b><span>French drains, dry wells, drainage installation, sump pumps and dry creek beds.</span></p></a>
+          </div>
+        </section>
+      </div>
+      <Sidebar toc={[{"href": "#story", "label": "Our story"}, {"href": "#team", "label": "Our team"}, {"href": "#design", "label": "Design before build"}, {"href": "#how", "label": "How we work"}, {"href": "#reviews", "label": "Reviews"}, {"href": "#services", "label": "What we do"}]} why={[{"title": "One team, design to build", "text": "The same local crew plans and builds your project."}, {"title": "Free on-site consultation", "text": "No cost, no obligation."}, {"title": "Detailed written quote", "text": "You know exactly what you&rsquo;re getting before work starts."}, {"title": "Licensed &amp; insured", "text": "Peace of mind on every job."}]} />
+    </div>
+  </div>
+  <QuoteSection eyebrow={"Free consultation"} title={"Let&rsquo;s talk about your backyard"} lede={"Book a free on-site consultation — no cost, no obligation."} formId={"about2"} source={"about"} />
+  

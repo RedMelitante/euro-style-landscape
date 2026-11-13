@@ -1,0 +1,814 @@
+{
+  "home": [
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There’s no charge and no obligation."
+    },
+    {
+      "q": "What services do you offer?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, pavers, steps, concrete, asphalt, masonry, outdoor kitchens, pergolas, ponds and more), landscape maintenance (lawn mowing, bush and tree trimming, seasonal cleanups, mulch and weeding), cleanups and property refresh, snow removal, fencing, planting and landscape install, commercial property services, landscape lighting and drainage."
+    },
+    {
+      "q": "Do you work with commercial properties?",
+      "a": "Yes. We handle snow removal, cleanups, landscape maintenance, small construction and landscape upgrades for commercial properties, with one call and one invoice."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We’re based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form below or call (732) 803-9646. We’ll call you back to book your free on-site consultation."
+    }
+  ],
+  "colonia": [
+    {
+      "q": "Is Colonia part of Woodbridge?",
+      "a": "Yes. Colonia is a community within Woodbridge Township with its own 07067 ZIP code. We work across Colonia and the rest of the township."
+    },
+    {
+      "q": "What landscaping services do you offer in Colonia?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "east-brunswick": [
+    {
+      "q": "Do you serve all of East Brunswick?",
+      "a": "Yes, including Old Bridge village, Fairview Knolls, Farrington Lake Heights, Lawrence Brook Manor and Newton Heights."
+    },
+    {
+      "q": "What landscaping services do you offer in East Brunswick?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "edison": [
+    {
+      "q": "Do you work in Edison?",
+      "a": "Yes. Edison borders Sayreville, and we already work in the township, including mulch, planting, tree removal and snow removal jobs."
+    },
+    {
+      "q": "What landscaping services do you offer in Edison?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "freehold": [
+    {
+      "q": "Do you serve Freehold Borough and Freehold Township?",
+      "a": "Yes, both. They share the 07728 ZIP code and we work across each."
+    },
+    {
+      "q": "What landscaping services do you offer in Freehold?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "manalapan": [
+    {
+      "q": "Which parts of Manalapan do you serve?",
+      "a": "All of the township, including Yorketown, Gordons Corner, Millhurst, Tennent and Smithburg."
+    },
+    {
+      "q": "What landscaping services do you offer in Manalapan?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "marlboro": [
+    {
+      "q": "Do you serve Morganville and Robertsville?",
+      "a": "Yes. We work across Marlboro Township, including Morganville, Robertsville, Marlboro Village and Wickatunk."
+    },
+    {
+      "q": "What landscaping services do you offer in Marlboro?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "matawan": [
+    {
+      "q": "Do you work in Matawan?",
+      "a": "Yes. We serve the whole borough, including Freneau, Oak Shades and the areas around Lake Lefferts and Lake Matawan."
+    },
+    {
+      "q": "What landscaping services do you offer in Matawan?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "metuchen": [
+    {
+      "q": "Do you work in Metuchen?",
+      "a": "Yes. Metuchen is a short drive from our Sayreville base, and we work across the whole borough."
+    },
+    {
+      "q": "What landscaping services do you offer in Metuchen?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "monroe": [
+    {
+      "q": "Do you work in Monroe's adult communities?",
+      "a": "Yes, where the community allows outside contractors. Check with your HOA first, then send the form and we'll talk it through."
+    },
+    {
+      "q": "What landscaping services do you offer in Monroe?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "new-brunswick": [
+    {
+      "q": "Do you work in New Brunswick?",
+      "a": "Yes. New Brunswick is a short drive from our Sayreville base, and we've already done stoop, railing and lighting work in the city."
+    },
+    {
+      "q": "What landscaping services do you offer in New Brunswick?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "old-bridge": [
+    {
+      "q": "Do you cover all of Old Bridge?",
+      "a": "Yes, including Laurence Harbor, Madison Park, Brownville, Browntown and Cheesequake."
+    },
+    {
+      "q": "What landscaping services do you offer in Old Bridge?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "perth-amboy": [
+    {
+      "q": "Do you work in Perth Amboy?",
+      "a": "Yes. Perth Amboy is just across the Raritan River from our Sayreville base, and we work across the whole city."
+    },
+    {
+      "q": "What landscaping services do you offer in Perth Amboy?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "rahway": [
+    {
+      "q": "Do you work in Rahway even though it's in Union County?",
+      "a": "Yes. Rahway borders Woodbridge Township and is part of our regular service area."
+    },
+    {
+      "q": "What landscaping services do you offer in Rahway?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "sayreville": [
+    {
+      "q": "Do you serve all of Sayreville?",
+      "a": "Yes. We're based in Sayreville and work across the whole borough, including Parlin, Morgan, Melrose and Sayre Woods."
+    },
+    {
+      "q": "What landscaping services do you offer in Sayreville?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "sewaren": [
+    {
+      "q": "Is Sewaren part of Woodbridge?",
+      "a": "Yes. Sewaren is a community within Woodbridge Township with its own 07077 ZIP code. We work across Sewaren and the rest of the township."
+    },
+    {
+      "q": "What landscaping services do you offer in Sewaren?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "south-amboy": [
+    {
+      "q": "Do you work in South Amboy?",
+      "a": "Yes. South Amboy is right next to our Sayreville base, and we work across the whole city."
+    },
+    {
+      "q": "What landscaping services do you offer in South Amboy?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "south-river": [
+    {
+      "q": "Do you work in South River?",
+      "a": "Yes. South River borders Sayreville, so it's right next to our base."
+    },
+    {
+      "q": "What landscaping services do you offer in South River?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "spotswood": [
+    {
+      "q": "Do you work in Spotswood?",
+      "a": "Yes. Spotswood is a short drive from our Sayreville base, and we have done paver walkway work in the borough."
+    },
+    {
+      "q": "What landscaping services do you offer in Spotswood?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "woodbridge": [
+    {
+      "q": "Which Woodbridge communities do you serve?",
+      "a": "All of them, including Woodbridge proper, Avenel, Colonia, Fords, Hopelawn, Iselin, Keasbey, Port Reading and Sewaren."
+    },
+    {
+      "q": "What landscaping services do you offer in Woodbridge?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "cleanups": [
+    {
+      "q": "How does the 20% new client offer work?",
+      "a": "If you are new to Euro Style Landscape, you get 20% off your first property cleanup, leaf cleanup, landscape cleanup or property refresh. Send the form or call to book your free estimate.",
+      "offer": true
+    },
+    {
+      "q": "Do you haul the leaves and debris away?",
+      "a": "Yes. Leaves and debris are collected and hauled away, so nothing is left piled at the curb."
+    },
+    {
+      "q": "Can I book a one-time cleanup?",
+      "a": "Yes. Book a single cleanup, or ask about regular visits through the season."
+    },
+    {
+      "q": "What's the difference between a cleanup and a property refresh?",
+      "a": "A cleanup clears leaves, debris and overgrowth and tidies the beds and lawn. A property refresh goes further, with planting, a garden bed refresh, lawn care and fencing to give the yard a fresh, finished look."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    }
+  ],
+  "commercial": [
+    {
+      "q": "What commercial services do you offer?",
+      "a": "Snow removal, cleanups, landscape maintenance, small construction (masonry, carpentry, concrete and pavers, retaining walls, asphalt repair, fencing) and landscape install and upgrades."
+    },
+    {
+      "q": "Can you handle snow removal and grounds care together?",
+      "a": "Yes. One team covers snow removal in winter and landscape maintenance, cleanups and small construction the rest of the year, with one call and one invoice."
+    },
+    {
+      "q": "Do you offer seasonal snow contracts?",
+      "a": "Yes. Seasonal snow contracts are available, so snow removal is planned before the first storm."
+    },
+    {
+      "q": "Is the assessment free?",
+      "a": "Yes. We visit the property and follow up with a written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    }
+  ],
+  "construction": [
+    {
+      "q": "Is the design consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a design and a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Do you design the project as well as build it?",
+      "a": "Yes. We plan your project around how you want to use the space and show you a 3D design and a written quote before anything is built."
+    },
+    {
+      "q": "What construction services do you offer?",
+      "a": "Landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, step installation, paver installation and sealing, planting, dry creek installation, outdoor kitchens, pergolas, stone veneer, stucco, masonry work, ponds and water features."
+    },
+    {
+      "q": "Do you work on commercial properties?",
+      "a": "Yes. We also handle small construction for commercial properties, including masonry, pavers, concrete, asphalt repair and fencing."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    }
+  ],
+  "drainage": [
+    {
+      "q": "What drainage work do you do?",
+      "a": "French drain installation, dry well installation, drainage installation, sump pump installation and dry creek installation."
+    },
+    {
+      "q": "How do you decide which option I need?",
+      "a": "We walk your property with you, look at where the water collects and recommend options in a detailed written quote."
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you need and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    }
+  ],
+  "fencing": [
+    {
+      "q": "Do you install gates as well as fences?",
+      "a": "Yes. We install fences and gates together so they match."
+    },
+    {
+      "q": "Can you add stone pillars to a fence or gate?",
+      "a": "Yes. We do stone veneer and masonry work, including pillars, so we can frame a gate or entrance."
+    },
+    {
+      "q": "Do you install fencing for commercial properties?",
+      "a": "Yes. Fencing and gates are part of our commercial property services."
+    },
+    {
+      "q": "Is the on-site visit really free?",
+      "a": "Yes. We visit your property, talk through what you need and follow up with a written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    }
+  ],
+  "landscape-lighting": [
+    {
+      "q": "What can you light?",
+      "a": "Retaining walls, steps and pavers, including patios, walkways and seat walls."
+    },
+    {
+      "q": "Can lighting be planned with a new patio or wall?",
+      "a": "Yes. We can include lighting in the design for a new patio, wall or steps, so you see it before anything is built."
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you need and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    }
+  ],
+  "lawn-maintenance": [
+    {
+      "q": "What does landscape maintenance include?",
+      "a": "Lawn maintenance and mowing, bush trimming, tree trimming, leaf, fall and spring cleanups, mulch installation and weeding. We agree the exact list with you at the visit."
+    },
+    {
+      "q": "Do you look after yards you didn't build?",
+      "a": "Yes. We provide regular lawn care for yards we've built and yards we haven't."
+    },
+    {
+      "q": "Do you work on commercial properties?",
+      "a": "Yes. We provide grounds care for commercial properties too, including mowing, trimming and leaf and property cleanups."
+    },
+    {
+      "q": "Is the on-site visit really free?",
+      "a": "Yes. We visit your property, talk through what you need and follow up with a written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    }
+  ],
+  "planting": [
+    {
+      "q": "Do you choose the plants for my yard?",
+      "a": "Yes. We choose garden beds, shrubs and trees for your site and the amount of upkeep you want."
+    },
+    {
+      "q": "Do you install new lawns?",
+      "a": "Yes. New lawn installation is part of our landscape install work."
+    },
+    {
+      "q": "What are entrance and curb appeal upgrades?",
+      "a": "Improvements to the front of your property, such as new beds and planting, walkways, steps and pillars, so it looks finished from the street."
+    },
+    {
+      "q": "Is the on-site visit really free?",
+      "a": "Yes. We visit your property, talk through what you need and follow up with a written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    }
+  ],
+  "snow-removal": [
+    {
+      "q": "What snow removal services do you offer?",
+      "a": "Lot and driveway plowing, sidewalk and entrance shoveling, salting and de-icing, and seasonal snow contracts."
+    },
+    {
+      "q": "Do you offer seasonal snow contracts?",
+      "a": "Yes. A seasonal contract covers snow removal for the whole season, so it's planned before the first storm."
+    },
+    {
+      "q": "Can you look after the property the rest of the year too?",
+      "a": "Yes. We offer landscape maintenance, cleanups and small construction, so one team can look after your property all year."
+    },
+    {
+      "q": "Is the assessment free?",
+      "a": "Yes. We visit the property and follow up with a written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    }
+  ],
+  "services": [
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There’s no charge and no obligation."
+    },
+    {
+      "q": "Do you work with commercial properties?",
+      "a": "Yes. We handle snow removal, cleanups, landscape maintenance, small construction and landscape upgrades for commercial properties, with one call and one invoice."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We’re based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form below or call (732) 803-9646. We’ll call you back to book your free on-site consultation."
+    }
+  ],
+  "who-we-serve": [
+    {
+      "q": "Do you work on homes and commercial properties?",
+      "a": "Yes. We design, build and look after landscapes for homes, and handle snow removal, cleanups, landscape maintenance, small construction and landscape upgrades for commercial properties, with one call and one invoice."
+    },
+    {
+      "q": "Which page should I start on?",
+      "a": "Homeowners can start with our services. If you own or manage a commercial property, start with commercial services. Either way, the free consultation is the best first step."
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There’s no charge and no obligation."
+    }
+  ]
+}

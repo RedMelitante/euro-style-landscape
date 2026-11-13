@@ -1,50 +1,6 @@
-// Typed access to src/data/services.json, the single source for service copy
-// (SERVICES-UPDATE.md). Edit the JSON, not the components.
+// Quote form "Service needed" options (src/data/services.json, from design/component-quote-form, update 8).
+// /api/lead accepts only these values (plus older names, so a page cached before an update still gets through).
 import data from '../data/services.json';
-import type { IconName } from '../components/Icon.astro';
-
-export type ServiceItem = {
-  id: string;
-  title: string;
-  text: string;
-  /** Photo card when set; icon card otherwise. */
-  image?: string;
-  alt?: string;
-  icon?: IconName;
-  featured?: boolean;
-  link?: { label: string; href: string };
-};
-
-export type ServiceGroup = {
-  id: string;
-  title: string;
-  badge?: string;
-  heading?: string;
-  intro: string;
-  image?: string;
-  alt?: string;
-  cta?: { label: string; href: string };
-  items: ServiceItem[];
-};
-
-export const groups = data.groups as ServiceGroup[];
-export const group = (id: string) => {
-  const g = groups.find((x) => x.id === id);
-  if (!g) throw new Error(`Missing service group: ${id}`);
-  return g;
-};
-
-export type CommercialServices = {
-  title: string;
-  heading: string;
-  intro: string;
-  lists: { title: string; items: string[] }[];
-  why: string[];
-  cta: { label: string; href: string };
-};
-/** "Commercial property services" on /services#commercial (mirrors the client's commercial flyer). */
-export const commercial = data.commercial as CommercialServices;
-
 
 const { _last, ...optionGroups } = data.quoteFormOptions;
 /** Quote form <optgroup>s in order, then the final standalone option. */

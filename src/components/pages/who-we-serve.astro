@@ -1,0 +1,81 @@
+---
+// Generated from design/who-we-serve.dc.html (handoff update 7) by the one-off converter; edit this file directly.
+import Img from '../site/Img.astro';
+import QuoteSection from '../site/QuoteSection.astro';
+import ReviewCards from '../site/ReviewCards.astro';
+import Sidebar from '../site/Sidebar.astro';
+import { REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
+---
+  <section class="shero">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="crumb"><a href="/">Home</a><span aria-hidden="true">&rsaquo;</span><span aria-current="page" style="color: #2E343A">Who we serve</span></nav>
+      <div class="shgrid">
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <p class="eb">Who we serve</p>
+          <h1 class="hd sh1">Landscaping for homeowners and commercial properties</h1>
+          <p class="lede">Euro Style Landscape designs, builds and maintains outdoor spaces for homes, and looks after commercial properties all year round, across Middlesex, Monmouth and Union County towns. Every project starts with a free on-site consultation.</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 4px">
+            <a href="#quote" class="btn btn-g">Book a free consultation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="tel:+17328039646" class="lnk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> (732) 803-9646</a>
+          </div>
+        </div>
+        <figure class="hfig"><Img src={"raised-patio-wide.jpg"} alt={"Wide raised paver patio across the back of a house"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} eager priority /><figcaption>Wide raised paver patio across the back of a house</figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <div class="sec" style="padding-top: clamp(48px, 6vw, 72px)">
+    <div class="wrap layout">
+      <div class="art">
+        <section id="residential">
+          <h2 class="ah2">Residential</h2>
+          <p class="tx">Patios, walls and outdoor kitchens, plus the lawn care, cleanups, fencing and planting that keep the yard looking cared for.</p>
+          <div class="scards">
+            <a href="/services" class="sc"><span class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span><p><b>Landscaping for homeowners</b><span>Design, build and upkeep for the yard you live in, all from one local team.</span></p></a>
+            <a href="/services/construction" class="sc"><span class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span><p><b>Patios, walls &amp; outdoor living</b><span>Landscape design, retaining walls, pavers, steps, concrete, asphalt, masonry, outdoor kitchens and more.</span></p></a>
+            <a href="/services/lawn-maintenance" class="sc"><span class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span><p><b>Lawn care for your home</b><span>Lawn mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch and weeding.</span></p></a>
+            <a href="/services/cleanups" class="sc"><span class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span><p><b>Cleanups &amp; property refresh</b><span>Property, leaf and landscape cleanups, plus property refreshes.</span></p></a>
+            <a href="/services/fencing" class="sc"><span class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span><p><b>Fencing for your yard</b><span>New fences and gates for privacy, safety and a finished boundary.</span></p></a>
+            <a href="/services/planting" class="sc"><span class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span><p><b>Planting &amp; curb appeal</b><span>Trees, shrubs, garden beds, new lawns and curb appeal upgrades.</span></p></a>
+            <a href="/services/landscape-lighting" class="sc"><span class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span><p><b>Landscape lighting</b><span>Retaining wall, step and paver lighting for the evenings.</span></p></a>
+            <a href="/services/drainage" class="sc"><span class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span><p><b>Drainage for wet yards</b><span>French drains, dry wells, sump pumps and dry creek beds.</span></p></a>
+          </div>
+          <div class="pgrid"><figure class="phd"><div class="ph"><Img src={"vinyl-privacy-fence-lawn.jpg"} alt={"A white vinyl privacy fence surrounds the backyard lawn."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>White vinyl privacy fence</b>A white vinyl privacy fence surrounds the backyard lawn.</figcaption></figure><figure class="phd"><div class="ph"><Img src={"raised-planter-white-stone.jpg"} alt={"Retaining wall, landscape rock and planting in Sayreville, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Retaining wall, landscape rock and planting in Sayreville, NJ</figcaption></figure></div>
+        </section>
+        <section id="commercial">
+          <h2 class="ah2">Commercial</h2>
+          <p class="tx">Snow removal, small construction, grounds care and cleanups for the properties you own or manage, with one call and one invoice.</p>
+          <div class="scards">
+            <a href="/services/commercial" class="sc"><span class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span><p><b>Commercial property owners</b><span>Grounds care, cleanups and small construction for the properties you own.</span></p></a>
+            <a href="/services/commercial" class="sc"><span class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span><p><b>Property managers</b><span>One call and one invoice for the properties you manage, all year round.</span></p></a>
+            <a href="/services/snow-removal" class="sc"><span class="ii"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span><p><b>Snow removal for commercial properties</b><span>Lot and driveway plowing, shoveling, salting and seasonal snow contracts.</span></p></a>
+          </div>
+          <div class="pgrid"><figure class="phd"><div class="ph"><Img src={"church-curved-paver-walkways.jpg"} alt={"Curved paver walkways with bollard lights being installed at a church."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Curved paver walkways &amp; bollard lights</b>Curved paver walkways with bollard lights being installed at a church.</figcaption></figure><figure class="phd"><div class="ph"><Img src={"snow-plowing-night.jpg"} alt={"Snow being cleared at night with a plow blade and a snow pusher."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Night-time snow clearing</b>Snow being cleared at night with a plow blade and a snow pusher.</figcaption></figure></div>
+        </section>
+        <section id="reviews">
+          <h2 class="ah2">What homeowners and businesses say</h2>
+          <p class="tx">Real reviews from Euro Style Landscape&rsquo;s Google Business Profile, quoted as written. <a href={REVIEWS_URL} target="_blank" rel="noopener">Read all {REVIEW_COUNT} on Google</a>.</p>
+          <ReviewCards ids={["jennifer-w", "shuvan-h", "luke-l"]} />
+        </section>
+        <section id="questions">
+          <h2 class="ah2">Questions</h2>
+          <div class="qa">
+            <details><summary>Do you work on homes and commercial properties?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We design, build and look after landscapes for homes, and handle snow removal, cleanups, landscape maintenance, small construction and landscape upgrades for commercial properties, with one call and one invoice.</p></details>
+            <details><summary>Which page should I start on?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Homeowners can start with <a href="/services">our services</a>. If you own or manage a commercial property, start with <a href="/services/commercial">commercial services</a>. Either way, the free consultation is the best first step.</p></details>
+            <details><summary>Is the consultation really free?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There&rsquo;s no charge and no obligation.</p></details>
+          </div>
+        </section>
+        <section id="more">
+          <h2 class="ah2">More from Euro Style</h2>
+          <nav aria-label="More from Euro Style" class="olist">
+            <a href="/services">All services <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/our-work">Our work: before &amp; after <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/service-areas/sayreville">Towns we serve <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/about">About Euro Style Landscape <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+          </nav>
+        </section>
+      </div>
+      <Sidebar toc={[{"href": "#residential", "label": "Residential"}, {"href": "#commercial", "label": "Commercial"}, {"href": "#reviews", "label": "Reviews"}, {"href": "#questions", "label": "Questions"}, {"href": "#more", "label": "More from Euro Style"}]} why={[{"title": "One team, design to build", "text": "The same local crew plans and builds your project."}, {"title": "Free on-site consultation", "text": "No cost, no obligation."}, {"title": "Detailed written quote", "text": "You know exactly what you&rsquo;re getting before work starts."}, {"title": "Licensed &amp; insured", "text": "Peace of mind on every job."}]} />
+    </div>
+  </div>
+  <QuoteSection eyebrow={"Free consultation"} title={"Get your free quote"} lede={"Tell us about your property and we&rsquo;ll call you to book a time to visit."} formId={"who"} source={"who-we-serve"} />
+  

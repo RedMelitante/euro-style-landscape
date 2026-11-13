@@ -1,0 +1,129 @@
+---
+// Generated from design/service-lawn-maintenance.dc.html (handoff update 7) by the one-off converter; edit this file directly.
+import Img from '../site/Img.astro';
+import QuoteSection from '../site/QuoteSection.astro';
+import ReviewCards from '../site/ReviewCards.astro';
+import Sidebar from '../site/Sidebar.astro';
+import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
+---
+  <section class="shero">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="crumb"><a href="/">Home</a><span aria-hidden="true">&rsaquo;</span><a href="/services">Services</a><span aria-hidden="true">&rsaquo;</span><span aria-current="page" style="color: #2E343A">Landscape maintenance</span></nav>
+      <div class="shgrid">
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <p class="eb">Landscape maintenance</p>
+          <h1 class="hd sh1">Lawn care that keeps your yard looking cared for</h1>
+          <p class="lede">Lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding, for yards we've built and yards we haven't. Homes and commercial properties.</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 4px">
+            <a href="#quote" class="btn btn-g">Get a maintenance quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="tel:+17328039646" class="lnk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> (732) 803-9646</a>
+          </div>
+          <div class="checks"><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Free on-site consultation</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Homes &amp; commercial properties</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Licensed &amp; insured</span></div>
+        </div>
+        <figure class="hfig"><Img src={"backyard-after.jpg"} alt={"Finished backyard with new lawn, paver walkway, deck and white fence"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} eager priority /><figcaption>Finished backyard with new lawn, paver walkway, deck and white fence</figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <div class="sec" style="padding-top: clamp(48px, 6vw, 72px)">
+    <div class="wrap layout">
+      <div class="art">
+        <section id="included">
+          <h2 class="ah2">Landscape maintenance services</h2>
+          <p class="tx">Pick the services you need. We agree the exact list and schedule with you at the free visit.</p>
+          <div class="inc">
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Lawn maintenance</b><span>Regular care that keeps your lawn healthy and even.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Lawn mowing</b><span>Mowing with neat edges along beds, walkways and driveways.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Bush trimming</b><span>Shrubs and bushes trimmed to a neat, healthy shape.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Tree trimming</b><span>Overgrown and dead branches cut back and cleared away.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Leaf cleanup</b><span>Leaves blown and raked off the lawn, beds and walkways, then collected and hauled away.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Fall cleanup</b><span>Leaves, debris and spent plants cleared at the end of the season.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Spring cleanup</b><span>Winter debris cleared and beds tidied for the new season.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Mulch installation</b><span>Fresh mulch in beds and around trees.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Weeding</b><span>Weeds pulled from beds and borders.</span></p></div>
+          </div>
+          <div class="pgrid p3">
+            <figure class="phd"><div class="ph"><Img src={"front-lawn-tree.jpg"} alt={"A well-kept front lawn with a mature tree and mulched beds."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Lawn mowing</b>A well-kept front lawn with a mature tree and mulched beds.</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"front-lawn-beds.jpg"} alt={"A front yard with a mature tree, a mulched bed and rounded shrubs in stone-edged beds."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Mulch installation</b>A front yard with a mature tree, a mulched bed and rounded shrubs in stone-edged beds.</figcaption></figure>
+          </div>
+        </section>
+        <section id="how">
+          <h2 class="ah2">Simple from the first visit</h2>
+          <ol class="nsteps2">
+            <li><span class="n">01</span><p><b>Free on-site consultation</b><span>We walk the property with you and agree what needs doing.</span></p></li>
+            <li><span class="n">02</span><p><b>Written quote</b><span>You get a clear quote for the services you choose.</span></p></li>
+            <li><span class="n">03</span><p><b>Regular care</b><span>Our crew keeps your lawn and beds looking cared for through the season.</span></p></li>
+          </ol>
+        </section>
+        <section id="work">
+          <h2 class="ah2">Recent Euro Style projects</h2>
+          <div class="pgrid">
+            <figure class="phd"><div class="ph"><Img src={"striped-lawn-wood-fence.jpg"} alt={"Lawn maintenance in East Brunswick, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Lawn maintenance in East Brunswick, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"mulch-island-bed-river-stone-edge.jpg"} alt={"Mulch installation and weeding in Monroe, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Mulch installation and weeding in Monroe, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"brown-mulch-bed-brick-front-house.jpg"} alt={"Mulch installation and weeding in Monroe, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Mulch installation and weeding in Monroe, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"black-mulch-rings-river-rock-beds.jpg"} alt={"Bush trimming and mulch installation in Sayreville, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Bush trimming and mulch installation in Sayreville, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"side-yard-mulch-bed-trees.jpg"} alt={"Mulch installation and planting in Marlboro, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Mulch installation and planting in Marlboro, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"trimmed-hedge-mowed-lawn.jpg"} alt={"Bush removal in Old Bridge, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Bush removal in Old Bridge, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"commercial-lawn-mowing-brick-building.jpg"} alt={"Commercial lawn care in Somerville, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Commercial lawn care in Somerville, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"backyard-lawn-vinyl-fence.jpg"} alt={"Sod installation in Old Bridge, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Sod installation in Old Bridge, NJ</figcaption></figure>
+          </div>
+          <a href="/our-work" class="lnk">See all our work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+        </section>
+        <section id="reviews">
+          <h2 class="ah2">{RATING} from {REVIEW_COUNT} Google reviews</h2>
+          <p class="tx">Real reviews from Euro Style Landscape&rsquo;s Google Business Profile, quoted as written. <a href={REVIEWS_URL} target="_blank" rel="noopener">Read all {REVIEW_COUNT} on Google</a>.</p>
+          <ReviewCards ids={["shuvan-h", "jennifer-w", "shraga-k"]} />
+        </section>
+        <section id="questions">
+          <h2 class="ah2">Landscape maintenance FAQ</h2>
+          <div class="qa">
+            <details><summary>What does landscape maintenance include?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Lawn maintenance and mowing, bush trimming, tree trimming, leaf, fall and spring cleanups, mulch installation and weeding. We agree the exact list with you at the visit.</p></details>
+            <details><summary>Do you look after yards you didn't build?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We provide regular lawn care for yards we've built and yards we haven't.</p></details>
+            <details><summary>Do you work on commercial properties?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We provide grounds care for commercial properties too, including mowing, trimming and leaf and property cleanups.</p></details>
+            <details><summary>Is the on-site visit really free?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We visit your property, talk through what you need and follow up with a written quote. There's no charge and no obligation.</p></details>
+            <details><summary>Are you licensed and insured?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes, Euro Style Landscape is licensed and insured.</p></details>
+            <details><summary>Which areas do you serve?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold.</p></details>
+          </div>
+        </section>
+        <section id="towns">
+          <h2 class="ah2">Landscape maintenance in your town</h2>
+          <div class="chips">
+            <a href="/service-areas/sayreville">Sayreville</a>
+            <a href="/service-areas/south-amboy">South Amboy</a>
+            <a href="/service-areas/old-bridge">Old Bridge</a>
+            <a href="/service-areas/matawan">Matawan</a>
+            <a href="/service-areas/marlboro">Marlboro</a>
+            <a href="/service-areas/manalapan">Manalapan</a>
+            <a href="/service-areas/monroe">Monroe</a>
+            <a href="/service-areas/freehold">Freehold</a>
+            <a href="/service-areas/woodbridge">Woodbridge</a>
+            <a href="/service-areas/rahway">Rahway</a>
+            <a href="/service-areas/sewaren">Sewaren</a>
+            <a href="/service-areas/colonia">Colonia</a>
+            <a href="/service-areas/east-brunswick">East Brunswick</a>
+            <a href="/service-areas/south-river">South River</a>
+            <a href="/service-areas/edison">Edison</a>
+            <a href="/service-areas/new-brunswick">New Brunswick</a>
+            <a href="/service-areas/perth-amboy">Perth Amboy</a>
+            <a href="/service-areas/metuchen">Metuchen</a>
+            <a href="/service-areas/spotswood">Spotswood</a>
+          </div>
+        </section>
+        <section id="more">
+          <h2 class="ah2">Other services</h2>
+          <nav aria-label="Other services" class="olist">
+            <a href="/services/construction">Construction &amp; landscape construction <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/cleanups">Cleanups &amp; property refresh <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/snow-removal">Snow removal <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/fencing">Fencing <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/planting">Planting &amp; landscape install <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/commercial">Commercial services <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/landscape-lighting">Landscape lighting <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/drainage">Drainage <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+          </nav>
+        </section>
+      </div>
+      <Sidebar toc={[{"href": "#included", "label": "What's included"}, {"href": "#how", "label": "How it works"}, {"href": "#work", "label": "Recent work"}, {"href": "#reviews", "label": "Reviews"}, {"href": "#questions", "label": "Questions"}, {"href": "#towns", "label": "Towns we serve"}, {"href": "#more", "label": "Other services"}]} why={[{"title": "One local team", "text": "Based in Sayreville. The same crew on every visit."}, {"title": "Homes &amp; commercial properties", "text": "Grounds care for houses and businesses."}, {"title": "Free on-site consultation", "text": "No cost, no obligation."}, {"title": "Licensed &amp; insured", "text": "Peace of mind on every job."}]} />
+    </div>
+  </div>
+  <QuoteSection eyebrow={"Free on-site consultation"} title={"Get a landscape maintenance quote"} lede={"Tell us about your lawn and we'll call you to book a free on-site visit."} formId={"svc2-lawn-maintenance"} source={"service-lawn-maintenance"} service={"Lawn maintenance"} />
+  

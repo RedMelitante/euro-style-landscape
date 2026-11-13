@@ -1,0 +1,45 @@
+{
+  "rating": 4.9,
+  "count": 87,
+  "url": "https://www.google.com/maps/search/?api=1&query=Euro+Style+Landscape%2C+Sayreville%2C+NJ+08872",
+  "note": "Rating, count and reviews from the Google Business Profile (Nov 2026), quoted word for word. Replace url with the Business Profile reviews link when the client sends it. No review/rating schema.",
+  "star": "<svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"#F4B400\" aria-hidden=\"true\"><path d=\"m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z\"></path></svg>",
+  "reviews": [
+    {
+      "id": "caleb-d",
+      "tag": "Backyard makeover",
+      "name": "Caleb D.",
+      "html": "Huge shoutout to Sean and his team for an amazing backyard makeover! &hellip; We hired them to clear out our old stone yard, level everything out for a new lawn, build a custom brick patio, clean up some overgrown and dead trees and install a vinyl fence. They absolutely nailed it. &hellip;"
+    },
+    {
+      "id": "jennifer-w",
+      "tag": "Yard cleanup",
+      "name": "Jennifer W.",
+      "html": "Sean and team were wonderful. If I could give 10 stars it still wouldnt be enough! They did an amazing job clearing out overgrown brush in my backyard. Very easy to work with and well priced!! If your looking for some work done in your yard I HIGHLY recommend Eurostyle Landscape!!"
+    },
+    {
+      "id": "frank",
+      "tag": "Walkways",
+      "name": "Frank.",
+      "html": "Sean was great. He came and helped me finish my walk that someone else started but didn&rsquo;t finish and did a great job."
+    },
+    {
+      "id": "shraga-k",
+      "tag": "Landscaping",
+      "name": "Shraga K.",
+      "html": "I found Sean to be exceptionally knowledgeable, honest, and very pleasant! He is very reachable, priced competitively and most importantly does amazing work! I highly recommend his services!"
+    },
+    {
+      "id": "shuvan-h",
+      "tag": "Property maintenance",
+      "name": "Shuvan H.",
+      "html": "They did a great job on my place! The area was getting complaints and it looked like a disaster because our old landscaper wasn&rsquo;t taking care of it and it had gone unnoticed. They took care of it for an great price, and did a very good job"
+    },
+    {
+      "id": "luke-l",
+      "tag": "Commercial",
+      "name": "Luke L.",
+      "html": "Sean and I have a great b2b relationship, he&rsquo;s reliable and stands behind his high quality workmanship, if your looking to invest into your property there&rsquo;s no other man to trust but this guy right here, he takes great pride in his work."
+    }
+  ]
+}

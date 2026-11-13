@@ -1,0 +1,47 @@
+---
+// Website footer (UPDATE-6-REDESIGN.md §3.6, restyled in update 7 without the CTA button).
+// Kept from the live site: the Terms link and the legal name, which the A2P 10DLC registration needs,
+// and no "Powered by" credit (removed at the client's request).
+import { Image } from 'astro:assets';
+import logo from '../../assets/logo/esl-logo-on-dark.png';
+import { EMAIL, LOCATION, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, SOCIAL } from '../../lib/site';
+import { serviceHref, servicePages } from '../../lib/servicePages';
+import { townHref, towns } from '../../lib/towns';
+import { ICONS } from './icons';
+---
+<footer class="ft">
+  <div class="wrap ft-g">
+    <div class="col" style="gap: 14px">
+      <Image src={logo} alt="Euro Style Landscape" width={120} height={120} densities={[1, 2]} style="display: block; width: 120px; height: 120px" />
+      <p style="font-size: 15px; line-height: 1.6">Landscape design, construction and maintenance from one local team in Sayreville, NJ.</p>
+      <nav aria-label="Social media" class="soc">
+        {SOCIAL.map((s) => (
+          <a href={s.href} target="_blank" rel="noopener" aria-label={`Euro Style Landscape on ${s.name}`} title={s.name} set:html={ICONS[s.name]} />
+        ))}
+      </nav>
+    </div>
+    <nav aria-label="Services"><h2>Services</h2>
+      {servicePages.map((s) => <a href={serviceHref(s.key)} class="foot-link">{s.menu}</a>)}
+    </nav>
+    <nav aria-label="Service areas"><h2>Service areas</h2>
+      <div class="ft-areas">
+        {towns.map((t) => <a href={townHref(t.slug)} class="foot-link">{t.name}</a>)}
+      </div>
+    </nav>
+    <nav aria-label="Company"><h2>Company</h2>
+      <a href="/about" class="foot-link">About us</a>
+      <a href="/who-we-serve" class="foot-link">Who we serve</a>
+      <a href="/our-work" class="foot-link">Our work</a>
+      <a href="/contact" class="foot-link">Contact</a>
+    </nav>
+    <div class="col"><h2>Contact</h2>
+      <a href={PHONE_HREF} class="foot-link">{PHONE_DISPLAY}</a>
+      <a href={`mailto:${EMAIL}`} class="foot-link">{EMAIL}</a>
+      <a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps" class="foot-link">{LOCATION}</a>
+    </div>
+  </div>
+  <div class="ft-bar"><div class="wrap ft-b">
+    <span>Copyright © 2026 Euro Style Landscape (SN Landscaping LLC). All rights reserved</span>
+    <span style="display: flex; gap: 20px"><a href="/privacy-policy">Privacy policy</a><a href="/terms">Terms</a></span>
+  </div></div>
+</footer>

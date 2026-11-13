@@ -15,9 +15,11 @@ interface Props {
   /** Preselected "Service needed" / "Property type" (the service pages). */
   service?: string | null;
   propertyType?: string | null;
+  /** Submit button label (update 8): "Get a free quote" on the free design consultation ad page. */
+  cta?: string;
 }
 
-const { id: uid, title = 'Book your free design consultation', source, service, propertyType } = Astro.props;
+const { id: uid, title = 'Book your free design consultation', source, service, propertyType, cta = 'Book my free consultation' } = Astro.props;
 if (service && ![...quoteOptionGroups.flatMap(([, o]) => o), quoteLastOption].includes(service)) throw new Error(`QuoteForm: unknown service "${service}"`);
 const f = (name: string) => `qf-${name}-${uid}`;
 ---
@@ -97,7 +99,7 @@ const f = (name: string) => `qf-${name}-${uid}`;
     {source && <input type="hidden" name="source" value={source} />}
     <SmsConsent id={uid} />
     <button class="qf-submit" type="submit" data-qf-submit>
-      <span data-qf-label>Book my free consultation</span>
+      <span data-qf-label>{cta}</span>
       <Icon name="arrow-right" size={18} strokeWidth={2.2} />
     </button>
     <p class="qf-error" role="alert" data-qf-error hidden>Sorry, your request didn't go through. Please try again or call us on {PHONE_DISPLAY}.</p>

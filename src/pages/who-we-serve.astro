@@ -1,0 +1,18 @@
+---
+// Who We Serve (handoff update 7 §2): indexable, in the sitemap. SEO values from the comment in design/who-we-serve.dc.html.
+// Body: src/components/pages/who-we-serve.astro. Quote form source="who-we-serve".
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhoWeServe from '../components/pages/who-we-serve.astro';
+import { breadcrumbs, faqPage } from '../lib/schema';
+
+const site = Astro.site!;
+const jsonLd = { '@context': 'https://schema.org', '@graph': [breadcrumbs(site, ['Who we serve', '/who-we-serve']), faqPage('who-we-serve')] };
+---
+<BaseLayout
+  title="Residential & Commercial Landscaping | Euro Style Landscape"
+  description="Landscaping for homeowners and commercial properties in Middlesex, Monmouth and Union County, NJ: design, build, lawn care, cleanups and snow removal from one local team."
+  current="who"
+  jsonLd={jsonLd}
+>
+  <WhoWeServe />
+</BaseLayout>

@@ -1,0 +1,44 @@
+---
+// Free design consultation ad page footer: contact details only, no site navigation (update 7 §4 colours).
+import { Image } from 'astro:assets';
+import logo from '../assets/logo/esl-logo-on-dark.png';
+import { EMAIL, LOCATION, PHONE_DISPLAY, PHONE_HREF, SERVICE_AREA } from '../lib/site';
+---
+<footer class="site-footer">
+  <div class="container cols">
+    <div class="col" style="gap:14px">
+      <Image src={logo} alt="Euro Style Landscape" width={136} height={136} densities={[1, 2]} style="display:block;width:136px;height:136px" />
+      <p class="tagline">European-inspired landscape design and construction.</p>
+    </div>
+    <div class="col">
+      <span class="col-title">Get in touch</span>
+      <a href={PHONE_HREF} class="plain">{PHONE_DISPLAY}</a>
+      <a href={`mailto:${EMAIL}`} class="plain">{EMAIL}</a>
+      <span>{LOCATION}</span>
+    </div>
+    <div class="col">
+      <span class="col-title">Areas we serve</span>
+      <span style="line-height:1.6">{SERVICE_AREA}</span>
+    </div>
+  </div>
+  <div class="container legal">
+    <span>Copyright © 2026 Euro Style Landscape (SN Landscaping LLC). All rights reserved</span>
+    <span class="legal-links"><a href="/privacy-policy">Privacy policy</a><a href="/terms">Terms</a></span>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: #0B3A25; color: #C9D3CD; padding: 48px 0 0; }
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 32px; }
+  .col { display: flex; flex-direction: column; gap: 10px; font-size: 15px; }
+  .col-title { color: #FFFFFF; font-weight: 600; font-size: 16px; }
+  .tagline { margin: 0; font-size: 15px; line-height: 1.6; }
+  .plain, .legal-links a { color: #C9D3CD; text-decoration: none; }
+  .col a { overflow-wrap: anywhere; }
+  .legal-links { display: flex; gap: 20px; }
+  .legal {
+    margin-top: 40px; padding-top: 20px; padding-bottom: 28px;
+    border-top: 1px solid rgba(243, 239, 230, .1);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 14px;
+  }
+</style>

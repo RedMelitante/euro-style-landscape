@@ -1,0 +1,40 @@
+---
+// Quote section (#quote, dark green; update 6 §3.5): eyebrow, heading, text, "Or just call", 3 steps,
+// address line and the existing quote form in a light card. `source` / preselects are each page's own.
+import QuoteForm from '../QuoteForm.astro';
+import { EMAIL, MAPS_URL, PHONE_DISPLAY, PHONE_HREF } from '../../lib/site';
+
+interface Props {
+  eyebrow: string;
+  /** Heading HTML (may hold an italic <span class="acc">). */
+  title: string;
+  lede: string;
+  formId: string;
+  formTitle?: string;
+  source: string;
+  service?: string;
+  propertyType?: string;
+}
+const { eyebrow, title, lede, formId, formTitle, source, service, propertyType } = Astro.props;
+---
+<section id="quote" class="sec dark">
+  <div class="wrap fin">
+    <div style="display: flex; flex-direction: column; gap: 22px">
+      <p class="eb eb-d" set:html={eyebrow} />
+      <h2 class="hd h2" set:html={title} />
+      <p class="lede" set:html={lede} />
+      <a href={PHONE_HREF} class="callbox"><small>Or just call</small><b>{PHONE_DISPLAY}</b></a>
+      <ol class="nsteps">
+        <li><span>1</span>We call you back to book a visit.</li>
+        <li><span>2</span>We walk the property with you, free.</li>
+        <li><span>3</span>You get a detailed written quote.</li>
+      </ol>
+      <p style="padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); font-size: 14px; line-height: 1.7; color: #C3D1C8">Euro Style Landscape · <a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps" style="color: #FFFFFF">Sayreville, NJ 08872</a> · <a href={`mailto:${EMAIL}`} style="color: #FFFFFF; overflow-wrap: anywhere">{EMAIL}</a></p>
+    </div>
+    <div class="formcard">
+      <div style="padding: 8px">
+        <QuoteForm id={formId} title={formTitle} source={source} service={service} propertyType={propertyType} />
+      </div>
+    </div>
+  </div>
+</section>

@@ -3,7 +3,7 @@
 import { Font, Image } from 'astro:assets';
 import CampaignLayout from '../../layouts/CampaignLayout.astro';
 import { photo } from '../../lib/images';
-import logo from '../../assets/logo/euro-style-landscape-logo.jpg';
+import logo from '../../assets/logo/esl-logo-on-dark.png';
 import NewClientOffer from '../../components/campaign/offer/NewClientOffer.astro';
 import OfferPill from '../../components/campaign/offer/OfferPill.astro';
 import { NEW_CLIENT_OFFER_ON as offer } from '../../lib/campaigns';
@@ -15,18 +15,18 @@ import { NEW_CLIENT_OFFER_ON as offer } from '../../lib/campaigns';
     <Font cssVariable="--font-barlow" preload={[{ weight: 400 }]} />
     <Font cssVariable="--font-great-vibes" />
   </Fragment>
-<div style="background:#F4EFE4">
+<div style="background:#EFF4E7">
 
   
   <section class="hero" aria-label="Euro Style Landscape">
-    <Image src={photo('front-lawn-tree.jpg')} alt="A well-kept front yard with a mature tree, fresh mulch beds and trimmed shrubs" widths={[480, 800, 1200, 1440]} sizes="100vw" format="webp" quality={45} decoding="async" loading="eager" fetchpriority="high" class="hero-img" />
+    <Image src={photo('black-mulch-rings-river-rock-beds.jpg')} alt="Bush trimming and mulch installation in Sayreville, NJ" widths={[480, 800, 1200, 1440]} sizes="100vw" format="webp" quality={45} decoding="async" loading="eager" fetchpriority="high" class="hero-img" />
     <div class="hero-shade"></div>
     <header class="top">
       <div class="wrap">
         <a href="/" aria-label="Euro Style Landscape home"><Image src={logo} alt="Euro Style Landscape" width={118} height={118} densities={[1, 2]} loading="eager" class="es-logo top-logo" /></a>
         <div class="top-actions">
-          <a href="tel:+17328039646" class="top-phone" data-track-location="header" aria-label="Call (732) 803-9646"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span class="num">(732) 803-9646</span></a>
-          <a href="/lp/property-cleanup-quote" class="top-quote btn-gold" data-track="quote_click" data-track-location="header" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;background:#C9A46A;color:#1F3A2B;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase">{offer ? 'Claim 20% Off' : 'Get a Free Quote'}</a>
+          <a href="tel:+17328039646" class="top-phone" data-track-location="header" aria-label="Call (732) 803-9646"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span class="num">(732) 803-9646</span></a>
+          <a href="/lp/property-cleanup-quote" class="top-quote btn-gold" data-track="quote_click" data-track-location="header" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;background:#B9BB4A;color:#0F4A2F;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase">{offer ? 'Claim 20% Off' : 'Get a Free Quote'}</a>
         </div>
       </div>
     </header>
@@ -37,21 +37,21 @@ import { NEW_CLIENT_OFFER_ON as offer } from '../../lib/campaigns';
         <div class="rule"></div>
         <p class="sub">Leaves, debris, beds and lawn cleaned up and ready for winter by one local team in Middlesex County.{offer && ' New clients get 20% off their first property cleanup.'}</p>
         <div class="hero-btns">
-          <a href={offer ? '#offer' : '#services'} class="btn-gold" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;background:#C9A46A;color:#1F3A2B;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase">{offer ? 'See the Offer' : "See What's Included"} <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
-          <a href="#story" class="btn-out" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 26px;border-radius:999px;border:2px solid rgba(244,239,228,.85);color:#F4EFE4;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase">Meet the Team</a>
+          <a href={offer ? '#offer' : '#services'} class="btn-gold" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;background:#B9BB4A;color:#0F4A2F;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase">{offer ? 'See the Offer' : "See What's Included"} <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+          <a href="#story" class="btn-out" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 26px;border-radius:999px;border:2px solid rgba(244,239,228,.85);color:#EFF4E7;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase">Meet the Team</a>
         </div>
       </div>
     </div>
   </section>
-  <div aria-hidden="true" style="background:#16291F;line-height:0"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:clamp(36px,5vw,72px)"><path d="M0 46 C 240 86, 520 6, 820 30 S 1260 62, 1440 22 V80 H0Z" fill="#F4EFE4"></path><path d="M0 46 C 240 86, 520 6, 820 30 S 1260 62, 1440 22" fill="none" stroke="#C9A46A" stroke-width="3"></path></svg></div>
+  <div aria-hidden="true" style="background:#0B3A25;line-height:0"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:clamp(36px,5vw,72px)"><path d="M0 46 C 240 86, 520 6, 820 30 S 1260 62, 1440 22 V80 H0Z" fill="#EFF4E7"></path><path d="M0 46 C 240 86, 520 6, 820 30 S 1260 62, 1440 22" fill="none" stroke="#B9BB4A" stroke-width="3"></path></svg></div>
 
   
   <section class="strip" aria-label="Why Euro Style">
     <div class="wrap">
       <ul>
-        <li><span class="ic-circle sm"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><span class="cond">One local team</span></li>
-        <li><span class="ic-circle sm"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span class="cond">Licensed &amp; insured</span></li>
-        <li><span class="ic-circle sm"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><span class="cond">Based in Sayreville, NJ</span></li>
+        <li><span class="ic-circle sm"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span><span class="cond">One local team</span></li>
+        <li><span class="ic-circle sm"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span class="cond">Licensed &amp; insured</span></li>
+        <li><span class="ic-circle sm"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><span class="cond">Based in Sayreville, NJ</span></li>
       </ul>
     </div>
   </section>
@@ -63,42 +63,42 @@ import { NEW_CLIENT_OFFER_ON as offer } from '../../lib/campaigns';
     href="/lp/property-cleanup-quote"
     track="quote_click"
     terms="*New clients only. Valid on your first property cleanup."
-    btnStyle="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;background:#C9A46A;color:#1F3A2B;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase"
+    btnStyle="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;background:#B9BB4A;color:#0F4A2F;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase"
   />
 
   
   <section class="svc" id="services">
     <div class="wrap">
-      <p class="eyebrow" style="color:#1F3A2B">What&#39;s included</p>
-      <h2>Cleanup <span style="color:#B8925A">includes</span></h2>
+      <p class="eyebrow" style="color:#0F4A2F">What&#39;s included</p>
+      <h2>Cleanup <span style="color:#197148">includes</span></h2>
       <div class="svc-grid">
           <article class="svc-card">
-            <span class="ic-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v13"></path><path d="M6 15h12"></path><path d="M6 15v5M9 15v5M12 15v5M15 15v5M18 15v5"></path></svg></span>
+            <span class="ic-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v13"></path><path d="M6 15h12"></path><path d="M6 15v5M9 15v5M12 15v5M15 15v5M18 15v5"></path></svg></span>
             <h3 class="cond">Leaf &amp; Debris Removal</h3>
             <p>Leaves, sticks and yard waste cleared away.</p>
           </article>
           <article class="svc-card">
-            <span class="ic-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"></path><path d="M12 20v-8"></path><path d="M12 12c0-3.5 2.5-6 6-6 0 3.5-2.5 6-6 6z"></path><path d="M12 14c0-3-2-5-5-5 0 3 2 5 5 5z"></path></svg></span>
+            <span class="ic-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"></path><path d="M12 20v-8"></path><path d="M12 12c0-3.5 2.5-6 6-6 0 3.5-2.5 6-6 6z"></path><path d="M12 14c0-3-2-5-5-5 0 3 2 5 5 5z"></path></svg></span>
             <h3 class="cond">Bed Cleanup &amp; Weeding</h3>
             <p>Beds cut back, weeded and refreshed.</p>
           </article>
           <article class="svc-card">
-            <span class="ic-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"></path></svg></span>
+            <span class="ic-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"></path></svg></span>
             <h3 class="cond">Shrub &amp; Hedge Trimming</h3>
             <p>Neat, shaped shrubs that look cared for.</p>
           </article>
           <article class="svc-card">
-            <span class="ic-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"></path><path d="M5 20c0-4 3-7 7-7s7 3 7 7"></path><path d="M12 13V8"></path><path d="M12 8c0-2 1.5-4 4-4 0 2.5-1.5 4-4 4z"></path></svg></span>
+            <span class="ic-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"></path><path d="M5 20c0-4 3-7 7-7s7 3 7 7"></path><path d="M12 13V8"></path><path d="M12 8c0-2 1.5-4 4-4 0 2.5-1.5 4-4 4z"></path></svg></span>
             <h3 class="cond">Mulch &amp; Bed Edging</h3>
             <p>Fresh mulch and clean, crisp bed edges.</p>
           </article>
           <article class="svc-card">
-            <span class="ic-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10a3 3 0 1 0-3-3"></path><path d="M3 12h15a3 3 0 1 1-3 3"></path><path d="M3 16h7"></path></svg></span>
+            <span class="ic-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10a3 3 0 1 0-3-3"></path><path d="M3 12h15a3 3 0 1 1-3 3"></path><path d="M3 16h7"></path></svg></span>
             <h3 class="cond">Lawn Mowing &amp; Blowing</h3>
             <p>A neat cut, with walks and driveway blown clean.</p>
           </article>
           <article class="svc-card">
-            <span class="ic-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 13H7z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path><path d="M10 13l1.5 1.5L14 12"></path></svg></span>
+            <span class="ic-circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 13H7z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path><path d="M10 13l1.5 1.5L14 12"></path></svg></span>
             <h3 class="cond">Leaf Bagging &amp; Removal</h3>
             <p>Leaves bagged and taken away.</p>
           </article>
@@ -110,47 +110,47 @@ import { NEW_CLIENT_OFFER_ON as offer } from '../../lib/campaigns';
   
   <section class="season" aria-label="Seasonal care">
     <svg class="leaf " style="left:78%;top:12%;width:54px;height:54px;transform:rotate(18deg)" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#D4892A"></polygon><path d="M12 19.5V23.5" stroke="#D4892A" stroke-width="1.4" stroke-linecap="round"></path></svg>
-    <svg class="leaf d" style="left:88%;top:58%;width:38px;height:38px;transform:rotate(-24deg)" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#C9A46A"></polygon><path d="M12 19.5V23.5" stroke="#C9A46A" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <svg class="leaf d" style="left:88%;top:58%;width:38px;height:38px;transform:rotate(-24deg)" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#B9BB4A"></polygon><path d="M12 19.5V23.5" stroke="#B9BB4A" stroke-width="1.4" stroke-linecap="round"></path></svg>
     <svg class="leaf d" style="left:6%;top:76%;width:30px;height:30px;transform:rotate(-38deg)" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#D4892A"></polygon><path d="M12 19.5V23.5" stroke="#D4892A" stroke-width="1.4" stroke-linecap="round"></path></svg>
-    <svg class="leaf d" style="left:60%;top:80%;width:26px;height:26px;transform:rotate(40deg)" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#C9A46A"></polygon><path d="M12 19.5V23.5" stroke="#C9A46A" stroke-width="1.4" stroke-linecap="round"></path></svg>
+    <svg class="leaf d" style="left:60%;top:80%;width:26px;height:26px;transform:rotate(40deg)" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#B9BB4A"></polygon><path d="M12 19.5V23.5" stroke="#B9BB4A" stroke-width="1.4" stroke-linecap="round"></path></svg>
     <svg class="leaf " style="left:92%;top:30%;width:22px;height:22px;transform:rotate(70deg)" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,1 13.6,5.5 16.5,4 16,8 20.5,6.8 19,10.5 23,12 19,13.6 20,17 15.6,15.6 13,18.2 12.6,20 11.4,20 11,18.2 8.4,15.6 4,17 5,13.6 1,12 5,10.5 3.5,6.8 8,8 7.5,4 10.4,5.5" fill="#D4892A"></polygon><path d="M12 19.5V23.5" stroke="#D4892A" stroke-width="1.4" stroke-linecap="round"></path></svg>
     <div class="wrap">
       <p class="eyebrow">Seasonal care</p>
       <h2>Fall cleanup season is here. Get your property <em>ready for winter.</em></h2>
       <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Property cleanups</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Aeration + fertilization</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Lawn mowing + final cuts</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Planting + garden bed refresh</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Property cleanups</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Aeration + fertilization</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Lawn mowing + final cuts</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Planting + garden bed refresh</li>
       </ul>
-      <a href="/lp/property-cleanup-quote" class="text-link" style="color:#C9A46A" data-track="quote_click" data-track-location="seasonal">Get a free cleanup quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+      <a href="/lp/property-cleanup-quote" class="text-link" style="color:#B9BB4A" data-track="quote_click" data-track-location="seasonal">Get a free cleanup quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
     </div>
   </section>
 
   
-  <section class="work" id="work" style="background:#16291F;padding-top:110px">
+  <section class="work" id="work" style="background:#0B3A25;padding-top:110px">
     <div class="wrap">
       <div class="work-head">
         <div>
-          <p class="eyebrow" style="color:#C9A46A">The result</p>
-          <h2>A cleaner yard.<br><span style="color:#C9A46A">A better-looking home.</span></h2>
+          <p class="eyebrow" style="color:#B9BB4A">The result</p>
+          <h2>A cleaner yard.<br><span style="color:#B9BB4A">A better-looking home.</span></h2>
         </div>
         <p class="lede">Real Euro Style lawn and bed care.</p>
       </div>
       
       <div class="res-grid" data-track-view="gallery">
-          <figure class="g-item"><Image src={photo('front-lawn-beds.jpg')} alt="A tidy front lawn with mulched beds, shrubs and an ornamental tree" widths={[480, 800, 1200, 1600]} sizes="(min-width: 1024px) 50vw, 100vw" format="webp" quality={70} decoding="async" loading="lazy" style="aspect-ratio:4 / 3" /><figcaption>Front lawn &amp; beds, cleaned up</figcaption></figure>
-          <figure class="g-item"><Image src={photo('front-lawn-tree.jpg')} alt="A well-kept front lawn with a mature tree and fresh mulch beds" widths={[480, 800, 1200, 1600]} sizes="(min-width: 1024px) 50vw, 100vw" format="webp" quality={70} decoding="async" loading="lazy" style="aspect-ratio:4 / 3" /><figcaption>Lawn &amp; tree beds, cared for</figcaption></figure>
+          <figure class="g-item"><Image src={photo('brown-mulch-bed-brick-front-house.jpg')} alt="Mulch installation and weeding in Monroe, NJ" widths={[480, 800, 1200, 1600]} sizes="(min-width: 1024px) 50vw, 100vw" format="webp" quality={70} decoding="async" loading="lazy" style="aspect-ratio:4 / 3" /><figcaption>Mulch installation and weeding in Monroe, NJ</figcaption></figure>
+          <figure class="g-item"><Image src={photo('striped-lawn-wood-fence.jpg')} alt="Lawn maintenance in East Brunswick, NJ" widths={[480, 800, 1200, 1600]} sizes="(min-width: 1024px) 50vw, 100vw" format="webp" quality={70} decoding="async" loading="lazy" style="aspect-ratio:4 / 3" /><figcaption>Lawn maintenance in East Brunswick, NJ</figcaption></figure>
       </div>
     </div>
   </section>
-  <div aria-hidden="true" style="background:#16291F;line-height:0"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:clamp(36px,5vw,72px)"><path d="M0 46 C 240 86, 520 6, 820 30 S 1260 62, 1440 22 V80 H0Z" fill="#F4EFE4"></path><path d="M0 46 C 240 86, 520 6, 820 30 S 1260 62, 1440 22" fill="none" stroke="#C9A46A" stroke-width="3"></path></svg></div>
+  <div aria-hidden="true" style="background:#0B3A25;line-height:0"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:clamp(36px,5vw,72px)"><path d="M0 46 C 240 86, 520 6, 820 30 S 1260 62, 1440 22 V80 H0Z" fill="#EFF4E7"></path><path d="M0 46 C 240 86, 520 6, 820 30 S 1260 62, 1440 22" fill="none" stroke="#B9BB4A" stroke-width="3"></path></svg></div>
 
   
   <section class="how">
     <div class="wrap">
-      <p class="eyebrow" style="color:#1F3A2B">How it works</p>
-      <h2>Simple, from<br><span style="color:#B8925A">first visit to haul-away</span></h2>
+      <p class="eyebrow" style="color:#0F4A2F">How it works</p>
+      <h2>Simple, from<br><span style="color:#197148">first visit to haul-away</span></h2>
       <div class="steps">
           <article class="step np">
             <span class="step-num cond">01</span>
@@ -179,7 +179,7 @@ import { NEW_CLIENT_OFFER_ON as offer } from '../../lib/campaigns';
         <figcaption>The Euro Style crew</figcaption>
       </figure>
       <div class="story-text">
-        <p class="eyebrow" style="color:#1F3A2B">Our story</p>
+        <p class="eyebrow" style="color:#0F4A2F">Our story</p>
         <h2><small>Welcome to</small>Euro Style Landscape</h2>
         <p>We're a local crew based in Sayreville. You deal with the same team from the first visit to the final haul-away, and we can keep your property looking its best afterwards.</p>
         <span class="script">The same crew, every visit</span>
@@ -193,7 +193,7 @@ import { NEW_CLIENT_OFFER_ON as offer } from '../../lib/campaigns';
       <div class="cta-box">
         <h2>{offer ? 'New clients save 20% on their first cleanup.' : 'Get your property cleaned up before winter.'}</h2>
         <p>Free on-site estimate and a detailed written quote.{offer && ' *New clients only, valid on your first property cleanup.'}</p>
-        <a href="/lp/property-cleanup-quote" class="btn-gold" data-track="quote_click" data-track-location="cta_band" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;background:#C9A46A;color:#1F3A2B;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase;margin-top:6px">{offer ? 'Claim 20% Off' : 'Get a Free Quote'} <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+        <a href="/lp/property-cleanup-quote" class="btn-gold" data-track="quote_click" data-track-location="cta_band" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;background:#B9BB4A;color:#0F4A2F;text-decoration:none;font-family:var(--font-barlow-condensed);font-weight:700;font-size:21px;letter-spacing:.04em;text-transform:uppercase;margin-top:6px">{offer ? 'Claim 20% Off' : 'Get a Free Quote'} <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
         <a href="tel:+17328039646" class="call" data-track-location="cta_band">Or call (732) 803-9646</a>
       </div>
     </div>
@@ -210,9 +210,9 @@ import { NEW_CLIENT_OFFER_ON as offer } from '../../lib/campaigns';
         <div>
           <h4>Get in touch</h4>
           <ul>
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><a href="tel:+17328039646" data-track-location="footer">(732) 803-9646</a></li>
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><a href="/">eurostylelandscape.com</a></li>
-            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A46A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Sayreville, NJ · Serving Middlesex County</span></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><a href="tel:+17328039646" data-track-location="footer">(732) 803-9646</a></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg><a href="/">eurostylelandscape.com</a></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B9BB4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Sayreville, NJ · Serving Middlesex County</span></li>
           </ul>
         </div>
         <div>
@@ -237,7 +237,7 @@ import { NEW_CLIENT_OFFER_ON as offer } from '../../lib/campaigns';
 
 <style is:global>
 *{box-sizing:border-box}
-body{margin:0;background:#F4EFE4;color:#22302A;font-family:var(--font-barlow);-webkit-font-smoothing:antialiased}
+body{margin:0;background:#EFF4E7;color:#0B3A25;font-family:var(--font-barlow);-webkit-font-smoothing:antialiased}
 img{max-width:100%}
 h1,h2,h3,p{margin:0;text-wrap:pretty}
 a{color:inherit}
@@ -245,116 +245,116 @@ a{color:inherit}
 .script{font-family:var(--font-great-vibes);text-transform:none;font-weight:400}
 .wrap{max-width:1240px;margin:0 auto;padding:0 20px}
 .eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--font-barlow-condensed);font-weight:700;font-size:16px;letter-spacing:.2em;text-transform:uppercase}
-.eyebrow::before{content:"";width:32px;height:2px;background:#C9A46A}
-.ic-circle{flex:none;width:60px;height:60px;border-radius:999px;background:#1F3A2B;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 2px rgba(201,164,106,.55)}
+.eyebrow::before{content:"";width:32px;height:2px;background:#B9BB4A}
+.ic-circle{flex:none;width:60px;height:60px;border-radius:999px;background:#0F4A2F;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 2px rgba(201,164,106,.55)}
 .ic-circle.sm{width:48px;height:48px}
-.text-link{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:16px;text-decoration:none;color:#1F3A2B;border-bottom:2px solid #C9A46A;padding-bottom:2px}
+.text-link{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:16px;text-decoration:none;color:#0F4A2F;border-bottom:2px solid #B9BB4A;padding-bottom:2px}
 .text-link:hover{color:#2F6844}
-.btn-gold:hover{background:#B8925A !important}
+.btn-gold:hover{background:#A6A83E !important}
 .btn-out:hover{background:rgba(244,239,228,.1) !important}
 /* header */
 .top{position:absolute;top:0;left:0;right:0;z-index:5}
 .top .wrap{display:flex;align-items:flex-start;justify-content:space-between;padding-top:14px}
 .top-logo{display:block;width:84px;height:84px;filter:drop-shadow(0 4px 14px rgba(0,0,0,.35))}
 .top-actions{display:flex;align-items:center;gap:12px;padding-top:16px}
-.top-phone{width:48px;height:48px;border-radius:999px;border:1.5px solid rgba(244,239,228,.7);display:flex;align-items:center;justify-content:center;color:#F4EFE4;text-decoration:none;background:rgba(22,41,31,.35)}
+.top-phone{width:48px;height:48px;border-radius:999px;border:1.5px solid rgba(244,239,228,.7);display:flex;align-items:center;justify-content:center;color:#EFF4E7;text-decoration:none;background:rgba(22,41,31,.35)}
 .top-phone .num{display:none}
 .top-quote{display:none !important}
 .leaf.d{display:none}
 /* hero */
-.hero{position:relative;min-height:720px;display:flex;align-items:flex-end;background:#16291F;overflow:hidden}
+.hero{position:relative;min-height:720px;display:flex;align-items:flex-end;background:#0B3A25;overflow:hidden}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 50%}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,41,31,.78) 0%,rgba(22,41,31,.18) 26%,rgba(22,41,31,.35) 46%,rgba(22,41,31,.92) 72%,#16291F 100%)}
-.hero-copy{position:relative;padding:150px 0 28px;color:#F4EFE4}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,41,31,.78) 0%,rgba(22,41,31,.18) 26%,rgba(22,41,31,.35) 46%,rgba(22,41,31,.92) 72%,#0B3A25 100%)}
+.hero-copy{position:relative;padding:150px 0 28px;color:#EFF4E7}
 .hero h1{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:58px;line-height:.9;letter-spacing:.005em;text-shadow:0 2px 18px rgba(0,0,0,.35)}
-.hero h1 .gold{color:#C9A46A;display:block}
-.hero .script-line{display:block;font-size:52px;line-height:1;margin:2px 0 0 4px;transform:rotate(-4deg);transform-origin:left center;color:#F4EFE4}
-.hero .rule{width:72px;height:3px;background:#C9A46A;margin:22px 0 18px}
+.hero h1 .gold{color:#B9BB4A;display:block}
+.hero .script-line{display:block;font-size:52px;line-height:1;margin:2px 0 0 4px;transform:rotate(-4deg);transform-origin:left center;color:#EFF4E7}
+.hero .rule{width:72px;height:3px;background:#B9BB4A;margin:22px 0 18px}
 .hero .sub{font-size:18px;line-height:1.55;color:rgba(244,239,228,.9);max-width:520px}
 .hero-btns{display:flex;flex-direction:column;gap:12px;margin-top:26px}
 /* strip */
-.strip{background:#F4EFE4;padding:8px 0 36px}
+.strip{background:#EFF4E7;padding:8px 0 36px}
 .strip ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
 .strip li{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid rgba(201,164,106,.55)}
 .strip li:last-child{border-bottom:0}
-.strip li .cond{font-weight:700;font-size:22px;color:#1F3A2B;letter-spacing:.02em}
+.strip li .cond{font-weight:700;font-size:22px;color:#0F4A2F;letter-spacing:.02em}
 /* story */
 .story{padding:28px 0 72px}
 .story .wrap{display:flex;flex-direction:column;gap:40px}
 .story-photo{position:relative;margin:0 12px 12px 0}
-.story-photo::after{content:"";position:absolute;inset:14px -12px -12px 14px;border:2px solid #C9A46A;border-radius:18px;z-index:0}
+.story-photo::after{content:"";position:absolute;inset:14px -12px -12px 14px;border:2px solid #B9BB4A;border-radius:18px;z-index:0}
 .story-photo img{position:relative;z-index:1;display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
-.story-photo figcaption{position:absolute;z-index:2;left:14px;bottom:14px;padding:6px 12px;border-radius:999px;background:#1F3A2B;color:#F4EFE4;font-size:14px;font-weight:600}
-.story h2{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:44px;line-height:.95;color:#1F3A2B;margin-top:14px}
+.story-photo figcaption{position:absolute;z-index:2;left:14px;bottom:14px;padding:6px 12px;border-radius:999px;background:#0F4A2F;color:#EFF4E7;font-size:14px;font-weight:600}
+.story h2{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:44px;line-height:.95;color:#0F4A2F;margin-top:14px}
 .story h2 small{display:block;font-size:24px;font-weight:700;color:#4F5A52;letter-spacing:.06em;margin-bottom:6px}
 .story p{font-size:18px;line-height:1.65;color:#3C4840;margin-top:18px}
-.story .script{font-size:40px;color:#B8925A;margin-top:14px;display:block}
+.story .script{font-size:40px;color:#197148;margin-top:14px;display:block}
 /* gallery */
-.work{background:#1F3A2B;color:#F4EFE4;padding:20px 0 76px}
+.work{background:#0F4A2F;color:#EFF4E7;padding:20px 0 76px}
 .work h2,.svc h2,.how h2{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:44px;line-height:.95;margin-top:12px}
-.work .lede{font-size:17px;line-height:1.6;color:#BDC7BC;margin-top:12px;max-width:560px}
+.work .lede{font-size:17px;line-height:1.6;color:#C9D3CD;margin-top:12px;max-width:560px}
 .masonry{columns:2;column-gap:10px;margin-top:30px}
-.g-item{position:relative;break-inside:avoid;margin:0 0 10px;border-radius:12px;overflow:hidden;background:#16291F}
+.g-item{position:relative;break-inside:avoid;margin:0 0 10px;border-radius:12px;overflow:hidden;background:#0B3A25}
 .g-item img{display:block;width:100%;object-fit:cover}
-.g-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 10px 9px;background:linear-gradient(180deg,rgba(22,41,31,0),rgba(22,41,31,.88));font-family:var(--font-barlow-condensed);font-weight:700;text-transform:uppercase;font-size:15px;line-height:1.1;letter-spacing:.03em;color:#F4EFE4}
+.g-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 10px 9px;background:linear-gradient(180deg,rgba(22,41,31,0),rgba(22,41,31,.88));font-family:var(--font-barlow-condensed);font-weight:700;text-transform:uppercase;font-size:15px;line-height:1.1;letter-spacing:.03em;color:#EFF4E7}
 .ba{margin-top:44px;display:flex;flex-direction:column;gap:22px}
-.ba .script{font-size:44px;line-height:1;color:#C9A46A}
+.ba .script{font-size:44px;line-height:1;color:#B9BB4A}
 .ba h3{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:32px;line-height:1;margin-top:6px}
-.ba p{font-size:17px;line-height:1.6;color:#BDC7BC;margin-top:10px}
-.ba-frame{border-radius:16px;overflow:hidden;box-shadow:0 0 0 3px #C9A46A}
+.ba p{font-size:17px;line-height:1.6;color:#C9D3CD;margin-top:10px}
+.ba-frame{border-radius:16px;overflow:hidden;box-shadow:0 0 0 3px #B9BB4A}
 .ph-box{margin-top:22px;border:2px dashed #D4892A;border-radius:12px;padding:12px 14px;background:rgba(212,137,42,.12);font-size:14.5px;line-height:1.5;color:#F2D9B8}
-.ph-tag{display:inline-block;margin-right:6px;padding:2px 8px;border-radius:6px;background:#D4892A;color:#16291F;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.ph-tag{display:inline-block;margin-right:6px;padding:2px 8px;border-radius:6px;background:#D4892A;color:#0B3A25;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .res-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:22px}
 .res-grid .g-item{margin:0}
-.svc .also{margin-top:22px;font-size:15.5px;color:#5A655D;padding-left:12px;border-left:3px solid #C9A46A}
-.step.np{background:#FFFDF8;border:1px solid #E5DCC8;border-radius:16px;padding:22px}
+.svc .also{margin-top:22px;font-size:15.5px;color:#5A655D;padding-left:12px;border-left:3px solid #B9BB4A}
+.step.np{background:#FFFFFF;border:1px solid #DCE4D2;border-radius:16px;padding:22px}
 .step.np .step-num{position:static;box-shadow:none}
 .step.np h3{margin-top:16px}
 .work-more{margin-top:34px;display:flex}
 /* services */
 .svc{padding:64px 0 76px}
-.svc h2{color:#1F3A2B}
+.svc h2{color:#0F4A2F}
 .svc-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:30px}
-.svc-card{background:#FFFDF8;border:1px solid #E5DCC8;border-top:4px solid #C9A46A;border-radius:14px;padding:24px 22px;display:flex;flex-direction:column;gap:12px}
-.svc-card h3{font-weight:800;font-size:26px;line-height:1;color:#1F3A2B;margin-top:6px}
+.svc-card{background:#FFFFFF;border:1px solid #DCE4D2;border-top:4px solid #B9BB4A;border-radius:14px;padding:24px 22px;display:flex;flex-direction:column;gap:12px}
+.svc-card h3{font-weight:800;font-size:26px;line-height:1;color:#0F4A2F;margin-top:6px}
 .svc-card p{font-size:16.5px;line-height:1.55;color:#4A554D}
 .svc-card .text-link{align-self:flex-start;margin-top:auto}
 /* seasonal */
-.season{position:relative;background:#1F3A2B;color:#F4EFE4;padding:84px 0 92px;clip-path:polygon(0 0,100% 34px,100% 100%,0 calc(100% - 34px));overflow:hidden;margin:-34px 0 -34px}
+.season{position:relative;background:#0F4A2F;color:#EFF4E7;padding:84px 0 92px;clip-path:polygon(0 0,100% 34px,100% 100%,0 calc(100% - 34px));overflow:hidden;margin:-34px 0 -34px}
 .season .wrap{position:relative;z-index:2}
 .season .eyebrow{color:#D4892A}
 .season .eyebrow::before{background:#D4892A}
 .season h2{font-family:var(--font-barlow-condensed);font-weight:700;text-transform:uppercase;font-size:36px;line-height:1.02;margin-top:14px;max-width:820px}
-.season h2 em{font-style:normal;color:#C9A46A;background:linear-gradient(transparent 88%,#D4892A 88%,#D4892A 96%,transparent 96%)}
+.season h2 em{font-style:normal;color:#B9BB4A;background:linear-gradient(transparent 88%,#D4892A 88%,#D4892A 96%,transparent 96%)}
 .season ul{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
-.season li{display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(201,164,106,.5);border-radius:999px;font-size:15px;font-weight:600;color:#E9E3D6}
-.season .text-link{color:#C9A46A;margin-top:26px}
+.season li{display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(201,164,106,.5);border-radius:999px;font-size:15px;font-weight:600;color:#E1E8D8}
+.season .text-link{color:#B9BB4A;margin-top:26px}
 .leaf{position:absolute;z-index:1;opacity:.95}
 /* how */
 .how{padding:100px 0 64px}
-.how h2{color:#1F3A2B}
+.how h2{color:#0F4A2F}
 .steps{display:grid;grid-template-columns:1fr;gap:34px;margin-top:32px;counter-reset:s}
-.step h3{font-weight:800;font-size:28px;line-height:1;color:#1F3A2B;margin-top:22px}
+.step h3{font-weight:800;font-size:28px;line-height:1;color:#0F4A2F;margin-top:22px}
 .step p{font-size:17px;line-height:1.6;color:#4A554D;margin-top:8px}
 .step-photo{position:relative}
 .step-photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px}
-.step-num{position:absolute;left:16px;bottom:-20px;width:58px;height:58px;border-radius:999px;background:#C9A46A;color:#1F3A2B;font-weight:800;font-size:26px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px #F4EFE4}
+.step-num{position:absolute;left:16px;bottom:-20px;width:58px;height:58px;border-radius:999px;background:#B9BB4A;color:#0F4A2F;font-weight:800;font-size:26px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px #EFF4E7}
 /* cta */
 .cta{padding:8px 0 76px}
-.cta-box{border-top:2px solid #C9A46A;border-bottom:2px solid #C9A46A;padding:44px 4px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;position:relative}
-.cta-box::before,.cta-box::after{content:"";position:absolute;left:0;right:0;height:1px;background:#C9A46A}
+.cta-box{border-top:2px solid #B9BB4A;border-bottom:2px solid #B9BB4A;padding:44px 4px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;position:relative}
+.cta-box::before,.cta-box::after{content:"";position:absolute;left:0;right:0;height:1px;background:#B9BB4A}
 .cta-box::before{top:5px}.cta-box::after{bottom:5px}
-.cta h2{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:42px;line-height:.98;color:#1F3A2B;max-width:640px}
+.cta h2{font-family:var(--font-barlow-condensed);font-weight:800;text-transform:uppercase;font-size:42px;line-height:.98;color:#0F4A2F;max-width:640px}
 .cta p{font-size:17px;color:#4A554D}
-.cta .call{font-size:17px;font-weight:600;color:#1F3A2B;text-decoration:none;border-bottom:2px solid #C9A46A}
+.cta .call{font-size:17px;font-weight:600;color:#0F4A2F;text-decoration:none;border-bottom:2px solid #B9BB4A}
 /* footer */
-.foot{background:#16291F;color:#BDC7BC;padding:52px 0 0}
+.foot{background:#0B3A25;color:#C9D3CD;padding:52px 0 0}
 .foot-grid{display:grid;grid-template-columns:1fr;gap:30px}
 .foot-logo{display:block;width:130px;height:130px}
-.foot h4{margin:0 0 12px;font-family:var(--font-barlow-condensed);font-weight:700;font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:#C9A46A}
+.foot h4{margin:0 0 12px;font-family:var(--font-barlow-condensed);font-weight:700;font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:#B9BB4A}
 .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:16px}
 .foot li{display:flex;align-items:center;gap:10px}
-.foot a{color:#E9E3D6;text-decoration:none}.foot a:hover{color:#C9A46A}
+.foot a{color:#E1E8D8;text-decoration:none}.foot a:hover{color:#B9BB4A}
 .foot-services{margin-top:40px;border-top:1px solid rgba(201,164,106,.3);padding:16px 0;text-align:center;font-family:var(--font-barlow-condensed);font-weight:600;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:#9FAA9E}
 .foot-bottom{border-top:1px solid rgba(244,239,228,.08);padding:16px 0 26px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:14px}
 /* ---- tablet ---- */

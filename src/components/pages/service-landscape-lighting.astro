@@ -1,0 +1,123 @@
+---
+// Generated from design/service-landscape-lighting.dc.html (handoff update 7) by the one-off converter; edit this file directly.
+import Img from '../site/Img.astro';
+import QuoteSection from '../site/QuoteSection.astro';
+import ReviewCards from '../site/ReviewCards.astro';
+import Sidebar from '../site/Sidebar.astro';
+import Video from '../site/Video.astro';
+import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
+---
+  <section class="shero">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="crumb"><a href="/">Home</a><span aria-hidden="true">&rsaquo;</span><a href="/services">Services</a><span aria-hidden="true">&rsaquo;</span><span aria-current="page" style="color: #2E343A">Landscape lighting</span></nav>
+      <div class="shgrid">
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <p class="eb">Landscape lighting</p>
+          <h1 class="hd sh1">Landscape lighting for walls, steps and patios</h1>
+          <p class="lede">Retaining wall lighting, step lighting and paver lighting, for homes and properties across Middlesex, Monmouth and Union County towns. Every project starts with a free on-site consultation.</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 4px">
+            <a href="#quote" class="btn btn-g">Book a free lighting consultation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="tel:+17328039646" class="lnk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> (732) 803-9646</a>
+          </div>
+          <div class="checks"><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Free on-site consultation</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Detailed written quote</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Licensed &amp; insured</span></div>
+        </div>
+        <figure class="hfig"><Img src={"raised-patio-night.jpg"} alt={"Raised paver patio at night with lights in the steps"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} eager priority /><figcaption>Raised paver patio at night with lights in the steps</figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <div class="sec" style="padding-top: clamp(48px, 6vw, 72px)">
+    <div class="wrap layout">
+      <div class="art">
+        <section id="included">
+          <h2 class="ah2">Landscape lighting services</h2>
+          <p class="tx">Plan lighting with a new patio, wall or steps, or ask us about the ones you already have.</p>
+          <div class="inc">
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Retaining wall lighting</b><span>Lights set into retaining walls and seat walls.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Step lighting</b><span>Lights in steps so they are easy to see after dark.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Paver lighting</b><span>Lights set into paver patios, walkways and driveways.</span></p></div>
+          </div>
+        </section>
+        <section id="how">
+          <h2 class="ah2">How it works</h2>
+          <ol class="nsteps2">
+            <li><span class="n">01</span><p><b>Free on-site consultation</b><span>We walk your property with you and talk through what you want and your budget.</span></p></li>
+            <li><span class="n">02</span><p><b>Detailed written quote</b><span>You get a detailed written quote before any work begins.</span></p></li>
+            <li><span class="n">03</span><p><b>We do the work, then clean up</b><span>Our crew does the work and leaves your property clean.</span></p></li>
+          </ol>
+        </section>
+        <section id="work">
+          <h2 class="ah2">Recent lighting work</h2>
+          <figure class="vid solo"><Video name="video-front-yard-walkthrough" label="Retaining wall mounted railings with post mounted lighting installed in New Brunswick, NJ" /><figcaption>Retaining wall mounted railings with post mounted lighting installed in New Brunswick, NJ</figcaption></figure>
+          <div class="pgrid">
+            <figure class="phd"><div class="ph"><Img src={"stamped-walkway-step-lights-night.jpg"} alt={"Paver walkway, landscape rock, Belgian block edging and paver lighting installation in Carteret, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Paver walkway, landscape rock, Belgian block edging and paver lighting installation in Carteret, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"raised-patio-step-lights-night-2.jpg"} alt={"Raised paver patio installation and step lighting installation"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Raised paver patio installation and step lighting installation</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"paver-driveway-belgian-block-lights-dusk.jpg"} alt={"Paver walkway, paver driveway, Belgian block apron and paver lighting installation in Sayreville, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Paver walkway, paver driveway, Belgian block apron and paver lighting installation in Sayreville, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"lit-block-steps-white-railings.jpg"} alt={"Masonry stoop, vinyl railing and step lighting installation in New Brunswick, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Masonry stoop, vinyl railing and step lighting installation in New Brunswick, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"stamped-walkway-river-rock-lighting.jpg"} alt={"Landscape rock installation and Belgian block edging in Sayreville, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Landscape rock installation and Belgian block edging in Sayreville, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"paver-walkway-lights-straw-seed.jpg"} alt={"A new paver walkway with a dark border is lined with landscape lights, and new seed is growing under straw beside it."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Paver walkway &amp; landscape lights</b>A new paver walkway with a dark border is lined with landscape lights, and new seed is growing under straw beside it.</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"mulch-bed-path-lights-river-rock.jpg"} alt={"Mulch installation and planting in Bradley Gardens, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Mulch installation and planting in Bradley Gardens, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"design-3d-night-step-lighting.jpg"} alt={"Landscape design in Hillsborough, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Landscape design in Hillsborough, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"design-3d-patio-lighting.jpg"} alt={"Landscape design in Sewaren, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Landscape design in Sewaren, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"design-render-night.jpg"} alt={"A 3D backyard design shown with evening lighting."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>3D design with evening lighting</b>A 3D backyard design shown with evening lighting.</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"design-3d-pavilion-firepit.jpg"} alt={"A 3D design of a paver patio with a pavilion, a fire pit, seat walls and lighting."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>3D design: lit seat walls &amp; patio</b>A 3D design of a paver patio with a pavilion, a fire pit, seat walls and lighting.</figcaption></figure>
+          </div>
+          <a href="/our-work" class="lnk">See all our work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+        </section>
+        <section id="reviews">
+          <h2 class="ah2">{RATING} from {REVIEW_COUNT} Google reviews</h2>
+          <p class="tx">Real reviews from Euro Style Landscape&rsquo;s Google Business Profile, quoted as written. <a href={REVIEWS_URL} target="_blank" rel="noopener">Read all {REVIEW_COUNT} on Google</a>.</p>
+          <ReviewCards ids={["caleb-d", "shraga-k", "luke-l"]} />
+        </section>
+        <section id="questions">
+          <h2 class="ah2">Landscape lighting FAQ</h2>
+          <div class="qa">
+            <details><summary>What can you light?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Retaining walls, steps and pavers, including patios, walkways and seat walls.</p></details>
+            <details><summary>Can lighting be planned with a new patio or wall?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We can include lighting in the design for a new patio, wall or steps, so you see it before anything is built.</p></details>
+            <details><summary>Is the consultation really free?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We visit your property, talk through what you need and follow up with a detailed written quote. There's no charge and no obligation.</p></details>
+            <details><summary>Are you licensed and insured?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes, Euro Style Landscape is licensed and insured.</p></details>
+            <details><summary>Which areas do you serve?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold.</p></details>
+          </div>
+        </section>
+        <section id="towns">
+          <h2 class="ah2">Landscape lighting in your town</h2>
+          <div class="chips">
+            <a href="/service-areas/sayreville">Sayreville</a>
+            <a href="/service-areas/south-amboy">South Amboy</a>
+            <a href="/service-areas/old-bridge">Old Bridge</a>
+            <a href="/service-areas/matawan">Matawan</a>
+            <a href="/service-areas/marlboro">Marlboro</a>
+            <a href="/service-areas/manalapan">Manalapan</a>
+            <a href="/service-areas/monroe">Monroe</a>
+            <a href="/service-areas/freehold">Freehold</a>
+            <a href="/service-areas/woodbridge">Woodbridge</a>
+            <a href="/service-areas/rahway">Rahway</a>
+            <a href="/service-areas/sewaren">Sewaren</a>
+            <a href="/service-areas/colonia">Colonia</a>
+            <a href="/service-areas/east-brunswick">East Brunswick</a>
+            <a href="/service-areas/south-river">South River</a>
+            <a href="/service-areas/edison">Edison</a>
+            <a href="/service-areas/new-brunswick">New Brunswick</a>
+            <a href="/service-areas/perth-amboy">Perth Amboy</a>
+            <a href="/service-areas/metuchen">Metuchen</a>
+            <a href="/service-areas/spotswood">Spotswood</a>
+          </div>
+        </section>
+        <section id="more">
+          <h2 class="ah2">Other services</h2>
+          <nav aria-label="Other services" class="olist">
+            <a href="/services/construction">Construction &amp; landscape construction <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/lawn-maintenance">Landscape maintenance <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/cleanups">Cleanups &amp; property refresh <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/snow-removal">Snow removal <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/fencing">Fencing <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/planting">Planting &amp; landscape install <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/commercial">Commercial services <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/drainage">Drainage <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+          </nav>
+        </section>
+      </div>
+      <Sidebar toc={[{"href": "#included", "label": "What's included"}, {"href": "#how", "label": "How it works"}, {"href": "#work", "label": "Recent work"}, {"href": "#reviews", "label": "Reviews"}, {"href": "#questions", "label": "Questions"}, {"href": "#towns", "label": "Towns we serve"}, {"href": "#more", "label": "Other services"}]} why={[{"title": "One local team", "text": "The same local crew plans and does the work."}, {"title": "Free on-site consultation", "text": "No cost, no obligation."}, {"title": "Detailed written quote", "text": "You know exactly what you're getting before work starts."}, {"title": "Licensed &amp; insured", "text": "Peace of mind on every job."}]} />
+    </div>
+  </div>
+  <QuoteSection eyebrow={"Free consultation"} title={"Light up your outdoor space"} lede={"Tell us what you'd like to light and we'll call you to book a free on-site consultation."} formId={"svc2-landscape-lighting"} source={"service-landscape-lighting"} service={"Retaining wall lighting"} />
+  

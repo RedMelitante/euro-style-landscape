@@ -1,13 +1,15 @@
 ---
-// Ad landing page header: logo + call button only, no site navigation.
-import Logo from './Logo.astro';
+// Ad landing page header: logo + call button only, no site navigation. White, as in the update 7 restyle.
+import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
+import logo from '../assets/logo/esl-logo-on-light.png';
 import { PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
 ---
 <header class="site-header">
   <div class="container bar">
-    <a href="#" aria-label="Euro Style Landscape" class="brand"><Logo /></a>
-    <a href={PHONE_HREF} class="btn btn-ghost-light call">
+    <!-- Logo is not a link: the ad page has no website navigation (update 8). -->
+    <div class="brand"><Image src={logo} alt="Euro Style Landscape" width={76} height={76} densities={[1, 2]} loading="eager" class="site-logo" /></div>
+    <a href={PHONE_HREF} class="call">
       <Icon name="phone" size={18} />
       <span class="d-only">Call {PHONE_DISPLAY}</span>
       <span class="m-only">Call</span>
@@ -16,8 +18,11 @@ import { PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
 </header>
 
 <style>
-  .site-header { background: var(--forest-800); border-bottom: 1px solid var(--forest-700); }
-  .bar { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .site-header { position: relative; z-index: 10; background: #FFFFFF; border-bottom: 1px solid #E3E8DC; }
+  .bar { height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   .brand { display: flex; align-items: center; text-decoration: none; }
-  .call { height: 44px; padding: 0 16px; border-color: rgba(243, 239, 230, .45); font-size: 15px; white-space: nowrap; }
+  .site-logo { display: block; width: 64px; height: 64px; }
+  @media (min-width: 1024px) { .site-logo { width: 76px; height: 76px; } }
+  .call { display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border: 1.5px solid #197148; border-radius: 4px; color: #197148; text-decoration: none; font-size: 15px; font-weight: 600; white-space: nowrap; }
+  .call:hover { color: #0F4A2F; border-color: #0F4A2F; }
 </style>

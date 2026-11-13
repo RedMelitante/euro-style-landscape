@@ -1,0 +1,101 @@
+---
+// Ad landing page on the main site's older styles: /free-design-consultation (logo + call header, minimal
+// footer, noindex, no chat widget). The website pages use BaseLayout.
+import { Font, getImage } from 'astro:assets';
+import '../styles/global.css';
+import LandingHeader from '../components/LandingHeader.astro';
+import LandingFooter from '../components/LandingFooter.astro';
+import MobileStickyBar from '../components/MobileStickyBar.astro';
+import Tracking from '../components/Tracking.astro';
+import { photo } from '../lib/images';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** '#quote' on pages that have a quote form, '/contact' elsewhere. */
+  quoteHref?: string;
+  stickyLabel?: string;
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description,
+  quoteHref = '/contact',
+  stickyLabel,
+  noindex = true,
+  jsonLd,
+} = Astro.props;
+
+// build.format 'file' makes the pathname '/services.html'; the live URL is '/services'.
+const canonical = new URL(Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/'), Astro.site);
+// Share image: the home hero mosaic's large photo.
+const og = await getImage({ src: photo('hero-firepit-patio.jpg'), width: 1200, format: 'jpg' });
+const ogImage = new URL(og.src, Astro.site).href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0F4A2F" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Euro Style Landscape" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content={String(og.attributes.width ?? 1200)} />
+    <meta property="og:image:height" content={String(og.attributes.height ?? 889)} />
+    <meta property="og:image:alt" content="Circular paver patio with a curved stone seat wall" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <Font cssVariable="--font-barlow" preload={[{ weight: 400 }, { weight: 600 }]} />
+    <Font cssVariable="--font-barlow-condensed" preload={[{ weight: 600, style: 'normal' }]} />
+    <Font cssVariable="--font-hanken" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <Tracking />
+  </head>
+  <body>
+    <div class="page v2">
+      <LandingHeader />
+      <main>
+        <slot />
+      </main>
+      <LandingFooter />
+      <MobileStickyBar quoteHref={quoteHref} label={stickyLabel} />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  /* Update 7 §4: the website colours and Barlow / Barlow Condensed on this ad page. The quote form keeps its own look. */
+  .v2 {
+    --forest-900: #0B3A25; --forest-800: #0F4A2F; --forest-700: #E3E8DC;
+    --green-800: #0F4A2F; --green-700: #197148; --green-600: #197148; --mint-100: #EFF4E7;
+    --sage-100: #EFF4E7; --sage-200: #DCE4D2;
+    --sand-500: #B9BB4A; --sand-600: #A6A83E;
+    --stone-50: #FFFFFF; --line: #DCE4D2; --ink: #2E343A; --ink-muted: #4A5157;
+    --on-dark: #FFFFFF; --on-dark-muted: #C9D3CD; --charcoal: #1D2A12;
+    --font-sans: var(--font-barlow), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #FFFFFF; font-family: var(--font-sans); color: var(--ink);
+  }
+  .v2 .qf {
+    --forest-900: #183024; --forest-800: #1F3A2B; --forest-700: #2B4A38;
+    --green-800: #24523A; --green-700: #2F6844; --green-600: #3A7D52; --mint-100: #E6EFE7;
+    --sage-100: #E6EEE4; --sage-200: #D6E1D3;
+    --sand-500: #C9A46A; --sand-600: #B8925A;
+    --stone-50: #F4F1EA; --line: #E2DCCF; --ink: #1E2621; --ink-muted: #4F5A52;
+    --on-dark: #F3EFE6; --on-dark-muted: #BDC3B8; --charcoal: #1B1F1B;
+    --font-sans: var(--font-hanken, "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif);
+    font-family: var(--font-sans);
+  }
+  .v2 h1:not(.qf *), .v2 h2:not(.qf *) { font-family: var(--font-barlow-condensed), var(--font-barlow), sans-serif !important; font-weight: 600 !important; text-transform: uppercase; letter-spacing: normal !important; line-height: 1.02 !important; }
+  .v2 h3:not(.qf *) { font-family: var(--font-barlow-condensed), var(--font-barlow), sans-serif !important; font-weight: 600 !important; letter-spacing: normal !important; }
+</style>
+

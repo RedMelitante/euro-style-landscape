@@ -36,7 +36,8 @@ On Windows PowerShell use `npm.cmd` / `npx.cmd`.
      page cached from before the field still gets through
    - phone taps send GA4 `click_to_call` (a key event) and Meta `Contact`
    - the bot trap field is `website`
-   - the header and footer use the client's own logo (`src/assets/logo/euro-style-landscape-logo.jpg`)
+   - the header and footer use the client's own logo, the transparent `src/assets/logo/esl-logo-on-light.png` (light
+     backgrounds) and `esl-logo-on-dark.png` (dark backgrounds, including the `/lp/*` pages)
    - the main website never links to the ad pages (`/lp/*`)
    - the GoHighLevel chat widget (`GHL_CHAT_WIDGET_ID` in `src/lib/site.ts`, see README) stays off the ad pages
      (`/lp/*`, `/free-design-consultation`)
@@ -85,38 +86,63 @@ token, build and push, and the owner deploys from their computer.
   pieces are in `src/components/campaign/offer/` and `src/styles/campaign-offer.css`; keep the offer copy word for
   word. The lead forms send `offer: new-client-20-off` (on `/lp/rebuild-or-refresh` only with the Refresh choice),
   which shows in the GoHighLevel note, and the Lead / `generate_lead` events carry `offer: new_client_20` or `none`.
-- The same `NEW_CLIENT_OFFER_ON` switch also controls the offer on the main site (handoff `UPDATE-4-SITE.md`): the
-  banner under the Home hero and on the town pages, the card at the top of `/services#cleanups`, the Contact tile,
-  and the town pages' hero pill and "Do you offer a discount for new clients?" FAQ (`src/components/offer/`).
+- The same `NEW_CLIENT_OFFER_ON` switch also controls the offer on the main site: the olive top bar, the hero pills,
+  the offer bands, the Services and Home service-card tags, the Contact "Reach us" row, the sidebar "New client offer"
+  link and the offer FAQs (wrapped in `{NEW_CLIENT_OFFER_ON && (...)}` in `src/components/pages/`; `offer: true` in
+  `src/data/faqs.json`).
+- Their colours follow the update 7 restyle (website greens, olive, tint); each campaign keeps its own accent colour
+  and script font. `/free-design-consultation` also uses Barlow / Barlow Condensed (overrides in `LandingLayout`).
 - `?h=` swaps the headline on `/lp/landscape-cleanup-quote` (`fall`, `overgrown`, `offer`) and the hero on
   `/lp/rebuild-or-refresh` (`2027`, `fall`).
 
-## Service pages (`src/pages/services/`)
+## Website pages (handoff updates 6–7 redesign)
 
-- 7 indexable pages, one template (`[service].astro`) + `src/data/service-pages.json`, pulled from the handoff's
-  `service-*.dc.html` (update 5). The hero is a photo mosaic or, for Snow removal and Commercial (no real photos yet),
-  an info panel. Cleanups has the offer pill, band and FAQ, all on `NEW_CLIENT_OFFER_ON`.
-- `src/lib/servicePages.ts` order = header Services dropdown, footer Services column, `/services` jump links and each
-  page's "Other services". The header dropdown opens on hover, keyboard focus and tap (tablets).
-- "Sayreville, NJ 08872" links to `MAPS_URL` in `src/lib/site.ts` (footer, Areas we serve tiles, contact strips,
-  privacy policy). Swap in the client's Google Business Profile link there when they send it.
-
-## Service-area town pages (`src/pages/service-areas/`)
-
-- 14 indexable pages, one template (`[town].astro`) + `src/data/towns.json`, pulled from the handoff's
-  `service-area-*.dc.html`. Edit the JSON for copy; the four service cards, "How it works" and the shared FAQs are in
-  the template. Captions describe only what the photo shows, never a town.
+- All website pages share `src/styles/site.css` and `src/components/site/` (top bar, header with Services / Areas
+  dropdowns and "Who We Serve" after Commercial, footer with social icons, mobile bar, sidebar, quote section, review
+  cards). Don't import `global.css` on website pages: its `.btn`, `.h2` etc. clash with `site.css`.
+- Page bodies are in `src/components/pages/` (converted from the handoff's `design/*.dc.html`, last in update 8; edit
+  them directly, copy word for word from the designs). Routes keep the SEO values and JSON-LD; service and town SEO values
+  are in `src/data/service-pages.json` and `src/data/towns.json`. Captions and alt text: where the owner named a photo (job + town, e.g. "Paver patio
+  installation and seating wall in Milltown, NJ"), the caption and alt text are that name and nothing else (on Our Work
+  it's the card title); photos he didn't name have a short title plus a one-sentence description (`.phd`), and the alt
+  text is that sentence.
+- FAQPage JSON-LD comes from `src/data/faqs.json`: when you change a question on a page, change it there too.
+- 9 services (`src/data/service-pages.json`, in menu order; Construction is "Construction & landscape construction",
+  and `/services/lawn-maintenance` is "Landscape maintenance") and 19 towns (`src/data/towns.json`). Header, footer,
+  Services page, Home and "Other towns we serve" follow those lists. The header button says "Get a free quote".
+- The quote form's service options are in `src/data/services.json`; `/api/lead` also accepts the older names in
+  `LEGACY_SERVICES`. `QuoteForm` takes an optional `cta` (submit label, default "Book my free consultation"; the free
+  design consultation page passes "Get a free quote").
+- Each quote form sends a hidden `source` (`home`, `about`, `contact`, `our-work`, `services`, `service-areas`,
+  `who-we-serve`, `service-<key>`, `service-area-<town>`); `/api/lead` accepts only those and tags the contact.
+  Service pages preselect their service (Commercial: property type).
+- Google rating, review count, the "Read all on Google" link and the six reviews (word for word) are in
+  `src/data/reviews.json`. The link is a Google Maps search until the client sends the Business Profile reviews link.
+  No review or rating markup.
+- `SOCIAL` in `src/lib/site.ts` feeds the footer icons and the JSON-LD `sameAs` (`business()` in `src/lib/schema.ts`).
+- Photos go through `src/components/site/Img.astro` (AVIF/WebP srcset, lazy below the fold; the first hero image is
+  eager with `fetchpriority="high"`). Videos (`public/videos/`) are silent: controls, poster, `playsinline`,
+  `preload="none"`, never autoplay.
+- `/services` keeps the anchors `#construction`, `#lawn-maintenance`, `#cleanups`, `#snow-removal`, `#fencing`,
+  `#planting`, `#commercial` (ad pages link to some). `/our-work` has a sidebar link per project group.
 - `/service-areas` (a list of the towns) isn't in the designs; it exists so the breadcrumb JSON-LD points to a real page.
-- No review or rating markup until there are real reviews.
+- "Sayreville, NJ 08872" links to `MAPS_URL` in `src/lib/site.ts`. Swap in the client's Google Business Profile link
+  there when they send it.
+- `/privacy-policy` and `/terms` use `BaseLayout minimal` (logo + "Back to website"); keep their live text.
 
-## Open items (as of 2026-11-09)
+## Open items (as of 2026-11-13)
 
 - Client to confirm: haul-away and whether they need to be home for the estimate, the town list, 2027 start
   timing, and the privacy policy text. ("Licensed & insured" was confirmed by the client in handoff update 3.) Remove the privacy page's
   `noindex` only after they approve it.
-- Client to confirm (updates 4–5): whether snow removal is offered to homes as well as commercial properties, the
+- Client to confirm (updates 4–7): whether snow removal is offered to homes as well as commercial properties, the
   Monroe page's lines about adult communities / HOAs, which fence materials they install (the Fencing page names
-  none), and their Google Business Profile link (to replace `MAPS_URL`).
+  none), their Google Business Profile link and reviews link (to replace `MAPS_URL` and the `reviews.json` url),
+  that they did the church paver project and are happy to show it, that they want the tree work shown (tree removal
+  isn't one of the listed services), any other commercial audiences for Who We Serve (HOAs, retail, offices),
+  "Belgian" vs "Belgium" block, whether "Property refresh" stays in the new-client offer, and names for the photos
+  without owner names.
+- Reviews are a snapshot (4.9 from 87, Nov 2026). Pulling them live needs a Google Places API key.
 - The Google Apps Script backup (`docs/google-apps-script-lead-backup.gs`) now has Property type and Source columns;
   paste the new version into the script and redeploy it for the backup sheet to show them.
 - No ads point at the campaign pages yet.

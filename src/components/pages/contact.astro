@@ -1,0 +1,26 @@
+---
+// Generated from design/contact.dc.html (handoff update 7) by the one-off converter; edit this file directly.
+import QuoteSection from '../site/QuoteSection.astro';
+import { MAPS_URL } from '../../lib/site';
+import { NEW_CLIENT_OFFER_ON } from '../../lib/campaigns';
+---
+  <section class="shero">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="crumb"><a href="/">Home</a><span aria-hidden="true">&rsaquo;</span><span aria-current="page" style="color: #2E343A">Contact</span></nav>
+      <div class="shgrid">
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <p class="eb">Contact</p>
+          <h1 class="hd sh1">Contact us</h1>
+          <p class="lede">Book a free consultation or ask us anything. Send the form or give us a call and we&rsquo;ll take it from there.</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 4px">
+            <a href="#quote" class="btn btn-g">Book a free consultation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="tel:+17328039646" class="lnk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> (732) 803-9646</a>
+          </div>
+        </div>
+        <div class="glance"><span class="k">Reach us</span><dl><div><dt>Phone</dt><dd><a href="tel:+17328039646">(732) 803-9646</a></dd></div><div><dt>Email</dt><dd><a href="mailto:seannachajski@eurostylelandscape.com" style="overflow-wrap: anywhere">seannachajski@eurostylelandscape.com</a></dd></div><div><dt>Areas we serve</dt><dd>Based in <a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps">Sayreville, NJ 08872</a> · serving Middlesex, Monmouth &amp; Union County towns</dd></div><div><dt>Free on-site consultations</dt><dd>No cost, no obligation</dd></div>{NEW_CLIENT_OFFER_ON && (<div><dt>New clients: 20% off</dt><dd>Your first property cleanup, leaf cleanup, landscape cleanup or property refresh. *New clients only.</dd></div>)}</dl></div>
+      </div>
+    </div>
+  </section>
+  <div class="alsobar"><div class="wrap">Also here: <a href="/services">All services</a> · <a href="/our-work">Our work</a> · <a href="/service-areas">Service areas</a> · <a href="/privacy-policy">Privacy policy</a></div></div>
+  <QuoteSection eyebrow={"Free, no-obligation consultation"} title={"Get your free quote"} lede={"Tell us about your project and we&rsquo;ll call you to book a time to visit."} formId={"contact2"} source={"contact"} formTitle={"Request a free quote"} />
+  
