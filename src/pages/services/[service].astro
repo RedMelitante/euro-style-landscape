@@ -36,7 +36,10 @@ const jsonLd = {
       description,
       url: new URL(`/services/${page.key}`, site).href,
       provider: business(site),
-      areaServed: towns.map((t) => ({ '@type': 'City', name: t.place })),
+      areaServed:
+        page.areaServed === 'counties'
+          ? ['Middlesex County, NJ', 'Monmouth County, NJ', 'Union County, NJ'].map((name) => ({ '@type': 'AdministrativeArea', name }))
+          : towns.map((t) => ({ '@type': 'City', name: t.place })),
     },
     faqPage(page.key),
     breadcrumbs(site, ['Services', '/services'], [page.name, `/services/${page.key}`]),

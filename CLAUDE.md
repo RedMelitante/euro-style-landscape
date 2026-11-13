@@ -100,11 +100,19 @@ token, build and push, and the owner deploys from their computer.
 - All website pages share `src/styles/site.css` and `src/components/site/` (top bar, header with Services / Areas
   dropdowns and "Who We Serve" after Commercial, footer with social icons, mobile bar, sidebar, quote section, review
   cards). Don't import `global.css` on website pages: its `.btn`, `.h2` etc. clash with `site.css`.
-- Page bodies are in `src/components/pages/` (converted once from the handoff's `design/*.dc.html`; edit them
-  directly, copy word for word from the designs). Routes keep the SEO values and JSON-LD; service and town SEO values
-  are in `src/data/service-pages.json` and `src/data/towns.json`. Captions and alt text describe only what a photo
-  shows, never a town.
+- Page bodies are in `src/components/pages/` (converted from the handoff's `design/*.dc.html`, last in update 8; edit
+  them directly, copy word for word from the designs). Routes keep the SEO values and JSON-LD; service and town SEO values
+  are in `src/data/service-pages.json` and `src/data/towns.json`. Captions and alt text: where the owner named a photo (job + town, e.g. "Paver patio
+  installation and seating wall in Milltown, NJ"), the caption and alt text are that name and nothing else (on Our Work
+  it's the card title); photos he didn't name have a short title plus a one-sentence description (`.phd`), and the alt
+  text is that sentence.
 - FAQPage JSON-LD comes from `src/data/faqs.json`: when you change a question on a page, change it there too.
+- 9 services (`src/data/service-pages.json`, in menu order; Construction is "Construction & landscape construction",
+  and `/services/lawn-maintenance` is "Landscape maintenance") and 19 towns (`src/data/towns.json`). Header, footer,
+  Services page, Home and "Other towns we serve" follow those lists. The header button says "Get a free quote".
+- The quote form's service options are in `src/data/services.json`; `/api/lead` also accepts the older names in
+  `LEGACY_SERVICES`. `QuoteForm` takes an optional `cta` (submit label, default "Book my free consultation"; the free
+  design consultation page passes "Get a free quote").
 - Each quote form sends a hidden `source` (`home`, `about`, `contact`, `our-work`, `services`, `service-areas`,
   `who-we-serve`, `service-<key>`, `service-area-<town>`); `/api/lead` accepts only those and tags the contact.
   Service pages preselect their service (Commercial: property type).
@@ -122,7 +130,7 @@ token, build and push, and the owner deploys from their computer.
   there when they send it.
 - `/privacy-policy` and `/terms` use `BaseLayout minimal` (logo + "Back to website"); keep their live text.
 
-## Open items (as of 2026-11-11)
+## Open items (as of 2026-11-13)
 
 - Client to confirm: haul-away and whether they need to be home for the estimate, the town list, 2027 start
   timing, and the privacy policy text. ("Licensed & insured" was confirmed by the client in handoff update 3.) Remove the privacy page's
@@ -131,7 +139,9 @@ token, build and push, and the owner deploys from their computer.
   Monroe page's lines about adult communities / HOAs, which fence materials they install (the Fencing page names
   none), their Google Business Profile link and reviews link (to replace `MAPS_URL` and the `reviews.json` url),
   that they did the church paver project and are happy to show it, that they want the tree work shown (tree removal
-  isn't one of the 7 services), and any other commercial audiences for Who We Serve (HOAs, retail, offices).
+  isn't one of the listed services), any other commercial audiences for Who We Serve (HOAs, retail, offices),
+  "Belgian" vs "Belgium" block, whether "Property refresh" stays in the new-client offer, and names for the photos
+  without owner names.
 - Reviews are a snapshot (4.9 from 87, Nov 2026). Pulling them live needs a Google Places API key.
 - The Google Apps Script backup (`docs/google-apps-script-lead-backup.gs`) now has Property type and Source columns;
   paste the new version into the script and redeploy it for the backup sheet to show them.

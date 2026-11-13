@@ -6,11 +6,11 @@
     },
     {
       "q": "What services do you offer?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, masonry and more), lawn maintenance, cleanups and property refresh, snow removal, fencing, planting and landscape install, and commercial property services."
+      "a": "Construction and landscape construction (landscape design, retaining walls, pavers, steps, concrete, asphalt, masonry, outdoor kitchens, pergolas, ponds and more), landscape maintenance (lawn mowing, bush and tree trimming, seasonal cleanups, mulch and weeding), cleanups and property refresh, snow removal, fencing, planting and landscape install, commercial property services, landscape lighting and drainage."
     },
     {
       "q": "Do you work with commercial properties?",
-      "a": "Yes. We handle snow removal, cleanups, lawn maintenance, small construction and landscape upgrades for commercial properties, with one call and one invoice."
+      "a": "Yes. We handle snow removal, cleanups, landscape maintenance, small construction and landscape upgrades for commercial properties, with one call and one invoice."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -37,7 +37,7 @@
     },
     {
       "q": "What landscaping services do you offer in Colonia?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -64,7 +64,34 @@
     },
     {
       "q": "What landscaping services do you offer in East Brunswick?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "edison": [
+    {
+      "q": "Do you work in Edison?",
+      "a": "Yes. Edison borders Sayreville, and we already work in the township, including mulch, planting, tree removal and snow removal jobs."
+    },
+    {
+      "q": "What landscaping services do you offer in Edison?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -91,7 +118,7 @@
     },
     {
       "q": "What landscaping services do you offer in Freehold?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -118,7 +145,7 @@
     },
     {
       "q": "What landscaping services do you offer in Manalapan?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -145,7 +172,7 @@
     },
     {
       "q": "What landscaping services do you offer in Marlboro?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -172,7 +199,34 @@
     },
     {
       "q": "What landscaping services do you offer in Matawan?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "metuchen": [
+    {
+      "q": "Do you work in Metuchen?",
+      "a": "Yes. Metuchen is a short drive from our Sayreville base, and we work across the whole borough."
+    },
+    {
+      "q": "What landscaping services do you offer in Metuchen?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -199,7 +253,34 @@
     },
     {
       "q": "What landscaping services do you offer in Monroe?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "new-brunswick": [
+    {
+      "q": "Do you work in New Brunswick?",
+      "a": "Yes. New Brunswick is a short drive from our Sayreville base, and we've already done stoop, railing and lighting work in the city."
+    },
+    {
+      "q": "What landscaping services do you offer in New Brunswick?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -226,7 +307,34 @@
     },
     {
       "q": "What landscaping services do you offer in Old Bridge?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "perth-amboy": [
+    {
+      "q": "Do you work in Perth Amboy?",
+      "a": "Yes. Perth Amboy is just across the Raritan River from our Sayreville base, and we work across the whole city."
+    },
+    {
+      "q": "What landscaping services do you offer in Perth Amboy?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -253,7 +361,7 @@
     },
     {
       "q": "What landscaping services do you offer in Rahway?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -280,7 +388,7 @@
     },
     {
       "q": "What landscaping services do you offer in Sayreville?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -307,7 +415,7 @@
     },
     {
       "q": "What landscaping services do you offer in Sewaren?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -334,7 +442,7 @@
     },
     {
       "q": "What landscaping services do you offer in South Amboy?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -361,7 +469,34 @@
     },
     {
       "q": "What landscaping services do you offer in South River?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
+    },
+    {
+      "q": "Do you offer a discount for new clients?",
+      "a": "Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.",
+      "offer": true
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "How do I get a quote?",
+      "a": "Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation."
+    }
+  ],
+  "spotswood": [
+    {
+      "q": "Do you work in Spotswood?",
+      "a": "Yes. Spotswood is a short drive from our Sayreville base, and we have done paver walkway work in the borough."
+    },
+    {
+      "q": "What landscaping services do you offer in Spotswood?",
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -388,7 +523,7 @@
     },
     {
       "q": "What landscaping services do you offer in Woodbridge?",
-      "a": "Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties."
+      "a": "Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -438,11 +573,11 @@
   "commercial": [
     {
       "q": "What commercial services do you offer?",
-      "a": "Snow removal, cleanups, lawn maintenance, small construction (masonry, carpentry, concrete and pavers, retaining walls, asphalt repair, fencing) and landscape install and upgrades."
+      "a": "Snow removal, cleanups, landscape maintenance, small construction (masonry, carpentry, concrete and pavers, retaining walls, asphalt repair, fencing) and landscape install and upgrades."
     },
     {
       "q": "Can you handle snow removal and grounds care together?",
-      "a": "Yes. One team covers snow removal in winter and lawn maintenance, cleanups and small construction the rest of the year, with one call and one invoice."
+      "a": "Yes. One team covers snow removal in winter and landscape maintenance, cleanups and small construction the rest of the year, with one call and one invoice."
     },
     {
       "q": "Do you offer seasonal snow contracts?",
@@ -472,11 +607,33 @@
     },
     {
       "q": "What construction services do you offer?",
-      "a": "Outdoor backyard design, paver patios, walkways and driveways, retaining walls, decks and carpentry, masonry, stone veneer, outdoor kitchens, concrete, and asphalt including repair and patching."
+      "a": "Landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, step installation, paver installation and sealing, planting, dry creek installation, outdoor kitchens, pergolas, stone veneer, stucco, masonry work, ponds and water features."
     },
     {
       "q": "Do you work on commercial properties?",
       "a": "Yes. We also handle small construction for commercial properties, including masonry, pavers, concrete, asphalt repair and fencing."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    }
+  ],
+  "drainage": [
+    {
+      "q": "What drainage work do you do?",
+      "a": "French drain installation, dry well installation, drainage installation, sump pump installation and dry creek installation."
+    },
+    {
+      "q": "How do you decide which option I need?",
+      "a": "We walk your property with you, look at where the water collects and recommend options in a detailed written quote."
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you need and follow up with a detailed written quote. There's no charge and no obligation."
     },
     {
       "q": "Are you licensed and insured?",
@@ -513,10 +670,32 @@
       "a": "We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
     }
   ],
+  "landscape-lighting": [
+    {
+      "q": "What can you light?",
+      "a": "Retaining walls, steps and pavers, including patios, walkways and seat walls."
+    },
+    {
+      "q": "Can lighting be planned with a new patio or wall?",
+      "a": "Yes. We can include lighting in the design for a new patio, wall or steps, so you see it before anything is built."
+    },
+    {
+      "q": "Is the consultation really free?",
+      "a": "Yes. We visit your property, talk through what you need and follow up with a detailed written quote. There's no charge and no obligation."
+    },
+    {
+      "q": "Are you licensed and insured?",
+      "a": "Yes, Euro Style Landscape is licensed and insured."
+    },
+    {
+      "q": "Which areas do you serve?",
+      "a": "We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold."
+    }
+  ],
   "lawn-maintenance": [
     {
-      "q": "What does lawn maintenance include?",
-      "a": "Mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance, and spring and fall cleanups. We agree the exact list with you at the visit."
+      "q": "What does landscape maintenance include?",
+      "a": "Lawn maintenance and mowing, bush trimming, tree trimming, leaf, fall and spring cleanups, mulch installation and weeding. We agree the exact list with you at the visit."
     },
     {
       "q": "Do you look after yards you didn't build?",
@@ -576,7 +755,7 @@
     },
     {
       "q": "Can you look after the property the rest of the year too?",
-      "a": "Yes. We offer lawn maintenance, cleanups and small construction, so one team can look after your property all year."
+      "a": "Yes. We offer landscape maintenance, cleanups and small construction, so one team can look after your property all year."
     },
     {
       "q": "Is the assessment free?",
@@ -598,7 +777,7 @@
     },
     {
       "q": "Do you work with commercial properties?",
-      "a": "Yes. We handle snow removal, cleanups, lawn maintenance, small construction and landscape upgrades for commercial properties, with one call and one invoice."
+      "a": "Yes. We handle snow removal, cleanups, landscape maintenance, small construction and landscape upgrades for commercial properties, with one call and one invoice."
     },
     {
       "q": "Do you offer a discount for new clients?",
@@ -621,7 +800,7 @@
   "who-we-serve": [
     {
       "q": "Do you work on homes and commercial properties?",
-      "a": "Yes. We design, build and look after landscapes for homes, and handle snow removal, cleanups, lawn maintenance, small construction and landscape upgrades for commercial properties, with one call and one invoice."
+      "a": "Yes. We design, build and look after landscapes for homes, and handle snow removal, cleanups, landscape maintenance, small construction and landscape upgrades for commercial properties, with one call and one invoice."
     },
     {
       "q": "Which page should I start on?",

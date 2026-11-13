@@ -3,7 +3,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Home from '../components/pages/home.astro';
 import { EMAIL } from '../lib/site';
-import { groups } from '../lib/services';
+import { servicePages } from '../lib/servicePages';
 import { business, faqPage } from '../lib/schema';
 
 const site = Astro.site!;
@@ -17,13 +17,9 @@ const jsonLd = {
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Landscape services',
-        itemListElement: groups.map((g) => ({
-          '@type': 'OfferCatalog',
-          name: g.title,
-          itemListElement: g.items.map((i) => ({
-            '@type': 'Offer',
-            itemOffered: { '@type': 'Service', name: i.title, description: i.text },
-          })),
+        itemListElement: servicePages.map((p) => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name: p.name, description: p.descriptionNoOffer ?? p.description, url: new URL(`/services/${p.key}`, site).href },
         })),
       },
     }),

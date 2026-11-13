@@ -10,6 +10,8 @@ export type ServicePage = {
   /** Breadcrumb and JSON-LD name ("Commercial property services"). */
   name: string;
   serviceType: string;
+  /** 'counties': JSON-LD areaServed is the three counties instead of the town list (Landscape lighting, Drainage). */
+  areaServed?: 'counties';
   title: string;
   description: string;
   /** Meta description while NEW_CLIENT_OFFER_ON is false, when `description` mentions the offer (Cleanups). */

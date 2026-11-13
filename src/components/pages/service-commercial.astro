@@ -4,6 +4,7 @@ import Img from '../site/Img.astro';
 import QuoteSection from '../site/QuoteSection.astro';
 import ReviewCards from '../site/ReviewCards.astro';
 import Sidebar from '../site/Sidebar.astro';
+import Video from '../site/Video.astro';
 import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
 ---
   <section class="shero">
@@ -33,7 +34,7 @@ import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
           <div class="inc">
             <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Snow removal</b><span>Lot and driveway plowing, sidewalk and entrance shoveling, salting and de-icing, and seasonal snow contracts.</span></p></div>
             <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Cleanups</b><span>Property cleanups, leaf cleanups, landscape cleanups and property refresh.</span></p></div>
-            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Lawn maintenance</b><span>Mowing and edging, fertilization and aeration, shrub and hedge trimming, mulching and bed maintenance, and spring and fall cleanups.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Landscape maintenance</b><span>Lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding.</span></p></div>
             <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Small construction</b><span>Masonry (brick, block, stone veneer, steps, pillars), carpentry (decks, railings, repairs), concrete work and pavers, retaining walls, asphalt repair and patching, and fencing and gates.</span></p></div>
             <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Landscape install &amp; upgrades</b><span>Planting (trees, shrubs, garden beds), new lawn installation, and entrance and curb appeal upgrades.</span></p></div>
           </div>
@@ -48,11 +49,14 @@ import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
         </section>
         <section id="work">
           <h2 class="ah2">Examples of our work</h2>
+          <figure class="vid solo wide"><Video name="video-commercial-site-old-bridge" label="Commercial property maintenance in Old Bridge, NJ" /><figcaption>Commercial property maintenance in Old Bridge, NJ</figcaption></figure>
           <div class="pgrid">
-            <figure class="ph"><Img src={"church-curved-paver-walkways.jpg"} alt={"Curved paver walkways with bollard lights at a church, during installation"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Curved paver walkways &amp; bollard lights</figcaption></figure>
-            <figure class="ph"><Img src={"church-paver-walkway-border.jpg"} alt={"Curved paver walkway with a dark border and bollard lights, during installation"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Paver walkway with a dark border</figcaption></figure>
-            <figure class="ph"><Img src={"snow-plowing-night.jpg"} alt={"Clearing snow at night with a plow blade and a snow pusher"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Night-time snow clearing</figcaption></figure>
-            <figure class="ph"><Img src={"snow-plowing-night-2.jpg"} alt={"Plowing snow at night with a plow blade and a snow pusher"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} /><figcaption>Night plowing with two machines</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"commercial-building-mowed-trimmed.jpg"} alt={"Commercial property maintenance in East Windsor, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Commercial property maintenance in East Windsor, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"commercial-plaza-island-regraded.jpg"} alt={"A grass island beside the flagpole at a commercial plaza has been regraded."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Commercial plaza island, regraded</b>A grass island beside the flagpole at a commercial plaza has been regraded.</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"commercial-lawn-mowing-brick-building.jpg"} alt={"Commercial lawn care in Somerville, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Commercial lawn care in Somerville, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"church-curved-paver-walkways.jpg"} alt={"Curved paver walkways with bollard lights being installed at a church."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Curved paver walkways &amp; bollard lights</b>Curved paver walkways with bollard lights being installed at a church.</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"church-paver-walkway-border.jpg"} alt={"A curved paver walkway with a dark border and bollard lights, during installation."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Paver walkway with a dark border</b>A curved paver walkway with a dark border and bollard lights, during installation.</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"snow-plowing-night.jpg"} alt={"Snow being cleared at night with a plow blade and a snow pusher."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Night-time snow clearing</b>Snow being cleared at night with a plow blade and a snow pusher.</figcaption></figure>
           </div>
           <a href="/our-work" class="lnk">See all our work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
         </section>
@@ -64,8 +68,8 @@ import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
         <section id="questions">
           <h2 class="ah2">Commercial services FAQ</h2>
           <div class="qa">
-            <details><summary>What commercial services do you offer?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Snow removal, cleanups, lawn maintenance, small construction (masonry, carpentry, concrete and pavers, retaining walls, asphalt repair, fencing) and landscape install and upgrades.</p></details>
-            <details><summary>Can you handle snow removal and grounds care together?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. One team covers snow removal in winter and lawn maintenance, cleanups and small construction the rest of the year, with one call and one invoice.</p></details>
+            <details><summary>What commercial services do you offer?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Snow removal, cleanups, landscape maintenance, small construction (masonry, carpentry, concrete and pavers, retaining walls, asphalt repair, fencing) and landscape install and upgrades.</p></details>
+            <details><summary>Can you handle snow removal and grounds care together?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. One team covers snow removal in winter and landscape maintenance, cleanups and small construction the rest of the year, with one call and one invoice.</p></details>
             <details><summary>Do you offer seasonal snow contracts?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. Seasonal snow contracts are available, so snow removal is planned before the first storm.</p></details>
             <details><summary>Is the assessment free?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We visit the property and follow up with a written quote. There's no charge and no obligation.</p></details>
             <details><summary>Are you licensed and insured?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes, Euro Style Landscape is licensed and insured.</p></details>
@@ -89,17 +93,24 @@ import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
             <a href="/service-areas/colonia">Colonia</a>
             <a href="/service-areas/east-brunswick">East Brunswick</a>
             <a href="/service-areas/south-river">South River</a>
+            <a href="/service-areas/edison">Edison</a>
+            <a href="/service-areas/new-brunswick">New Brunswick</a>
+            <a href="/service-areas/perth-amboy">Perth Amboy</a>
+            <a href="/service-areas/metuchen">Metuchen</a>
+            <a href="/service-areas/spotswood">Spotswood</a>
           </div>
         </section>
         <section id="more">
           <h2 class="ah2">Other services</h2>
           <nav aria-label="Other services" class="olist">
-            <a href="/services/construction">Construction <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
-            <a href="/services/lawn-maintenance">Lawn maintenance <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/construction">Construction &amp; landscape construction <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/lawn-maintenance">Landscape maintenance <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
             <a href="/services/cleanups">Cleanups &amp; property refresh <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
             <a href="/services/snow-removal">Snow removal <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
             <a href="/services/fencing">Fencing <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
             <a href="/services/planting">Planting &amp; landscape install <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/landscape-lighting">Landscape lighting <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/drainage">Drainage <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
           </nav>
         </section>
       </div>

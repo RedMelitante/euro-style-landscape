@@ -110,5 +110,45 @@
     "county": "Middlesex County",
     "title": "Landscaping in South River, NJ | Euro Style Landscape",
     "description": "South River, NJ landscaper next door in Sayreville: patios, walkways, fencing, lawn care, cleanups and planting. Free on-site consultation."
+  },
+  {
+    "slug": "edison",
+    "name": "Edison",
+    "place": "Edison, NJ",
+    "county": "Middlesex County",
+    "title": "Landscaping in Edison, NJ | Euro Style Landscape",
+    "description": "Edison, NJ landscaper next door in Sayreville: mulch and planting, tree and bush removal, patios, lawn care and snow removal. Free on-site consultation."
+  },
+  {
+    "slug": "new-brunswick",
+    "name": "New Brunswick",
+    "place": "New Brunswick, NJ",
+    "county": "Middlesex County",
+    "title": "Landscaping in New Brunswick, NJ | Euro Style Landscape",
+    "description": "New Brunswick, NJ landscaper based nearby in Sayreville: masonry stoops, steps, railings, step and post lighting, patios and lawn care."
+  },
+  {
+    "slug": "perth-amboy",
+    "name": "Perth Amboy",
+    "place": "Perth Amboy, NJ",
+    "county": "Middlesex County",
+    "title": "Landscaping in Perth Amboy, NJ | Euro Style Landscape",
+    "description": "Perth Amboy, NJ landscaper just across the river in Sayreville: patios, walkways, retaining walls, lawn care, fencing and planting."
+  },
+  {
+    "slug": "metuchen",
+    "name": "Metuchen",
+    "place": "Metuchen, NJ",
+    "county": "Middlesex County",
+    "title": "Landscaping in Metuchen, NJ | Euro Style Landscape",
+    "description": "Metuchen, NJ landscaper based nearby in Sayreville: fall cleanups, planting, patios, walkways, lawn care and fencing. Free on-site consultation."
+  },
+  {
+    "slug": "spotswood",
+    "name": "Spotswood",
+    "place": "Spotswood, NJ",
+    "county": "Middlesex County",
+    "title": "Landscaping in Spotswood, NJ | Euro Style Landscape",
+    "description": "Spotswood, NJ landscaper based nearby in Sayreville: paver walkways, patios, drainage, lawn care, fencing and planting. Free on-site consultation."
   }
 ]

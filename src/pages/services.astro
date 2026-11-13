@@ -1,9 +1,9 @@
 ---
-// Services overview: the 7 services as groups with the anchors ad pages link to (#construction ... #commercial).
-// Body: src/components/pages/services.astro. JSON-LD: each service in services.json as a Service, plus the FAQ.
+// Services overview: the 9 services as groups with the anchors ad pages link to (#construction ... #commercial).
+// Body: src/components/pages/services.astro. JSON-LD: each of the 9 services as a Service, plus the FAQ.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Services from '../components/pages/services.astro';
-import { groups } from '../lib/services';
+import { servicePages } from '../lib/servicePages';
 import { business, breadcrumbs, faqPage } from '../lib/schema';
 
 const site = Astro.site!;
@@ -11,16 +11,15 @@ const provider = business(site);
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    ...groups.flatMap((g) =>
-      g.items.map((i) => ({
-        '@type': 'Service',
-        name: i.title,
-        description: i.text,
-        serviceType: g.id === 'more' ? i.title : g.title,
-        provider,
-        areaServed: { '@type': 'AdministrativeArea', name: 'Middlesex County, NJ' },
-      })),
-    ),
+    ...servicePages.map((p) => ({
+      '@type': 'Service',
+      name: p.name,
+      serviceType: p.serviceType,
+      description: p.descriptionNoOffer ?? p.description,
+      url: new URL(`/services/${p.key}`, site).href,
+      provider,
+      areaServed: ['Middlesex County, NJ', 'Monmouth County, NJ', 'Union County, NJ'].map((name) => ({ '@type': 'AdministrativeArea', name })),
+    })),
     faqPage('services'),
     breadcrumbs(site, ['Services', '/services']),
   ],

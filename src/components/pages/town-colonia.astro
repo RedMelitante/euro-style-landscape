@@ -1,16 +1,16 @@
 ---
 // Generated from design/service-area-colonia.dc.html (handoff update 7) by the one-off converter; edit this file directly.
-import { MAPS_URL } from '../../lib/site';
 import Img from '../site/Img.astro';
 import QuoteSection from '../site/QuoteSection.astro';
 import ReviewCards from '../site/ReviewCards.astro';
 import Sidebar from '../site/Sidebar.astro';
+import { MAPS_URL } from '../../lib/site';
 import { NEW_CLIENT_OFFER_ON } from '../../lib/campaigns';
 import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
 ---
   <section class="shero">
     <div class="wrap">
-      <nav aria-label="Breadcrumb" class="crumb"><a href="/">Home</a><span aria-hidden="true">&rsaquo;</span><a href="/service-areas/sayreville">Service areas</a><span aria-hidden="true">&rsaquo;</span><span aria-current="page" style="color: #2E343A">Colonia, NJ</span></nav>
+      <nav aria-label="Breadcrumb" class="crumb"><a href="/">Home</a><span aria-hidden="true">&rsaquo;</span><a href="/service-areas">Service areas</a><span aria-hidden="true">&rsaquo;</span><span aria-current="page" style="color: #2E343A">Colonia, NJ</span></nav>
       <div class="shgrid">
         <div style="display: flex; flex-direction: column; gap: 20px">
           <p class="eb">Service area · Colonia, NJ (Woodbridge Township)</p>
@@ -48,13 +48,15 @@ import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
           <h2 class="ah2">Landscaping services in Colonia</h2>
           <p class="tx">From a new patio to regular mowing, one team handles it. We confirm the details with you at the free consultation.</p>
           <div class="scards">
-            <a href="/services/construction" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 12h18M12 3v18"></path></svg></span><p><b>Construction</b><span>Paver patios, retaining walls, outdoor kitchens, decks and masonry.</span></p></a>
-            <a href="/services/lawn-maintenance" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M6 21v-5M9 21v-8M12 21v-6M15 21v-9M18 21v-5"></path></svg></span><p><b>Lawn maintenance</b><span>Mowing and edging, fertilization, aeration and seasonal cleanups.</span></p></a>
+            <a href="/services/construction" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 12h18M12 3v18"></path></svg></span><p><b>Construction &amp; landscape construction</b><span>Landscape design, retaining walls, pavers, steps, concrete, asphalt, masonry, outdoor kitchens and more.</span></p></a>
+            <a href="/services/lawn-maintenance" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M6 21v-5M9 21v-8M12 21v-6M15 21v-9M18 21v-5"></path></svg></span><p><b>Landscape maintenance</b><span>Lawn mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch and weeding.</span></p></a>
             <a href="/services/cleanups" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v13"></path><path d="M6 15h12"></path><path d="M6 15v5M9 15v5M12 15v5M15 15v5M18 15v5"></path></svg></span><p><b>Cleanups &amp; property refresh</b><span>Property, leaf and landscape cleanups, plus property refreshes.</span>{NEW_CLIENT_OFFER_ON && (<span class="pill">New clients: 20% off</span>)}</p></a>
             <a href="/services/snow-removal" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"></path></svg></span><p><b>Snow removal</b><span>Plowing, shoveling, salting and de-icing, plus seasonal snow contracts.</span></p></a>
             <a href="/services/fencing" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3 2 5v15h4V5zM12 3l-2 2v15h4V5zM20 3l-2 2v15h4V5z"></path><path d="M6 8h4M6 15h4M14 8h4M14 15h4"></path></svg></span><p><b>Fencing</b><span>New fences and gates for privacy, safety and a finished boundary.</span></p></a>
             <a href="/services/planting" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-6"></path><path d="M12 16c-4 0-7-2.5-7-6a7 7 0 0 1 14 0c0 3.5-3 6-7 6z"></path></svg></span><p><b>Planting &amp; landscape install</b><span>Trees, shrubs, garden beds, new lawns and curb appeal upgrades.</span></p></a>
             <a href="/services/commercial" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14"></path><path d="M9 9h1M14 9h1M9 13h1M14 13h1M10 21v-4h4v4"></path></svg></span><p><b>Commercial services</b><span>Grounds care, snow removal, small construction and cleanups, with one invoice.</span></p></a>
+            <a href="/services/landscape-lighting" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"></path><path d="M12 2a7 7 0 0 0-4 12.7V16h8v-1.3A7 7 0 0 0 12 2z"></path></svg></span><p><b>Landscape lighting</b><span>Retaining wall lighting, step lighting and paver lighting.</span></p></a>
+            <a href="/services/drainage" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7S5 10 5 14.5a7 7 0 0 0 14 0C19 10 12 2.7 12 2.7z"></path></svg></span><p><b>Drainage</b><span>French drains, dry wells, drainage installation, sump pumps and dry creek beds.</span></p></a>
           </div>
         </section>
         {NEW_CLIENT_OFFER_ON && (<div id="offer" class="offerband">
@@ -76,12 +78,12 @@ import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
         </section>
         <section id="work">
           <h2 class="ah2">Recent work</h2>
-          <p class="tx">Real Euro Style Landscape projects. Captions describe what each photo shows.</p>
+          <p class="tx">Real Euro Style Landscape projects. The first photo is from jobs in Colonia.</p>
           <div class="pgrid">
-            <figure class="ph"><Img src={"walkway-steps.jpg"} alt={"Paver walkway with a dark border leading to wide paver steps"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Walkway &amp; wide steps</figcaption></figure>
-            <figure class="ph"><Img src={"hero-firepit-patio.jpg"} alt={"Circular paver patio with a curved stone seat wall"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Circular patio &amp; seat wall</figcaption></figure>
-            <figure class="ph"><Img src={"raised-patio-wide.jpg"} alt={"Wide raised paver patio with steps across the back of a house"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /><figcaption>Raised patio across a house</figcaption></figure>
-            <figure class="ph"><Img src={"covered-patio-wall.jpg"} alt={"Paver patio under a covered porch beside a block retaining wall"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} /><figcaption>Patio &amp; retaining wall</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"new-bed-black-mulch-boxwood.jpg"} alt={"Mulch installation and planting in Colonia, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Mulch installation and planting in Colonia, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"walkway-steps.jpg"} alt={"A paver walkway with a dark border leads up to a set of wide paver steps."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Walkway &amp; wide steps</b>A paver walkway with a dark border leads up to a set of wide paver steps.</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"hero-firepit-patio.jpg"} alt={"A circular paver patio is wrapped by a curved stone seat wall, with trees and lawn around it."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Circular patio &amp; seat wall</b>A circular paver patio is wrapped by a curved stone seat wall, with trees and lawn around it.</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"raised-patio-wide.jpg"} alt={"A wide raised paver patio with steps stretches across the back of the house."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Raised patio across a house</b>A wide raised paver patio with steps stretches across the back of the house.</figcaption></figure>
           </div>
           <a href="/our-work" class="lnk">See all our work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
         </section>
@@ -94,7 +96,7 @@ import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
           <h2 class="ah2">Colonia landscaping FAQ</h2>
           <div class="qa">
             <details><summary>Is Colonia part of Woodbridge?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. Colonia is a community within Woodbridge Township with its own 07067 ZIP code. We work across Colonia and the rest of the township.</p></details>
-            <details><summary>What landscaping services do you offer in Colonia?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Construction (pavers, patios, retaining walls, outdoor kitchens, decks, carpentry, concrete, masonry, stone veneer, and asphalt including repair and patching), lawn maintenance (mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and bed maintenance), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation and landscape installation. We work on homes and commercial properties.</p></details>
+            <details><summary>What landscaping services do you offer in Colonia?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties.</p></details>
             {NEW_CLIENT_OFFER_ON && (<details><summary>Do you offer a discount for new clients?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.</p></details>)}
             <details><summary>Is the consultation really free?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation.</p></details>
             <details><summary>Are you licensed and insured?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes, Euro Style Landscape is licensed and insured.</p></details>
@@ -117,6 +119,11 @@ import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
             <a href="/service-areas/sewaren">Sewaren</a>
             <a href="/service-areas/east-brunswick">East Brunswick</a>
             <a href="/service-areas/south-river">South River</a>
+            <a href="/service-areas/edison">Edison</a>
+            <a href="/service-areas/new-brunswick">New Brunswick</a>
+            <a href="/service-areas/perth-amboy">Perth Amboy</a>
+            <a href="/service-areas/metuchen">Metuchen</a>
+            <a href="/service-areas/spotswood">Spotswood</a>
           </div>
         </section>
       </div>

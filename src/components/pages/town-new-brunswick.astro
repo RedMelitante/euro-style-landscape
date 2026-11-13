@@ -1,0 +1,137 @@
+---
+// Generated from design/service-area-new-brunswick.dc.html (handoff update 7) by the one-off converter; edit this file directly.
+import Img from '../site/Img.astro';
+import QuoteSection from '../site/QuoteSection.astro';
+import ReviewCards from '../site/ReviewCards.astro';
+import Sidebar from '../site/Sidebar.astro';
+import Video from '../site/Video.astro';
+import { MAPS_URL } from '../../lib/site';
+import { NEW_CLIENT_OFFER_ON } from '../../lib/campaigns';
+import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
+---
+  <section class="shero">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="crumb"><a href="/">Home</a><span aria-hidden="true">&rsaquo;</span><a href="/service-areas">Service areas</a><span aria-hidden="true">&rsaquo;</span><span aria-current="page" style="color: #2E343A">New Brunswick, NJ</span></nav>
+      <div class="shgrid">
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <p class="eb">Service area · New Brunswick, NJ</p>
+          {NEW_CLIENT_OFFER_ON && (<a href="/services/cleanups" class="pill" style="align-self: flex-start; margin: 0; padding: 6px 14px; font-size: 13px; text-decoration: none">New clients: 20% off your first cleanup or property refresh</a>)}
+          <h1 class="hd sh1">Landscaping in New Brunswick, NJ</h1>
+          <p class="lede">Steps, stoops, railings, lighting, patios and lawn care for New Brunswick homes, from one local team based nearby in Sayreville.</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 4px">
+            <a href="#quote" class="btn btn-g">Book a free consultation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="tel:+17328039646" class="lnk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> (732) 803-9646</a>
+          </div>
+          <div class="checks"><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Free on-site consultation</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Licensed &amp; insured</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Based nearby in Sayreville</span></div>
+        </div>
+        <div class="glance"><span class="k">New Brunswick at a glance</span><dl><div><dt>County</dt><dd>Middlesex County (county seat)</dd></div><div><dt>ZIP codes</dt><dd>08901 New Brunswick</dd></div><div><dt>Communities we serve</dt><dd>7 including Fifth Ward, Feaster Park, Lincoln Park</dd></div><div><dt>From our base</dt><dd><a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps">Sayreville, NJ 08872</a></dd></div></dl></div>
+      </div>
+    </div>
+  </section>
+  <div class="sec" style="padding-top: clamp(48px, 6vw, 72px)">
+    <div class="wrap layout">
+      <div class="art">
+        <section id="local">
+          <h2 class="ah2">Landscaping across New Brunswick</h2>
+          <p class="tx">New Brunswick is a short drive from our Sayreville base, so it's easy to come out for a free on-site consultation and to keep coming back for lawn care and seasonal cleanups.</p>
+          <p class="tx">We work across the city, from the Fifth Ward and Feaster Park to Lincoln Park, Raritan Gardens and Edgebrook-Westons Mills. Recent New Brunswick jobs include a masonry stoop with vinyl railings and step lighting, and railings mounted on a retaining wall with post-mounted lights.</p>
+          <p style="font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #197148">New Brunswick neighborhoods we serve</p>
+          <div class="chips">
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Fifth Ward</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Feaster Park</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Lincoln Park</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Raritan Gardens</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Edgebrook-Westons Mills</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Downtown</span>
+            <span style="display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border: 1px solid #D5DCCD; border-radius: 2px; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #2E343A">Livingston Avenue area</span>
+          </div>
+        </section>
+        <section id="services">
+          <h2 class="ah2">Landscaping services in New Brunswick</h2>
+          <p class="tx">From a new patio to regular mowing, one team handles it. We confirm the details with you at the free consultation.</p>
+          <div class="scards">
+            <a href="/services/construction" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 12h18M12 3v18"></path></svg></span><p><b>Construction &amp; landscape construction</b><span>Landscape design, retaining walls, pavers, steps, concrete, asphalt, masonry, outdoor kitchens and more.</span></p></a>
+            <a href="/services/lawn-maintenance" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M6 21v-5M9 21v-8M12 21v-6M15 21v-9M18 21v-5"></path></svg></span><p><b>Landscape maintenance</b><span>Lawn mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch and weeding.</span></p></a>
+            <a href="/services/cleanups" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v13"></path><path d="M6 15h12"></path><path d="M6 15v5M9 15v5M12 15v5M15 15v5M18 15v5"></path></svg></span><p><b>Cleanups &amp; property refresh</b><span>Property, leaf and landscape cleanups, plus property refreshes.</span>{NEW_CLIENT_OFFER_ON && (<span class="pill">New clients: 20% off</span>)}</p></a>
+            <a href="/services/snow-removal" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"></path></svg></span><p><b>Snow removal</b><span>Plowing, shoveling, salting and de-icing, plus seasonal snow contracts.</span></p></a>
+            <a href="/services/fencing" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3 2 5v15h4V5zM12 3l-2 2v15h4V5zM20 3l-2 2v15h4V5z"></path><path d="M6 8h4M6 15h4M14 8h4M14 15h4"></path></svg></span><p><b>Fencing</b><span>New fences and gates for privacy, safety and a finished boundary.</span></p></a>
+            <a href="/services/planting" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-6"></path><path d="M12 16c-4 0-7-2.5-7-6a7 7 0 0 1 14 0c0 3.5-3 6-7 6z"></path></svg></span><p><b>Planting &amp; landscape install</b><span>Trees, shrubs, garden beds, new lawns and curb appeal upgrades.</span></p></a>
+            <a href="/services/commercial" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14"></path><path d="M9 9h1M14 9h1M9 13h1M14 13h1M10 21v-4h4v4"></path></svg></span><p><b>Commercial services</b><span>Grounds care, snow removal, small construction and cleanups, with one invoice.</span></p></a>
+            <a href="/services/landscape-lighting" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4"></path><path d="M12 2a7 7 0 0 0-4 12.7V16h8v-1.3A7 7 0 0 0 12 2z"></path></svg></span><p><b>Landscape lighting</b><span>Retaining wall lighting, step lighting and paver lighting.</span></p></a>
+            <a href="/services/drainage" class="sc"><span class="ii"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7S5 10 5 14.5a7 7 0 0 0 14 0C19 10 12 2.7 12 2.7z"></path></svg></span><p><b>Drainage</b><span>French drains, dry wells, drainage installation, sump pumps and dry creek beds.</span></p></a>
+          </div>
+        </section>
+        {NEW_CLIENT_OFFER_ON && (<div id="offer" class="offerband">
+          <span class="pill" style="align-self: flex-start; margin: 0">New client special</span>
+          <h2 class="hd" style="font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.4rem)">20% off <span class="acc acc-o">your first cleanup or property refresh</span></h2>
+          <p style="font-size: 15px; color: #E6EAE7">Property cleanups · Leaf cleanups · Landscape cleanups · Property refresh</p>
+          <p style="font-size: 14px; color: #C9D3CD">*New clients only. Valid on your first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px"><a href="#quote" class="btn btn-o">Claim 20% off <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a><a href="/services/cleanups" class="btn btn-line">See cleanup services</a></div>
+        </div>)}
+        <section id="know">
+          <h2 class="ah2">The Hub City on the Raritan</h2>
+          <p class="tx">New Brunswick sits on the southern bank of the Raritan River and is the county seat of Middlesex County. It's known as the Hub City, and Rutgers, founded here in 1766 as Queen's College, has its main campus in the city.</p>
+          <p class="tx">Many city lots are compact, so front steps, stoops, railings and lighting do a lot of work. We build them to be safe and to look good from the street.</p>
+          <div class="inc">
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Steps and stoops</b><span>Masonry stoops and steps built to last.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Railings and lighting</b><span>Vinyl railings, wall-mounted railings, and step and post lights.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Small-yard hardscape</b><span>Patios and walkways planned for compact city lots.</span></p></div>
+          </div>
+        </section>
+        <section id="work">
+          <h2 class="ah2">Recent work</h2>
+          <p class="tx">Real Euro Style Landscape projects. The first photo is from jobs in New Brunswick.</p>
+          <figure class="vid solo"><Video name="video-front-yard-walkthrough" label="Retaining wall mounted railings with post mounted lighting installed in New Brunswick, NJ" /><figcaption>Retaining wall mounted railings with post mounted lighting installed in New Brunswick, NJ</figcaption></figure>
+          <div class="pgrid">
+            <figure class="phd"><div class="ph"><Img src={"lit-block-steps-white-railings.jpg"} alt={"Masonry stoop, vinyl railing and step lighting installation in New Brunswick, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Masonry stoop, vinyl railing and step lighting installation in New Brunswick, NJ</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"front-walkway.jpg"} alt={"A curved paver walkway, lined with topiaries, leads to the front of a brick home."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Curved front walkway</b>A curved paver walkway, lined with topiaries, leads to the front of a brick home.</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"hero-firepit-patio.jpg"} alt={"A circular paver patio is wrapped by a curved stone seat wall, with trees and lawn around it."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Circular patio &amp; seat wall</b>A circular paver patio is wrapped by a curved stone seat wall, with trees and lawn around it.</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"covered-patio-wall.jpg"} alt={"A paver patio sits under a covered porch, beside a block retaining wall."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Patio &amp; retaining wall</b>A paver patio sits under a covered porch, beside a block retaining wall.</figcaption></figure>
+          </div>
+          <a href="/our-work" class="lnk">See all our work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+        </section>
+        <section id="reviews">
+          <h2 class="ah2">{RATING} from {REVIEW_COUNT} Google reviews</h2>
+          <p class="tx">Real reviews from Euro Style Landscape&rsquo;s Google Business Profile, quoted as written. <a href={REVIEWS_URL} target="_blank" rel="noopener">Read all {REVIEW_COUNT} on Google</a>.</p>
+          <ReviewCards ids={["caleb-d", "jennifer-w", "frank"]} />
+        </section>
+        <section id="questions">
+          <h2 class="ah2">New Brunswick landscaping FAQ</h2>
+          <div class="qa">
+            <details><summary>Do you work in New Brunswick?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. New Brunswick is a short drive from our Sayreville base, and we've already done stoop, railing and lighting work in the city.</p></details>
+            <details><summary>What landscaping services do you offer in New Brunswick?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties.</p></details>
+            {NEW_CLIENT_OFFER_ON && (<details><summary>Do you offer a discount for new clients?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.</p></details>)}
+            <details><summary>Is the consultation really free?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation.</p></details>
+            <details><summary>Are you licensed and insured?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes, Euro Style Landscape is licensed and insured.</p></details>
+            <details><summary>How do I get a quote?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation.</p></details>
+          </div>
+        </section>
+        <section id="towns">
+          <h2 class="ah2">Other towns we serve</h2>
+          <div class="chips">
+            <a href="/service-areas/sayreville">Sayreville</a>
+            <a href="/service-areas/south-amboy">South Amboy</a>
+            <a href="/service-areas/old-bridge">Old Bridge</a>
+            <a href="/service-areas/matawan">Matawan</a>
+            <a href="/service-areas/marlboro">Marlboro</a>
+            <a href="/service-areas/manalapan">Manalapan</a>
+            <a href="/service-areas/monroe">Monroe</a>
+            <a href="/service-areas/freehold">Freehold</a>
+            <a href="/service-areas/woodbridge">Woodbridge</a>
+            <a href="/service-areas/rahway">Rahway</a>
+            <a href="/service-areas/sewaren">Sewaren</a>
+            <a href="/service-areas/colonia">Colonia</a>
+            <a href="/service-areas/east-brunswick">East Brunswick</a>
+            <a href="/service-areas/south-river">South River</a>
+            <a href="/service-areas/edison">Edison</a>
+            <a href="/service-areas/perth-amboy">Perth Amboy</a>
+            <a href="/service-areas/metuchen">Metuchen</a>
+            <a href="/service-areas/spotswood">Spotswood</a>
+          </div>
+        </section>
+      </div>
+      <Sidebar toc={[{"href": "#local", "label": "Your local landscaper"}, {"href": "#services", "label": "Services in New Brunswick"}, {"href": "#offer", "label": "New client offer", "offer": true}, {"href": "#know", "label": "Local know-how"}, {"href": "#work", "label": "Recent work"}, {"href": "#reviews", "label": "Reviews"}, {"href": "#questions", "label": "Questions"}, {"href": "#towns", "label": "Nearby towns"}]} why={[{"title": "One team, design to build", "text": "The same local crew plans and builds your project."}, {"title": "Free on-site consultation", "text": "No cost, no obligation."}, {"title": "Detailed written quote", "text": "You know exactly what you&rsquo;re getting before work starts."}, {"title": "Licensed &amp; insured", "text": "Peace of mind on every job."}]} />
+    </div>
+  </div>
+  <QuoteSection eyebrow={"Free consultation"} title={"Get a free quote in New Brunswick"} lede={"Tell us about your project and we'll call you to book a free on-site consultation."} formId={"town2-new-brunswick"} source={"service-area-new-brunswick"} />
+  

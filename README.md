@@ -21,17 +21,17 @@ subdomain must serve HTTPS. Turn HSTS off and wait out the max-age before ever m
 | Path | What |
 |---|---|
 | `src/pages/` | `/`, `/about`, `/services`, `/our-work`, `/contact`, `/who-we-serve`, `/free-design-consultation` (ad landing, noindex), `/privacy-policy`, `/terms`, `api/lead.ts`. Each website route sets the SEO values and JSON-LD and renders its body from `src/components/pages/`. |
-| `src/pages/services/` | 7 indexable service pages (`/services/<key>`) from `[service].astro`: SEO values in `src/data/service-pages.json`, page bodies in `src/components/pages/service-<key>.astro`. |
-| `src/pages/service-areas/` | 14 indexable town pages (`/service-areas/<town>`) from `[town].astro`: SEO values in `src/data/towns.json`, page bodies in `src/components/pages/town-<slug>.astro`; plus the `/service-areas` list. |
+| `src/pages/services/` | 9 indexable service pages (`/services/<key>`) from `[service].astro`: SEO values in `src/data/service-pages.json`, page bodies in `src/components/pages/service-<key>.astro`. |
+| `src/pages/service-areas/` | 19 indexable town pages (`/service-areas/<town>`) from `[town].astro`: SEO values in `src/data/towns.json`, page bodies in `src/components/pages/town-<slug>.astro`; plus the `/service-areas` list. |
 | `src/pages/lp/` | Ad campaign pages (noindex, not in the sitemap), built from `design/lp-*.dc.html` in the handoff. They use `CampaignLayout`, not the site header or footer. `src/lib/campaigns.ts` holds their form sources, the extra services `/api/lead` accepts from them and the offer switches. |
-| `src/components/pages/` | The website page bodies, converted from the handoff's update 6–7 designs (`design/*.dc.html`, copied word for word). Edit these files for copy. |
+| `src/components/pages/` | The website page bodies, converted from the handoff's update 6–8 designs (`design/*.dc.html`, copied word for word). Edit these files for copy. |
 | `src/components/site/` | Website pieces shared by every page: offer top bar, header (Services / Areas dropdowns), footer (social icons), mobile Call / Free consultation bar, sidebar, quote section, review cards, `Img` (image pipeline) and `Video`. |
 | `src/layouts/BaseLayout.astro` | Website pages: head/SEO/OG, fonts, tracking, chat widget; `minimal` gives privacy and terms the "Back to website" header. `LandingLayout` is the free design consultation ad page; `CampaignLayout` the `/lp/*` pages. |
 | `src/styles/site.css` | Website design system (update 6 §2–3: colours, Barlow / Barlow Condensed, all page sections). `tokens.css` + `global.css` are the older theme, still used by the quote form, the before/after slider and `/free-design-consultation`. |
 | `src/data/reviews.json` | Google rating (4.9), review count (87), the "Read all on Google" link and the six featured reviews, word for word (`src/lib/reviews.ts`). No review/rating schema. |
 | `src/data/faqs.json` | Each page's FAQ questions for the FAQPage JSON-LD (the same text as the page; `offer` items follow `NEW_CLIENT_OFFER_ON`). Change it together with the page body. |
-| `src/data/services.json` | Service lists for the quote form options and the Home / Services JSON-LD (read via `src/lib/services.ts`). |
-| `src/assets/images/` | Project photos, served as AVIF/WebP via `<Img>` / `<Photo>`. `public/videos/` holds the three silent project videos (posters in `src/assets/images/*-poster.jpg`). |
+| `src/data/services.json` | The quote form's "Service needed" options (read via `src/lib/services.ts`). |
+| `src/assets/images/` | Project photos, served as AVIF/WebP via `<Img>` / `<Photo>`. `public/videos/` holds the six silent project videos (posters in `src/assets/images/*-poster.jpg`). |
 
 ## Leads
 

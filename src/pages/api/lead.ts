@@ -26,8 +26,8 @@ import { SERVICE_SOURCES } from '../../lib/servicePages';
 // Hidden `source` on the main website pages' quote forms (update 6-7 designs).
 const SITE_SOURCES = ['home', 'about', 'contact', 'our-work', 'services', 'service-areas', 'who-we-serve'];
 
-/** Older service names still accepted, so a page cached before Update 4 can still send a lead. */
-const LEGACY_SERVICES = ['Lawn mowing'];
+/** Older service names still accepted, so a page cached before Updates 4 and 8 can still send a lead. */
+const LEGACY_SERVICES = ['Outdoor backyard design', 'Pavers', 'Outdoor kitchen', 'Retaining wall', 'Decks', 'Asphalt repair & patching', 'Carpentry: railings & repairs', 'Lawn mowing & edging', 'Fertilization', 'Aeration', 'Shrub & hedge trimming', 'Mulching & bed maintenance', 'Spring & fall cleanup'];
 
 export const prerender = false;
 

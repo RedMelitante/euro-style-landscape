@@ -43,7 +43,7 @@ const tail: { key: NavKey; href: string; label: string }[] = [
       </div>
       {links.map((l) => <a href={l.href} aria-current={cur(l.key === current)} style={on(l.key === current)}>{l.label}</a>)}
       <div class="dd" data-dd>
-        <a href={townHref('sayreville')} aria-haspopup="true" aria-expanded="false" style={on(current === 'areas')} data-dd-trigger>Areas <span class="chev" set:html={ICONS.chev} /></a>
+        <a href="/service-areas" aria-haspopup="true" aria-expanded="false" style={on(current === 'areas')} data-dd-trigger>Areas <span class="chev" set:html={ICONS.chev} /></a>
         <div class="dd-menu cols">
           {towns.map((t) => <a href={townHref(t.slug)} aria-current={cur(t.slug === currentTown)} style={on(t.slug === currentTown)}>{t.name}</a>)}
         </div>
@@ -52,7 +52,7 @@ const tail: { key: NavKey; href: string; label: string }[] = [
     </nav>
     <div style="display: flex; align-items: center; gap: 16px">
       <a href={PHONE_HREF} class="hdr-phone d-only">{PHONE_DISPLAY}</a>
-      <a href={quoteHref} class="btn btn-g d-only">Book a free consultation</a>
+      <a href={quoteHref} class="btn btn-g d-only">Get a free quote</a>
       <a href={PHONE_HREF} class="m-only ibtn" aria-label="Call Euro Style Landscape" set:html={ICONS.call} />
       <button type="button" class="m-only ibtn" aria-label="Menu" aria-expanded="false" aria-controls="mnav" data-menu-toggle set:html={ICONS.menu} />
     </div>
@@ -64,10 +64,10 @@ const tail: { key: NavKey; href: string; label: string }[] = [
     </div>
     <a href="/who-we-serve" style={on(current === 'who')}>Who We Serve</a>
     <a href="/our-work" style={on(current === 'work')}>Our Work</a>
-    <a href={townHref('sayreville')} style={on(current === 'areas')}>Service areas</a>
+    <a href="/service-areas" style={on(current === 'areas')}>Service areas</a>
     <a href="/about" style={on(current === 'about')}>About</a>
     <a href="/contact" style={on(current === 'contact')}>Contact</a>
-    <a href={quoteHref} class="btn btn-g">Book a free consultation</a>
+    <a href={quoteHref} class="btn btn-g">Get a free quote</a>
   </nav>
 </header>
 

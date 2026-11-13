@@ -24,7 +24,9 @@ import { ICONS } from './icons';
       {servicePages.map((s) => <a href={serviceHref(s.key)} class="foot-link">{s.menu}</a>)}
     </nav>
     <nav aria-label="Service areas"><h2>Service areas</h2>
-      {towns.map((t) => <a href={townHref(t.slug)} class="foot-link">{t.name}</a>)}
+      <div class="ft-areas">
+        {towns.map((t) => <a href={townHref(t.slug)} class="foot-link">{t.name}</a>)}
+      </div>
     </nav>
     <nav aria-label="Company"><h2>Company</h2>
       <a href="/about" class="foot-link">About us</a>

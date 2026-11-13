@@ -1,18 +1,18 @@
 [
   {
     "key": "construction",
-    "menu": "Construction",
-    "name": "Construction",
+    "menu": "Construction & landscape construction",
+    "name": "Construction & landscape construction",
     "serviceType": "Construction",
     "title": "Landscape Construction: Patios, Walls & Decks | Euro Style Landscape",
     "description": "Paver patios, retaining walls, decks, masonry, outdoor kitchens, concrete and asphalt, designed and built by one local team. Free on-site consultation."
   },
   {
     "key": "lawn-maintenance",
-    "menu": "Lawn maintenance",
-    "name": "Lawn maintenance",
-    "serviceType": "Lawn maintenance",
-    "title": "Lawn Maintenance: Mowing, Fertilization & Aeration | Euro Style Landscape",
+    "menu": "Landscape maintenance",
+    "name": "Landscape maintenance",
+    "serviceType": "Landscape maintenance",
+    "title": "Landscape Maintenance: Lawn Mowing, Trimming & Cleanups | Euro Style Landscape",
     "description": "Mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and seasonal cleanups for homes and commercial properties. One local team."
   },
   {
@@ -51,9 +51,27 @@
   {
     "key": "commercial",
     "menu": "Commercial services",
-    "name": "Commercial property services",
+    "name": "Commercial services",
     "serviceType": "Commercial property services",
     "title": "Commercial Property Services: Snow, Grounds & Construction | Euro Style Landscape",
     "description": "Snow removal, small construction, grounds care and cleanups for commercial properties, with one call and one invoice. Free on-site assessment."
+  },
+  {
+    "key": "landscape-lighting",
+    "menu": "Landscape lighting",
+    "name": "Landscape lighting",
+    "serviceType": "Landscape lighting",
+    "areaServed": "counties",
+    "title": "Landscape Lighting for Walls, Steps & Pavers | Euro Style Landscape",
+    "description": "Retaining wall lighting, step lighting and paver lighting for patios, walls and walkways in Middlesex, Monmouth and Union County, NJ. Free on-site consultation."
+  },
+  {
+    "key": "drainage",
+    "menu": "Drainage",
+    "name": "Drainage",
+    "serviceType": "Drainage",
+    "areaServed": "counties",
+    "title": "Drainage, French Drains & Dry Wells | Euro Style Landscape",
+    "description": "French drain, dry well, drainage, sump pump and dry creek installation for homes and properties in Middlesex, Monmouth and Union County, NJ. Free on-site consultation."
   }
 ]
