@@ -4,7 +4,10 @@
 //   2. Google Apps Script backup: only if GoHighLevel isn't configured or fails;
 //      emails the lead and logs it to a Google Sheet.
 // Also sends a Meta Conversions API Lead event when configured.
+// Spam checks run first, before anything is saved or sent: the `website` honeypot and a form filled in
+// under 3 seconds are dropped silently (200 ok), and the Cloudflare Turnstile token must verify (400 if not).
 import type { APIRoute } from 'astro';
+import { env as workerEnv } from 'cloudflare:workers';
 import {
   GHL_API_BASE,
   GHL_LOCATION_ID,
@@ -63,6 +66,46 @@ const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } });
 
 const str = (v: unknown, max: number) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
+
+// ---------------------------------------------------------------- Spam checks
+
+/** Forms sent sooner than this after the page loaded are treated as bots. */
+const MIN_FILL_MS = 3000;
+const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+const NOT_A_ROBOT = 'Please confirm you\u2019re not a robot and try again.';
+
+/** Milliseconds between page load (`ts`) and submit; NaN when `ts` is missing or not a number. */
+function fillTime(raw: Record<string, unknown>) {
+  const loaded = Number(str(raw.ts, 20));
+  if (!str(raw.ts, 20) || !Number.isFinite(loaded) || loaded <= 0) return NaN;
+  // The form scripts also send their own submit time, so a visitor whose clock is off still measures right.
+  const submitted = Number(str(raw.ts_submit, 20));
+  return (Number.isFinite(submitted) && submitted > 0 ? submitted : Date.now()) - loaded;
+}
+
+/** Verifies the Turnstile token with TURNSTILE_SECRET_KEY (a Cloudflare secret, from the Workers env). */
+async function turnstilePassed(token: string, ip: string | null) {
+  const secret = workerEnv.TURNSTILE_SECRET_KEY;
+  if (typeof secret !== 'string' || !secret) {
+    // Never lose real leads to a missing secret; the honeypot and the 3-second check still apply.
+    console.error('[lead] TURNSTILE_SECRET_KEY is not set: Turnstile check skipped');
+    return true;
+  }
+  const body = new FormData();
+  body.append('secret', secret);
+  body.append('response', token);
+  if (ip) body.append('remoteip', ip);
+  try {
+    const res = await fetch(TURNSTILE_VERIFY_URL, { method: 'POST', body });
+    const out = (await res.json()) as { success?: boolean; 'error-codes'?: string[] };
+    if (out.success !== true) console.warn('[lead] Turnstile check failed:', (out['error-codes'] ?? []).join(', '));
+    return out.success === true;
+  } catch (err) {
+    // Cloudflare's check itself unreachable: let the lead through rather than lose it.
+    console.error('[lead] Turnstile siteverify error, lead allowed:', err);
+    return true;
+  }
+}
 
 function validate(raw: Record<string, unknown>): { lead?: Lead; error?: string } {
   const lead: Lead = {
@@ -349,8 +392,19 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     return json({ ok: false, error: 'Invalid request.' }, 400);
   }
 
-  // Honeypot filled in: pretend success so bots learn nothing.
-  if (str(raw.website, 200)) return json({ ok: true });
+  // Spam checks, before anything is saved or sent. Bots get a quiet "ok" so they learn nothing.
+  if (str(raw.website, 200)) {
+    console.info('[lead] Dropped: honeypot filled');
+    return json({ ok: true });
+  }
+  const filled = fillTime(raw);
+  if (!(filled >= MIN_FILL_MS)) {
+    console.info('[lead] Dropped:', Number.isNaN(filled) ? 'no ts' : `sent ${filled} ms after page load`);
+    return json({ ok: true });
+  }
+  if (!(await turnstilePassed(str(raw['cf-turnstile-response'], 4096), request.headers.get('CF-Connecting-IP')))) {
+    return json({ ok: false, error: NOT_A_ROBOT }, 400);
+  }
 
   const { lead, error } = validate(raw);
   if (!lead) return json({ ok: false, error }, 422);

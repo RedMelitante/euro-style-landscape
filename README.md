@@ -35,7 +35,12 @@ subdomain must serve HTTPS. Turn HSTS off and wait out the max-age before ever m
 
 ## Leads
 
-`POST /api/lead` validates the form server-side and drops honeypot submissions, then delivers the lead:
+`POST /api/lead` first runs the spam checks: a filled `website` honeypot, or a form sent less than 3 seconds after
+the page loaded (hidden `ts`), is dropped with a quiet `{ok:true}`, and the Cloudflare Turnstile token
+(`cf-turnstile-response`, widget in `src/components/Turnstile.astro`) must pass `siteverify` with the
+`TURNSTILE_SECRET_KEY` secret, or the visitor gets a 400 asking them to confirm they're not a robot. If the secret is
+missing or Cloudflare's check can't be reached, the lead is let through and the Worker log says so. It then validates
+the form server-side and delivers the lead:
 
 1. **GoHighLevel** (sub-account "Eurostyle Landscape"): upserts the contact with tags `website-lead`,
    `service-<name>`, `timeline-<right-now|just-looking>`, `property-<home|commercial>`, the page the form was on
@@ -52,7 +57,7 @@ subdomain must serve HTTPS. Turn HSTS off and wait out the max-age before ever m
 
 It also sends a Meta CAPI `Lead` event when configured (deduplicated with the browser Pixel via `event_id`).
 Non-secret settings are in `wrangler.jsonc`; secrets are set with `npx wrangler secret put GHL_TOKEN`
-(and `LEAD_BACKUP_URL`, optional `LEAD_BACKUP_SECRET`, `META_CAPI_TOKEN`).
+(and `LEAD_BACKUP_URL`, optional `LEAD_BACKUP_SECRET`, `META_CAPI_TOKEN`, `TURNSTILE_SECRET_KEY`).
 
 ## Chat widget
 

@@ -1,0 +1,24 @@
+---
+// Cloudflare Turnstile spam check + the hidden `ts` field, for every form that posts to /api/lead.
+// Goes inside the <form>, above the submit button. Turnstile adds a hidden `cf-turnstile-response`
+// field to the form; /api/lead verifies it with TURNSTILE_SECRET_KEY (a Cloudflare secret).
+// The site key is public and hardcoded on purpose (wrangler.jsonc has the same value as PUBLIC_TURNSTILE_SITE_KEY).
+// The script below is bundled once per page, so api.js loads once even when a page has two forms.
+---
+<div class="cf-turnstile" data-sitekey="0x4AAAAAAGExmapRk-Pe8vjc"></div>
+<input type="hidden" name="ts" value="" />
+
+<script>
+  // Page-load time, read by /api/lead to drop forms sent less than 3 seconds after the page opened.
+  const loadedAt = String(Date.now());
+  document.querySelectorAll<HTMLInputElement>('input[type="hidden"][name="ts"]').forEach((i) => { i.value = loadedAt; });
+
+  const API = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+  if (!document.querySelector(`script[src="${API}"]`)) {
+    const s = document.createElement('script');
+    s.src = API;
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+</script>

@@ -12,10 +12,13 @@
   //   LEAD_BACKUP_URL     Google Apps Script web app URL (docs/google-apps-script-lead-backup.gs)
   //   LEAD_BACKUP_SECRET  optional; only if SECRET is also set in that script
   //   META_CAPI_TOKEN     Meta Conversions API token (when tracking is set up)
+  //   TURNSTILE_SECRET_KEY Cloudflare Turnstile secret; /api/lead verifies each form's token with it
   "vars": {
     // GoHighLevel sub-account "Eurostyle Landscape"
     "GHL_LOCATION_ID": "kUo666oVrHpsxOixnJSy",
     // New leads open an opportunity in this pipeline's first stage ("New Lead")
-    "GHL_PIPELINE_NAME": "Marketing Pipeline"
+    "GHL_PIPELINE_NAME": "Marketing Pipeline",
+    // Cloudflare Turnstile site key (public; also hardcoded in src/components/Turnstile.astro)
+    "PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAGExmapRk-Pe8vjc"
   }
 }

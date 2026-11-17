@@ -5,6 +5,7 @@
 // no property type, "What's your project?" sent as `service`, optional budget, Google rating line, "Get My Free Quote".
 import Icon from './Icon.astro';
 import SmsConsent from './SmsConsent.astro';
+import Turnstile from './Turnstile.astro';
 import { BUDGETS, PHONE_DISPLAY, PROPERTY_TYPES, TIMELINES } from '../lib/site';
 import { CONSULT_PROJECTS, quoteLastOption, quoteOptionGroups } from '../lib/services';
 import { RATING, REVIEW_COUNT } from '../lib/reviews';
@@ -129,6 +130,7 @@ const f = (name: string) => `qf-${name}-${uid}`;
     <input type="hidden" name="form_id" value={uid} />
     {source && <input type="hidden" name="source" value={source} />}
     <SmsConsent id={uid} />
+    <Turnstile />
     {consult && (
       <p class="qf-rating"><Fragment set:html={googleG} /><span class="st" role="img" aria-label="5 out of 5 stars" set:html={star.repeat(5)} /><span><b>{RATING}</b> from {REVIEW_COUNT} Google reviews</span></p>
     )}
@@ -148,6 +150,8 @@ const f = (name: string) => `qf-${name}-${uid}`;
 </form>
 
 <script>
+  import { resetTurnstile } from '../lib/turnstile';
+
   type Track = { lead?: (d: { eventId: string; service: string }) => void };
 
   const AD_LANDING_MAX_AGE = 30 * 24 * 60 * 60 * 1000;
@@ -173,11 +177,13 @@ const f = (name: string) => `qf-${name}-${uid}`;
     const submit = form.querySelector<HTMLButtonElement>('[data-qf-submit]')!;
     const label = form.querySelector<HTMLElement>('[data-qf-label]')!;
     const idleLabel = label.textContent;
+    const defaultError = error.textContent;
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!form.reportValidity()) return;
       error.hidden = true;
+      error.textContent = defaultError;
       submit.disabled = true;
       label.textContent = 'Sending…';
 
@@ -188,6 +194,8 @@ const f = (name: string) => `qf-${name}-${uid}`;
       data.event_id = eventId;
       data.page = location.href;
       data.ad_landing_url = adLandingUrl();
+      // Submit time on the visitor's own clock, so the 3-second check doesn't depend on their clock matching ours.
+      data.ts_submit = String(Date.now());
 
       try {
         const res = await fetch(form.action, {
@@ -196,8 +204,13 @@ const f = (name: string) => `qf-${name}-${uid}`;
           body: JSON.stringify(data),
         });
         const json = await res.json().catch(() => ({}));
-        if (!res.ok || !json.ok) throw new Error(json.error || `HTTP ${res.status}`);
+        if (!res.ok || !json.ok) {
+          // The Turnstile check's own message ("Please confirm you're not a robot…"); others keep the default text.
+          if (res.status === 400 && json.error) error.textContent = json.error;
+          throw new Error(json.error || `HTTP ${res.status}`);
+        }
 
+        resetTurnstile(form);
         fields.hidden = true;
         success.hidden = false;
         success.querySelector<HTMLElement>('[data-qf-success-title]')?.focus();
@@ -205,6 +218,7 @@ const f = (name: string) => `qf-${name}-${uid}`;
         (window as Window & { esTrack?: Track }).esTrack?.lead?.({ eventId, service: data.service });
       } catch {
         error.hidden = false;
+        resetTurnstile(form);
       } finally {
         submit.disabled = false;
         label.textContent = idleLabel;

@@ -12,7 +12,7 @@ including from a cloud session.
 - Create `.env` (git-ignored) with the two public tracking IDs listed in `README.md` → Tracking:
   `PUBLIC_META_PIXEL_ID` and `PUBLIC_GA4_ID`. Without them the build silently drops the Meta Pixel and GA4 from
   every page, so never deploy a build made without `.env`.
-- Secrets (`GHL_TOKEN`, `LEAD_BACKUP_URL`, `META_CAPI_TOKEN`) exist only in Cloudflare. They are never in this
+- Secrets (`GHL_TOKEN`, `LEAD_BACKUP_URL`, `META_CAPI_TOKEN`, `TURNSTILE_SECRET_KEY`) exist only in Cloudflare. They are never in this
   repo, `.env` or chat, and you don't need them to build.
 
 ## Commands
@@ -35,7 +35,12 @@ On Windows PowerShell use `npm.cmd` / `npx.cmd`.
      (`property_type`: Home / Commercial property); `/api/lead` checks the value but accepts a lead without it, so a
      page cached from before the field still gets through
    - phone taps send GA4 `click_to_call` (a key event) and Meta `Contact`
-   - the bot trap field is `website`
+   - the bot trap field is `website`; every lead form also has Cloudflare Turnstile and a hidden `ts` (page-load time),
+     both from `src/components/Turnstile.astro` (site key hardcoded there). `/api/lead` drops a filled `website` or a
+     form sent under 3 seconds after page load with a quiet 200, and verifies the Turnstile token with the
+     `TURNSTILE_SECRET_KEY` Cloudflare secret (400 "Please confirm you're not a robot" if it fails) before anything is
+     saved or sent. Local tests: pass Cloudflare's test secret `1x0000000000000000000000000000000AA` (passes) or
+     `2x0000000000000000000000000000000AA` (fails) with `--var TURNSTILE_SECRET_KEY:...`; without it the check is skipped
    - the header and footer use the client's own logo, the transparent `src/assets/logo/esl-logo-on-light.png` (light
      backgrounds) and `esl-logo-on-dark.png` (dark backgrounds, including the `/lp/*` pages)
    - the main website never links to the ad pages (`/lp/*`)
