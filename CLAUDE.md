@@ -92,6 +92,13 @@ token, build and push, and the owner deploys from their computer.
   `src/data/faqs.json`).
 - Their colours follow the update 7 restyle (website greens, olive, tint); each campaign keeps its own accent colour
   and script font. `/free-design-consultation` also uses Barlow / Barlow Condensed (overrides in `LandingLayout`).
+- Update 9 (`UPDATE-9-AD-PAGES.md`): `/lp/leaf-cleanup-quote` has the hero line, the "Fall spots booking now" pill, a
+  Google rating line above the submit button and a reviews section; `/lp/leaf-cleanup` has a hero rating line, reviews
+  and a "Good to know" FAQ (the offer question follows `NEW_CLIENT_OFFER_ON`); `/free-design-consultation` has the new
+  hero, reviews after Before & after, and `ConsultForm` (QuoteForm's `consult` variant: "What's your project?" sent as
+  `service`, optional budget, rating line, "Get My Free Quote") in both places. The ad pages' reviews are the website's
+  real Google reviews, word for word (reviewer name + "Google review" only), with no review schema. The rating, count
+  and "Read more on Google" link come from `src/data/reviews.json`.
 - `?h=` swaps the headline on `/lp/landscape-cleanup-quote` (`fall`, `overgrown`, `offer`) and the hero on
   `/lp/rebuild-or-refresh` (`2027`, `fall`).
 
@@ -130,7 +137,7 @@ token, build and push, and the owner deploys from their computer.
   there when they send it.
 - `/privacy-policy` and `/terms` use `BaseLayout minimal` (logo + "Back to website"); keep their live text.
 
-## Open items (as of 2026-11-13)
+## Open items (as of 2026-11-17)
 
 - Client to confirm: haul-away and whether they need to be home for the estimate, the town list, 2027 start
   timing, and the privacy policy text. ("Licensed & insured" was confirmed by the client in handoff update 3.) Remove the privacy page's
@@ -140,8 +147,8 @@ token, build and push, and the owner deploys from their computer.
   none), their Google Business Profile link and reviews link (to replace `MAPS_URL` and the `reviews.json` url),
   that they did the church paver project and are happy to show it, that they want the tree work shown (tree removal
   isn't one of the listed services), any other commercial audiences for Who We Serve (HOAs, retail, offices),
-  "Belgian" vs "Belgium" block, whether "Property refresh" stays in the new-client offer, and names for the photos
-  without owner names.
+  "Belgian" vs "Belgium" block, whether "Property refresh" stays in the new-client offer, names for the photos
+  without owner names, and whether to keep "Eurostyle" inside Jennifer W.'s quote (written as she posted it).
 - Reviews are a snapshot (4.9 from 87, Nov 2026). Pulling them live needs a Google Places API key.
 - The Google Apps Script backup (`docs/google-apps-script-lead-backup.gs`) now has Property type and Source columns;
   paste the new version into the script and redeploy it for the backup sheet to show them.

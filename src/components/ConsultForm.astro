@@ -1,0 +1,11 @@
+---
+// The simpler form on /free-design-consultation (handoff update 9, design/component-consult-form):
+// QuoteForm's "consult" variant, so it shares the submit script, Meta Lead event, SMS consent and styles.
+// `id` (top / bottom) becomes the hidden form_id.
+import QuoteForm from './QuoteForm.astro';
+
+interface Props {
+  id: string;
+}
+---
+<QuoteForm id={Astro.props.id} variant="consult" />

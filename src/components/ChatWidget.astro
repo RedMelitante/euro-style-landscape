@@ -20,12 +20,15 @@ import { GHL_CHAT_WIDGET_ID as widgetId } from '../lib/site';
         s.setAttribute('data-widget-id', widgetId);
         s.async = true;
         document.body.appendChild(s);
-        liftAboveStickyBar();
+        fixWidgetLayout();
       }
-      // On phones the bubble would cover the sticky Call / Get a free quote bar (77px tall, shown below
-      // 768px). The widget draws inside its own shadow DOM, which the site's CSS can't reach, so add the
-      // rule there once it appears.
-      function liftAboveStickyBar() {
+      // The widget draws inside its own shadow DOM, which the site's CSS can't reach, so add two rules there
+      // once it appears:
+      // - its closed state is an invisible 301x150 box around the bubble that swallows clicks on whatever is
+      //   under it (the footer's Privacy policy and Terms links, buttons near the bottom-right corner), so only
+      //   the box's children (bubble, chat panel) take clicks;
+      // - below 1024px the bubble would cover the sticky Call / Free consultation bar (77px tall), so lift it.
+      function fixWidgetLayout() {
         var tries = 0;
         var timer = setInterval(function () {
           var host = document.querySelector('chat-widget');
@@ -33,7 +36,8 @@ import { GHL_CHAT_WIDGET_ID as widgetId } from '../lib/site';
           if (root && root.getElementById('lc_text-widget')) {
             clearInterval(timer);
             var st = document.createElement('style');
-            st.textContent = '@media (max-width: 767px) { #lc_text-widget, #lc_text-widget--btn { bottom: 96px !important; } }';
+            st.textContent = '#lc_text-widget { pointer-events: none !important; } #lc_text-widget > * { pointer-events: auto; } ' +
+              '@media (max-width: 1023px) { #lc_text-widget, #lc_text-widget--btn { bottom: 96px !important; } }';
             root.appendChild(st);
           } else if (++tries > 60) {
             clearInterval(timer);

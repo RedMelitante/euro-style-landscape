@@ -218,6 +218,8 @@ img{max-width:100%}
 .soc a:hover{color:#B9BB4A;background:rgba(255,255,255,.06)}
 .ft-bar{margin-top:56px;background:#B9BB4A;color:#2E343A}
 .ft-b{padding-top:22px;padding-bottom:22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-size:14px}
+/* Keep Privacy policy / Terms clear of the chat bubble (58px, 20px from the right) when the page is scrolled to the end. */
+@media (min-width:768px) and (max-width:1339px){.ft-b{padding-right:88px}}
 .ft-bar a{color:#2E343A;text-decoration:none}.ft-bar a:hover{color:#0B3A25;text-decoration:underline}
 @media (max-width:420px){.btn{white-space:normal;text-align:center;line-height:1.25;padding-top:10px;padding-bottom:10px}}
 /* sticky mobile bar */

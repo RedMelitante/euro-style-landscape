@@ -61,8 +61,9 @@ shows on the main site and the town pages, not on `/lp/*` or `/free-design-consu
 fetched only after the page goes idle or on the first scroll, tap or key press. The privacy policy's
 "Website chat" line appears only while it is set. The widget in use is GoHighLevel's "A2P Compliance Chat Widget
 Marketing" (SMS / Email type, with the texting consent checkbox for the A2P 10DLC registration), so change its
-consent text only together with the privacy policy's "Text messages" section. On phones `ChatWidget.astro` lifts the
-bubble above the sticky Call / quote bar (a style added inside the widget's shadow DOM). Chats go straight to GoHighLevel Conversations: they don't
+consent text only together with the privacy policy's "Text messages" section. `ChatWidget.astro` adds two styles inside the widget's
+shadow DOM: the closed widget's invisible box no longer swallows clicks on what's under it (such as the footer's
+Privacy policy and Terms links), and below 1024px the bubble sits above the sticky Call / Free consultation bar. Chats go straight to GoHighLevel Conversations: they don't
 pass through `/api/lead`, get the `website-lead` tag or fire Lead / `generate_lead`, so client alerts for chats
 need their own GoHighLevel workflow.
 

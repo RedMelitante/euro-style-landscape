@@ -8,3 +8,6 @@ export const quoteOptionGroups = Object.entries(optionGroups) as [string, string
 export const quoteLastOption = _last;
 /** Every valid value of the form's `service` field (validated server-side). */
 export const quoteServiceValues = [...quoteOptionGroups.flatMap(([, opts]) => opts), _last];
+
+/** "What's your project?" on the free design consultation page's simpler form (update 9, design/component-consult-form). */
+export const CONSULT_PROJECTS = ['Patio or pavers', 'Driveway or concrete', 'Walls & steps', 'Full backyard project', 'Not sure yet'] as const;

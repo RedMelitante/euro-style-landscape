@@ -1,10 +1,13 @@
 ---
 // Quote request form (design/component-quote-form). Several can sit on one
 // page: `id` keeps every field id unique (qf-<field>-<id>).
+// variant="consult" is the simpler form on /free-design-consultation (update 9, design/component-consult-form):
+// no property type, "What's your project?" sent as `service`, optional budget, Google rating line, "Get My Free Quote".
 import Icon from './Icon.astro';
 import SmsConsent from './SmsConsent.astro';
 import { BUDGETS, PHONE_DISPLAY, PROPERTY_TYPES, TIMELINES } from '../lib/site';
-import { quoteLastOption, quoteOptionGroups } from '../lib/services';
+import { CONSULT_PROJECTS, quoteLastOption, quoteOptionGroups } from '../lib/services';
+import { RATING, REVIEW_COUNT } from '../lib/reviews';
 
 interface Props {
   id: string;
@@ -17,9 +20,14 @@ interface Props {
   propertyType?: string | null;
   /** Submit button label (update 8): "Get a free quote" on the free design consultation ad page. */
   cta?: string;
+  variant?: 'quote' | 'consult';
 }
 
-const { id: uid, title = 'Book your free design consultation', source, service, propertyType, cta = 'Book my free consultation' } = Astro.props;
+const { id: uid, title = 'Book your free design consultation', source, service, propertyType, variant = 'quote' } = Astro.props;
+const consult = variant === 'consult';
+const cta = Astro.props.cta ?? (consult ? 'Get My Free Quote' : 'Book my free consultation');
+const star = '<svg width="15" height="15" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg>';
+const googleG = '<svg class="g" width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>';
 if (service && ![...quoteOptionGroups.flatMap(([, o]) => o), quoteLastOption].includes(service)) throw new Error(`QuoteForm: unknown service "${service}"`);
 const f = (name: string) => `qf-${name}-${uid}`;
 ---
@@ -43,37 +51,51 @@ const f = (name: string) => `qf-${name}-${uid}`;
         <input class="qf-field" id={f('email')} name="email" type="email" autocomplete="email" maxlength="200" required />
       </div>
     </div>
-    <div class="qf-group">
-      <label for={f('type')}>Property type</label>
-      <select class="qf-field qf-select" id={f('type')} name="property_type" required>
-        <option value="">Choose one</option>
-        {PROPERTY_TYPES.map((t) => <option selected={t === propertyType}>{t}</option>)}
-      </select>
-    </div>
-    <div class="qf-group">
-      <label for={f('service')}>Service needed</label>
-      <select class="qf-field qf-select" id={f('service')} name="service" required>
-        <option value="">Choose a service</option>
-        {quoteOptionGroups.map(([label, options]) => (
-          <optgroup label={label}>
-            {options.map((s) => <option selected={s === service}>{s}</option>)}
-          </optgroup>
-        ))}
-        <option>{quoteLastOption}</option>
-      </select>
-    </div>
+    {!consult && (
+      <>
+        <div class="qf-group">
+          <label for={f('type')}>Property type</label>
+          <select class="qf-field qf-select" id={f('type')} name="property_type" required>
+            <option value="">Choose one</option>
+            {PROPERTY_TYPES.map((t) => <option selected={t === propertyType}>{t}</option>)}
+          </select>
+        </div>
+        <div class="qf-group">
+          <label for={f('service')}>Service needed</label>
+          <select class="qf-field qf-select" id={f('service')} name="service" required>
+            <option value="">Choose a service</option>
+            {quoteOptionGroups.map(([label, options]) => (
+              <optgroup label={label}>
+                {options.map((s) => <option selected={s === service}>{s}</option>)}
+              </optgroup>
+            ))}
+            <option>{quoteLastOption}</option>
+          </select>
+        </div>
+      </>
+    )}
     <div class="qf-row">
       <div class="qf-group">
         <label for={f('area')}>ZIP code</label>
         <input class="qf-field" id={f('area')} name="zip" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="10" pattern="\d{5}(-\d{4})?" required />
       </div>
-      <div class="qf-group">
-        <label for={f('budget')}>Rough budget</label>
-        <select class="qf-field qf-select" id={f('budget')} name="budget">
-          <option value="">Choose a range</option>
-          {BUDGETS.map((b) => <option>{b}</option>)}
-        </select>
-      </div>
+      {consult ? (
+        <div class="qf-group">
+          <label for={f('service')}>What's your project?</label>
+          <select class="qf-field qf-select" id={f('service')} name="service" required>
+            <option value="">Choose one</option>
+            {CONSULT_PROJECTS.map((p) => <option>{p}</option>)}
+          </select>
+        </div>
+      ) : (
+        <div class="qf-group">
+          <label for={f('budget')}>Rough budget</label>
+          <select class="qf-field qf-select" id={f('budget')} name="budget">
+            <option value="">Choose a range</option>
+            {BUDGETS.map((b) => <option>{b}</option>)}
+          </select>
+        </div>
+      )}
     </div>
     <fieldset class="qf-group qf-fieldset">
       <legend>When are you ready to start?</legend>
@@ -86,6 +108,15 @@ const f = (name: string) => `qf-${name}-${uid}`;
         ))}
       </div>
     </fieldset>
+    {consult && (
+      <div class="qf-group">
+        <label for={f('budget')}>Rough budget <span class="qf-optional">(optional)</span></label>
+        <select class="qf-field qf-select" id={f('budget')} name="budget">
+          <option value="">Choose a range</option>
+          {BUDGETS.map((b) => <option>{b}</option>)}
+        </select>
+      </div>
+    )}
     <div class="qf-group">
       <label for={f('message')}>Describe the project <span class="qf-optional">(optional)</span></label>
       <textarea class="qf-field qf-textarea" id={f('message')} name="message" rows="3" maxlength="1000"></textarea>
@@ -98,6 +129,9 @@ const f = (name: string) => `qf-${name}-${uid}`;
     <input type="hidden" name="form_id" value={uid} />
     {source && <input type="hidden" name="source" value={source} />}
     <SmsConsent id={uid} />
+    {consult && (
+      <p class="qf-rating"><Fragment set:html={googleG} /><span class="st" role="img" aria-label="5 out of 5 stars" set:html={star.repeat(5)} /><span><b>{RATING}</b> from {REVIEW_COUNT} Google reviews</span></p>
+    )}
     <button class="qf-submit" type="submit" data-qf-submit>
       <span data-qf-label>{cta}</span>
       <Icon name="arrow-right" size={18} strokeWidth={2.2} />
@@ -229,6 +263,14 @@ const f = (name: string) => `qf-${name}-${uid}`;
   .qf-submit:focus-visible, .qf-link:focus-visible { outline: 3px solid var(--sand-500); outline-offset: 2px; }
   .qf-error { margin: 0; font-size: 15px; line-height: 1.5; color: #9B2C1F; text-align: center; }
   .qf-note { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink-muted); text-align: center; }
+  /* Google rating line above the button (consult variant, update 9); one line down to 320px. */
+  .qf-rating { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 0 0 -6px; font-size: 14px; line-height: 1; color: #1E2621; white-space: nowrap; }
+  .qf-rating .st { display: inline-flex; gap: 1px; }
+  @media (max-width: 399px) {
+    .qf-rating { font-size: 12px; gap: 4px; }
+    .qf-rating .st :global(svg) { width: 11px; height: 11px; }
+    .qf-rating :global(.g) { width: 14px; height: 14px; }
+  }
   .qf-success { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; padding: 32px 8px; }
   .qf-tick { width: 64px; height: 64px; border-radius: 999px; background: var(--mint-100); color: var(--green-700); display: flex; align-items: center; justify-content: center; }
   .qf-thanks { margin: 0; font-size: 16px; line-height: 1.6; color: var(--ink-muted); max-width: 340px; }

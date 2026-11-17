@@ -18,7 +18,7 @@ import {
 } from 'astro:env/server';
 import { PUBLIC_META_PIXEL_ID } from 'astro:env/client';
 import { BUDGETS, PROPERTY_TYPES, TIMELINES } from '../../lib/site';
-import { quoteServiceValues } from '../../lib/services';
+import { CONSULT_PROJECTS, quoteServiceValues } from '../../lib/services';
 import { CAMPAIGN_SERVICES, CAMPAIGN_SOURCES } from '../../lib/campaigns';
 import { TOWN_SOURCES } from '../../lib/towns';
 import { SERVICE_SOURCES } from '../../lib/servicePages';
@@ -92,7 +92,7 @@ function validate(raw: Record<string, unknown>): { lead?: Lead; error?: string }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) return { error: 'Please enter a valid email address.' };
   const services: readonly string[] = lead.source
     ? [...quoteServiceValues, ...CAMPAIGN_SERVICES, ...LEGACY_SERVICES]
-    : [...quoteServiceValues, ...LEGACY_SERVICES];
+    : [...quoteServiceValues, ...CONSULT_PROJECTS, ...LEGACY_SERVICES];
   if (!services.includes(lead.service)) return { error: 'Please choose a service.' };
   const propertyOk = (PROPERTY_TYPES as readonly string[]).includes(lead.propertyType);
   // Required in the form, but not here: a page cached from before the field existed must still get its lead through.
