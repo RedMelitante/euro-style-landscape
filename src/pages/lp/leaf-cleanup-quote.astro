@@ -13,6 +13,7 @@ import { NEW_CLIENT_OFFER_ON as offer, NEW_CLIENT_OFFER_CODE } from '../../lib/c
 import { photo } from '../../lib/images';
 import logo from '../../assets/logo/esl-logo-on-dark.png';
 
+import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
 ---
 <CampaignLayout title="Free Leaf Cleanup Estimate · Euro Style Landscape">
   <Fragment slot="head">
@@ -44,6 +45,7 @@ import logo from '../../assets/logo/esl-logo-on-dark.png';
         <div class="hero-copy">
           <OfferPill />
           <h1><span class="ograd">Fall leaf</span><span class="cream">Cleanup</span><span class="g">Keep your yard clean this fall!</span></h1>
+          <p class="sub">Get the leaves cleared before the first snow.</p>
         </div>
         <div class="form-wrap">
         <div class="form-card" id="quote" data-form-card>
@@ -51,6 +53,7 @@ import logo from '../../assets/logo/esl-logo-on-dark.png';
           
           <form action="/api/lead" method="post" data-campaign-form style="display:flex;flex-direction:column;gap:14px">
             <div>
+              <span class="hero-offer form-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>Fall spots booking now</span>
               <p class="cond form-title">Get your free estimate</p>
               <p class="form-sub">Takes under a minute.</p>
               <OfferFormStrip service="leaf cleanup" />
@@ -78,6 +81,7 @@ import logo from '../../assets/logo/esl-logo-on-dark.png';
             <TimelineField />
             <label class="fld"><span>Anything we should know about your yard? <em>(optional)</em></span><textarea class="qf" name="message" rows="3"></textarea></label>
             <SmsConsent id="lp-leaf" />
+            <p class="form-rating"><svg class="g-logo" width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg><span class="stars5" role="img" aria-label="5 out of 5 stars"><svg width="15" height="15" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg></span><span><b>{RATING}</b> from {REVIEW_COUNT} Google reviews</span></p>
             <button type="submit" class="submit cond"><span data-label>Get my free estimate</span> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></button>
             <p class="form-error" role="alert" data-form-error hidden>Sorry, your request didn't go through. Please try again or call us on (732) 803-9646.</p>
             <p class="fine">Free and no obligation. We'll call you to book a time to visit.{offer && <><br>*20% off applies to your first leaf cleanup. New clients only.</>}</p>
@@ -161,6 +165,32 @@ import logo from '../../assets/logo/esl-logo-on-dark.png';
         </div>
         <figcaption>Real Euro Style projects</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="reviews" aria-label="Google reviews">
+    <div class="wrap">
+      <p class="eyebrow">Reviews</p>
+      <h2 class="big">What our neighbors say</h2>
+      <p class="rv-sum"><svg class="g-logo" width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><span><b>{RATING}</b> from {REVIEW_COUNT} Google reviews</span></p>
+      <div class="rv-grid">
+        <figure class="rv-card">
+          <span class="stars5" role="img" aria-label="5 out of 5 stars"><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg></span>
+          <blockquote>&ldquo;Sean and team were wonderful. If I could give 10 stars it still wouldnt be enough! They did an amazing job clearing out overgrown brush in my backyard. Very easy to work with and well priced!! If your looking for some work done in your yard I HIGHLY recommend Eurostyle Landscape!!&rdquo;</blockquote>
+          <figcaption><b>Jennifer W.</b><span>Google review</span></figcaption>
+        </figure>
+        <figure class="rv-card">
+          <span class="stars5" role="img" aria-label="5 out of 5 stars"><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg></span>
+          <blockquote>&ldquo;They did a great job on my place! The area was getting complaints and it looked like a disaster because our old landscaper wasn&rsquo;t taking care of it and it had gone unnoticed. They took care of it for an great price, and did a very good job&rdquo;</blockquote>
+          <figcaption><b>Shuvan H.</b><span>Google review</span></figcaption>
+        </figure>
+        <figure class="rv-card">
+          <span class="stars5" role="img" aria-label="5 out of 5 stars"><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="#F4B400" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"></path></svg></span>
+          <blockquote>&ldquo;I found Sean to be exceptionally knowledgeable, honest, and very pleasant! He is very reachable, priced competitively and most importantly does amazing work! I highly recommend his services!&rdquo;</blockquote>
+          <figcaption><b>Shraga K.</b><span>Google review</span></figcaption>
+        </figure>
+      </div>
+      <a class="rv-more" href={REVIEWS_URL} target="_blank" rel="noopener">Read more on Google</a>
     </div>
   </section>
 
@@ -522,4 +552,23 @@ textarea.qf{min-height:84px;resize:vertical}
  .sticky a{min-width:0;gap:6px;font-size:16px;letter-spacing:.02em}
  .sticky a svg{width:18px;height:18px;flex:none}
 }
+
+/* 2026-11-17 additions: form pill, Google rating line, reviews section */
+.form-pill{margin-bottom:10px;font-size:14px}
+.form-rating{display:flex;align-items:center;justify-content:center;gap:7px;margin:2px 0 -4px;font-size:14px;line-height:1;color:#0B3A25;white-space:nowrap}
+.form-rating b{font-weight:800}
+.stars5{display:inline-flex;gap:1px}
+.g-logo{flex:none;display:block}
+.reviews{background:#EFF4E7;padding:56px 0 8px}
+.rv-sum{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:17px;color:#0B3A25}
+.rv-sum b{font-weight:800}
+.rv-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin-top:24px}
+.rv-card{margin:0;background:#FFFFFF;border:1px solid #D9E2D2;border-radius:14px;padding:22px 20px;display:flex;flex-direction:column;gap:12px;box-shadow:0 8px 24px rgba(11,58,37,.06)}
+.rv-card blockquote{margin:0;font-size:16px;line-height:1.6;color:#2E343A}
+.rv-card figcaption{display:flex;flex-direction:column;gap:2px;margin-top:auto;font-size:14px;color:#4A5157}
+.rv-card figcaption b{font-size:16px;color:#0B3A25}
+.rv-more{display:inline-block;margin-top:18px;font-size:15px;font-weight:700;color:#0F4A2F;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:399px){.form-rating{font-size:12px;gap:4px}.form-rating .stars5 svg{width:11px;height:11px}.form-rating .g-logo{width:14px;height:14px}}
+@media (min-width:768px){.rv-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1024px){.reviews{padding:90px 0 20px}}
 </style>
