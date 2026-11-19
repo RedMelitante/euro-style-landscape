@@ -74,17 +74,6 @@ const MIN_FILL_MS = 3000;
 const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 const NOT_A_ROBOT = 'Please confirm you\u2019re not a robot and try again.';
 
-/**
- * Ad conversions (Meta Lead from the browser and the server, GA4 generate_lead, Google Ads) only count leads sent
- * from the US, the client's market. A Cloudflare WAF rule already blocks form posts from everywhere except the US
- * and the Philippines (where the agency tests the forms), so this keeps those test leads out of ad optimization.
- * The lead itself still goes to GoHighLevel either way. No CF-IPCountry header (local dev) counts as US.
- */
-function countsForAds(request: Request) {
-  const country = (request.headers.get('CF-IPCountry') ?? '').toUpperCase();
-  return { track: !country || country === 'US', country };
-}
-
 /** Milliseconds between page load (`ts`) and submit; NaN when `ts` is missing or not a number. */
 function fillTime(raw: Record<string, unknown>) {
   const loaded = Number(str(raw.ts, 20));
@@ -449,12 +438,9 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   }
 
   // Conversion tracking never blocks a lead that was already delivered.
-  const { track, country } = countsForAds(request);
   let ip: string | undefined;
   try { ip = clientAddress; } catch { ip = undefined; }
-  if (!track) {
-    console.log(`[lead] Sent from ${country}, not the US: no Meta CAPI Lead, and the form skips its browser conversion events`);
-  } else if (PUBLIC_META_PIXEL_ID && META_CAPI_TOKEN) {
+  if (PUBLIC_META_PIXEL_ID && META_CAPI_TOKEN) {
     try {
       await sendCapiLead(lead, request, ip);
     } catch (err) {
@@ -467,6 +453,5 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const back = request.headers.get('referer') || '/contact';
     return Response.redirect(new URL(back, request.url).href, 303); // Workers need an absolute URL
   }
-  // `track: false` tells the form not to fire the browser Pixel Lead / GA4 / Google Ads conversion.
-  return json({ ok: true, track });
+  return json({ ok: true });
 };
