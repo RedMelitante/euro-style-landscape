@@ -56,6 +56,10 @@ the form server-side and delivers the lead:
 3. If both fail the visitor is asked to call, and the full lead is written to the Worker logs.
 
 It also sends a Meta CAPI `Lead` event when configured (deduplicated with the browser Pixel via `event_id`).
+Ad conversions only count US visitors: a lead sent from any other country (in practice the agency's test leads from
+the Philippines, the only other country a Cloudflare WAF rule lets post to `/api/lead`) still reaches GoHighLevel,
+but gets no CAPI event, and `/api/lead` answers `track: false` so the form skips the browser Pixel `Lead`, GA4
+`generate_lead` and Google Ads conversion.
 Non-secret settings are in `wrangler.jsonc`; secrets are set with `npx wrangler secret put GHL_TOKEN`
 (and `LEAD_BACKUP_URL`, optional `LEAD_BACKUP_SECRET`, `META_CAPI_TOKEN`, `TURNSTILE_SECRET_KEY`).
 

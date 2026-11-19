@@ -109,7 +109,8 @@
           extra.offer = data.offer === NEW_CLIENT_OFFER_CODE ? 'new_client_20'
             : data.offer && data.offer !== 'none' ? data.offer.replace(/-/g, '_') : 'none';
         }
-        (window as Window & { esTrack?: Track }).esTrack?.lead?.({ eventId, service: data.service, extra });
+        // Only US visitors count as ad conversions (the server answers track: false otherwise).
+        if (json.track !== false) (window as Window & { esTrack?: Track }).esTrack?.lead?.({ eventId, service: data.service, extra });
       } catch {
         error.hidden = false;
         resetTurnstile(form);

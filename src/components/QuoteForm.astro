@@ -214,8 +214,9 @@ const f = (name: string) => `qf-${name}-${uid}`;
         fields.hidden = true;
         success.hidden = false;
         success.querySelector<HTMLElement>('[data-qf-success-title]')?.focus();
-        // Conversion events fire only after the server accepted the lead.
-        (window as Window & { esTrack?: Track }).esTrack?.lead?.({ eventId, service: data.service });
+        // Conversion events fire only after the server accepted the lead, and only for US visitors
+        // (the server answers track: false otherwise, e.g. the agency's test leads from the Philippines).
+        if (json.track !== false) (window as Window & { esTrack?: Track }).esTrack?.lead?.({ eventId, service: data.service });
       } catch {
         error.hidden = false;
         resetTurnstile(form);
