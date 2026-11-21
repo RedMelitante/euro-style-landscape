@@ -1,6 +1,7 @@
 # Euro Style Landscape website: notes for Claude
 
-The live site is https://eurostylelandscape.com. This repo's `main` branch is the real source and matches what is
+The live site is https://eurostylelandscape.com. The business name is **Eurostyle Landscape** (one word: the DBA on
+the NJ HIC registration and the Google Business Profile name); the legal name is SN Landscaping LLC. This repo's `main` branch is the real source and matches what is
 deployed. Read `README.md` for the structure, lead flow and tracking. This file covers how to work on it safely,
 including from a cloud session.
 
@@ -55,8 +56,9 @@ On Windows PowerShell use `npm.cmd` / `npx.cmd`.
    (`sed -i 's/<GA4 id>/G-TEST000000/g; s/<pixel id>/1234567890/g'` over `dist/client` and `dist/server`), and
    run a clean `npm run build` before any deploy. The Meta dataset only accepts events from
    eurostylelandscape.com.
-5. **This repo is public.** Don't commit `.env`, tokens, the client's street address (not approved for
-   publishing) or anyone's account login email.
+5. **This repo is public.** Don't commit `.env`, tokens or anyone's account login email. The street address
+   (`STREET_ADDRESS` in `src/lib/site.ts`) was approved for the website on 2026-11-21; it stays hidden on the Google
+   Business Profile (service-area business), so don't show it there.
 6. Check results yourself before reporting them (open the live page, read the Worker log with
    `npx wrangler tail euro-style-landscape`).
 
@@ -129,8 +131,7 @@ token, build and push, and the owner deploys from their computer.
   `who-we-serve`, `service-<key>`, `service-area-<town>`); `/api/lead` accepts only those and tags the contact.
   Service pages preselect their service (Commercial: property type).
 - Google rating, review count, the "Read all on Google" link and the six reviews (word for word) are in
-  `src/data/reviews.json`. The link is a Google Maps search until the client sends the Business Profile reviews link.
-  No review or rating markup.
+  `src/data/reviews.json`. The link opens the Google Business Profile (Maps CID link). No review or rating markup.
 - `SOCIAL` in `src/lib/site.ts` feeds the footer icons and the JSON-LD `sameAs` (`business()` in `src/lib/schema.ts`).
 - Photos go through `src/components/site/Img.astro` (AVIF/WebP srcset, lazy below the fold; the first hero image is
   eager with `fetchpriority="high"`). Videos (`public/videos/`) are silent: controls, poster, `playsinline`,
@@ -138,8 +139,10 @@ token, build and push, and the owner deploys from their computer.
 - `/services` keeps the anchors `#construction`, `#lawn-maintenance`, `#cleanups`, `#snow-removal`, `#fencing`,
   `#planting`, `#commercial` (ad pages link to some). `/our-work` has a sidebar link per project group.
 - `/service-areas` (a list of the towns) isn't in the designs; it exists so the breadcrumb JSON-LD points to a real page.
-- "Sayreville, NJ 08872" links to `MAPS_URL` in `src/lib/site.ts`. Swap in the client's Google Business Profile link
-  there when they send it.
+- The address (`LOCATION`, now the full street address) links to `MAPS_URL` = `GBP_URL` in `src/lib/site.ts`, the
+  Google Business Profile's Maps CID link. The NJ HIC number (`LICENSE`) is in every footer's copyright line, the
+  Contact page and the "Are you licensed and insured?" FAQ answers (keep `src/data/faqs.json` in step). NJ law requires
+  it in all advertisements.
 - `/privacy-policy` and `/terms` use `BaseLayout minimal` (logo + "Back to website"); keep their live text.
 
 ## Open items (as of 2026-11-17)
@@ -149,12 +152,11 @@ token, build and push, and the owner deploys from their computer.
   `noindex` only after they approve it.
 - Client to confirm (updates 4–7): whether snow removal is offered to homes as well as commercial properties, the
   Monroe page's lines about adult communities / HOAs, which fence materials they install (the Fencing page names
-  none), their Google Business Profile link and reviews link (to replace `MAPS_URL` and the `reviews.json` url),
-  that they did the church paver project and are happy to show it, that they want the tree work shown (tree removal
+  none), that they did the church paver project and are happy to show it, that they want the tree work shown (tree removal
   isn't one of the listed services), any other commercial audiences for Who We Serve (HOAs, retail, offices),
   "Belgian" vs "Belgium" block, whether "Property refresh" stays in the new-client offer, names for the photos
   without owner names, and whether to keep "Eurostyle" inside Jennifer W.'s quote (written as she posted it).
-- Reviews are a snapshot (4.9 from 87, Nov 2026). Pulling them live needs a Google Places API key.
+- Reviews are a snapshot (4.9 from 91, 2026-11-21). Pulling them live needs a Google Places API key.
 - The Google Apps Script backup (`docs/google-apps-script-lead-backup.gs`) now has Property type and Source columns;
   paste the new version into the script and redeploy it for the backup sheet to show them.
 - No ads point at the campaign pages yet.

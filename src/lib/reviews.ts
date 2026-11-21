@@ -12,7 +12,7 @@ export interface Review {
 
 export const RATING = data.rating;
 export const REVIEW_COUNT = data.count;
-/** "Read all 87 on Google" / "Review on Google". A Google Maps search until the client sends the Business Profile reviews link. */
+/** "Read all on Google" / "Review on Google": the Business Profile on Google Maps. */
 export const REVIEWS_URL = data.url;
 export const STAR_SVG = data.star;
 export const reviews: Review[] = data.reviews;

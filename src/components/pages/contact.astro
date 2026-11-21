@@ -1,7 +1,7 @@
 ---
 // Generated from design/contact.dc.html (handoff update 7) by the one-off converter; edit this file directly.
 import QuoteSection from '../site/QuoteSection.astro';
-import { MAPS_URL } from '../../lib/site';
+import { LICENSE, LOCATION, MAPS_URL } from '../../lib/site';
 import { NEW_CLIENT_OFFER_ON } from '../../lib/campaigns';
 ---
   <section class="shero">
@@ -17,7 +17,7 @@ import { NEW_CLIENT_OFFER_ON } from '../../lib/campaigns';
             <a href="tel:+17328039646" class="lnk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> (732) 803-9646</a>
           </div>
         </div>
-        <div class="glance"><span class="k">Reach us</span><dl><div><dt>Phone</dt><dd><a href="tel:+17328039646">(732) 803-9646</a></dd></div><div><dt>Email</dt><dd><a href="mailto:seannachajski@eurostylelandscape.com" style="overflow-wrap: anywhere">seannachajski@eurostylelandscape.com</a></dd></div><div><dt>Areas we serve</dt><dd>Based in <a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps">Sayreville, NJ 08872</a> · serving Middlesex, Monmouth &amp; Union County towns</dd></div><div><dt>Free on-site consultations</dt><dd>No cost, no obligation</dd></div>{NEW_CLIENT_OFFER_ON && (<div><dt>New clients: 20% off</dt><dd>Your first property cleanup, leaf cleanup, landscape cleanup or property refresh. *New clients only.</dd></div>)}</dl></div>
+        <div class="glance"><span class="k">Reach us</span><dl><div><dt>Phone</dt><dd><a href="tel:+17328039646">(732) 803-9646</a></dd></div><div><dt>Email</dt><dd><a href="mailto:seannachajski@eurostylelandscape.com" style="overflow-wrap: anywhere">seannachajski@eurostylelandscape.com</a></dd></div><div><dt>Address</dt><dd><a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps">{LOCATION}</a></dd></div><div><dt>License</dt><dd>{LICENSE} · licensed &amp; insured</dd></div><div><dt>Areas we serve</dt><dd>Based in <a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps">Sayreville, NJ 08872</a> · serving Middlesex, Monmouth &amp; Union County towns</dd></div><div><dt>Free on-site consultations</dt><dd>No cost, no obligation</dd></div>{NEW_CLIENT_OFFER_ON && (<div><dt>New clients: 20% off</dt><dd>Your first property cleanup, leaf cleanup, landscape cleanup or property refresh. *New clients only.</dd></div>)}</dl></div>
       </div>
     </div>
   </section>

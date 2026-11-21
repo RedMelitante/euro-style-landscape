@@ -28,7 +28,7 @@ subdomain must serve HTTPS. Turn HSTS off and wait out the max-age before ever m
 | `src/components/site/` | Website pieces shared by every page: offer top bar, header (Services / Areas dropdowns), footer (social icons), mobile Call / Free consultation bar, sidebar, quote section, review cards, `Img` (image pipeline) and `Video`. |
 | `src/layouts/BaseLayout.astro` | Website pages: head/SEO/OG, fonts, tracking, chat widget; `minimal` gives privacy and terms the "Back to website" header. `LandingLayout` is the free design consultation ad page; `CampaignLayout` the `/lp/*` pages. |
 | `src/styles/site.css` | Website design system (update 6 §2–3: colours, Barlow / Barlow Condensed, all page sections). `tokens.css` + `global.css` are the older theme, still used by the quote form, the before/after slider and `/free-design-consultation`. |
-| `src/data/reviews.json` | Google rating (4.9), review count (87), the "Read all on Google" link and the six featured reviews, word for word (`src/lib/reviews.ts`). No review/rating schema. |
+| `src/data/reviews.json` | Google rating (4.9), review count (91), the "Read all on Google" link and the six featured reviews, word for word (`src/lib/reviews.ts`). No review/rating schema. |
 | `src/data/faqs.json` | Each page's FAQ questions for the FAQPage JSON-LD (the same text as the page; `offer` items follow `NEW_CLIENT_OFFER_ON`). Change it together with the page body. |
 | `src/data/services.json` | The quote form's "Service needed" options (read via `src/lib/services.ts`). |
 | `src/assets/images/` | Project photos, served as AVIF/WebP via `<Img>` / `<Photo>`. `public/videos/` holds the six silent project videos (posters in `src/assets/images/*-poster.jpg`). |

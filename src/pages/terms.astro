@@ -4,9 +4,9 @@
 // consent boxes (SmsConsent.astro), the site footer, the campaign page footers and the
 // GoHighLevel chat widget. noindex like the privacy policy until the client approves the text.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { EMAIL, MAPS_URL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
+import { EMAIL, LOCATION, MAPS_URL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
 ---
-<BaseLayout title="Terms of Service · Euro Style Landscape" noindex minimal>
+<BaseLayout title="Terms of Service · Eurostyle Landscape" noindex minimal>
   <section style="background:#EFF4E7;padding:clamp(40px,6vw,72px) 0 clamp(32px,4vw,48px)">
     <div style="max-width:820px;margin:0 auto;padding:0 16px">
       <h1 style="margin:0;font-family:var(--font-barlow-condensed);font-size:clamp(2.4rem,1.6rem + 2.6vw,3.5rem);line-height:1;font-weight:600;text-transform:uppercase;color:#2E343A">Terms of Service</h1>
@@ -15,14 +15,14 @@ import { EMAIL, MAPS_URL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
   </section>
   <section style="padding:clamp(32px,5vw,64px) 0 clamp(56px,7vw,96px)">
     <div class="pp" style="max-width:820px;margin:0 auto;padding:0 16px">
-        <p>These terms apply to eurostylelandscape.com, our landing pages and the text messages we send. The site is run by SN Landscaping LLC, doing business as Euro Style Landscape ("we", "us"), a landscape design, build and maintenance company based in Sayreville, NJ. By using the site or sending us a form, you agree to these terms.</p>
+        <p>These terms apply to eurostylelandscape.com, our landing pages and the text messages we send. The site is run by SN Landscaping LLC, doing business as Eurostyle Landscape ("we", "us"), a landscape design, build and maintenance company based in Sayreville, NJ. By using the site or sending us a form, you agree to these terms.</p>
 
         <h2>Quotes and estimates</h2>
         <p>Sending a form or calling us is a request for a free estimate. It does not commit you or us to any work. Prices, schedules and the scope of any project are agreed in writing after we visit. Offers shown on the site, such as a new client discount, apply only as described next to the offer and may end at any time.</p>
 
         <h2 id="sms">Text messages (SMS terms)</h2>
         <ul>
-          <li><strong>Program:</strong> Euro Style Landscape text messages, sent by SN Landscaping LLC.</li>
+          <li><strong>Program:</strong> Eurostyle Landscape text messages, sent by SN Landscaping LLC.</li>
           <li><strong>Who can join:</strong> you must be at least 18 years old and the account holder of the mobile number, or have the account holder's permission, to sign up for our text messages.</li>
           <li><strong>How you join:</strong> by ticking one or both optional boxes on our quote forms or website chat. The boxes are never ticked for you, and you can send a form without ticking them. Consent to receive texts is not a condition of purchase.</li>
           <li><strong>What we send:</strong> if you tick the box for messages about your request, we text you about your estimate, appointment scheduling, reminders and updates on your project. If you tick the box for marketing messages, we may also text you about our services, seasonal offers and promotions. Messages may be sent using automated technology.</li>
@@ -35,7 +35,7 @@ import { EMAIL, MAPS_URL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
         </ul>
 
         <h2>Using this site</h2>
-        <p>The photos, text and design on this site belong to Euro Style Landscape and may not be copied for commercial use without our permission. Project photos show our own work; results vary with each property. We try to keep the information on the site accurate, but it may change without notice.</p>
+        <p>The photos, text and design on this site belong to Eurostyle Landscape and may not be copied for commercial use without our permission. Project photos show our own work; results vary with each property. We try to keep the information on the site accurate, but it may change without notice.</p>
 
         <h2>Limitation of liability</h2>
         <p>The site is provided as is. To the extent the law allows, we are not liable for any loss that comes from using the site or relying on its content. Nothing in these terms limits rights you have under New Jersey or federal law that cannot be limited.</p>
@@ -44,7 +44,7 @@ import { EMAIL, MAPS_URL, PHONE_DISPLAY, PHONE_HREF } from '../lib/site';
         <p>We may update these terms from time to time. The date at the top shows when they were last changed.</p>
 
         <h2>Contact us</h2>
-        <p>Euro Style Landscape (SN Landscaping LLC)<br /><a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps">Sayreville, NJ 08872</a><br />Phone: <a href={PHONE_HREF}>{PHONE_DISPLAY}</a><br />Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
+        <p>Eurostyle Landscape (SN Landscaping LLC)<br /><a href={MAPS_URL} target="_blank" rel="noopener" title="Open in Google Maps">{LOCATION}</a><br />Phone: <a href={PHONE_HREF}>{PHONE_DISPLAY}</a><br />Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a></p>
       </div>
     
   </section>

@@ -62,7 +62,7 @@ import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
           <span class="pill" style="align-self: flex-start; margin: 0">New client special</span>
           <h2 class="hd" style="font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.4rem)">20% off <span class="acc acc-o">your first cleanup or property refresh</span></h2>
           <p style="font-size: 15px; color: #E6EAE7">Property cleanups · Leaf cleanups · Landscape cleanups · Property refresh</p>
-          <p style="font-size: 14px; color: #C9D3CD">*New clients only. Valid on your first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.</p>
+          <p style="font-size: 14px; color: #C9D3CD">*New clients only. Valid on your first property cleanup, leaf cleanup, landscape cleanup or property refresh with Eurostyle Landscape.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 12px"><a href="#quote" class="btn btn-o">Claim 20% off <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a><a href="/services/cleanups" class="btn btn-line">See cleanup services</a></div>
         </div>)}
         <section id="know">
@@ -77,7 +77,7 @@ import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
         </section>
         <section id="work">
           <h2 class="ah2">Recent work</h2>
-          <p class="tx">Real Euro Style Landscape projects. Captions describe what each photo shows.</p>
+          <p class="tx">Real Eurostyle Landscape projects. Captions describe what each photo shows.</p>
           <div class="pgrid">
             <figure class="phd"><div class="ph"><Img src={"raised-patio-built.jpg"} alt={"The finished raised paver patio, with steps leading down to the yard behind the house."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Raised patio with steps</b>The finished raised paver patio, with steps leading down to the yard behind the house.</figcaption></figure>
             <figure class="phd"><div class="ph"><Img src={"front-entry-after.jpg"} alt={"Finished stone front entry steps meet a new walkway at the front door."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Stone front steps</b>Finished stone front entry steps meet a new walkway at the front door.</figcaption></figure>
@@ -88,7 +88,7 @@ import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
         </section>
         <section id="reviews">
           <h2 class="ah2">{RATING} from {REVIEW_COUNT} Google reviews</h2>
-          <p class="tx">Real reviews from Euro Style Landscape&rsquo;s Google Business Profile, quoted as written. <a href={REVIEWS_URL} target="_blank" rel="noopener">Read all {REVIEW_COUNT} on Google</a>.</p>
+          <p class="tx">Real reviews from Eurostyle Landscape&rsquo;s Google Business Profile, quoted as written. <a href={REVIEWS_URL} target="_blank" rel="noopener">Read all {REVIEW_COUNT} on Google</a>.</p>
           <ReviewCards ids={["caleb-d", "jennifer-w", "frank"]} />
         </section>
         <section id="questions">
@@ -96,9 +96,9 @@ import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
           <div class="qa">
             <details><summary>Do you work in Rahway even though it's in Union County?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. Rahway borders Woodbridge Township and is part of our regular service area.</p></details>
             <details><summary>What landscaping services do you offer in Rahway?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Construction and landscape construction (landscape design, retaining walls, concrete, asphalt, Belgian block, concrete curbing, hardscape, rock and boulder installation, steps, paver installation and sealing, planting, dry creeks, outdoor kitchens, pergolas, stone veneer, stucco, masonry, ponds and water features), landscape maintenance (lawn maintenance and mowing, bush and tree trimming, leaf, fall and spring cleanups, mulch installation and weeding), cleanups (property, leaf and landscape cleanups), property refresh, snow removal (plowing, shoveling, salting and seasonal contracts), fencing, planting, new lawn installation, landscape installation, landscape lighting (retaining wall, step and paver lighting) and drainage (French drains, dry wells, drainage installation, sump pumps and dry creeks). We work on homes and commercial properties.</p></details>
-            {NEW_CLIENT_OFFER_ON && (<details><summary>Do you offer a discount for new clients?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Euro Style Landscape.</p></details>)}
+            {NEW_CLIENT_OFFER_ON && (<details><summary>Do you offer a discount for new clients?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. New clients get 20% off their first property cleanup, leaf cleanup, landscape cleanup or property refresh with Eurostyle Landscape.</p></details>)}
             <details><summary>Is the consultation really free?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We visit your property, talk through what you want and follow up with a detailed written quote. There's no charge and no obligation.</p></details>
-            <details><summary>Are you licensed and insured?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes, Euro Style Landscape is licensed and insured.</p></details>
+            <details><summary>Are you licensed and insured?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes, Eurostyle Landscape is licensed (NJ HIC #13VH14095400) and insured.</p></details>
             <details><summary>How do I get a quote?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Send the form on this page or call (732) 803-9646. We'll call you back to book your free on-site consultation.</p></details>
           </div>
         </section>

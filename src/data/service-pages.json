@@ -4,7 +4,7 @@
     "menu": "Construction & landscape construction",
     "name": "Construction & landscape construction",
     "serviceType": "Construction",
-    "title": "Landscape Construction: Patios, Walls & Decks | Euro Style Landscape",
+    "title": "Landscape Construction: Patios, Walls & Decks | Eurostyle Landscape",
     "description": "Paver patios, retaining walls, decks, masonry, outdoor kitchens, concrete and asphalt, designed and built by one local team. Free on-site consultation."
   },
   {
@@ -12,7 +12,7 @@
     "menu": "Landscape maintenance",
     "name": "Landscape maintenance",
     "serviceType": "Landscape maintenance",
-    "title": "Landscape Maintenance: Lawn Mowing, Trimming & Cleanups | Euro Style Landscape",
+    "title": "Landscape Maintenance: Lawn Mowing, Trimming & Cleanups | Eurostyle Landscape",
     "description": "Mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and seasonal cleanups for homes and commercial properties. One local team."
   },
   {
@@ -20,7 +20,7 @@
     "menu": "Cleanups & property refresh",
     "name": "Cleanups & property refresh",
     "serviceType": "Cleanups & property refresh",
-    "title": "Property, Leaf & Landscape Cleanups | Euro Style Landscape",
+    "title": "Property, Leaf & Landscape Cleanups | Eurostyle Landscape",
     "description": "Property cleanups, leaf cleanups, landscape cleanups and property refresh from one local team. One-time or seasonal. New clients get 20% off their first cleanup.",
     "descriptionNoOffer": "Property cleanups, leaf cleanups, landscape cleanups and property refresh from one local team. One-time or seasonal."
   },
@@ -29,7 +29,7 @@
     "menu": "Snow removal",
     "name": "Snow removal",
     "serviceType": "Snow removal",
-    "title": "Snow Removal: Plowing, Shoveling & Salting | Euro Style Landscape",
+    "title": "Snow Removal: Plowing, Shoveling & Salting | Eurostyle Landscape",
     "description": "Lot and driveway plowing, sidewalk and entrance shoveling, salting and de-icing, and seasonal snow contracts from one local team based in Sayreville, NJ."
   },
   {
@@ -37,7 +37,7 @@
     "menu": "Fencing",
     "name": "Fencing",
     "serviceType": "Fencing",
-    "title": "Fencing & Gates | Euro Style Landscape",
+    "title": "Fencing & Gates | Eurostyle Landscape",
     "description": "New fences and gates for privacy, safety and a finished yard, with stone pillars and veneer if you want them. Free on-site consultation from one local team."
   },
   {
@@ -45,7 +45,7 @@
     "menu": "Planting & landscape install",
     "name": "Planting & landscape install",
     "serviceType": "Planting & landscape install",
-    "title": "Planting & Landscape Installation | Euro Style Landscape",
+    "title": "Planting & Landscape Installation | Eurostyle Landscape",
     "description": "Trees, shrubs and garden beds, new lawn installation, and entrance and curb appeal upgrades, installed as one finished landscape. Free on-site consultation."
   },
   {
@@ -53,7 +53,7 @@
     "menu": "Commercial services",
     "name": "Commercial services",
     "serviceType": "Commercial property services",
-    "title": "Commercial Property Services: Snow, Grounds & Construction | Euro Style Landscape",
+    "title": "Commercial Property Services: Snow, Grounds & Construction | Eurostyle Landscape",
     "description": "Snow removal, small construction, grounds care and cleanups for commercial properties, with one call and one invoice. Free on-site assessment."
   },
   {
@@ -62,7 +62,7 @@
     "name": "Landscape lighting",
     "serviceType": "Landscape lighting",
     "areaServed": "counties",
-    "title": "Landscape Lighting for Walls, Steps & Pavers | Euro Style Landscape",
+    "title": "Landscape Lighting for Walls, Steps & Pavers | Eurostyle Landscape",
     "description": "Retaining wall lighting, step lighting and paver lighting for patios, walls and walkways in Middlesex, Monmouth and Union County, NJ. Free on-site consultation."
   },
   {
@@ -71,7 +71,7 @@
     "name": "Drainage",
     "serviceType": "Drainage",
     "areaServed": "counties",
-    "title": "Drainage, French Drains & Dry Wells | Euro Style Landscape",
+    "title": "Drainage, French Drains & Dry Wells | Eurostyle Landscape",
     "description": "French drain, dry well, drainage, sump pump and dry creek installation for homes and properties in Middlesex, Monmouth and Union County, NJ. Free on-site consultation."
   }
 ]

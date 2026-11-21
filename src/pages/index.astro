@@ -2,7 +2,6 @@
 // Home (handoff update 6 §4 and update 7 §5). Body: src/components/pages/home.astro.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Home from '../components/pages/home.astro';
-import { EMAIL } from '../lib/site';
 import { servicePages } from '../lib/servicePages';
 import { business, faqPage } from '../lib/schema';
 
@@ -11,9 +10,6 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     business(site, {
-      email: EMAIL,
-      logo: new URL('/logo.webp', site).href,
-      areaServed: { '@type': 'AdministrativeArea', name: 'Middlesex County, NJ' },
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Landscape services',
@@ -28,7 +24,7 @@ const jsonLd = {
 };
 ---
 <BaseLayout
-  title="Euro Style Landscape · Landscape Design & Build in Middlesex County, NJ"
+  title="Eurostyle Landscape · Landscape Design & Build in Middlesex County, NJ"
   description="European-style patios, retaining walls, decks, planting and garden care — designed and built by one local team. Book a free on-site consultation."
   current="home"
   ogPhoto="front-lawn-beds.jpg"

@@ -1,5 +1,5 @@
 ---
-// Article sidebar (update 6 §3.4): free estimate card, "On this page" and "Why Euro Style".
+// Article sidebar (update 6 §3.4): free estimate card, "On this page" and "Why Eurostyle".
 // Sticky on desktop, below the article under 1024px (site.css .side).
 import { EMAIL, PHONE_DISPLAY, PHONE_HREF } from '../../lib/site';
 import { NEW_CLIENT_OFFER_ON } from '../../lib/campaigns';
@@ -30,10 +30,10 @@ const { why } = Astro.props;
     </div>
   </nav>
   <div class="scard">
-    <span class="k">Why Euro Style</span>
+    <span class="k">Why Eurostyle</span>
     <div class="whyl">
       {why.map((w) => <p><b set:html={w.title} /><span set:html={w.text} /></p>)}
-      <p><b>{RATING} out of 5</b><span>{REVIEW_COUNT} reviews on <a href={REVIEWS_URL} target="_blank" rel="noopener">Euro Style&rsquo;s Google profile</a>.</span></p>
+      <p><b>{RATING} out of 5</b><span>{REVIEW_COUNT} reviews on <a href={REVIEWS_URL} target="_blank" rel="noopener">Eurostyle&rsquo;s Google profile</a>.</span></p>
     </div>
   </div>
 </aside>
