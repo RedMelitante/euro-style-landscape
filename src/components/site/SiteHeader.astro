@@ -1,10 +1,11 @@
 ---
 // White sticky header (UPDATE-6-REDESIGN.md §3.2, Who We Serve from update 7): Services and Areas dropdowns
 // open on hover, keyboard focus and tap (tablets); under 1024px a call button and menu button.
+// The Services dropdown is two columns, Build and Care (update 10); the mobile menu has the same headings.
 import { Image } from 'astro:assets';
 import logo from '../../assets/logo/esl-logo-on-light.png';
 import { PHONE_DISPLAY, PHONE_HREF, type NavKey } from '../../lib/site';
-import { serviceHref, servicePages } from '../../lib/servicePages';
+import { serviceGroups, serviceHref } from '../../lib/servicePages';
 import { townHref, towns } from '../../lib/towns';
 import { ICONS } from './icons';
 
@@ -36,8 +37,12 @@ const tail: { key: NavKey; href: string; label: string }[] = [
     <nav class="nav d-only" aria-label="Main">
       <div class="dd" data-dd>
         <a href="/services" aria-haspopup="true" aria-expanded="false" aria-current={cur(current === 'services' && !currentService)} style={on(current === 'services')} data-dd-trigger>Services <span class="chev" set:html={ICONS.chev} /></a>
-        <div class="dd-menu">
-          {servicePages.map((s) => <a href={serviceHref(s.key)} aria-current={cur(s.key === currentService)} style={on(s.key === currentService)}>{s.menu}</a>)}
+        <div class="dd-menu svc">
+          {serviceGroups.map((g) => (
+            <div class="ddc"><span class="ddh">{g.label}</span>
+              {g.pages.map((s) => <a href={serviceHref(s.key)} aria-current={cur(s.key === currentService)} style={on(s.key === currentService)}>{s.menu}</a>)}
+            </div>
+          ))}
           <a href="/services" class="all">All services <Fragment set:html={ICONS.all} /></a>
         </div>
       </div>
@@ -60,7 +65,12 @@ const tail: { key: NavKey; href: string; label: string }[] = [
   <nav id="mnav" class="m-only mnav" aria-label="Mobile" hidden>
     <a href="/services" style={on(current === 'services')}>Services</a>
     <div class="sub">
-      {servicePages.map((s) => <a href={serviceHref(s.key)} aria-current={cur(s.key === currentService)} style={on(s.key === currentService)}>{s.menu}</a>)}
+      {serviceGroups.map((g) => (
+        <>
+          <span class="msh">{g.label}</span>
+          {g.pages.map((s) => <a href={serviceHref(s.key)} aria-current={cur(s.key === currentService)} style={on(s.key === currentService)}>{s.menu}</a>)}
+        </>
+      ))}
     </div>
     <a href="/who-we-serve" style={on(current === 'who')}>Who We Serve</a>
     <a href="/our-work" style={on(current === 'work')}>Our Work</a>
@@ -93,7 +103,7 @@ const tail: { key: NavKey; href: string; label: string }[] = [
     const menu = dd.querySelector<HTMLElement>('.dd-menu')!;
     const show = (open: boolean) => {
       if (!open) delete dd.dataset.tapped;
-      menu.style.display = open ? (menu.classList.contains('cols') ? 'grid' : 'flex') : '';
+      menu.style.display = open ? (menu.classList.contains('cols') || menu.classList.contains('svc') ? 'grid' : 'flex') : '';
       trigger.setAttribute('aria-expanded', String(open));
     };
     let touch = false;

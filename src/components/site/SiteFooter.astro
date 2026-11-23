@@ -5,7 +5,7 @@
 import { Image } from 'astro:assets';
 import logo from '../../assets/logo/esl-logo-on-dark.png';
 import { EMAIL, LOCATION, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, SOCIAL } from '../../lib/site';
-import { serviceHref, servicePages } from '../../lib/servicePages';
+import { serviceGroups, serviceHref } from '../../lib/servicePages';
 import { townHref, towns } from '../../lib/towns';
 import { ICONS } from './icons';
 ---
@@ -21,7 +21,12 @@ import { ICONS } from './icons';
       </nav>
     </div>
     <nav aria-label="Services"><h2>Services</h2>
-      {servicePages.map((s) => <a href={serviceHref(s.key)} class="foot-link">{s.menu}</a>)}
+      {serviceGroups.map((g) => (
+        <>
+          <span class="fth">{g.label}</span>
+          {g.pages.map((s) => <a href={serviceHref(s.key)} class="foot-link">{s.menu}</a>)}
+        </>
+      ))}
     </nav>
     <nav aria-label="Service areas"><h2>Service areas</h2>
       <div class="ft-areas">

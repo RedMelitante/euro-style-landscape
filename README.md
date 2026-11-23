@@ -21,7 +21,7 @@ subdomain must serve HTTPS. Turn HSTS off and wait out the max-age before ever m
 | Path | What |
 |---|---|
 | `src/pages/` | `/`, `/about`, `/services`, `/our-work`, `/contact`, `/who-we-serve`, `/free-design-consultation` (ad landing, noindex), `/privacy-policy`, `/terms`, `api/lead.ts`. Each website route sets the SEO values and JSON-LD and renders its body from `src/components/pages/`. |
-| `src/pages/services/` | 9 indexable service pages (`/services/<key>`) from `[service].astro`: SEO values in `src/data/service-pages.json`, page bodies in `src/components/pages/service-<key>.astro`. |
+| `src/pages/services/` | 14 indexable service pages (`/services/<key>`, Build and Care groups) from `[service].astro`: SEO values in `src/data/service-pages.json`, page bodies in `src/components/pages/service-<key>.astro`. |
 | `src/pages/service-areas/` | 19 indexable town pages (`/service-areas/<town>`) from `[town].astro`: SEO values in `src/data/towns.json`, page bodies in `src/components/pages/town-<slug>.astro`; plus the `/service-areas` list. |
 | `src/pages/lp/` | Ad campaign pages (noindex, not in the sitemap), built from `design/lp-*.dc.html` in the handoff. They use `CampaignLayout`, not the site header or footer. `src/lib/campaigns.ts` holds their form sources, the extra services `/api/lead` accepts from them and the offer switches. |
 | `src/components/pages/` | The website page bodies, converted from the handoff's update 6–8 designs (`design/*.dc.html`, copied word for word). Edit these files for copy. |
