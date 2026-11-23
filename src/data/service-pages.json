@@ -2,63 +2,66 @@
   {
     "key": "construction",
     "menu": "Construction & landscape construction",
+    "group": "build",
     "name": "Construction & landscape construction",
     "serviceType": "Construction",
     "title": "Landscape Construction: Patios, Walls & Decks | Eurostyle Landscape",
     "description": "Paver patios, retaining walls, decks, masonry, outdoor kitchens, concrete and asphalt, designed and built by one local team. Free on-site consultation."
   },
   {
-    "key": "lawn-maintenance",
-    "menu": "Landscape maintenance",
-    "name": "Landscape maintenance",
-    "serviceType": "Landscape maintenance",
-    "title": "Landscape Maintenance: Lawn Mowing, Trimming & Cleanups | Eurostyle Landscape",
-    "description": "Mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and seasonal cleanups for homes and commercial properties. One local team."
+    "key": "pavers-patios",
+    "menu": "Pavers & patios",
+    "group": "build",
+    "name": "Pavers & patios",
+    "serviceType": "Pavers & patios",
+    "areaServed": "counties",
+    "title": "Paver Patios, Walkways & Driveways | Eurostyle Landscape",
+    "description": "Paver patios, raised patios, walkways, driveways, steps and paver sealing for homes in Middlesex, Monmouth and Union County, NJ. Free on-site consultation and 3D design."
   },
   {
-    "key": "cleanups",
-    "menu": "Cleanups & property refresh",
-    "name": "Cleanups & property refresh",
-    "serviceType": "Cleanups & property refresh",
-    "title": "Property, Leaf & Landscape Cleanups | Eurostyle Landscape",
-    "description": "Property cleanups, leaf cleanups, landscape cleanups and property refresh from one local team. One-time or seasonal. New clients get 20% off their first cleanup.",
-    "descriptionNoOffer": "Property cleanups, leaf cleanups, landscape cleanups and property refresh from one local team. One-time or seasonal."
+    "key": "retaining-walls",
+    "menu": "Retaining walls",
+    "group": "build",
+    "name": "Retaining walls",
+    "serviceType": "Retaining walls",
+    "areaServed": "counties",
+    "title": "Retaining Walls & Seat Walls | Eurostyle Landscape",
+    "description": "Retaining wall installation, seat walls, planter walls, wall demolition and wall lighting for homes in Middlesex, Monmouth and Union County, NJ. Free on-site consultation."
   },
   {
-    "key": "snow-removal",
-    "menu": "Snow removal",
-    "name": "Snow removal",
-    "serviceType": "Snow removal",
-    "title": "Snow Removal: Plowing, Shoveling & Salting | Eurostyle Landscape",
-    "description": "Lot and driveway plowing, sidewalk and entrance shoveling, salting and de-icing, and seasonal snow contracts from one local team based in Sayreville, NJ."
+    "key": "masonry",
+    "menu": "Masonry",
+    "group": "build",
+    "name": "Masonry",
+    "serviceType": "Masonry",
+    "areaServed": "counties",
+    "title": "Masonry, Stone Veneer & Stucco | Eurostyle Landscape",
+    "description": "Brick, block and stone masonry: stoops, steps, pillars and columns, stone veneer, stucco and chimney repair for homes in Middlesex, Monmouth and Union County, NJ."
   },
   {
-    "key": "fencing",
-    "menu": "Fencing",
-    "name": "Fencing",
-    "serviceType": "Fencing",
-    "title": "Fencing & Gates | Eurostyle Landscape",
-    "description": "New fences and gates for privacy, safety and a finished yard, with stone pillars and veneer if you want them. Free on-site consultation from one local team."
+    "key": "decks",
+    "menu": "Decks",
+    "group": "build",
+    "name": "Decks",
+    "serviceType": "Decks",
+    "areaServed": "counties",
+    "title": "Deck Builder in Middlesex & Monmouth County, NJ | Eurostyle Landscape",
+    "description": "Deck builder for homes in Middlesex, Monmouth and Union County, NJ: new decks, decks with paver patios, docks, railings and old deck removal. Free on-site consultation."
   },
   {
-    "key": "planting",
-    "menu": "Planting & landscape install",
-    "name": "Planting & landscape install",
-    "serviceType": "Planting & landscape install",
-    "title": "Planting & Landscape Installation | Eurostyle Landscape",
-    "description": "Trees, shrubs and garden beds, new lawn installation, and entrance and curb appeal upgrades, installed as one finished landscape. Free on-site consultation."
-  },
-  {
-    "key": "commercial",
-    "menu": "Commercial services",
-    "name": "Commercial services",
-    "serviceType": "Commercial property services",
-    "title": "Commercial Property Services: Snow, Grounds & Construction | Eurostyle Landscape",
-    "description": "Snow removal, small construction, grounds care and cleanups for commercial properties, with one call and one invoice. Free on-site assessment."
+    "key": "outdoor-kitchens",
+    "menu": "Outdoor kitchens",
+    "group": "build",
+    "name": "Outdoor kitchens",
+    "serviceType": "Outdoor kitchens",
+    "areaServed": "counties",
+    "title": "Outdoor Kitchens & Built-In Grill Stations | Eurostyle Landscape",
+    "description": "Outdoor kitchen and built-in grill station installation, with the paver patio, stone veneer, pergola and lighting around it, in Middlesex, Monmouth and Union County, NJ."
   },
   {
     "key": "landscape-lighting",
     "menu": "Landscape lighting",
+    "group": "build",
     "name": "Landscape lighting",
     "serviceType": "Landscape lighting",
     "areaServed": "counties",
@@ -68,10 +71,66 @@
   {
     "key": "drainage",
     "menu": "Drainage",
+    "group": "build",
     "name": "Drainage",
     "serviceType": "Drainage",
     "areaServed": "counties",
     "title": "Drainage, French Drains & Dry Wells | Eurostyle Landscape",
     "description": "French drain, dry well, drainage, sump pump and dry creek installation for homes and properties in Middlesex, Monmouth and Union County, NJ. Free on-site consultation."
+  },
+  {
+    "key": "fencing",
+    "menu": "Fencing",
+    "group": "build",
+    "name": "Fencing",
+    "serviceType": "Fencing",
+    "title": "Fencing & Gates | Eurostyle Landscape",
+    "description": "New fences and gates for privacy, safety and a finished yard, with stone pillars and veneer if you want them. Free on-site consultation from one local team."
+  },
+  {
+    "key": "lawn-maintenance",
+    "menu": "Landscape maintenance",
+    "group": "care",
+    "name": "Landscape maintenance",
+    "serviceType": "Landscape maintenance",
+    "title": "Landscape Maintenance: Lawn Mowing, Trimming & Cleanups | Eurostyle Landscape",
+    "description": "Mowing and edging, fertilization, aeration, shrub and hedge trimming, mulching and seasonal cleanups for homes and commercial properties. One local team."
+  },
+  {
+    "key": "cleanups",
+    "menu": "Cleanups & property refresh",
+    "group": "care",
+    "name": "Cleanups & property refresh",
+    "serviceType": "Cleanups & property refresh",
+    "title": "Property, Leaf & Landscape Cleanups | Eurostyle Landscape",
+    "description": "Property cleanups, leaf cleanups, landscape cleanups and property refresh from one local team. One-time or seasonal. New clients get 20% off their first cleanup.",
+    "descriptionNoOffer": "Property cleanups, leaf cleanups, landscape cleanups and property refresh from one local team. One-time or seasonal."
+  },
+  {
+    "key": "snow-removal",
+    "menu": "Snow removal",
+    "group": "care",
+    "name": "Snow removal",
+    "serviceType": "Snow removal",
+    "title": "Snow Removal: Plowing, Shoveling & Salting | Eurostyle Landscape",
+    "description": "Lot and driveway plowing, sidewalk and entrance shoveling, salting and de-icing, and seasonal snow contracts from one local team based in Sayreville, NJ."
+  },
+  {
+    "key": "planting",
+    "menu": "Planting & landscape install",
+    "group": "care",
+    "name": "Planting & landscape install",
+    "serviceType": "Planting & landscape install",
+    "title": "Planting & Landscape Installation | Eurostyle Landscape",
+    "description": "Trees, shrubs and garden beds, new lawn installation, and entrance and curb appeal upgrades, installed as one finished landscape. Free on-site consultation."
+  },
+  {
+    "key": "commercial",
+    "menu": "Commercial services",
+    "group": "care",
+    "name": "Commercial services",
+    "serviceType": "Commercial property services",
+    "title": "Commercial Property Services: Snow, Grounds & Construction | Eurostyle Landscape",
+    "description": "Snow removal, small construction, grounds care and cleanups for commercial properties, with one call and one invoice. Free on-site assessment."
   }
 ]

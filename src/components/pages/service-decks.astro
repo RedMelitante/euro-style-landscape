@@ -1,0 +1,128 @@
+---
+// Generated from design/service-decks.dc.html (handoff update 10) by the update 10 converter; edit this file directly.
+import Img from '../site/Img.astro';
+import QuoteSection from '../site/QuoteSection.astro';
+import ReviewCards from '../site/ReviewCards.astro';
+import Sidebar from '../site/Sidebar.astro';
+import Video from '../site/Video.astro';
+import { RATING, REVIEW_COUNT, REVIEWS_URL } from '../../lib/reviews';
+---
+  <section class="shero">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="crumb"><a href="/">Home</a><span aria-hidden="true">&rsaquo;</span><a href="/services">Services</a><span aria-hidden="true">&rsaquo;</span><span aria-current="page" style="color: #2E343A">Decks</span></nav>
+      <div class="shgrid">
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <p class="eb">Decks</p>
+          <h1 class="hd sh1">Deck builder for New Jersey backyards</h1>
+          <p class="lede">New decks, decks built alongside paver patios, docks, railings and old deck removal, for homes across Middlesex, Monmouth and Union County towns. Every project starts with a free on-site consultation.</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 4px">
+            <a href="#quote" class="btn btn-g">Get a free deck quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="tel:+17328039646" class="lnk"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> (732) 803-9646</a>
+          </div>
+          <div class="checks"><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Free on-site consultation</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>3D design &amp; written quote</span><span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Licensed &amp; insured</span></div>
+        </div>
+        <figure class="hfig"><Img src={"backyard-patio-deck-sod-putting-green.jpg"} alt={"Deck installation, paver patio installation, artificial turf installation and planting in Linden, NJ"} sizes={"(min-width: 1200px) 600px, (min-width: 1024px) 50vw, 100vw"} eager priority /><figcaption>Deck installation, paver patio installation, artificial turf installation and planting in Linden, NJ</figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <div class="sec" style="padding-top: clamp(48px, 6vw, 72px)">
+    <div class="wrap layout">
+      <div class="art">
+        <section id="included">
+          <h2 class="ah2">Deck services</h2>
+          <p class="tx">We build the deck, and the patio, lawn and beds around it, with one local team.</p>
+          <div class="inc">
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Deck installation</b><span>New decks built for your backyard, including low platform decks beside a patio.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Decks with paver patios</b><span>A deck and a paver patio planned together, so the backyard works as one space.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Docks</b><span>Docks and decks built on the water.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Railings</b><span>Railings for decks, steps and walls.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Carpentry repairs</b><span>Repairs to railings and other carpentry around the yard.</span></p></div>
+            <div><span class="cb"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><p><b>Old deck removal</b><span>Old decks torn out and cleared away, ready for what comes next.</span></p></div>
+          </div>
+          <div class="pgrid p3">
+            <figure class="phd"><div class="ph"><Img src={"deck-pavers-backyard.jpg"} alt={"A composite deck sits beside a new paver patio behind the house."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Deck installation</b>A composite deck sits beside a new paver patio behind the house.</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"backyard-patio-deck-mulch-beds.jpg"} alt={"Paver patio installation, deck installation and planting in Linden, NJ"} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption>Paver patio installation, deck installation and planting in Linden, NJ</figcaption></figure>
+          </div>
+        </section>
+        <section id="how">
+          <h2 class="ah2">From first visit to final clean-up</h2>
+          <ol class="nsteps2">
+            <li><span class="n">01</span><p><b>Free on-site consultation</b><span>We walk your property with you and talk through what you want and your budget.</span></p></li>
+            <li><span class="n">02</span><p><b>3D design &amp; written quote</b><span>You see the design and a detailed written quote before any work begins.</span></p></li>
+            <li><span class="n">03</span><p><b>We build it, then clean up</b><span>Our crew builds the project and leaves your property clean.</span></p></li>
+          </ol>
+        </section>
+        <section id="work">
+          <h2 class="ah2">Recent deck projects</h2>
+          <figure class="vid solo"><Video name="video-dock-sayreville" label="On-the-water dock and deck installation in Sayreville, NJ" /><figcaption>On-the-water dock and deck installation in Sayreville, NJ</figcaption></figure>
+          <figure class="vid solo"><Video name="video-deck-tear-out" label="Our crew clears out an old wooden deck with a compact loader." /><figcaption>Our crew clears out an old wooden deck with a compact loader.</figcaption></figure>
+          <div class="pgrid">
+            <figure class="phd"><div class="ph"><Img src={"backyard-deck-progress.jpg"} alt={"A low composite deck platform and pavers in a fenced backyard."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>Deck &amp; pavers by a fence</b>A low composite deck platform and pavers in a fenced backyard.</figcaption></figure>
+            <figure class="phd"><div class="ph"><Img src={"backyard-after.jpg"} alt={"The finished backyard has a new lawn, a paver walkway, a deck and a white fence."} sizes={"(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"} /></div><figcaption><b>New lawn, walkway &amp; fence</b>The finished backyard has a new lawn, a paver walkway, a deck and a white fence.</figcaption></figure>
+          </div>
+          <a href="/our-work" class="lnk">See all our work <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+        </section>
+        <section id="reviews">
+          <h2 class="ah2">{RATING} from {REVIEW_COUNT} Google reviews</h2>
+          <p class="tx">Real reviews from Eurostyle Landscape&rsquo;s Google Business Profile, quoted as written. <a href={REVIEWS_URL} target="_blank" rel="noopener">Read all {REVIEW_COUNT} on Google</a>.</p>
+          <ReviewCards ids={["caleb-d", "shraga-k", "frank"]} />
+        </section>
+        <section id="questions">
+          <h2 class="ah2">Decks FAQ</h2>
+          <div class="qa">
+            <details><summary>What deck work do you do?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>New deck installation, decks built with paver patios, docks, railings, carpentry repairs and old deck removal.</p></details>
+            <details><summary>Can you build the patio and lawn around the deck too?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We can plan and build the deck, paver patio, lawn and planting together, with one local team.</p></details>
+            <details><summary>Is the consultation really free?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. We visit your property, talk through what you need and follow up with a detailed written quote. There's no charge and no obligation.</p></details>
+            <details><summary>Will I see a design before you build?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes. For new decks we can show you a 3D design, and you get a detailed written quote before any work begins.</p></details>
+            <details><summary>Are you licensed and insured?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>Yes, Eurostyle Landscape is licensed (NJ HIC #13VH14095400) and insured.</p></details>
+            <details><summary>Which areas do you serve?<span class="pm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></span></summary><p>We're based in Sayreville and work in towns across Middlesex, Monmouth and Union counties, including Old Bridge, East Brunswick, Woodbridge, Marlboro and Freehold.</p></details>
+          </div>
+        </section>
+        <section id="towns">
+          <h2 class="ah2">Decks in your town</h2>
+          <div class="chips">
+            <a href="/service-areas/sayreville">Sayreville</a>
+            <a href="/service-areas/south-amboy">South Amboy</a>
+            <a href="/service-areas/old-bridge">Old Bridge</a>
+            <a href="/service-areas/matawan">Matawan</a>
+            <a href="/service-areas/marlboro">Marlboro</a>
+            <a href="/service-areas/manalapan">Manalapan</a>
+            <a href="/service-areas/monroe">Monroe</a>
+            <a href="/service-areas/freehold">Freehold</a>
+            <a href="/service-areas/woodbridge">Woodbridge</a>
+            <a href="/service-areas/rahway">Rahway</a>
+            <a href="/service-areas/sewaren">Sewaren</a>
+            <a href="/service-areas/colonia">Colonia</a>
+            <a href="/service-areas/east-brunswick">East Brunswick</a>
+            <a href="/service-areas/south-river">South River</a>
+            <a href="/service-areas/edison">Edison</a>
+            <a href="/service-areas/new-brunswick">New Brunswick</a>
+            <a href="/service-areas/perth-amboy">Perth Amboy</a>
+            <a href="/service-areas/metuchen">Metuchen</a>
+            <a href="/service-areas/spotswood">Spotswood</a>
+          </div>
+        </section>
+        <section id="more">
+          <h2 class="ah2">Other services</h2>
+          <nav aria-label="Other services" class="olist">
+            <a href="/services/construction">Construction &amp; landscape construction <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/pavers-patios">Pavers &amp; patios <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/retaining-walls">Retaining walls <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/masonry">Masonry <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/outdoor-kitchens">Outdoor kitchens <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/landscape-lighting">Landscape lighting <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/drainage">Drainage <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/fencing">Fencing <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/lawn-maintenance">Landscape maintenance <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/cleanups">Cleanups &amp; property refresh <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/snow-removal">Snow removal <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/planting">Planting &amp; landscape install <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+            <a href="/services/commercial">Commercial services <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></a>
+          </nav>
+        </section>
+      </div>
+      <Sidebar toc={[{"href": "#included", "label": "What's included"}, {"href": "#how", "label": "How it works"}, {"href": "#work", "label": "Recent work"}, {"href": "#reviews", "label": "Reviews"}, {"href": "#questions", "label": "Questions"}, {"href": "#towns", "label": "Towns we serve"}, {"href": "#more", "label": "Other services"}]} why={[{"title": "One local team", "text": "The same local crew plans and does the work."}, {"title": "Free on-site consultation", "text": "No cost, no obligation."}, {"title": "Detailed written quote", "text": "You know exactly what you're getting before work starts."}, {"title": "Licensed &amp; insured", "text": "Peace of mind on every job."}]} />
+    </div>
+  </div>
+  <QuoteSection eyebrow={"Free consultation"} title={"Get your free deck quote"} lede={"Tell us about your project and we'll call you to book a free on-site consultation."} formId={"svc2-decks"} source={"service-decks"} service={"Deck installation"} />
+  

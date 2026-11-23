@@ -114,16 +114,23 @@ token, build and push, and the owner deploys from their computer.
 - All website pages share `src/styles/site.css` and `src/components/site/` (top bar, header with Services / Areas
   dropdowns and "Who We Serve" after Commercial, footer with social icons, mobile bar, sidebar, quote section, review
   cards). Don't import `global.css` on website pages: its `.btn`, `.h2` etc. clash with `site.css`.
-- Page bodies are in `src/components/pages/` (converted from the handoff's `design/*.dc.html`, last in update 8; edit
+- Page bodies are in `src/components/pages/` (converted from the handoff's `design/*.dc.html`, last in update 10; edit
   them directly, copy word for word from the designs). Routes keep the SEO values and JSON-LD; service and town SEO values
   are in `src/data/service-pages.json` and `src/data/towns.json`. Captions and alt text: where the owner named a photo (job + town, e.g. "Paver patio
   installation and seating wall in Milltown, NJ"), the caption and alt text are that name and nothing else (on Our Work
   it's the card title); photos he didn't name have a short title plus a one-sentence description (`.phd`), and the alt
   text is that sentence.
 - FAQPage JSON-LD comes from `src/data/faqs.json`: when you change a question on a page, change it there too.
-- 9 services (`src/data/service-pages.json`, in menu order; Construction is "Construction & landscape construction",
-  and `/services/lawn-maintenance` is "Landscape maintenance") and 19 towns (`src/data/towns.json`). Header, footer,
-  Services page, Home and "Other towns we serve" follow those lists. The header button says "Get a free quote".
+- 14 services in two groups (`src/data/service-pages.json`, in menu order, each with `group`; update 10):
+  **Build**: Construction & landscape construction, Pavers & patios, Retaining walls, Masonry, Decks, Outdoor kitchens,
+  Landscape lighting, Drainage, Fencing; **Care**: Landscape maintenance (`/services/lawn-maintenance`), Cleanups &
+  property refresh, Snow removal, Planting & landscape install, Commercial services. The header Services dropdown is a
+  2-column Build / Care grid (`.dd-menu.svc`), and the mobile menu (`.msh`) and footer (`.fth`) have the same headings
+  (`serviceGroups` in `src/lib/servicePages.ts`). 19 towns (`src/data/towns.json`). Header, footer, Services page, Home,
+  "Other services" and "Other towns we serve" follow those lists. The header button says "Get a free quote".
+- The 19 town pages and About each list all 14 services as cards (same text on every town page); the Construction page
+  links to the five build pages ("See the pages for:"), and the related service pages carry "Recent work nearby" /
+  "We work in" lines linking the Monroe, Marlboro, Manalapan, Freehold and East Brunswick pages.
 - The quote form's service options are in `src/data/services.json`; `/api/lead` also accepts the older names in
   `LEGACY_SERVICES`. `QuoteForm` takes an optional `cta` (submit label, default "Book my free consultation"; the free
   design consultation page passes "Get a free quote").
@@ -145,7 +152,14 @@ token, build and push, and the owner deploys from their computer.
   it in all advertisements.
 - `/privacy-policy` and `/terms` use `BaseLayout minimal` (logo + "Back to website"); keep their live text.
 
-## Open items (as of 2026-11-17)
+## Open items (as of 2026-11-23)
+
+- Client to confirm (update 10): that he builds decks (decks aren't on his list of construction services, but the
+  new /services/decks page and the "Deck installation" form option say he does), and whether he offers lawn aeration
+  and fertilization, which the older "Local know-how" text on six town pages mentions (East Brunswick, Freehold,
+  Manalapan, Marlboro, Old Bridge, Woodbridge).
+- After update 10 goes live: request indexing in Google Search Console for the 5 new service URLs and the Monroe,
+  Marlboro, Manalapan, Freehold and East Brunswick pages.
 
 - Client to confirm: haul-away and whether they need to be home for the estimate, the town list, 2027 start
   timing, and the privacy policy text. ("Licensed & insured" was confirmed by the client in handoff update 3.) Remove the privacy page's

@@ -49,6 +49,11 @@ img{max-width:100%}
 .dd-menu.cols{display:none;grid-template-columns:1fr 1fr;min-width:380px}
 .dd:hover .dd-menu,.dd:focus-within .dd-menu{display:flex}
 .dd:hover .dd-menu.cols,.dd:focus-within .dd-menu.cols{display:grid}
+/* Services dropdown: Build and Care columns (update 10) */
+.dd-menu.svc{display:none;grid-template-columns:1fr 1fr;gap:0 8px;min-width:500px;left:0;transform:none}
+.dd:hover .dd-menu.svc,.dd:focus-within .dd-menu.svc{display:grid}
+.dd-menu .ddc{display:flex;flex-direction:column}
+.ddh{display:block;padding:10px 12px 4px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9DA544}
 .dd:hover .chev,.dd:focus-within .chev{transform:rotate(180deg)}
 .chev{display:flex;transition:transform .15s}
 .dd-menu a{display:block;padding:10px 12px;border-radius:6px;color:#2E343A;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap}
@@ -62,6 +67,7 @@ img{max-width:100%}
 .mnav a{display:flex;align-items:center;min-height:48px;color:#2E343A;text-decoration:none;font-size:17px;font-weight:600}
 .mnav .sub{display:flex;flex-direction:column;margin:0 0 6px 4px;padding-left:14px;border-left:2px solid #DCE6D0}
 .mnav .sub a{min-height:44px;font-size:16px;font-weight:500;color:#4A535C}
+.mnav .sub .msh{padding:10px 0 2px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#9DA544}
 .ibtn{width:44px;height:44px;align-items:center;justify-content:center;border:1px solid #CBD5C2;border-radius:4px;color:#0F4A2F;background:#FFFFFF}
 /* hero */
 .hero{position:relative;color:#FFFFFF;min-height:760px;display:flex;align-items:center;overflow:hidden;background:#0F4A2F}
@@ -211,6 +217,7 @@ img{max-width:100%}
 @media (max-width:1023px){.ft-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:539px){.ft-g{grid-template-columns:1fr}}
 .ft h2{font-family:var(--font-barlow);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#B9BB4A;margin-bottom:14px}
+.ft .fth{margin-top:6px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8FA898}
 .ft nav,.ft .col{display:flex;flex-direction:column;gap:8px;font-size:16px}
 .foot-link{color:#FFFFFF;text-decoration:none;overflow-wrap:anywhere}.foot-link:hover{color:#B9BB4A}
 .ft .soc{display:flex;flex-direction:row;flex-wrap:wrap;gap:6px;margin-left:-10px}
